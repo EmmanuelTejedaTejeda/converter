@@ -1370,3 +1370,80 @@ body.light-theme .moon-icon {
     border-style: dashed;
     cursor: not-allowed;
 }
+
+/* ==========================================================================
+   SEO On-Page Content Section (Swiss Editorial Layout)
+   ========================================================================== */
+.seo-content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    padding: 3rem 0;
+    border-top: 1px solid var(--card-border);
+}
+
+.seo-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 720px; /* Ancho de lectura óptimo */
+}
+
+.seo-block h2 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    line-height: 1.25;
+}
+
+.seo-block p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.seo-steps-list {
+    margin-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.seo-steps-list li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.seo-steps-list li strong {
+    color: var(--text-primary);
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.faq-item h3 {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.faq-item p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+}
