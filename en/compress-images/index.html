@@ -77,29 +77,6 @@
                 <p class="hero-subtitle">Free, fast and 100% secure. Reduce the size of your photos directly on your device without uploading them to the internet.</p>
             </section>
 
-            <!-- Compression Configuration -->
-            <section class="compressor-settings">
-                <div class="setting-item">
-                    <label for="quality-range">
-                        <span>Compression quality:</span>
-                        <span id="quality-badge">80%</span>
-                    </label>
-                    <div class="slider-container">
-                        <span class="slider-label">Lightest</span>
-                        <input type="range" id="quality-range" min="10" max="100" value="80" class="quality-slider" aria-label="Compression quality">
-                        <span class="slider-label">Best quality</span>
-                    </div>
-                </div>
-                <div class="setting-item">
-                    <label for="output-format">Output format:</label>
-                    <select id="output-format" class="format-select">
-                        <option value="original">Keep original format (Recommended)</option>
-                        <option value="image/jpeg">Convert to JPG (Best for photos)</option>
-                        <option value="image/webp">Convert to WEBP (Maximum savings)</option>
-                    </select>
-                </div>
-            </section>
-
             <section class="converter-card">
                 <!-- Dropzone -->
                 <div id="drop-zone" class="drop-zone">
@@ -123,6 +100,29 @@
                         <path d="M9 11L11 13L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     <span>Your photos never leave your device. All processing happens 100% privately inside your web browser.</span>
+                </div>
+
+                <!-- Compression Configuration -->
+                <div class="compressor-settings">
+                    <div class="setting-item">
+                        <label for="quality-range">
+                            <span>Compression quality:</span>
+                            <span id="quality-badge">80%</span>
+                        </label>
+                        <div class="slider-container">
+                            <span class="slider-label">Lightest</span>
+                            <input type="range" id="quality-range" min="10" max="100" value="80" class="quality-slider" aria-label="Compression quality">
+                            <span class="slider-label">Best quality</span>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <label for="output-format">Output format:</label>
+                        <select id="output-format" class="format-select">
+                            <option value="original">Keep original format (Recommended)</option>
+                            <option value="image/jpeg">Convert to JPG (Best for photos)</option>
+                            <option value="image/webp">Convert to WEBP (Maximum savings)</option>
+                        </select>
+                    </div>
                 </div>
 
                 <!-- File List Container -->

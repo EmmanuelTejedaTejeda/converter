@@ -1486,6 +1486,16 @@ a.tool-card-item {
     }
 }
 
+.converter-card .compressor-settings {
+    border: none;
+    background: transparent;
+    padding: 1.5rem 0 0 0;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    border-top: 1px solid var(--card-border);
+    border-radius: 0;
+}
+
 .setting-item {
     display: flex;
     flex-direction: column;
