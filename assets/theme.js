@@ -17,6 +17,8 @@
             if (!href.includes('/en/') && !href.includes('en/')) {
                 if (href.includes('jpg-a-png')) {
                     window.location.replace('../en/jpg-to-png/index.html');
+                } else if (href.includes('comprimir-imagenes')) {
+                    window.location.replace('../en/compress-images/index.html');
                 } else {
                     window.location.replace('en/index.html');
                 }
@@ -26,6 +28,8 @@
             if (href.includes('/en/') || href.includes('en/')) {
                 if (href.includes('jpg-to-png')) {
                     window.location.replace('../../jpg-a-png/index.html');
+                } else if (href.includes('compress-images')) {
+                    window.location.replace('../../comprimir-imagenes/index.html');
                 } else {
                     window.location.replace('../index.html');
                 }

@@ -46,4 +46,26 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://tu-app.pages.dev/jpg-a-png/" />
     </url>
 
+    <!-- Compresor de Imágenes en Español -->
+    <url>
+        <loc>https://tu-app.pages.dev/comprimir-imagenes/</loc>
+        <lastmod>2026-05-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tu-app.pages.dev/comprimir-imagenes/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://tu-app.pages.dev/en/compress-images/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tu-app.pages.dev/comprimir-imagenes/" />
+    </url>
+
+    <!-- Compresor de Imágenes en Inglés -->
+    <url>
+        <loc>https://tu-app.pages.dev/en/compress-images/</loc>
+        <lastmod>2026-05-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tu-app.pages.dev/comprimir-imagenes/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://tu-app.pages.dev/en/compress-images/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tu-app.pages.dev/comprimir-imagenes/" />
+    </url>
+
 </urlset>
