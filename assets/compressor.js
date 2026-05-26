@@ -538,7 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (extension === 'jpeg') extension = 'jpg';
                         downloadBtn.download = `${baseName}-compressed.${extension}`;
                         
-                        playPopSound();
+                        playSuccessChime();
                         triggerConfetti(badge);
                         updateGlobalActionButtons();
                     }, 200);
