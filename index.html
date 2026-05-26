@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Convierte tus fotos JPG a PNG al instante y de forma 100% segura. Tus fotos nunca salen de tu equipo.">
-    <title>Convertify - Conversor JPG a PNG Gratuito y Seguro</title>
+    <meta name="description" content="Suite de herramientas de imagen gratuitas y 100% seguras. Convierte, edita y optimiza tus fotos directamente en tu dispositivo de forma privada.">
+    <title>Convertify - Herramientas de Imagen Online y Gratuitas</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="canonical" href="https://convertify.pages.dev/">
+    <link rel="alternate" hreflang="es" href="https://convertify.pages.dev/">
+    <link rel="alternate" hreflang="en" href="https://convertify.pages.dev/en/">
+    <script src="assets/theme.js"></script>
 </head>
 <body class="dark-theme">
     
@@ -24,22 +28,11 @@
                 <span class="logo-text">Convertify</span>
             </div>
             <div class="header-actions">
-                <div class="stats-counter" id="stats-counter" title="Fotos convertidas de forma segura en esta sesión">
-                    <span class="stats-icon">🔥</span>
-                    <span class="stats-number" id="stats-number">0</span>
+                <!-- Selector de Idioma Minimalista -->
+                <div class="lang-selector">
+                    <span class="lang-active">[ES]</span>
+                    <a href="en/jpg-to-png/index.html" class="lang-link">EN</a>
                 </div>
-                
-                <button id="sound-toggle" class="sound-toggle" aria-label="Activar/desactivar sonido">
-                    <svg class="volume-on-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                    </svg>
-                    <svg class="volume-off-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                        <line x1="23" y1="9" x2="17" y2="15"></line>
-                        <line x1="17" y1="9" x2="23" y2="15"></line>
-                    </svg>
-                </button>
 
                 <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
                     <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -62,118 +55,61 @@
     </header>
 
     <main class="app-main">
-        <div class="converter-wrapper">
-            <section class="hero-section">
-                <h1 class="hero-title">Convierte JPG a PNG al instante</h1>
-                <p class="hero-subtitle">Gratis y 100% seguro. Tus fotos nunca se guardan en internet y nadie más puede verlas.</p>
+        <div class="converter-wrapper" style="min-height: calc(100vh - 72px - 160px);">
+            <section class="hero-section" style="margin-bottom: 2rem;">
+                <h1 class="hero-title">Herramientas de Imagen Gratuitas</h1>
+                <p class="hero-subtitle">Procesamiento 100% seguro. Tus fotos nunca salen de tu computadora o teléfono y nadie más las verá.</p>
             </section>
 
-            <section class="converter-card">
-                <!-- Dropzone -->
-                <div id="drop-zone" class="drop-zone">
-                    <input type="file" id="file-input" class="file-input" accept="image/jpeg,image/jpg" multiple>
-                    <div class="drop-zone-content">
-                        <div class="drop-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L13 16M17 20L21 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+            <!-- Parrilla de Herramientas (Suite) -->
+            <section class="tools-directory">
+                <div class="directory-header">
+                    <h2>[HERRAMIENTAS DISPONIBLES]</h2>
+                </div>
+                
+                <div class="tools-grid">
+                    <!-- Herramienta JPG a PNG -->
+                    <div class="tool-card-item">
+                        <div class="tool-info">
+                            <span class="tool-status-tag">[ACTIVO]</span>
+                            <h3>Convertir JPG a PNG</h3>
+                            <p>Convierte tus fotos en formato JPG a imágenes PNG de alta calidad sin subirlas a internet.</p>
                         </div>
-                        <h3 class="drop-title">Arrastra tus archivos JPG aquí</h3>
-                        <p class="drop-text">o haz clic para explorar en tu dispositivo</p>
-                        <span class="drop-badge">Soporta múltiples archivos</span>
-                    </div>
-                </div>
-
-                <!-- Privacy Tip -->
-                <div class="privacy-notice">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M9 11L11 13L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Tus fotos están 100% seguras. Se quedan siempre en tu teléfono o computadora y nadie más que tú puede verlas.</span>
-                </div>
-
-                <!-- File List Container -->
-                <div id="file-list-container" class="file-list-container hidden">
-                    <div class="list-header">
-                        <h4>Fotos cargadas (<span id="file-count">0</span>) 👇</h4>
-                        <div class="list-actions">
-                            <button id="convert-all-btn" class="btn btn-primary btn-sm">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="23 4 23 10 17 10"></polyline>
-                                    <polyline points="1 20 1 14 7 14"></polyline>
-                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                                </svg>
-                                Convertir todo
-                            </button>
-                            <button id="download-all-btn" class="btn btn-secondary btn-sm disabled" disabled>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                    <polyline points="7 10 12 15 17 10"></polyline>
-                                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                                </svg>
-                                Descargar todo
-                            </button>
-                            <button id="clear-all-btn" class="btn btn-danger-outline btn-sm">
-                                Limpiar lista
-                            </button>
+                        <div class="tool-actions-row">
+                            <a href="jpg-a-png/index.html" class="btn btn-primary btn-sm">Versión Español</a>
+                            <a href="en/jpg-to-png/index.html" class="btn btn-secondary btn-sm">English Version</a>
                         </div>
                     </div>
-                    
-                    <div id="file-list" class="file-list">
-                        <!-- Cards will be dynamically inserted here -->
+
+                    <!-- Placeholders de Futuras Herramientas -->
+                    <div class="tool-card-item disabled-card">
+                        <div class="tool-info">
+                            <span class="tool-status-tag">[PRÓXIMAMENTE]</span>
+                            <h3>Comprimir Imágenes</h3>
+                            <p>Reduce el peso de tus fotos hasta un 80% sin perder nitidez directamente en tu navegador.</p>
+                        </div>
+                    </div>
+
+                    <div class="tool-card-item disabled-card">
+                        <div class="tool-info">
+                            <span class="tool-status-tag">[PRÓXIMAMENTE]</span>
+                            <h3>Redimensionar Imagen</h3>
+                            <p>Cambia el tamaño y las dimensiones de tus imágenes de forma masiva y segura.</p>
+                        </div>
+                    </div>
+
+                    <div class="tool-card-item disabled-card">
+                        <div class="tool-info">
+                            <span class="tool-status-tag">[PRÓXIMAMENTE]</span>
+                            <h3>Remover Fondo con IA</h3>
+                            <p>Elimina el fondo de tus retratos u objetos de manera automática con un solo clic.</p>
+                        </div>
                     </div>
                 </div>
             </section>
-
-            <!-- Bloque de publicidad minimalista integrado (estilo editorial) -->
-            <div class="ad-container-minimal">
-                <a href="https://ethicalads.io" target="_blank" rel="noopener noreferrer" class="ad-link">
-                    <span class="ad-badge">[PATROCINADO]</span>
-                    <div class="ad-body">
-                        <span class="ad-text">¿Quieres comprimir tus fotos sin perder calidad? Prueba nuestra herramienta hermana.</span>
-                        <span class="ad-cta">Probar ahora &rarr;</span>
-                    </div>
-                </a>
-            </div>
         </div>
 
-        <!-- Features Info -->
-        <section class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-                        <path d="M12 6v6l4 2"></path>
-                    </svg>
-                </div>
-                <h3>Al instante</h3>
-                <p>Sin esperas. Tus fotos se convierten al momento y puedes guardarlas de inmediato.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                    </svg>
-                </div>
-                <h3>100% seguro</h3>
-                <p>Tus fotos nunca salen de tu teléfono o computadora. Nadie más que tú puede verlas.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-                    </svg>
-                </div>
-                <h3>Fotos perfectas</h3>
-                <p>Conserva toda la nitidez y los colores originales de tus fotos. Listas para descargar y compartir.</p>
-            </div>
-        </section>
-
-        <!-- Recursos Recomendados / Afiliados Adicionales -->
+        <!-- Recursos Recomendados -->
         <section class="resources-section">
             <h4 class="resources-title">[RECURSOS RECOMENDADOS]</h4>
             <div class="resources-list">
@@ -201,87 +137,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Templates for Dynamic Elements -->
-    <template id="file-card-template">
-        <div class="file-card">
-            <div class="file-info-group">
-                <div class="file-preview-wrapper">
-                    <img src="" alt="Vista previa" class="file-preview">
-                    <div class="file-preview-fallback">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <polyline points="21 15 16 10 5 21"></polyline>
-                        </svg>
-                    </div>
-                </div>
-                <div class="file-details">
-                    <div class="file-name" title="">nombre_del_archivo.jpg</div>
-                    <div class="file-meta">
-                        <span class="file-size">0 KB</span>
-                        <span class="file-divider">&bull;</span>
-                        <span class="file-dims">-- x --</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="file-status-group">
-                <!-- Status badges: pending, converting, done, error -->
-                <span class="status-badge badge-pending">Pendiente</span>
-                
-                <div class="file-progress-wrapper hidden">
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-
-                <div class="file-actions">
-                    <button class="btn-convert-text btn-action-convert" title="Convertir a PNG">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="23 4 23 10 17 10"></polyline>
-                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-                        </svg>
-                        Convertir
-                    </button>
-                    <a class="btn-download-text btn-action-download hidden" title="Descargar PNG">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        Guardar foto
-                    </a>
-                    <button class="btn-icon btn-action-remove" title="Eliminar">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </template>
-
-    <!-- Modal de Agradecimiento y Monetización Post-Descarga -->
-    <div id="thank-you-modal" class="modal-overlay hidden">
-        <div class="modal-card">
-            <button id="close-modal-btn" class="modal-close-btn" aria-label="Cerrar ventana">&times;</button>
-            <div class="modal-content">
-                <div class="modal-icon">🎉</div>
-                <h3 class="modal-title">¡Imagen guardada!</h3>
-                <p class="modal-text">Tu descarga ha comenzado correctamente.</p>
-                
-                <div class="modal-ad-box">
-                    <span class="modal-ad-tag">[RECOMENDADO]</span>
-                    <h4>¿Tu foto pesa demasiado para subirla a internet?</h4>
-                    <p>Usa nuestro optimizador recomendado para reducir el peso de tus imágenes hasta un 80% sin perder calidad.</p>
-                    <a href="https://ethicalads.io" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">Comprimir Fotos Gratis</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
 </body>
 </html>

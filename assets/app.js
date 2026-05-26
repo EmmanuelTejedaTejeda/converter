@@ -33,34 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Statistics State
     let totalConverted = parseInt(localStorage.getItem('totalConverted') || '0', 10);
 
-    // ==========================================================================
-    // Theme Management
-    // ==========================================================================
-    function initTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            body.className = savedTheme + '-theme';
-        } else {
-            // Check system preferences
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            body.className = prefersDark ? 'dark-theme' : 'light-theme';
-        }
-    }
-
-    themeToggle.addEventListener('click', () => {
-        playPopSound();
-        if (body.classList.contains('dark-theme')) {
-            body.classList.remove('dark-theme');
-            body.classList.add('light-theme');
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.classList.remove('light-theme');
-            body.classList.add('dark-theme');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-
-    initTheme();
+    // Expose pop sound for theme.js external usage
+    window.playPopSoundExternal = playPopSound;
 
     // ==========================================================================
     // Psychological Triggers (Audio ASMR & Confetti & Stats)

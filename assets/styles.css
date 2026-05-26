@@ -1254,3 +1254,119 @@ body.light-theme .moon-icon {
         gap: 0.75rem;
     }
 }
+
+/* ==========================================================================
+   Tools Hub Page Styles (Swiss Editorial Grid)
+   ========================================================================== */
+.lang-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.lang-active {
+    color: var(--accent-primary);
+}
+
+.lang-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.lang-link:hover {
+    color: var(--text-primary);
+}
+
+.tools-directory {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.directory-header {
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 0.75rem;
+}
+
+.directory-header h2 {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.tool-card-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    transition: all var(--transition-fast);
+}
+
+.tool-card-item:not(.disabled-card):hover {
+    border-color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+.tool-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tool-status-tag {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.tool-card-item:not(.disabled-card) .tool-status-tag {
+    color: var(--accent-primary);
+}
+
+.disabled-card .tool-status-tag {
+    color: var(--text-muted);
+}
+
+.tool-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.tool-info p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.tool-actions-row {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.disabled-card {
+    opacity: 0.5;
+    background-color: transparent;
+    border-style: dashed;
+    cursor: not-allowed;
+}
