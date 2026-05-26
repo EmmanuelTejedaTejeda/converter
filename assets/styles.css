@@ -1386,6 +1386,30 @@ body.light-theme .moon-icon {
     transition: all var(--transition-fast);
 }
 
+a.tool-card-item {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.tool-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tool-action-arrow {
+    color: var(--text-muted);
+    transition: transform var(--transition-fast), color var(--transition-fast);
+    display: flex;
+    align-items: center;
+}
+
+.tool-card-item:hover .tool-action-arrow {
+    color: var(--accent-primary);
+    transform: translateX(4px);
+}
+
 .tool-card-item:not(.disabled-card):hover {
     border-color: var(--text-primary);
     transform: translateY(-2px);

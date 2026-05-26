@@ -2,9 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
     
-    <!-- Portada Hub Principal (Raíz) -->
+    <!-- Portada Hub Principal (Raíz - Español) -->
     <url>
         <loc>https://tu-app.pages.dev/</loc>
+        <lastmod>2026-05-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://tu-app.pages.dev/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://tu-app.pages.dev/en/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://tu-app.pages.dev/" />
+    </url>
+
+    <!-- Portada Hub en Inglés -->
+    <url>
+        <loc>https://tu-app.pages.dev/en/</loc>
         <lastmod>2026-05-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
