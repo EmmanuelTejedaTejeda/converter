@@ -924,9 +924,7 @@ body.light-theme .moon-icon {
     .header-actions {
         gap: 0.5rem;
     }
-    .lang-selector {
-        font-size: 0.7rem;
-    }
+
 
     /* Main layout spacing */
     .app-main {
@@ -1327,28 +1325,6 @@ body.light-theme .moon-icon {
 /* ==========================================================================
    Tools Hub Page Styles (Swiss Editorial Grid)
    ========================================================================== */
-.lang-selector {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 700;
-}
-
-.lang-active {
-    color: var(--accent-primary);
-}
-
-.lang-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-}
-
-.lang-link:hover {
-    color: var(--text-primary);
-}
 
 .tools-directory {
     display: flex;

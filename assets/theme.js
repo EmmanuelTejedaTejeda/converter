@@ -5,8 +5,6 @@
 (function() {
     // 1. Language Auto-Routing (Executed immediately to prevent flashes)
     function handleLanguageRedirect() {
-        const savedLang = localStorage.getItem('pref-lang');
-        if (savedLang) return; // Respect manual selection
 
         const userLang = navigator.language || navigator.userLanguage || 'es';
         const isEnglish = userLang.toLowerCase().startsWith('en');
@@ -63,7 +61,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.body.className = theme + '-theme';
             setupThemeToggler();
-            setupLanguageTracker();
         });
     }
 
@@ -88,20 +85,6 @@
                 }
             });
         }
-    }
-
-    function setupLanguageTracker() {
-        const langLinks = document.querySelectorAll('.lang-link');
-        langLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                const href = link.getAttribute('href') || '';
-                if (href.includes('en/')) {
-                    localStorage.setItem('pref-lang', 'en');
-                } else {
-                    localStorage.setItem('pref-lang', 'es');
-                }
-            });
-        });
     }
 
     initTheme();
