@@ -499,13 +499,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         playPopSound();
         
-        // Show loading progress on button
+        // Show loading progress on button with staged artificial delays (psychological trust effect)
         const originalText = generatePdfBtn.innerHTML;
         generatePdfBtn.disabled = true;
         generatePdfBtn.classList.add('disabled');
-        generatePdfBtn.innerHTML = isEnglish ? 'Generating PDF...' : 'Generando PDF...';
+        
+        const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
         try {
+            // Stage 1: Processing images (0 - 500ms)
+            generatePdfBtn.innerHTML = isEnglish ? 'Processing images...' : 'Procesando fotos...';
+            await delay(500);
+
+            // Stage 2: Assembling pages (500 - 1000ms)
+            generatePdfBtn.innerHTML = isEnglish ? 'Assembling pages...' : 'Ensamblando páginas...';
+            await delay(500);
+
+            // Stage 3: Saving PDF (1000 - 1300ms)
+            generatePdfBtn.innerHTML = isEnglish ? 'Saving PDF...' : 'Guardando PDF...';
+            await delay(300);
             const { jsPDF } = window.jspdf;
             let doc = null;
 

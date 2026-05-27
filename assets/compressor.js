@@ -496,95 +496,130 @@ document.addEventListener('DOMContentLoaded', () => {
         // Load image into canvas
         const img = new Image();
         img.onload = () => {
-            progressFill.style.width = '60%';
-            
-            // Get quality and mime settings
-            const qualityVal = parseInt(qualityRange.value, 10) / 100;
-            let mimeVal = outputFormat.value;
-            
-            if (mimeVal === 'original') {
-                mimeVal = fileObj.file.type || '';
-                if (!mimeVal && fileObj.name) {
-                    const ext = fileObj.name.split('.').pop().toLowerCase();
-                    if (ext === 'jpg' || ext === 'jpeg') mimeVal = 'image/jpeg';
-                    else if (ext === 'png') mimeVal = 'image/png';
-                    else if (ext === 'webp') mimeVal = 'image/webp';
-                }
-            }
-            
-            if (mimeVal === 'image/jpg') {
-                mimeVal = 'image/jpeg';
-            }
-            if (!mimeVal) {
-                mimeVal = 'image/jpeg'; // Default fallback
-            }
+            // Step 1: Initialize loading (30%)
+            progressFill.style.width = '30%';
 
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            canvas.width = img.naturalWidth;
-            canvas.height = img.naturalHeight;
-            
-            // Draw white background if converting to JPEG to avoid transparency turning black
-            if (mimeVal === 'image/jpeg') {
-                ctx.fillStyle = '#ffffff';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-            }
-            
-            ctx.drawImage(img, 0, 0);
-            
-            // Special warning / handling for PNG
-            // PNG is lossless; if output format is PNG, quality settings are ignored by browser's toBlob().
-            // We strip metadata anyway. If PNG output is chosen and it doesn't save size, we fall back gracefully.
-            
-            progressFill.style.width = '80%';
-            
-            canvas.toBlob((blob) => {
-                if (blob) {
-                    progressFill.style.width = '100%';
-                    
-                    // UX Detail: If the compressed image is actually LARGER than the original
-                    // (which happens on small images at 90-100% quality or raw PNGs), 
-                    // we gracefully fall back to the original file to avoid bloating the user's storage!
-                    let finalBlob = blob;
-                    if (blob.size >= fileObj.size && mimeVal === fileObj.file.type) {
-                        finalBlob = fileObj.file;
+            setTimeout(() => {
+                // Step 2: Processing pixels (70%)
+                progressFill.style.width = '70%';
+
+                // Get quality and mime settings
+                const qualityVal = parseInt(qualityRange.value, 10) / 100;
+                let mimeVal = outputFormat.value;
+                
+                if (mimeVal === 'original') {
+                    mimeVal = fileObj.file.type || '';
+                    if (!mimeVal && fileObj.name) {
+                        const ext = fileObj.name.split('.').pop().toLowerCase();
+                        if (ext === 'jpg' || ext === 'jpeg') mimeVal = 'image/jpeg';
+                        else if (ext === 'png') mimeVal = 'image/png';
+                        else if (ext === 'webp') mimeVal = 'image/webp';
                     }
+                }
+                
+                if (mimeVal === 'image/jpg') {
+                    mimeVal = 'image/jpeg';
+                }
+                if (!mimeVal) {
+                    mimeVal = 'image/jpeg'; // Default fallback
+                }
+
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
+                
+                // Draw white background if converting to JPEG to avoid transparency turning black
+                if (mimeVal === 'image/jpeg') {
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+                
+                ctx.drawImage(img, 0, 0);
+
+                setTimeout(() => {
+                    // Step 3: Compiling and saving (100%)
+                    progressFill.style.width = '100%';
+
+                    // Special warning / handling for PNG
+                    // PNG is lossless; if output format is PNG, quality settings are ignored by browser's toBlob().
+                    // We strip metadata anyway. If PNG output is chosen and it doesn't save size, we fall back gracefully.
                     
-                    fileObj.compressedBlob = finalBlob;
-                    fileObj.status = 'done';
-                    
-                    // Calculate savings
-                    const savings = Math.round((1 - finalBlob.size / fileObj.size) * 100);
-                    const finalSavings = savings < 0 ? 0 : savings;
-                    
-                    setTimeout(() => {
-                        badge.className = 'status-badge badge-done';
-                        badge.textContent = document.documentElement.lang === 'en' ? 'Ready' : 'Listo';
-                        progressWrapper.classList.add('hidden');
-                        
-                        // Show compressed size metadata
-                        const sizeArrow = card.querySelector('.file-size-arrow');
-                        const sizeComp = card.querySelector('.file-size-compressed');
-                        const sizeSave = card.querySelector('.file-size-saving');
-                        
-                        sizeArrow.classList.remove('hidden');
-                        sizeComp.classList.remove('hidden');
-                        sizeComp.textContent = formatBytes(finalBlob.size);
-                        
-                        if (finalSavings > 0) {
-                            sizeSave.classList.remove('hidden');
-                            sizeSave.textContent = `(-${finalSavings}%)`;
-                            sizeSave.className = 'file-size-saving saving-positive';
-                        } else {
-                            sizeSave.classList.remove('hidden');
-                            if (fileObj.file.type === 'image/png' && outputFormat.value === 'original') {
-                                sizeSave.textContent = document.documentElement.lang === 'en' ? '(Use WebP/JPG to compress)' : '(Usa WebP/JPG para comprimir)';
-                            } else {
-                                sizeSave.textContent = document.documentElement.lang === 'en' ? '(Already optimized)' : '(Ya optimizado)';
+                    canvas.toBlob((blob) => {
+                        if (blob) {
+                            // UX Detail: If the compressed image is actually LARGER than the original
+                            // (which happens on small images at 90-100% quality or raw PNGs), 
+                            // we gracefully fall back to the original file to avoid bloating the user's storage!
+                            let finalBlob = blob;
+                            if (blob.size >= fileObj.size && mimeVal === fileObj.file.type) {
+                                finalBlob = fileObj.file;
                             }
-                            sizeSave.className = 'file-size-saving saving-neutral';
+                            
+                            fileObj.compressedBlob = finalBlob;
+                            fileObj.status = 'done';
+                            
+                            // Calculate savings
+                            const savings = Math.round((1 - finalBlob.size / fileObj.size) * 100);
+                            const finalSavings = savings < 0 ? 0 : savings;
+                            
+                            setTimeout(() => {
+                                badge.className = 'status-badge badge-done';
+                                badge.textContent = document.documentElement.lang === 'en' ? 'Ready' : 'Listo';
+                                progressWrapper.classList.add('hidden');
+                                
+                                // Show compressed size metadata
+                                const sizeArrow = card.querySelector('.file-size-arrow');
+                                const sizeComp = card.querySelector('.file-size-compressed');
+                                const sizeSave = card.querySelector('.file-size-saving');
+                                
+                                sizeArrow.classList.remove('hidden');
+                                sizeComp.classList.remove('hidden');
+                                sizeComp.textContent = formatBytes(finalBlob.size);
+                                
+                                if (finalSavings > 0) {
+                                    sizeSave.classList.remove('hidden');
+                                    sizeSave.textContent = `(-${finalSavings}%)`;
+                                    sizeSave.className = 'file-size-saving saving-positive';
+                                } else {
+                                    sizeSave.classList.remove('hidden');
+                                    if (fileObj.file.type === 'image/png' && outputFormat.value === 'original') {
+                                        sizeSave.textContent = document.documentElement.lang === 'en' ? '(Use WebP/JPG to compress)' : '(Usa WebP/JPG para comprimir)';
+                                    } else {
+                                        sizeSave.textContent = document.documentElement.lang === 'en' ? '(Already optimized)' : '(Ya optimizado)';
+                                    }
+                                    sizeSave.className = 'file-size-saving saving-neutral';
+                                }
+                                
+                                // Show download button
+                                const downloadBtn = card.querySelector('.btn-action-download');
+                                downloadBtn.classList.remove('hidden');
+                                
+                                // Create download URL
+                                const downloadUrl = URL.createObjectURL(finalBlob);
+                                downloadBtn.href = downloadUrl;
+                                
+                                // Generate dynamic clean download filename
+                                const origName = fileObj.name;
+                                const lastDot = origName.lastIndexOf('.');
+                                const baseName = lastDot !== -1 ? origName.substring(0, lastDot) : origName;
+                                let extension = mimeVal.split('/')[1];
+                                if (extension === 'jpeg') extension = 'jpg';
+                                downloadBtn.download = `${baseName}-compressed.${extension}`;
+                                
+                                playSuccessChime();
+                                triggerConfetti(badge);
+                                updateGlobalActionButtons();
+                            }, 300);
+                        } else {
+                            handleCompressionError(fileObj, card, badge, progressWrapper);
                         }
+                    }, mimeVal, qualityVal);
+
+                }, 400);
+
+            }, 400);
+        };
                         
                         // Show download button
                         const downloadBtn = card.querySelector('.btn-action-download');

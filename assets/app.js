@@ -463,64 +463,68 @@ document.addEventListener('DOMContentLoaded', () => {
         const objectUrl = URL.createObjectURL(fileWrapper.file);
 
         img.onload = () => {
-            progressFill.style.width = '60%';
+            // Step 1: Initialize loading (30%)
+            progressFill.style.width = '30%';
 
-            // Create offscreen Canvas
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
+            setTimeout(() => {
+                // Step 2: Processing pixels (70%)
+                progressFill.style.width = '70%';
 
-            canvas.width = img.naturalWidth;
-            canvas.height = img.naturalHeight;
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
 
-            // Draw JPG onto Canvas
-            ctx.drawImage(img, 0, 0);
-            
-            progressFill.style.width = '80%';
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
+                ctx.drawImage(img, 0, 0);
 
-            // Convert to PNG blob
-            canvas.toBlob((blob) => {
-                if (blob) {
-                    // Create download URL
-                    const pngUrl = URL.createObjectURL(blob);
-                    const pngName = fileWrapper.originalName.replace(/\.(jpe?g)$/i, '') + '.png';
-
-                    // Update wrapper details
-                    fileWrapper.status = 'done';
-                    fileWrapper.convertedBlobUrl = pngUrl;
-                    fileWrapper.convertedBlobName = pngName;
-
-                    // Update UI state
+                setTimeout(() => {
+                    // Step 3: Compiling and saving (100%)
                     progressFill.style.width = '100%';
-                    
-                    setTimeout(() => {
-                        progressWrapper.classList.add('hidden');
-                        statusBadge.className = 'status-badge badge-done';
-                        statusBadge.textContent = 'Listo';
-                        
-                        // Setup Download Button
-                        downloadBtn.href = pngUrl;
-                        downloadBtn.download = pngName;
-                        downloadBtn.classList.remove('hidden');
-                        downloadBtn.addEventListener('click', () => {
-                            playPopSound();
-                            showThankYouModal();
-                        });
-                        
-                        // Dopamine UX Triggers
-                        playSuccessChime();
-                        incrementConvertedStats();
-                        triggerConfetti(statusBadge);
-                        card.classList.add('success-pulse');
-                        setTimeout(() => card.classList.remove('success-pulse'), 800);
 
-                        updateGlobalActionButtons();
-                    }, 250);
-                } else {
-                    handleConversionError(fileWrapper, 'Error al crear blob');
-                }
-                // Revoke virtual image object url
-                URL.revokeObjectURL(objectUrl);
-            }, 'image/png');
+                    canvas.toBlob((blob) => {
+                        if (blob) {
+                            // Create download URL
+                            const pngUrl = URL.createObjectURL(blob);
+                            const pngName = fileWrapper.originalName.replace(/\.(jpe?g)$/i, '') + '.png';
+
+                            // Update wrapper details
+                            fileWrapper.status = 'done';
+                            fileWrapper.convertedBlobUrl = pngUrl;
+                            fileWrapper.convertedBlobName = pngName;
+
+                            setTimeout(() => {
+                                progressWrapper.classList.add('hidden');
+                                statusBadge.className = 'status-badge badge-done';
+                                statusBadge.textContent = 'Listo';
+                                
+                                // Setup Download Button
+                                downloadBtn.href = pngUrl;
+                                downloadBtn.download = pngName;
+                                downloadBtn.classList.remove('hidden');
+                                downloadBtn.addEventListener('click', () => {
+                                    playPopSound();
+                                    showThankYouModal();
+                                });
+                                
+                                // Dopamine UX Triggers
+                                playSuccessChime();
+                                incrementConvertedStats();
+                                triggerConfetti(statusBadge);
+                                card.classList.add('success-pulse');
+                                setTimeout(() => card.classList.remove('success-pulse'), 800);
+
+                                updateGlobalActionButtons();
+                            }, 300);
+                        } else {
+                            handleConversionError(fileWrapper, 'Error al crear blob');
+                        }
+                        // Revoke virtual image object url
+                        URL.revokeObjectURL(objectUrl);
+                    }, 'image/png');
+
+                }, 400);
+
+            }, 400);
         };
 
         img.onerror = () => {

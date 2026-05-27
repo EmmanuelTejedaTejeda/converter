@@ -476,68 +476,74 @@ document.addEventListener('DOMContentLoaded', () => {
         const objectUrl = URL.createObjectURL(fileWrapper.file);
 
         img.onload = () => {
-            progressFill.style.width = '60%';
+            // Step 1: Initialize loading (30%)
+            progressFill.style.width = '30%';
 
-            // Create offscreen Canvas
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
+            setTimeout(() => {
+                // Step 2: Processing pixels (70%)
+                progressFill.style.width = '70%';
 
-            canvas.width = img.naturalWidth;
-            canvas.height = img.naturalHeight;
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
 
-            // Paint white background to prevent transparency in WebP turning black in JPG
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+                canvas.width = img.naturalWidth;
+                canvas.height = img.naturalHeight;
 
-            // Draw WebP onto Canvas
-            ctx.drawImage(img, 0, 0);
-            
-            progressFill.style.width = '80%';
+                // Paint white background to prevent transparency in WebP turning black in JPG
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Convert to JPEG blob at high quality (90%)
-            canvas.toBlob((blob) => {
-                if (blob) {
-                    // Create download URL
-                    const jpgUrl = URL.createObjectURL(blob);
-                    const jpgName = fileWrapper.originalName.replace(/\.(webp)$/i, '') + '.jpg';
+                // Draw WebP onto Canvas
+                ctx.drawImage(img, 0, 0);
 
-                    // Update wrapper details
-                    fileWrapper.status = 'done';
-                    fileWrapper.convertedBlobUrl = jpgUrl;
-                    fileWrapper.convertedBlobName = jpgName;
-
-                    // Update UI state
+                setTimeout(() => {
+                    // Step 3: Compiling and saving (100%)
                     progressFill.style.width = '100%';
-                    
-                    setTimeout(() => {
-                        progressWrapper.classList.add('hidden');
-                        statusBadge.className = 'status-badge badge-done';
-                        statusBadge.textContent = isEnglish ? 'Ready' : 'Listo';
-                        
-                        // Setup Download Button
-                        downloadBtn.href = jpgUrl;
-                        downloadBtn.download = jpgName;
-                        downloadBtn.classList.remove('hidden');
-                        downloadBtn.addEventListener('click', () => {
-                            playPopSound();
-                            showThankYouModal();
-                        });
-                        
-                        // Dopamine UX Triggers
-                        playSuccessChime();
-                        incrementConvertedStats();
-                        triggerConfetti(statusBadge);
-                        card.classList.add('success-pulse');
-                        setTimeout(() => card.classList.remove('success-pulse'), 800);
 
-                        updateGlobalActionButtons();
-                    }, 250);
-                } else {
-                    handleConversionError(fileWrapper, 'Error al crear blob / Blob creation failed');
-                }
-                // Revoke virtual image object url
-                URL.revokeObjectURL(objectUrl);
-            }, 'image/jpeg', 0.90);
+                    canvas.toBlob((blob) => {
+                        if (blob) {
+                            // Create download URL
+                            const jpgUrl = URL.createObjectURL(blob);
+                            const jpgName = fileWrapper.originalName.replace(/\.(webp)$/i, '') + '.jpg';
+
+                            // Update wrapper details
+                            fileWrapper.status = 'done';
+                            fileWrapper.convertedBlobUrl = jpgUrl;
+                            fileWrapper.convertedBlobName = jpgName;
+
+                            setTimeout(() => {
+                                progressWrapper.classList.add('hidden');
+                                statusBadge.className = 'status-badge badge-done';
+                                statusBadge.textContent = isEnglish ? 'Ready' : 'Listo';
+                                
+                                // Setup Download Button
+                                downloadBtn.href = jpgUrl;
+                                downloadBtn.download = jpgName;
+                                downloadBtn.classList.remove('hidden');
+                                downloadBtn.addEventListener('click', () => {
+                                    playPopSound();
+                                    showThankYouModal();
+                                });
+                                
+                                // Dopamine UX Triggers
+                                playSuccessChime();
+                                incrementConvertedStats();
+                                triggerConfetti(statusBadge);
+                                card.classList.add('success-pulse');
+                                setTimeout(() => card.classList.remove('success-pulse'), 800);
+
+                                updateGlobalActionButtons();
+                            }, 300);
+                        } else {
+                            handleConversionError(fileWrapper, 'Error al crear blob / Blob creation failed');
+                        }
+                        // Revoke virtual image object url
+                        URL.revokeObjectURL(objectUrl);
+                    }, 'image/jpeg', 0.90);
+
+                }, 400);
+
+            }, 400);
         };
 
         img.onerror = () => {
