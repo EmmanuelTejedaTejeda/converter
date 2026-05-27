@@ -102,4 +102,24 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/imagenes-a-pdf/" />
     </url>
 
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/redimensionar-imagenes/</loc>
+        <lastmod>2026-05-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resize-images/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/" />
+    </url>
+
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/en/resize-images/</loc>
+        <lastmod>2026-05-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resize-images/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/" />
+    </url>
+
 </urlset>
