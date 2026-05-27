@@ -1702,3 +1702,41 @@ a.tool-card-item {
     font-weight: normal;
     opacity: 0.85;
 }
+
+/* PDF generator layout options and reordering styles */
+.reorder-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex-shrink: 0;
+}
+
+.btn-reorder {
+    background: none;
+    border: 1px solid var(--card-border);
+    color: var(--text-secondary);
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.btn-reorder:hover:not(:disabled) {
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
+    background-color: var(--accent-soft);
+}
+
+.btn-reorder:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.btn-reorder svg {
+    width: 12px;
+    height: 12px;
+}

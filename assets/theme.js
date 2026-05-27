@@ -21,6 +21,8 @@
                     window.location.replace('../en/compress-images/index.html');
                 } else if (href.includes('webp-a-jpg')) {
                     window.location.replace('../en/webp-to-jpg/index.html');
+                } else if (href.includes('imagenes-a-pdf')) {
+                    window.location.replace('../en/images-to-pdf/index.html');
                 } else {
                     window.location.replace('en/index.html');
                 }
@@ -34,6 +36,8 @@
                     window.location.replace('../../comprimir-imagenes/index.html');
                 } else if (href.includes('webp-to-jpg')) {
                     window.location.replace('../../webp-a-jpg/index.html');
+                } else if (href.includes('images-to-pdf')) {
+                    window.location.replace('../../imagenes-a-pdf/index.html');
                 } else {
                     window.location.replace('../index.html');
                 }
