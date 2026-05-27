@@ -73,61 +73,6 @@
                 <p class="hero-subtitle">Cambia el tamaño de tus fotos en lote por píxeles o porcentaje al instante y de forma 100% privada.</p>
             </section>
 
-            <!-- Resize Settings -->
-            <section class="settings-card" style="margin-bottom: 2rem; padding: 1.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px;">
-                <h3 style="margin-top: 0; margin-bottom: 1.2rem; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
-                    ⚙️ Ajustes de Redimensionamiento
-                </h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1rem;">
-                    <!-- Resize Mode -->
-                    <div>
-                        <label for="resize-mode" style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">Modo</label>
-                        <select id="resize-mode" class="select-input" style="width: 100%;">
-                            <option value="percentage">Por Porcentaje</option>
-                            <option value="dimensions">Dimensiones Exactas</option>
-                        </select>
-                    </div>
-
-                    <!-- Percentage Control -->
-                    <div id="percentage-control-group">
-                        <label for="resize-percentage" style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">
-                            Escalar: <span id="percentage-badge" style="background: var(--primary); color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600; margin-left: 0.25rem;">50%</span>
-                        </label>
-                        <input type="range" id="resize-percentage" min="10" max="200" step="5" value="50" style="width: 100%; margin-top: 0.5rem;">
-                    </div>
-
-                    <!-- Dimension Controls -->
-                    <div id="dimensions-control-group" class="hidden" style="display: contents;">
-                        <div>
-                            <label for="resize-width" style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">Ancho (px)</label>
-                            <input type="number" id="resize-width" class="text-input" placeholder="Píxeles" min="1" style="width: 100%;">
-                        </div>
-                        <div>
-                            <label for="resize-height" style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">Alto (px)</label>
-                            <input type="number" id="resize-height" class="text-input" placeholder="Píxeles" min="1" style="width: 100%;">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Aspect Ratio & Format -->
-                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; border-top: 1px solid var(--card-border); padding-top: 1rem; margin-top: 1rem;">
-                    <div id="aspect-ratio-group" class="hidden" style="display: flex; align-items: center; gap: 0.5rem;">
-                        <input type="checkbox" id="maintain-aspect" checked style="width: 16px; height: 16px; cursor: pointer;">
-                        <label for="maintain-aspect" style="font-size: 0.9rem; font-weight: 500; cursor: pointer; user-select: none;">Mantener proporción de aspecto</label>
-                    </div>
-
-                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-left: auto;">
-                        <label for="output-format" style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 500;">Formato:</label>
-                        <select id="output-format" class="select-input" style="padding: 0.25rem 0.5rem;">
-                            <option value="original">Original</option>
-                            <option value="image/jpeg">JPG</option>
-                            <option value="image/png">PNG</option>
-                            <option value="image/webp">WebP</option>
-                        </select>
-                    </div>
-                </div>
-            </section>
-
             <section class="converter-card">
                 <!-- Dropzone -->
                 <div id="drop-zone" class="drop-zone">
@@ -182,6 +127,61 @@
                     
                     <div id="file-list" class="file-list">
                         <!-- Cards will be dynamically inserted here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resize Settings -->
+            <section class="settings-card" style="padding: 1.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px;">
+                <h3 style="margin-top: 0; margin-bottom: 1.2rem; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+                    ⚙️ Ajustes de Redimensionamiento
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1rem;">
+                    <!-- Resize Mode -->
+                    <div>
+                        <label for="resize-mode" style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">Modo</label>
+                        <select id="resize-mode" class="select-input" style="width: 100%;">
+                            <option value="percentage">Por Porcentaje</option>
+                            <option value="dimensions">Dimensiones Exactas</option>
+                        </select>
+                    </div>
+
+                    <!-- Percentage Control -->
+                    <div id="percentage-control-group">
+                        <label for="resize-percentage" style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">
+                            Escalar: <span id="percentage-badge" style="background: var(--primary); color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600; margin-left: 0.25rem;">50%</span>
+                        </label>
+                        <input type="range" id="resize-percentage" min="10" max="200" step="5" value="50" style="width: 100%; margin-top: 0.5rem;">
+                    </div>
+
+                    <!-- Dimension Controls -->
+                    <div id="dimensions-control-group" class="hidden" style="display: contents;">
+                        <div>
+                            <label for="resize-width" style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">Ancho (px)</label>
+                            <input type="number" id="resize-width" class="text-input" placeholder="Píxeles" min="1" style="width: 100%;">
+                        </div>
+                        <div>
+                            <label for="resize-height" style="display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">Alto (px)</label>
+                            <input type="number" id="resize-height" class="text-input" placeholder="Píxeles" min="1" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aspect Ratio & Format -->
+                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; border-top: 1px solid var(--card-border); padding-top: 1rem; margin-top: 1rem;">
+                    <div id="aspect-ratio-group" class="hidden" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <input type="checkbox" id="maintain-aspect" checked style="width: 16px; height: 16px; cursor: pointer;">
+                        <label for="maintain-aspect" style="font-size: 0.9rem; font-weight: 500; cursor: pointer; user-select: none;">Mantener proporción de aspecto</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-left: auto;">
+                        <label for="output-format" style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 500;">Formato:</label>
+                        <select id="output-format" class="select-input" style="padding: 0.25rem 0.5rem;">
+                            <option value="original">Original</option>
+                            <option value="image/jpeg">JPG</option>
+                            <option value="image/png">PNG</option>
+                            <option value="image/webp">WebP</option>
+                        </select>
                     </div>
                 </div>
             </section>
