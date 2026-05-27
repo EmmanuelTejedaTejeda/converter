@@ -3,8 +3,15 @@
  * Prevents FOUC (Theme) and handles language routing immediately
  */
 (function() {
-    // 1. Language Auto-Routing (Executed immediately to prevent flashes)
+    // 1. Language Auto-Routing (Executed immediately to prevent flashes, crawler-safe)
     function handleLanguageRedirect() {
+        // Bypass redirection for search engine bots and performance auditing tools
+        const botPattern = /bot|googlebot|bingbot|baiduspider|yandex|duckduckbot|slurp|crawler|spider|robot|crawling|lighthouse|pagespeed/i;
+        if (botPattern.test(navigator.userAgent)) return;
+
+        // Bypass if user has already been checked/redirected in this session
+        if (sessionStorage.getItem('lang_redirected') === 'true') return;
+
         const userLang = navigator.language || navigator.userLanguage || 'es';
         const isChinese = userLang.toLowerCase().startsWith('zh');
         const isEnglish = userLang.toLowerCase().startsWith('en');
@@ -23,6 +30,9 @@
 
         // Determine target language
         const targetLang = isChinese ? 'zh' : (isEnglish ? 'en' : (isJapanese ? 'ja' : 'es'));
+
+        // Mark as processed for this session so they can navigate manually if desired
+        sessionStorage.setItem('lang_redirected', 'true');
 
         if (currentLang === targetLang) return; // Already on correct language page
 
