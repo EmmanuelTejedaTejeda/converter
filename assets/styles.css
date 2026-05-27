@@ -1677,3 +1677,28 @@ a.tool-card-item {
     line-height: 1.55;
     color: var(--text-secondary);
 }
+
+/* Warning action buttons for PNG warnings in Compressor */
+.warning-action-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 700;
+    color: var(--accent-primary);
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color var(--transition-fast) ease;
+}
+
+.warning-action-btn:hover {
+    color: var(--accent-hover);
+}
+
+.file-size-saving.saving-neutral {
+    color: var(--text-secondary);
+    font-weight: normal;
+    opacity: 0.85;
+}

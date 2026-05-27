@@ -406,6 +406,22 @@ document.addEventListener('DOMContentLoaded', () => {
             playPopSound();
             removeFile(fileObj.id);
         });
+
+        // Wire warning badge buttons (for PNG to WEBP/JPG quick convert)
+        const warningWebpBtn = card.querySelector('.warning-webp-btn');
+        const warningJpgBtn = card.querySelector('.warning-jpg-btn');
+        if (warningWebpBtn) {
+            warningWebpBtn.addEventListener('click', () => {
+                outputFormat.value = 'image/webp';
+                outputFormat.dispatchEvent(new Event('change'));
+            });
+        }
+        if (warningJpgBtn) {
+            warningJpgBtn.addEventListener('click', () => {
+                outputFormat.value = 'image/jpeg';
+                outputFormat.dispatchEvent(new Event('change'));
+            });
+        }
         
         fileList.appendChild(clone);
     }
@@ -482,20 +498,40 @@ document.addEventListener('DOMContentLoaded', () => {
         img.onload = () => {
             progressFill.style.width = '60%';
             
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            canvas.width = img.naturalWidth;
-            canvas.height = img.naturalHeight;
-            ctx.drawImage(img, 0, 0);
-            
             // Get quality and mime settings
             const qualityVal = parseInt(qualityRange.value, 10) / 100;
             let mimeVal = outputFormat.value;
             
             if (mimeVal === 'original') {
-                mimeVal = fileObj.file.type;
+                mimeVal = fileObj.file.type || '';
+                if (!mimeVal && fileObj.name) {
+                    const ext = fileObj.name.split('.').pop().toLowerCase();
+                    if (ext === 'jpg' || ext === 'jpeg') mimeVal = 'image/jpeg';
+                    else if (ext === 'png') mimeVal = 'image/png';
+                    else if (ext === 'webp') mimeVal = 'image/webp';
+                }
             }
+            
+            if (mimeVal === 'image/jpg') {
+                mimeVal = 'image/jpeg';
+            }
+            if (!mimeVal) {
+                mimeVal = 'image/jpeg'; // Default fallback
+            }
+
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = img.naturalWidth;
+            canvas.height = img.naturalHeight;
+            
+            // Draw white background if converting to JPEG to avoid transparency turning black
+            if (mimeVal === 'image/jpeg') {
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+            
+            ctx.drawImage(img, 0, 0);
             
             // Special warning / handling for PNG
             // PNG is lossless; if output format is PNG, quality settings are ignored by browser's toBlob().
@@ -542,8 +578,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             sizeSave.className = 'file-size-saving saving-positive';
                         } else {
                             sizeSave.classList.remove('hidden');
-                            sizeSave.textContent = `(0%)`;
-                            sizeSave.className = 'file-size-saving';
+                            if (fileObj.file.type === 'image/png' && outputFormat.value === 'original') {
+                                sizeSave.textContent = document.documentElement.lang === 'en' ? '(Use WebP/JPG to compress)' : '(Usa WebP/JPG para comprimir)';
+                            } else {
+                                sizeSave.textContent = document.documentElement.lang === 'en' ? '(Already optimized)' : '(Ya optimizado)';
+                            }
+                            sizeSave.className = 'file-size-saving saving-neutral';
                         }
                         
                         // Show download button
