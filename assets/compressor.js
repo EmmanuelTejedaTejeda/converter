@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================================================
-    // Range Slider Interactivity
+    // Range Slider Interactivity & Format Selector Warnings
     // ==========================================================================
     if (qualityRange && qualityBadge) {
         qualityRange.addEventListener('input', () => {
@@ -193,6 +193,29 @@ document.addEventListener('DOMContentLoaded', () => {
             // Trigger pop sound softly
             if (qualityRange.value % 10 === 0) {
                 playPopSound();
+            }
+        });
+    }
+
+    if (outputFormat) {
+        outputFormat.addEventListener('change', () => {
+            playPopSound();
+            updatePngWarnings();
+        });
+    }
+
+    function updatePngWarnings() {
+        const isOriginalPNG = outputFormat.value === 'original';
+        filesArray.forEach(fileObj => {
+            const card = fileList.querySelector(`[data-file-id="${fileObj.id}"]`);
+            if (!card) return;
+            const badge = card.querySelector('.png-warning-badge');
+            if (badge) {
+                if (fileObj.file.type === 'image/png' && isOriginalPNG) {
+                    badge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden');
+                }
             }
         });
     }
@@ -301,6 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (addedCount > 0) {
             updateListHeader();
             updateGlobalActionButtons();
+            updatePngWarnings();
             
             // Auto scroll to list if it was hidden
             if (fileListContainer.classList.contains('hidden')) {

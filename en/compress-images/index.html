@@ -120,7 +120,7 @@
                         <select id="output-format" class="format-select">
                             <option value="original">Keep original format (Recommended)</option>
                             <option value="image/jpeg">Convert to JPG (Best for photos)</option>
-                            <option value="image/webp">Convert to WEBP (Maximum savings)</option>
+                            <option value="image/webp">Convert to WEBP (Maximum savings, keeps transparency)</option>
                         </select>
                     </div>
                 </div>
@@ -293,6 +293,9 @@
                         <span class="file-size-saving hidden">(-0%)</span>
                         <span class="file-divider">&bull;</span>
                         <span class="file-dims">-- x --</span>
+                    </div>
+                    <div class="png-warning-badge hidden" style="color: var(--accent-primary); font-size: 0.75rem; margin-top: 0.25rem; font-weight: 500;">
+                        💡 Change output format to WEBP or JPG to compress this PNG
                     </div>
                 </div>
             </div>
