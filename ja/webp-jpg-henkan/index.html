@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Convert WebP images to JPG instantly and 100% securely. Your photos never leave your device and the conversion is offline-first.">
-    <title>Convert WebP to JPG Online - Free & Secure</title>
+    <meta name="description" content="無料で高速、100%安全にWebP画像をJPGに変換します。インターネットにアップロードすることなく、お使いのデバイス上で直接ローカルに変換できます。">
+    <title>オンラインWebPからJPGへ変換 - 無料で無制限の画像コンバーター</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/styles.css">
-    <link rel="canonical" href="https://herramientas-imagen.pages.dev/en/webp-to-jpg/">
+    <link rel="canonical" href="https://herramientas-imagen.pages.dev/ja/webp-jpg-henkan/">
     <link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/webp-a-jpg/">
     <link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/webp-to-jpg/">
     <link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/webp-zhuan-jpg/">
@@ -31,19 +31,19 @@
                 <span class="logo-text">Convertify</span>
             </a>
             <nav class="header-nav">
-                <a href="../compress-images/" class="nav-link">Compress</a>
-                <a href="../resize-images/" class="nav-link">Resize</a>
-                <a href="../jpg-to-png/" class="nav-link">JPG to PNG</a>
-                <a href="../webp-to-jpg/" class="nav-link active">WebP to JPG</a>
-                <a href="../images-to-pdf/" class="nav-link">Images to PDF</a>
+                <a href="../gazo-asshuku/" class="nav-link">画像圧縮</a>
+                <a href="../gazo-saizu-henko/" class="nav-link">画像サイズ変更</a>
+                <a href="../jpg-png-henkan/" class="nav-link">JPGからPNGへ</a>
+                <a href="../webp-jpg-henkan/" class="nav-link active">WebPからJPGへ</a>
+                <a href="../gazo-pdf-henkan/" class="nav-link">画像をPDFに</a>
             </nav>
             <div class="header-actions">
-                <div class="stats-counter" id="stats-counter" title="Photos converted securely in this session">
+                <div class="stats-counter" id="stats-counter" title="セッション内で安全に処理された画像">
                     <span class="stats-icon">🔥</span>
                     <span class="stats-number" id="stats-number">0</span>
                 </div>
                 
-                <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound">
+                <button id="sound-toggle" class="sound-toggle" aria-label="音声をオン/オフ">
                     <svg class="volume-on-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                         <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
@@ -55,7 +55,7 @@
                     </svg>
                 </button>
 
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <button id="theme-toggle" class="theme-toggle" aria-label="テーマを切り替え">
                     <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -78,8 +78,8 @@
     <main class="app-main">
         <div class="converter-wrapper">
             <section class="hero-section">
-                <h1 class="hero-title">Convert WebP to JPG Instantly</h1>
-                <p class="hero-subtitle">Free and 100% secure. Your photos are never saved to the internet and no one else can see them.</p>
+                <h1 class="hero-title">オンラインWebPからJPGへ変換</h1>
+                <p class="hero-subtitle">無料で100%安全。写真はすべてデバイス上でローカルに変換され、インターネットにアップロードされることはありません。</p>
             </section>
 
             <section class="converter-card">
@@ -92,9 +92,9 @@
                                 <path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L13 16M17 20L21 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h3 class="drop-title">Drag your WebP files here</h3>
-                        <p class="drop-text">or click to browse on your device</p>
-                        <span class="drop-badge">Supports multiple files</span>
+                        <h3 class="drop-title">ここにWebPファイルをドラッグ＆ドロップしてください</h3>
+                        <p class="drop-text">またはクリックしてお使いのデバイスからファイルを選択</p>
+                        <span class="drop-badge">複数ファイルに対応</span>
                     </div>
                 </div>
 
@@ -104,13 +104,13 @@
                         <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M9 11L11 13L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span>Your photos are 100% secure. They stay on your phone or computer, and nobody except you can see them.</span>
+                    <span>写真のセキュリティは保証されています。ファイルは常にスマートフォンやPC内に残り、あなた以外の誰も見ることはできません。</span>
                 </div>
 
                 <!-- File List Container -->
                 <div id="file-list-container" class="file-list-container hidden">
                     <div class="list-header">
-                        <h4>Uploaded Photos (<span id="file-count">0</span>) 👇</h4>
+                        <h4>アップロードされた写真 (<span id="file-count">0</span>) 👇</h4>
                         <div class="list-actions">
                             <button id="convert-all-btn" class="btn btn-primary btn-sm">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -118,7 +118,7 @@
                                     <polyline points="1 20 1 14 7 14"></polyline>
                                     <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
                                 </svg>
-                                Convert all
+                                一括変換
                             </button>
                             <button id="download-all-btn" class="btn btn-secondary btn-sm disabled" disabled>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -126,10 +126,10 @@
                                     <polyline points="7 10 12 15 17 10"></polyline>
                                     <line x1="12" y1="15" x2="12" y2="3"></line>
                                 </svg>
-                                Download all
+                                すべての画像をダウンロード
                             </button>
                             <button id="clear-all-btn" class="btn btn-danger-outline btn-sm">
-                                Clear list
+                                リストをクリア
                             </button>
                         </div>
                     </div>
@@ -140,13 +140,13 @@
                 </div>
             </section>
 
-            <!-- Minimal sponsored ad block -->
+            <!-- Minimalist Sponsored Section -->
             <div class="ad-container-minimal">
                 <a href="https://ethicalads.io" target="_blank" rel="noopener noreferrer" class="ad-link">
-                    <span class="ad-badge">[SPONSORED]</span>
+                    <span class="ad-badge">[スポンサー]</span>
                     <div class="ad-body">
-                        <span class="ad-text">Need to compress your photos and reduce size by up to 80%? Try our tool.</span>
-                        <span class="ad-cta">Try now &rarr;</span>
+                        <span class="ad-text">写真を圧縮してファイルサイズを最大80%削減したいですか？画像圧縮ツールをお試しください。</span>
+                        <span class="ad-cta">今すぐ試す &rarr;</span>
                     </div>
                 </a>
             </div>
@@ -161,8 +161,8 @@
                         <path d="M12 6v6l4 2"></path>
                     </svg>
                 </div>
-                <h3>Instantly</h3>
-                <p>No waiting lists. Your photos are converted instantly in your browser ready to save.</p>
+                <h3>瞬時に変換</h3>
+                <p>待ち時間はありません。写真はアップロード不要で即座に変換され、すぐにダウンロードできます。</p>
             </div>
             
             <div class="feature-card">
@@ -172,8 +172,8 @@
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                     </svg>
                 </div>
-                <h3>100% Secure</h3>
-                <p>Your photos never leave your device. Everything runs locally in your browser for total privacy.</p>
+                <h3>100%安全</h3>
+                <p>写真がお使いのデバイスから送信されることはありません。すべての変換はブラウザ内でローカルに行われます。</p>
             </div>
 
             <div class="feature-card">
@@ -182,63 +182,63 @@
                         <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
                     </svg>
                 </div>
-                <h3>Max Compatibility</h3>
-                <p>The JPG format is universal. You can use your converted photos in any app, web or hardware.</p>
+                <h3>高い互換性</h3>
+                <p>JPGフォーマットはユニバーサルです。変換された写真は、あらゆるアプリ、ウェブサイト、デバイスで使用できます。</p>
             </div>
         </section>
 
-        <!-- SEO Content Section -->
+        <!-- On-Page SEO Content: Guide and FAQs -->
         <section class="seo-content-section">
             <div class="seo-block">
-                <h2>How to convert WebP to JPG online for free?</h2>
-                <p>Changing your WebP photos to JPG is extremely easy with our browser tool. Follow three basic steps:</p>
+                <h2>無料で素早くWebPからJPGに変換する方法</h2>
+                <p>当ツールを使えば、WebP写真をJPGに変更するのは極めて簡単です。以下の3つの基本手順に従ってください：</p>
                 <ol class="seo-steps-list">
-                    <li><strong>Upload your files:</strong> Drag your WebP images directly into the box above, or click to select them from your local folders.</li>
-                    <li><strong>Convert with one click:</strong> Click the "Convert" button on any image card or press "Convert all" to process them in bulk.</li>
-                    <li><strong>Save your JPGs:</strong> Press the orange "Save photo" button to download each file to your computer or phone. Done!</li>
+                    <li><strong>写真をアップロード：</strong>WebP画像を上部のボックスに直接ドラッグ＆ドロップするか、クリックしてファイルを選択します。</li>
+                    <li><strong>ワンクリックで変換：</strong>各写真の横にある「変換」ボタンをクリックするか、「一括変換」をクリックして一括処理します。</li>
+                    <li><strong>JPG画像を保存：</strong>各ファイルにあるオレンジ色の「画像を保存」ボタンをクリックしてダウンロードします。100%自動です！</li>
                 </ol>
             </div>
 
             <div class="seo-block">
-                <h2>Frequently Asked Questions (FAQs)</h2>
+                <h2>よくある質問 (FAQ)</h2>
                 
                 <div class="faq-item">
-                    <h3>Why convert WebP to JPG?</h3>
-                    <p>WebP is a great modern web format, but it is not universally supported. Many online forms, legacy editors, government websites, and school portals still reject WebP. JPG ensures maximum compatibility everywhere.</p>
+                    <h3>なぜWebPからJPGへ変換するのですか？</h3>
+                    <p>WebPはウェブに最適な優れた最新フォーマットですが、古い画像エディタや、一部の行政・学校のオンライン管理システム（フォームやアップロードポータルなど）ではサポートされていません。JPGフォーマットであれば、どこでも確実に写真を開くことができます。</p>
                 </div>
 
                 <div class="faq-item">
-                    <h3>Is this conversion tool free?</h3>
-                    <p>Yes. You can convert all your WebP images to JPG without paying anything and without creating an account. There are no size caps or daily file limits.</p>
+                    <h3>このツールは完全に無料ですか？</h3>
+                    <p>はい。すべてのWebP写真を登録不要で無料でJPGに変換できます。ファイル数やファイルサイズの制限はありません。</p>
                 </div>
 
                 <div class="faq-item">
-                    <h3>Why is my privacy guaranteed?</h3>
-                    <p>Unlike online cloud services, your images are never sent to external servers. The conversion happens entirely locally inside your browser cache. Nobody else can see or access your files.</p>
+                    <h3>なぜ変換処理が100%安全でプライベートなのですか？</h3>
+                    <p>他のウェブサイトとは異なり、画像がインターネット上のサーバーに送信されることはありません。すべての変換処理はお使いのブラウザのローカル内で直接実行されます。完全にプライバシーが保護されます。</p>
                 </div>
 
                 <div class="faq-item">
-                    <h3>How is transparency handled when WebP is converted to JPG?</h3>
-                    <p>Since JPG is an opaque image format and doesn't support a transparent alpha channel, any transparent sections in your WebP image will be automatically filled with a solid white background.</p>
+                    <h3>WebPからJPGに変換する際、透明な背景はどうなりますか？</h3>
+                    <p>JPGフォーマットは透明度（アルファチャンネル）をサポートしていないため、元のWebP画像の透明な部分は自動的に純白の背景で塗りつぶされます。これにより、画像の内容を綺麗に維持できます。</p>
                 </div>
             </div>
         </section>
 
         <!-- Recommended Resources -->
         <section class="resources-section">
-            <h4 class="resources-title">[RECOMMENDED RESOURCES]</h4>
+            <h4 class="resources-title">[おすすめのリソース]</h4>
             <div class="resources-list">
                 <a href="https://partner.canva.com" target="_blank" rel="noopener noreferrer" class="resource-item">
                     <span class="resource-name">Canva Pro</span>
-                    <span class="resource-desc">Create gorgeous designs with your converted images. Try it free.</span>
+                    <span class="resource-desc">変換した画像を使って素晴らしいデザインを作成しましょう。無料体験あり。</span>
                 </a>
                 <a href="https://hostinger.com" target="_blank" rel="noopener noreferrer" class="resource-item">
-                    <span class="resource-name">Premium Hosting</span>
-                    <span class="resource-desc">The fastest and cheapest hosting to publish your website.</span>
+                    <span class="resource-name">プレミアムホスティング</span>
+                    <span class="resource-desc">独自のウェブサイトを立ち上げるための高速かつ手頃なホスティングプラン。</span>
                 </a>
                 <a href="https://fiverr.com" target="_blank" rel="noopener noreferrer" class="resource-item">
-                    <span class="resource-name">Professional Retouching</span>
-                    <span class="resource-desc">Hire skilled photo designers starting at just $5.</span>
+                    <span class="resource-name">プロの写真レタッチ</span>
+                    <span class="resource-desc">わずか5ドルからプロのグラフィックデザイナーに写真レタッチを依頼できます。</span>
                 </a>
             </div>
         </section>
@@ -246,19 +246,19 @@
 
     <footer class="app-footer-bar">
         <div class="footer-container">
-            <p>&copy; 2026 Convertify. Fast, secure and private.</p>
+            <p>&copy; 2026 Convertify. 高速、安全、非公開。</p>
             <div class="footer-links">
-                <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="footer-support-link">[SUPPORT PROJECT ☕]</a>
+                <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="footer-support-link">[プロジェクトを支援する ☕]</a>
             </div>
         </div>
-    </footer
+    </footer>
 
     <!-- Templates for Dynamic Elements -->
     <template id="file-card-template">
         <div class="file-card">
             <div class="file-info-group">
                 <div class="file-preview-wrapper">
-                    <img src="" alt="Preview" class="file-preview">
+                    <img src="" alt="プレビュー" class="file-preview">
                     <div class="file-preview-fallback">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -278,8 +278,7 @@
             </div>
             
             <div class="file-status-group">
-                <!-- Status badges: pending, converting, done, error -->
-                <span class="status-badge badge-pending">Pending</span>
+                <span class="status-badge badge-pending">待機中</span>
                 
                 <div class="file-progress-wrapper hidden">
                     <div class="progress-bar">
@@ -288,22 +287,22 @@
                 </div>
 
                 <div class="file-actions">
-                    <button class="btn-convert-text btn-action-convert" title="Convert to JPG">
+                    <button class="btn-convert-text btn-action-convert" title="変換">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="23 4 23 10 17 10"></polyline>
                             <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
                         </svg>
-                        Convert
+                        変換
                     </button>
-                    <a class="btn-download-text btn-action-download hidden" title="Download JPG">
+                    <a class="btn-download-text btn-action-download hidden" title="画像を保存">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
                         </svg>
-                        Save photo
+                        画像を保存
                     </a>
-                    <button class="btn-icon btn-action-remove" title="Remove">
+                    <button class="btn-icon btn-action-remove" title="削除">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="3 6 5 6 21 6"></polyline>
                             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -317,17 +316,17 @@
     <!-- Modal de Agradecimiento y Monetización Post-Descarga -->
     <div id="thank-you-modal" class="modal-overlay hidden">
         <div class="modal-card">
-            <button id="close-modal-btn" class="modal-close-btn" aria-label="Close window">&times;</button>
+            <button id="close-modal-btn" class="modal-close-btn" aria-label="关闭窗口">&times;</button>
             <div class="modal-content">
                 <div class="modal-icon">🎉</div>
-                <h3 class="modal-title">Image Saved!</h3>
-                <p class="modal-text">Your download has successfully started.</p>
+                <h3 class="modal-title">画像が保存されました！</h3>
+                <p class="modal-text">ダウンロードが正常に開始されました。</p>
                 
                 <div class="modal-ad-box">
-                    <span class="modal-ad-tag">[RECOMMENDED]</span>
-                    <h4>Is your photo too heavy to upload to the internet?</h4>
-                    <p>Use our recommended optimizer to reduce the file size of your images up to 80% without losing quality.</p>
-                    <a href="../compress-images/index.html" class="btn btn-primary btn-block">Compress Photos Free</a>
+                    <span class="modal-ad-tag">[おすすめ]</span>
+                    <h4>写真のファイルサイズが大きすぎてインターネットにアップロードしづらいですか？</h4>
+                    <p>当サイトの圧縮ツールを使用すれば、画質を損なうことなく写真のファイルサイズを最大80%削減できます。</p>
+                    <a href="../gazo-asshuku/index.html" class="btn btn-primary btn-block">無料で画像を圧縮</a>
                 </div>
             </div>
         </div>

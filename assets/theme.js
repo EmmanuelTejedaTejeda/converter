@@ -8,6 +8,7 @@
         const userLang = navigator.language || navigator.userLanguage || 'es';
         const isChinese = userLang.toLowerCase().startsWith('zh');
         const isEnglish = userLang.toLowerCase().startsWith('en');
+        const isJapanese = userLang.toLowerCase().startsWith('ja');
         const href = window.location.href;
 
         // Detect current language directory in URL
@@ -16,24 +17,26 @@
             currentLang = 'en';
         } else if (href.includes('/zh/') || href.includes('zh/')) {
             currentLang = 'zh';
+        } else if (href.includes('/ja/') || href.includes('ja/')) {
+            currentLang = 'ja';
         }
 
         // Determine target language
-        const targetLang = isChinese ? 'zh' : (isEnglish ? 'en' : 'es');
+        const targetLang = isChinese ? 'zh' : (isEnglish ? 'en' : (isJapanese ? 'ja' : 'es'));
 
         if (currentLang === targetLang) return; // Already on correct language page
 
         // Determine current page type
         let pageType = 'home';
-        if (href.includes('jpg-a-png') || href.includes('jpg-to-png') || href.includes('jpg-zhuan-png')) {
+        if (href.includes('jpg-a-png') || href.includes('jpg-to-png') || href.includes('jpg-zhuan-png') || href.includes('jpg-png-henkan')) {
             pageType = 'jpg-to-png';
-        } else if (href.includes('comprimir-imagenes') || href.includes('compress-images') || href.includes('yasuo-tupian')) {
+        } else if (href.includes('comprimir-imagenes') || href.includes('compress-images') || href.includes('yasuo-tupian') || href.includes('gazo-asshuku')) {
             pageType = 'compress';
-        } else if (href.includes('webp-a-jpg') || href.includes('webp-to-jpg') || href.includes('webp-zhuan-jpg')) {
+        } else if (href.includes('webp-a-jpg') || href.includes('webp-to-jpg') || href.includes('webp-zhuan-jpg') || href.includes('webp-jpg-henkan')) {
             pageType = 'webp-to-jpg';
-        } else if (href.includes('imagenes-a-pdf') || href.includes('images-to-pdf') || href.includes('tupian-zhuan-pdf')) {
+        } else if (href.includes('imagenes-a-pdf') || href.includes('images-to-pdf') || href.includes('tupian-zhuan-pdf') || href.includes('gazo-pdf-henkan')) {
             pageType = 'images-to-pdf';
-        } else if (href.includes('redimensionar-imagenes') || href.includes('resize-images') || href.includes('tupian-tiaozheng-daxiao')) {
+        } else if (href.includes('redimensionar-imagenes') || href.includes('resize-images') || href.includes('tupian-tiaozheng-daxiao') || href.includes('gazo-saizu-henko')) {
             pageType = 'resize';
         }
 
@@ -41,7 +44,7 @@
         let pathToRoot = '';
         if (currentLang === 'es') {
             if (pageType !== 'home') pathToRoot = '../';
-        } else { // 'en' or 'zh'
+        } else { // 'en', 'zh', or 'ja'
             if (pageType === 'home') pathToRoot = '../';
             else pathToRoot = '../../';
         }
@@ -69,6 +72,13 @@
             else if (pageType === 'webp-to-jpg') targetPath = 'zh/webp-zhuan-jpg/index.html';
             else if (pageType === 'images-to-pdf') targetPath = 'zh/tupian-zhuan-pdf/index.html';
             else if (pageType === 'resize') targetPath = 'zh/tupian-tiaozheng-daxiao/index.html';
+        } else if (targetLang === 'ja') {
+            if (pageType === 'home') targetPath = 'ja/index.html';
+            else if (pageType === 'jpg-to-png') targetPath = 'ja/jpg-png-henkan/index.html';
+            else if (pageType === 'compress') targetPath = 'ja/gazo-asshuku/index.html';
+            else if (pageType === 'webp-to-jpg') targetPath = 'ja/webp-jpg-henkan/index.html';
+            else if (pageType === 'images-to-pdf') targetPath = 'ja/gazo-pdf-henkan/index.html';
+            else if (pageType === 'resize') targetPath = 'ja/gazo-saizu-henko/index.html';
         }
 
         window.location.replace(pathToRoot + targetPath);

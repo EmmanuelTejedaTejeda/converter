@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Suite of free and 100% secure image tools. Convert, edit and optimize your photos directly on your device privately.">
-    <title>Convertify - Free Online Image Tools</title>
+    <meta name="description" content="無料で高速、100%安全な画像処理ツールスイート。プライバシーを保護しながら、お使いのデバイス上で直接写真の変換、編集、最適化を行います。">
+    <title>Convertify - 無料オンライン画像ツール</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="canonical" href="https://herramientas-imagen.pages.dev/en/">
+    <link rel="canonical" href="https://herramientas-imagen.pages.dev/ja/">
     <link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/">
     <link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/">
     <link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/">
@@ -31,15 +31,14 @@
                 <span class="logo-text">Convertify</span>
             </a>
             <nav class="header-nav">
-                <a href="./compress-images/" class="nav-link">Compress</a>
-                <a href="./resize-images/" class="nav-link">Resize</a>
-                <a href="./jpg-to-png/" class="nav-link">JPG to PNG</a>
-                <a href="./webp-to-jpg/" class="nav-link">WebP to JPG</a>
-                <a href="./images-to-pdf/" class="nav-link">Images to PDF</a>
+                <a href="./gazo-asshuku/" class="nav-link">画像圧縮</a>
+                <a href="./gazo-saizu-henko/" class="nav-link">画像サイズ変更</a>
+                <a href="./jpg-png-henkan/" class="nav-link">JPGからPNGへ</a>
+                <a href="./webp-jpg-henkan/" class="nav-link">WebPからJPGへ</a>
+                <a href="./gazo-pdf-henkan/" class="nav-link">画像をPDFに</a>
             </nav>
             <div class="header-actions">
-                <!-- Minimalist Language Selector -->
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <button id="theme-toggle" class="theme-toggle" aria-label="テーマを切り替え">
                     <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -62,22 +61,22 @@
     <main class="app-main">
         <div class="converter-wrapper" style="min-height: calc(100vh - 72px - 160px);">
             <section class="hero-section" style="margin-bottom: 2rem;">
-                <h1 class="hero-title">Free Image Tools</h1>
-                <p class="hero-subtitle">100% secure processing. Your photos never leave your computer or phone, and no one else will see them.</p>
+                <h1 class="hero-title">無料オンライン画像ツール</h1>
+                <p class="hero-subtitle">100%安全な処理。写真はデバイスから送信されず、他の誰にも見られません。</p>
             </section>
 
             <!-- Tools Grid (Suite) -->
             <section class="tools-directory">
                 <div class="directory-header">
-                    <h2>[AVAILABLE TOOLS]</h2>
+                    <h2>[利用可能なツール]</h2>
                 </div>
                 
                 <div class="tools-grid">
-                    <!-- JPG to PNG Tool -->
-                    <a href="jpg-to-png/index.html" class="tool-card-item">
+                    <!-- Tool: JPG to PNG -->
+                    <a href="jpg-png-henkan/index.html" class="tool-card-item">
                         <div class="tool-info">
                             <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVE]</span>
+                                <span class="tool-status-tag">[アクティブ]</span>
                                 <span class="tool-action-arrow">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -85,16 +84,16 @@
                                     </svg>
                                 </span>
                             </div>
-                            <h3>Convert JPG to PNG</h3>
-                            <p>Convert your JPG photos to high-quality PNG images without uploading them to the internet.</p>
+                            <h3 class="tool-title">JPGからPNGへ変換</h3>
+                            <p class="tool-description">JPG画像をPNGフォーマットに素早く変換します。元の画質を保ち、一括変換をサポートし、安全で安心です。</p>
                         </div>
                     </a>
 
-                    <!-- Compress Images Tool -->
-                    <a href="compress-images/index.html" class="tool-card-item">
+                    <!-- Tool: WebP to JPG -->
+                    <a href="webp-jpg-henkan/index.html" class="tool-card-item">
                         <div class="tool-info">
                             <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVE]</span>
+                                <span class="tool-status-tag">[アクティブ]</span>
                                 <span class="tool-action-arrow">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -102,16 +101,16 @@
                                     </svg>
                                 </span>
                             </div>
-                            <h3>Compress Images</h3>
-                            <p>Reduce the size of your photos by up to 80% without losing quality directly in your browser.</p>
+                            <h3 class="tool-title">WebPからJPGへ変換</h3>
+                            <p class="tool-description">WebP画像を瞬時にJPGフォーマットに変換します。互換性の問題を解決し、完全にローカルで処理するため超高速です。</p>
                         </div>
                     </a>
 
-                    <!-- WebP to JPG Tool -->
-                    <a href="webp-to-jpg/index.html" class="tool-card-item">
+                    <!-- Tool: Compress -->
+                    <a href="gazo-asshuku/index.html" class="tool-card-item">
                         <div class="tool-info">
                             <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVE]</span>
+                                <span class="tool-status-tag">[アクティブ]</span>
                                 <span class="tool-action-arrow">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -119,16 +118,16 @@
                                     </svg>
                                 </span>
                             </div>
-                            <h3>Convert WebP to JPG</h3>
-                            <p>Convert your WebP photos to JPG format quickly and 100% securely.</p>
+                            <h3 class="tool-title">画像を圧縮</h3>
+                            <p class="tool-description">写真のファイルサイズを最大80%即座に削減します。完璧な画質を維持し、一括処理に対応し、100%非公開です。</p>
                         </div>
                     </a>
 
-                    <!-- Images to PDF Tool -->
-                    <a href="images-to-pdf/index.html" class="tool-card-item">
+                    <!-- Tool: Resize -->
+                    <a href="gazo-saizu-henko/index.html" class="tool-card-item">
                         <div class="tool-info">
                             <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVE]</span>
+                                <span class="tool-status-tag">[アクティブ]</span>
                                 <span class="tool-action-arrow">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -136,16 +135,16 @@
                                     </svg>
                                 </span>
                             </div>
-                            <h3>Convert Images to PDF</h3>
-                            <p>Merge your photos into a single PDF document quickly, orderly, and 100% securely.</p>
+                            <h3 class="tool-title">画像サイズ変更</h3>
+                            <p class="tool-description">ピクセル数またはパーセンテージで写真を一括リサイズします。100%ローカル処理で、高速かつ安全です。</p>
                         </div>
                     </a>
 
-                    <!-- Resize Images Tool -->
-                    <a href="resize-images/index.html" class="tool-card-item">
+                    <!-- Tool: Images to PDF -->
+                    <a href="gazo-pdf-henkan/index.html" class="tool-card-item">
                         <div class="tool-info">
                             <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVE]</span>
+                                <span class="tool-status-tag">[アクティブ]</span>
                                 <span class="tool-action-arrow">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -153,40 +152,18 @@
                                     </svg>
                                 </span>
                             </div>
-                            <h3>Resize Images</h3>
-                            <p>Batch resize your photos by pixels or percentage quickly and 100% privately.</p>
+                            <h3 class="tool-title">画像をPDFに</h3>
+                            <p class="tool-description">複数の画像（JPG, PNG, WebP）を結合して1つのPDFファイルを生成します。ドラッグ＆ドロップによる並べ替えと高い圧縮率をサポート。</p>
                         </div>
                     </a>
                 </div>
             </section>
         </div>
-
-        <!-- Recommended Resources -->
-        <section class="resources-section">
-            <h4 class="resources-title">[RECOMMENDED RESOURCES]</h4>
-            <div class="resources-list">
-                <a href="https://partner.canva.com" target="_blank" rel="noopener noreferrer" class="resource-item">
-                    <span class="resource-name">Canva Pro</span>
-                    <span class="resource-desc">Create amazing designs with your converted images. Try it for free.</span>
-                </a>
-                <a href="https://hostinger.com" target="_blank" rel="noopener noreferrer" class="resource-item">
-                    <span class="resource-name">Premium Hosting</span>
-                    <span class="resource-desc">The fastest and most affordable hosting to publish your website.</span>
-                </a>
-                <a href="https://fiverr.com" target="_blank" rel="noopener noreferrer" class="resource-item">
-                    <span class="resource-name">Professional Retouching</span>
-                    <span class="resource-desc">Hire professional designers to retouch your photos for only $5.</span>
-                </a>
-            </div>
-        </section>
     </main>
 
     <footer class="app-footer-bar">
         <div class="footer-container">
-            <p>&copy; 2026 Convertify. Fast, secure and private.</p>
-            <div class="footer-links">
-                <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="footer-support-link">[SUPPORT PROJECT ☕]</a>
-            </div>
+            <p>&copy; 2026 Convertify. 高速、安全、非公開。</p>
         </div>
     </footer>
 </body>
