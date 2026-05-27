@@ -39,17 +39,17 @@ body.light-theme {
     --accent-glow: rgba(124, 58, 237, 0.2);
     
     --card-bg: rgba(255, 255, 255, 0.75);
-    --card-border: rgba(255, 255, 255, 0.6);
+    --card-border: rgba(124, 58, 237, 0.22);
     --card-shadow: 0 20px 40px -15px rgba(124, 58, 237, 0.12);
     --slider-track: rgba(124, 58, 237, 0.18);
     
-    --dropzone-border: rgba(124, 58, 237, 0.3);
+    --dropzone-border: rgba(124, 58, 237, 0.45);
     --dropzone-border-hover: #db2777;
     --dropzone-bg: rgba(255, 255, 255, 0.45);
     --dropzone-bg-hover: rgba(124, 58, 237, 0.03);
 
     --header-bg: rgba(255, 255, 255, 0.65);
-    --header-border: rgba(255, 255, 255, 0.5);
+    --header-border: rgba(124, 58, 237, 0.18);
     
     --blob-color-1: rgba(124, 58, 237, 0.22);
     --blob-color-2: rgba(219, 39, 119, 0.18);
@@ -70,17 +70,17 @@ body.dark-theme {
     --accent-glow: rgba(167, 139, 250, 0.3);
     
     --card-bg: rgba(11, 15, 25, 0.65);
-    --card-border: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.16);
     --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     --slider-track: rgba(255, 255, 255, 0.18);
     
-    --dropzone-border: rgba(255, 255, 255, 0.12);
+    --dropzone-border: rgba(255, 255, 255, 0.25);
     --dropzone-border-hover: #a78bfa;
     --dropzone-bg: rgba(11, 15, 25, 0.35);
     --dropzone-bg-hover: rgba(167, 139, 250, 0.03);
 
     --header-bg: rgba(3, 7, 18, 0.75);
-    --header-border: rgba(255, 255, 255, 0.08);
+    --header-border: rgba(255, 255, 255, 0.15);
     
     --blob-color-1: rgba(139, 92, 246, 0.28);
     --blob-color-2: rgba(236, 72, 153, 0.2);
