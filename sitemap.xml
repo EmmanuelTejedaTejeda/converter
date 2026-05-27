@@ -345,4 +345,53 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/politica-privacidad/" />
     </url>
 
+    <!-- TERMS OF USE -->
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/terminos-uso/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/terminos-uso/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/terms-of-use/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/shiyong-tiaokuan/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/riyo-kiyaku/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/terminos-uso/" />
+    </url>
+
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/en/terms-of-use/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/terminos-uso/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/terms-of-use/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/shiyong-tiaokuan/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/riyo-kiyaku/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/terminos-uso/" />
+    </url>
+
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/shiyong-tiaokuan/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/terminos-uso/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/terms-of-use/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/shiyong-tiaokuan/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/riyo-kiyaku/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/terminos-uso/" />
+    </url>
+
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/ja/riyo-kiyaku/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/terminos-uso/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/terms-of-use/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/shiyong-tiaokuan/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/riyo-kiyaku/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/terminos-uso/" />
+    </url>
+
 </urlset>
