@@ -2,123 +2,207 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
     
+    <!-- HOME HUB -->
     <url>
         <loc>https://herramientas-imagen.pages.dev/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/" />
     </url>
 
     <url>
         <loc>https://herramientas-imagen.pages.dev/en/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/" />
     </url>
 
     <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/" />
+    </url>
+
+    <!-- JPG TO PNG -->
+    <url>
         <loc>https://herramientas-imagen.pages.dev/jpg-a-png/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/jpg-a-png/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/jpg-to-png/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/jpg-zhuan-png/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/jpg-a-png/" />
     </url>
 
     <url>
         <loc>https://herramientas-imagen.pages.dev/en/jpg-to-png/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/jpg-a-png/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/jpg-to-png/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/jpg-zhuan-png/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/jpg-a-png/" />
     </url>
 
     <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/jpg-zhuan-png/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/jpg-a-png/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/jpg-to-png/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/jpg-zhuan-png/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/jpg-a-png/" />
+    </url>
+
+    <!-- COMPRESS IMAGES -->
+    <url>
         <loc>https://herramientas-imagen.pages.dev/comprimir-imagenes/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/comprimir-imagenes/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/compress-images/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/yasuo-tupian/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/comprimir-imagenes/" />
     </url>
 
     <url>
         <loc>https://herramientas-imagen.pages.dev/en/compress-images/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/comprimir-imagenes/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/compress-images/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/yasuo-tupian/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/comprimir-imagenes/" />
     </url>
 
     <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/yasuo-tupian/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/comprimir-imagenes/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/compress-images/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/yasuo-tupian/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/comprimir-imagenes/" />
+    </url>
+
+    <!-- WEBP TO JPG -->
+    <url>
         <loc>https://herramientas-imagen.pages.dev/webp-a-jpg/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/webp-a-jpg/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/webp-to-jpg/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/webp-zhuan-jpg/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/webp-a-jpg/" />
     </url>
 
     <url>
         <loc>https://herramientas-imagen.pages.dev/en/webp-to-jpg/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/webp-a-jpg/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/webp-to-jpg/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/webp-zhuan-jpg/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/webp-a-jpg/" />
     </url>
 
     <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/webp-zhuan-jpg/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/webp-a-jpg/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/webp-to-jpg/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/webp-zhuan-jpg/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/webp-a-jpg/" />
+    </url>
+
+    <!-- IMAGES TO PDF -->
+    <url>
         <loc>https://herramientas-imagen.pages.dev/imagenes-a-pdf/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/imagenes-a-pdf/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/images-to-pdf/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/tupian-zhuan-pdf/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/imagenes-a-pdf/" />
     </url>
 
     <url>
         <loc>https://herramientas-imagen.pages.dev/en/images-to-pdf/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/imagenes-a-pdf/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/images-to-pdf/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/tupian-zhuan-pdf/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/imagenes-a-pdf/" />
     </url>
 
     <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/tupian-zhuan-pdf/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/imagenes-a-pdf/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/images-to-pdf/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/tupian-zhuan-pdf/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/imagenes-a-pdf/" />
+    </url>
+
+    <!-- RESIZE IMAGES -->
+    <url>
         <loc>https://herramientas-imagen.pages.dev/redimensionar-imagenes/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resize-images/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/tupian-tiaozheng-daxiao/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/" />
     </url>
 
     <url>
         <loc>https://herramientas-imagen.pages.dev/en/resize-images/</loc>
-        <lastmod>2026-05-26</lastmod>
+        <lastmod>2026-05-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resize-images/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/tupian-tiaozheng-daxiao/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/" />
+    </url>
+
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/tupian-tiaozheng-daxiao/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resize-images/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/tupian-tiaozheng-daxiao/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/" />
     </url>
 
