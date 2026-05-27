@@ -296,4 +296,53 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/" />
     </url>
 
+    <!-- PRIVACY POLICIES -->
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/politica-privacidad/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/politica-privacidad/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/privacy-policy/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/yinsi-zhengce/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/privacy-policy/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/politica-privacidad/" />
+    </url>
+
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/en/privacy-policy/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/politica-privacidad/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/privacy-policy/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/yinsi-zhengce/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/privacy-policy/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/politica-privacidad/" />
+    </url>
+
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/yinsi-zhengce/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/politica-privacidad/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/privacy-policy/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/yinsi-zhengce/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/privacy-policy/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/politica-privacidad/" />
+    </url>
+
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/ja/privacy-policy/</loc>
+        <lastmod>2026-05-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/politica-privacidad/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/privacy-policy/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/yinsi-zhengce/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/privacy-policy/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/politica-privacidad/" />
+    </url>
+
 </urlset>
