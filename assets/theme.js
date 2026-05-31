@@ -176,5 +176,235 @@
         }
     }
 
+    function setupGlobalSearch() {
+        const desktopInput = document.querySelector('.global-search-input');
+        const desktopDropdown = document.querySelector('.search-results-dropdown');
+        const mobileInput = document.querySelector('.mobile-search-input');
+        
+        if (!desktopInput && !mobileInput) return;
+
+        // 1. Build desktop search database from existing navbar menu items
+        let searchIndex = [];
+        const menuLinks = document.querySelectorAll('.nav-dropdown-menu a');
+        
+        menuLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            // Clean title text from SVG contents
+            let name = link.textContent.trim();
+            const keywords = link.getAttribute('data-keywords') || '';
+            
+            // Find category
+            const categoryEl = link.closest('.dropdown-category');
+            const category = categoryEl ? categoryEl.querySelector('h4').textContent.trim() : '';
+            
+            // Grab SVG markup if any
+            const svgEl = link.querySelector('svg');
+            const svgHtml = svgEl ? svgEl.outerHTML : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>`;
+            
+            searchIndex.push({
+                href,
+                name,
+                keywords: keywords.toLowerCase(),
+                category,
+                svgHtml
+            });
+        });
+
+        // 2. Desktop Search Behavior
+        if (desktopInput && desktopDropdown) {
+            let highlightedIndex = -1;
+            let currentMatches = [];
+
+            function renderMatches(matches) {
+                desktopDropdown.innerHTML = '';
+                currentMatches = matches;
+                highlightedIndex = -1;
+
+                if (matches.length === 0) {
+                    const noResultsText = desktopInput.getAttribute('data-no-results') || 'No results found';
+                    desktopDropdown.innerHTML = `<div class="search-no-results">${noResultsText}</div>`;
+                    desktopDropdown.classList.remove('hidden');
+                    return;
+                }
+
+                matches.forEach((match, index) => {
+                    const item = document.createElement('a');
+                    item.href = match.href;
+                    item.className = 'search-result-item';
+                    item.dataset.index = index;
+                    item.innerHTML = `
+                        ${match.svgHtml}
+                        <div class="result-info">
+                            <span class="result-name">${match.name}</span>
+                            <span class="result-category">${match.category}</span>
+                        </div>
+                    `;
+
+                    // Mouse interactions
+                    item.addEventListener('mouseenter', () => {
+                        highlightItem(index);
+                    });
+                    
+                    item.addEventListener('click', () => {
+                        if (typeof playPopSoundExternal === 'function') {
+                            playPopSoundExternal();
+                        }
+                    });
+
+                    desktopDropdown.appendChild(item);
+                });
+
+                desktopDropdown.classList.remove('hidden');
+            }
+
+            function highlightItem(index) {
+                const items = desktopDropdown.querySelectorAll('.search-result-item');
+                items.forEach(el => el.classList.remove('highlighted'));
+
+                if (index >= 0 && index < items.length) {
+                    items[index].classList.add('highlighted');
+                    highlightedIndex = index;
+                    // Ensure scrolled into view
+                    items[index].scrollIntoView({ block: 'nearest' });
+                } else {
+                    highlightedIndex = -1;
+                }
+            }
+
+            desktopInput.addEventListener('input', () => {
+                const query = desktopInput.value.trim().toLowerCase();
+                if (!query) {
+                    desktopDropdown.classList.add('hidden');
+                    desktopDropdown.innerHTML = '';
+                    currentMatches = [];
+                    highlightedIndex = -1;
+                    return;
+                }
+
+                // Filter matching tools
+                const matches = searchIndex.filter(item => {
+                    return item.name.toLowerCase().includes(query) || item.keywords.includes(query);
+                });
+
+                renderMatches(matches.slice(0, 8)); // Limit to top 8
+            });
+
+            desktopInput.addEventListener('focus', () => {
+                const query = desktopInput.value.trim();
+                if (query) {
+                    desktopInput.dispatchEvent(new Event('input'));
+                }
+            });
+
+            // Keyboard navigation on input
+            desktopInput.addEventListener('keydown', (e) => {
+                const items = desktopDropdown.querySelectorAll('.search-result-item');
+                if (desktopDropdown.classList.contains('hidden') || items.length === 0) return;
+
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    let nextIndex = highlightedIndex + 1;
+                    if (nextIndex >= currentMatches.length) nextIndex = 0;
+                    highlightItem(nextIndex);
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    let prevIndex = highlightedIndex - 1;
+                    if (prevIndex < 0) prevIndex = currentMatches.length - 1;
+                    highlightItem(prevIndex);
+                } else if (e.key === 'Enter') {
+                    if (highlightedIndex >= 0 && highlightedIndex < currentMatches.length) {
+                        e.preventDefault();
+                        if (typeof playPopSoundExternal === 'function') {
+                            playPopSoundExternal();
+                        }
+                        window.location.href = currentMatches[highlightedIndex].href;
+                    }
+                } else if (e.key === 'Escape') {
+                    desktopDropdown.classList.add('hidden');
+                    desktopInput.blur();
+                }
+            });
+
+            // Close dropdown clicking outside
+            document.addEventListener('click', (e) => {
+                if (!desktopInput.contains(e.target) && !desktopDropdown.contains(e.target)) {
+                    desktopDropdown.classList.add('hidden');
+                }
+            });
+        }
+
+        // 3. Mobile Live Search Behavior in Drawer
+        if (mobileInput) {
+            mobileInput.addEventListener('input', () => {
+                const query = mobileInput.value.trim().toLowerCase();
+                const categories = document.querySelectorAll('.mobile-category');
+                
+                categories.forEach(cat => {
+                    const links = cat.querySelectorAll('.mobile-links-grid a');
+                    let visibleCount = 0;
+
+                    links.forEach(link => {
+                        const name = link.textContent.trim().toLowerCase();
+                        const keywords = (link.getAttribute('data-keywords') || '').toLowerCase();
+
+                        if (!query || name.includes(query) || keywords.includes(query)) {
+                            link.style.display = '';
+                            visibleCount++;
+                        } else {
+                            link.style.display = 'none';
+                        }
+                    });
+
+                    // Hide category if no links match
+                    if (query && visibleCount === 0) {
+                        cat.style.display = 'none';
+                    } else {
+                        cat.style.display = '';
+                    }
+                });
+            });
+        }
+
+        // 4. Global Keyboard Shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ignore if user is already typing in an input/textarea
+            const activeTag = document.activeElement.tagName.toLowerCase();
+            if (activeTag === 'input' || activeTag === 'textarea' || document.activeElement.isContentEditable) {
+                return;
+            }
+
+            // Keyboard shortcut '/' focuses search input
+            if (e.key === '/') {
+                e.preventDefault();
+                if (desktopInput) {
+                    desktopInput.focus();
+                    desktopInput.select();
+                }
+            }
+
+            // Keyboard shortcut Ctrl+K or Cmd+K focuses search input
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                if (desktopInput) {
+                    desktopInput.focus();
+                    desktopInput.select();
+                }
+            }
+        });
+    }
+
+    function initTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const theme = savedTheme || getSystemTheme();
+        document.documentElement.className = theme + '-theme';
+        // Also apply to body once it's parsed (fallback)
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.className = theme + '-theme';
+            setupThemeToggler();
+            setupMobileMenu();
+            setupGlobalSearch();
+        });
+    }
+
     initTheme();
 })();

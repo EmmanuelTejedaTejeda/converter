@@ -2185,3 +2185,201 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
         padding: 0.75rem 1.5rem;
     }
 }
+
+/* ==========================================================================
+   Global Search Bar component (Convertify)
+   ========================================================================== */
+.header-search {
+    position: relative;
+    width: 200px;
+    transition: width var(--transition-normal);
+}
+
+.header-search:focus-within {
+    width: 280px;
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input-wrapper .search-icon {
+    position: absolute;
+    left: 0.75rem;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: color var(--transition-fast);
+}
+
+.global-search-input {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    background-color: var(--card-bg);
+    border: 1px solid var(--header-border);
+    padding: 0.5rem 2.2rem 0.5rem 2rem;
+    border-radius: 10px;
+    outline: none;
+    transition: all var(--transition-normal);
+}
+
+.global-search-input:focus {
+    background-color: var(--bg-primary);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.global-search-input:focus + .search-shortcut {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.search-input-wrapper:hover .search-icon {
+    color: var(--text-secondary);
+}
+
+.global-search-input:focus ~ .search-icon {
+    color: var(--accent-primary);
+}
+
+.search-shortcut {
+    position: absolute;
+    right: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--header-border);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    pointer-events: none;
+    transition: all var(--transition-fast);
+}
+
+/* Dropdown de resultados de búsqueda */
+.search-results-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 320px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--header-border);
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    padding: 0.5rem;
+    max-height: 380px;
+    overflow-y: auto;
+    z-index: 110;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    animation: slideDownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.search-results-dropdown.hidden {
+    display: none;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.search-result-item svg {
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.search-result-item .result-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.search-result-item .result-name {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.search-result-item .result-category {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.1rem;
+}
+
+.search-result-item:hover, .search-result-item.highlighted {
+    background-color: var(--accent-soft);
+    color: var(--accent-primary);
+}
+
+.search-result-item:hover svg, .search-result-item.highlighted svg {
+    color: var(--accent-primary);
+}
+
+.search-no-results {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* Animaciones */
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos de búsqueda en Mobile Drawer */
+.mobile-nav-search {
+    margin-bottom: 1.25rem;
+    width: 100%;
+}
+
+.mobile-nav-search .search-input-wrapper {
+    width: 100%;
+}
+
+.mobile-search-input {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    background-color: var(--card-bg);
+    border: 1px solid var(--header-border);
+    padding: 0.6rem 2.2rem 0.6rem 2.2rem;
+    border-radius: 10px;
+    outline: none;
+    transition: all var(--transition-normal);
+}
+
+.mobile-search-input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.mobile-nav-search .search-icon {
+    left: 0.8rem;
+}
