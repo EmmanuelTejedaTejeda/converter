@@ -100,17 +100,7 @@
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
 
-    function initTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        const theme = savedTheme || getSystemTheme();
-        document.documentElement.className = theme + '-theme';
-        // Also apply to body once it's parsed (fallback)
-        document.addEventListener('DOMContentLoaded', () => {
-            document.body.className = theme + '-theme';
-            setupThemeToggler();
-            setupMobileMenu();
-        });
-    }
+
 
     function setupMobileMenu() {
         const hamburgerBtn = document.querySelector('.hamburger-menu-btn');
