@@ -248,25 +248,33 @@
                 <p class="hero-subtitle">お使いのデバイス上で写真を安全かつ100%非公開で任意のフォーマットに変換する万能ツールです。</p>
             </section>
 
-            <section class="dropzone-section">
-                <div id="dropzone" class="dropzone-card">
-                    <input type="file" id="file-input" class="file-input" multiple>
-                    <div class="dropzone-visual">
-                        <div class="dropzone-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="17 8 12 3 7 8"></polyline>
-                                <line x1="12" y1="3" x2="12" y2="15"></line>
+            <section class="converter-card">
+                <!-- Dropzone -->
+                <div id="drop-zone" class="drop-zone">
+                    <input type="file" id="file-input" class="file-input" accept="image/*" multiple>
+                    <div class="drop-zone-content">
+                        <div class="drop-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L13 16M17 20L21 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <p class="dropzone-instruction">ここに画像をドラッグするかクリックしてください</p>
-                        <p class="dropzone-subtext">対応フォーマット：JPG, JPEG, PNG, WEBP, GIF, BMP, SVG</p>
+                        <h3 class="drop-title">ここに画像をドラッグするかクリックしてください</h3>
+                        <p class="drop-text">対応フォーマット：JPG, JPEG, PNG, WEBP, GIF, BMP, SVG</p>
+                        <span class="drop-badge">一括ファイル選択対応</span>
                     </div>
                 </div>
-            </section>
 
-            <!-- Área de configuración específica para cada herramienta -->
-            
+                <!-- Privacy Tip -->
+                <div class="privacy-notice">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 11L11 13L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>写真は100%安全です。常にスマートフォンやPC内に残り、あなた以外の誰も見ることはできません。</span>
+                </div>
+
+                <!-- Área de configuración específica para cada herramienta -->
+                
             <section id="format-select-section" class="settings-section hidden" style="margin-top: 1.5rem; margin-bottom: 1rem;">
                 <div class="privacy-card">
                     <label style="font-weight:600; display:block; margin-bottom:0.5rem;">すべてのファイルを以下に変換：</label>
@@ -280,18 +288,97 @@
             </section>
             
 
-            <section id="file-list-container" class="file-list-container hidden">
-                <div class="file-list-header">
-                    <h3>[選択されたファイル]</h3>
-                    <div class="batch-actions">
-                        <button id="clear-all-btn" class="secondary-button">すべてクリア</button>
+                <!-- File List Container -->
+                <div id="file-list-container" class="file-list-container hidden">
+                    <div class="list-header">
+                        <h4>読み込まれたファイル (<span id="file-count">0</span>) 👇</h4>
+                        <div class="list-actions">
+                            <button id="convert-all-btn" class="btn btn-primary btn-sm">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="23 4 23 10 17 10"></polyline>
+                                    <polyline points="1 20 1 14 7 14"></polyline>
+                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                                </svg>
+                                一括変換
+                            </button>
+                            <button id="download-all-btn" class="btn btn-secondary btn-sm disabled" disabled>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                一括ダウンロード
+                            </button>
+                            <button id="clear-all-btn" class="btn btn-danger-outline btn-sm">
+                                リストをクリア
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="file-list" class="file-list">
+                        <!-- Cards will be dynamically inserted here -->
                     </div>
                 </div>
-                <div id="file-list" class="file-list"></div>
-                <div class="action-footer">
-                    <button id="process-btn" class="primary-button">処理を開始する</button>
-                </div>
             </section>
+
+            <!-- Bloque de publicidad minimalista integrado (estilo editorial) -->
+            <div class="ad-container-minimal">
+                <a href="https://ethicalads.io" target="_blank" rel="noopener noreferrer" class="ad-link">
+                    <span class="ad-badge">[スポンサー]</span>
+                    <div class="ad-body">
+                        <span class="ad-text">画質を損なわずに写真を圧縮したいですか？画像圧縮ツールをお試しください。</span>
+                        <span class="ad-cta">今すぐ試す &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Features Info -->
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                </div>
+                <h3>瞬時に変換</h3>
+                <p>待ち時間はありません。写真はアップロード不要で即座に変換され、すぐにダウンロードできます。</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+                <h3>100%安全</h3>
+                <p>写真がお使いのデバイスから送信されることはありません。すべての変換はブラウザ内でローカルに行われます。</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                    </svg>
+                </div>
+                <h3>完璧な画質</h3>
+                <p>元の画像の鮮明さ、色合い、詳細を100%維持します。ダウンロードしてすぐに共有できます。</p>
+            </div>
+        </section>
+
+        <!-- Contenido SEO On-Page: Guía y FAQs -->
+        <section class="seo-content-section">
+            <div class="seo-block">
+                <h2>無料で素早く 万能画像変換ツール を使用する方法</h2>
+                <p>当ツールを使えば、写真のフォーマット変更や編集は極めて簡単です。以下の3つの基本手順に従ってください：</p>
+                <ol class="seo-steps-list">
+                    <li><strong>ファイルをアップロード：</strong> 画像を上部のボックスに直接ドラッグ＆ドロップするか、クリックしてファイルを選択します。</li>
+                    <li><strong>ワンクリックで処理：</strong> 各ファイル個別のアクションボタンをクリックするか、一括処理ボタンをクリックして同時に実行します。</li>
+                    <li><strong>結果を保存：</strong> 各ファイルの保存・ダウンロードボタンをクリックして保存します。100%ローカルで自動的に行われます！</li>
+                </ol>
+            </div>
 
             
             <section class="faq-section" style="margin-top: 3rem;">
@@ -308,7 +395,26 @@
                 </div>
             </section>
     
-        </div>
+        </section>
+
+        <!-- Recursos Recomendados / Afiliados Adicionales -->
+        <section class="resources-section">
+            <h4 class="resources-title">[おすすめのリソース]</h4>
+            <div class="resources-list">
+                <a href="https://partner.canva.com" target="_blank" rel="noopener noreferrer" class="resource-item">
+                    <span class="resource-name">Canva Pro</span>
+                    <span class="resource-desc">変換した画像を使って素晴らしいデザインを作成しましょう。無料体験あり。</span>
+                </a>
+                <a href="https://hostinger.com" target="_blank" rel="noopener noreferrer" class="resource-item">
+                    <span class="resource-name">プレミアムホスティング</span>
+                    <span class="resource-desc">独自のウェブサイトを立ち上げるための高速かつ手頃なホスティングプラン。</span>
+                </a>
+                <a href="https://fiverr.com" target="_blank" rel="noopener noreferrer" class="resource-item">
+                    <span class="resource-name">プロの写真レタッチ</span>
+                    <span class="resource-desc">わずか5ドルからプロのグラフィックデザイナーに写真レタッチを依頼できます。</span>
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer class="app-footer-bar">
@@ -349,6 +455,7 @@
             </div>
             
             <div class="file-status-group">
+                <!-- Status badges: pending, converting, done, error -->
                 <span class="status-badge badge-pending">待機中</span>
                 
                 <div class="file-progress-wrapper hidden">

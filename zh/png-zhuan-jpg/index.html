@@ -248,38 +248,125 @@
                 <p class="hero-subtitle">极速本地处理。您的PNG图片将在您的设备上直接转换为JPG。</p>
             </section>
 
-            <section class="dropzone-section">
-                <div id="dropzone" class="dropzone-card">
-                    <input type="file" id="file-input" class="file-input" multiple>
-                    <div class="dropzone-visual">
-                        <div class="dropzone-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="17 8 12 3 7 8"></polyline>
-                                <line x1="12" y1="3" x2="12" y2="15"></line>
+            <section class="converter-card">
+                <!-- Dropzone -->
+                <div id="drop-zone" class="drop-zone">
+                    <input type="file" id="file-input" class="file-input" accept="image/png" multiple>
+                    <div class="drop-zone-content">
+                        <div class="drop-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L13 16M17 20L21 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <p class="dropzone-instruction">拖放您的PNG图片至此或点击选择</p>
-                        <p class="dropzone-subtext">支持的格式：PNG</p>
+                        <h3 class="drop-title">拖放您的PNG图片至此或点击选择</h3>
+                        <p class="drop-text">支持的格式：PNG</p>
+                        <span class="drop-badge">支持多文件处理</span>
+                    </div>
+                </div>
+
+                <!-- Privacy Tip -->
+                <div class="privacy-notice">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 11L11 13L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>您的照片100%安全。它们始终保留在您的手机或电脑上，除了您之外没有人能够看到它们。</span>
+                </div>
+
+                <!-- Área de configuración específica para cada herramienta -->
+                
+
+                <!-- File List Container -->
+                <div id="file-list-container" class="file-list-container hidden">
+                    <div class="list-header">
+                        <h4>已加载文件 (<span id="file-count">0</span>) 👇</h4>
+                        <div class="list-actions">
+                            <button id="convert-all-btn" class="btn btn-primary btn-sm">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="23 4 23 10 17 10"></polyline>
+                                    <polyline points="1 20 1 14 7 14"></polyline>
+                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                                </svg>
+                                全部转换
+                            </button>
+                            <button id="download-all-btn" class="btn btn-secondary btn-sm disabled" disabled>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                全部下载
+                            </button>
+                            <button id="clear-all-btn" class="btn btn-danger-outline btn-sm">
+                                清除列表
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="file-list" class="file-list">
+                        <!-- Cards will be dynamically inserted here -->
                     </div>
                 </div>
             </section>
 
-            <!-- Área de configuración específica para cada herramienta -->
+            <!-- Bloque de publicidad minimalista integrado (estilo editorial) -->
+            <div class="ad-container-minimal">
+                <a href="https://ethicalads.io" target="_blank" rel="noopener noreferrer" class="ad-link">
+                    <span class="ad-badge">[赞助]</span>
+                    <div class="ad-body">
+                        <span class="ad-text">想在不损失画质的情况下压缩照片大小吗？试试我们的姐妹工具。</span>
+                        <span class="ad-cta">立即体验 &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Features Info -->
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                </div>
+                <h3>瞬间转换</h3>
+                <p>无需等待。您的照片将即时转换，并可立即保存。</p>
+            </div>
             
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+                <h3>100%安全</h3>
+                <p>您的照片永远不会离开您的设备。整个转换过程100%在您的浏览器本地进行。</p>
+            </div>
 
-            <section id="file-list-container" class="file-list-container hidden">
-                <div class="file-list-header">
-                    <h3>[已选文件]</h3>
-                    <div class="batch-actions">
-                        <button id="clear-all-btn" class="secondary-button">清除全部</button>
-                    </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                    </svg>
                 </div>
-                <div id="file-list" class="file-list"></div>
-                <div class="action-footer">
-                    <button id="process-btn" class="primary-button">开始处理</button>
-                </div>
-            </section>
+                <h3>画质完美</h3>
+                <p>100%保留您原始文件的清晰度、颜色和细节。即可下载与分享。</p>
+            </div>
+        </section>
+
+        <!-- Contenido SEO On-Page: Guía y FAQs -->
+        <section class="seo-content-section">
+            <div class="seo-block">
+                <h2>如何免费快速地使用 PNG转JPG</h2>
+                <p>使用我们的工具更改照片格式或编辑非常简单。只需遵循以下三个基本步骤：</p>
+                <ol class="seo-steps-list">
+                    <li><strong>上传文件：</strong> 将您的图片直接拖拽到上方的框中，或点击浏览文件夹选择文件。</li>
+                    <li><strong>一键处理：</strong> 点击每张照片旁的转换/处理按钮，或点击批量处理按钮以同时处理所有图片。</li>
+                    <li><strong>保存结果：</strong> 点击每个文件旁的保存/下载按钮，将其下载到您的电脑或手机中。100%本地且自动！</li>
+                </ol>
+            </div>
 
             
             <section class="faq-section" style="margin-top: 3rem;">
@@ -306,7 +393,26 @@
                 </div>
             </section>
     
-        </div>
+        </section>
+
+        <!-- Recursos Recomendados / Afiliados Adicionales -->
+        <section class="resources-section">
+            <h4 class="resources-title">[推荐资源]</h4>
+            <div class="resources-list">
+                <a href="https://partner.canva.com" target="_blank" rel="noopener noreferrer" class="resource-item">
+                    <span class="resource-name">Canva Pro</span>
+                    <span class="resource-desc">使用您转换后的图片创建精美设计。免费试用。</span>
+                </a>
+                <a href="https://hostinger.com" target="_blank" rel="noopener noreferrer" class="resource-item">
+                    <span class="resource-name">高级主机服务</span>
+                    <span class="resource-desc">发布您的网站的最快速、最经济的主机。</span>
+                </a>
+                <a href="https://fiverr.com" target="_blank" rel="noopener noreferrer" class="resource-item">
+                    <span class="resource-name">专业图片精修</span>
+                    <span class="resource-desc">聘请专业的平面设计师为您精修照片，价格低至 5 美元起。</span>
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer class="app-footer-bar">
@@ -347,6 +453,7 @@
             </div>
             
             <div class="file-status-group">
+                <!-- Status badges: pending, converting, done, error -->
                 <span class="status-badge badge-pending">等待中</span>
                 
                 <div class="file-progress-wrapper hidden">

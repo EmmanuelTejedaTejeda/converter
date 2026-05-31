@@ -5,12 +5,17 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
-    const dropZone = document.getElementById('dropzone');
+    const dropZone = document.getElementById('drop-zone');
     const fileInput = document.getElementById('file-input');
     const fileListContainer = document.getElementById('file-list-container');
     const fileList = document.getElementById('file-list');
+    const fileCountSpan = document.getElementById('file-count');
+    const convertAllBtn = document.getElementById('convert-all-btn');
+    const downloadAllBtn = document.getElementById('download-all-btn');
     const clearAllBtn = document.getElementById('clear-all-btn');
-    const processBtn = document.getElementById('process-btn');
+    const soundToggle = document.getElementById('sound-toggle');
+    const statsCounter = document.getElementById('stats-counter');
+    const statsNumber = document.getElementById('stats-number');
     const fileCardTemplate = document.getElementById('file-card-template');
     const thankYouModal = document.getElementById('thank-you-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
@@ -26,7 +31,56 @@ document.addEventListener('DOMContentLoaded', () => {
     // Audio State
     let audioCtx = null;
     let soundEnabled = localStorage.getItem('soundEnabled') !== 'false';
+    
+    // Statistics State
     let totalConverted = parseInt(localStorage.getItem('totalConverted') || '0', 10);
+
+    function initSoundToggle() {
+        const volumeOnIcon = soundToggle.querySelector('.volume-on-icon');
+        const volumeOffIcon = soundToggle.querySelector('.volume-off-icon');
+
+        function updateSoundToggleUI() {
+            if (soundEnabled) {
+                if (volumeOnIcon) volumeOnIcon.classList.remove('hidden');
+                if (volumeOffIcon) volumeOffIcon.classList.add('hidden');
+                soundToggle.title = isEnglish ? 'Mute sound' : 'Desactivar sonido';
+            } else {
+                if (volumeOnIcon) volumeOnIcon.classList.add('hidden');
+                if (volumeOffIcon) volumeOffIcon.classList.remove('hidden');
+                soundToggle.title = isEnglish ? 'Enable sound' : 'Activar sonido';
+            }
+        }
+
+        soundToggle.addEventListener('click', () => {
+            soundEnabled = !soundEnabled;
+            localStorage.setItem('soundEnabled', soundEnabled);
+            updateSoundToggleUI();
+            if (soundEnabled) {
+                playPopSound();
+            }
+        });
+
+        updateSoundToggleUI();
+    }
+
+    if (soundToggle) {
+        initSoundToggle();
+    }
+
+    function updateStatsUI(animate = false) {
+        if (!statsNumber || !statsCounter) return;
+        statsNumber.textContent = totalConverted;
+        if (animate) {
+            statsCounter.classList.add('bump');
+            setTimeout(() => {
+                statsCounter.classList.remove('bump');
+            }, 300);
+        }
+    }
+    
+    if (statsCounter) {
+        updateStatsUI();
+    }
 
     function initAudioContext() {
         if (!audioCtx) {
@@ -86,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function incrementConvertedStats() {
         totalConverted++;
         localStorage.setItem('totalConverted', totalConverted);
+        updateStatsUI(true);
     }
 
     function triggerConfetti(targetElement) {
@@ -271,6 +326,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateListVisibility() {
+        if (fileCountSpan) {
+            fileCountSpan.textContent = filesArray.length;
+        }
         if (filesArray.length > 0) {
             fileListContainer.classList.remove('hidden');
         } else {
@@ -281,11 +339,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateGlobalActionButtons() {
         const hasPending = filesArray.some(f => f.status === 'pending');
-        processBtn.disabled = !hasPending;
-        if (hasPending) {
-            processBtn.classList.remove('disabled');
-        } else {
-            processBtn.classList.add('disabled');
+        const hasDone = filesArray.some(f => f.status === 'done');
+        
+        if (convertAllBtn) {
+            convertAllBtn.disabled = !hasPending;
+            if (hasPending) {
+                convertAllBtn.classList.remove('disabled');
+            } else {
+                convertAllBtn.classList.add('disabled');
+            }
+        }
+        
+        if (downloadAllBtn) {
+            downloadAllBtn.disabled = !hasDone;
+            if (hasDone) {
+                downloadAllBtn.classList.remove('disabled');
+            } else {
+                downloadAllBtn.classList.add('disabled');
+            }
         }
     }
 
@@ -431,12 +502,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (processBtn) {
-        processBtn.addEventListener('click', () => {
+        if (convertAllBtn) {
+        convertAllBtn.addEventListener('click', () => {
             const pending = filesArray.filter(f => f.status === 'pending');
             if (pending.length > 0) {
                 playPopSound();
                 pending.forEach(f => convertSvgToPng(f));
+            }
+        });
+    }
+
+    if (downloadAllBtn) {
+        downloadAllBtn.addEventListener('click', () => {
+            const doneFiles = filesArray.filter(f => f.status === 'done' && f.convertedBlobUrl);
+            if (doneFiles.length > 0) {
+                playPopSound();
+                let delay = 0;
+                doneFiles.forEach(fileWrapper => {
+                    setTimeout(() => {
+                        const a = document.createElement('a');
+                        a.href = fileWrapper.convertedBlobUrl;
+                        a.download = fileWrapper.convertedBlobName;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                    }, delay);
+                    delay += 300;
+                });
+                setTimeout(() => {
+                    showThankYouModal();
+                }, delay + 100);
             }
         });
     }
