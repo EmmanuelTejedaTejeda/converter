@@ -108,7 +108,49 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.body.className = theme + '-theme';
             setupThemeToggler();
+            setupMobileMenu();
         });
+    }
+
+    function setupMobileMenu() {
+        const hamburgerBtn = document.querySelector('.hamburger-menu-btn');
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (typeof playPopSoundExternal === 'function') {
+                    playPopSoundExternal();
+                }
+                const body = document.body;
+                const isOpen = body.classList.contains('mobile-menu-open');
+                if (isOpen) {
+                    body.classList.remove('mobile-menu-open');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                } else {
+                    body.classList.add('mobile-menu-open');
+                    hamburgerBtn.setAttribute('aria-expanded', 'true');
+                }
+            });
+            
+            // Close mobile menu when clicking on links inside the drawer
+            const drawerLinks = document.querySelectorAll('.mobile-links-grid a');
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    document.body.classList.remove('mobile-menu-open');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+            
+            // Close mobile menu when clicking outside of header
+            document.addEventListener('click', (e) => {
+                if (document.body.classList.contains('mobile-menu-open')) {
+                    const header = document.querySelector('.app-header');
+                    if (header && !header.contains(e.target)) {
+                        document.body.classList.remove('mobile-menu-open');
+                        hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        }
     }
 
     function setupThemeToggler() {
