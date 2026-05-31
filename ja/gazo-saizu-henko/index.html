@@ -42,11 +42,50 @@
                 <span class="logo-text">Convertify</span>
             </a>
             <nav class="header-nav">
-                <a href="../gazo-asshuku/" class="nav-link">画像圧縮</a>
-                <a href="../gazo-saizu-henko/" class="nav-link active">画像サイズ変更</a>
-                <a href="../jpg-png-henkan/" class="nav-link">JPGからPNGへ</a>
-                <a href="../webp-jpg-henkan/" class="nav-link">WebPからJPGへ</a>
-                <a href="../gazo-pdf-henkan/" class="nav-link">画像をPDFに</a>
+                <!-- Dropdown de Herramientas (Desktop Only) -->
+                <div class="nav-dropdown desktop-nav-only">
+                    <button class="nav-dropdown-trigger">
+                        ツール
+                        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <div class="dropdown-category">
+                            <h4>[変換]</h4>
+                            <a href="../../jpg-a-png/">JPGからPNGへ</a>
+                            <a href="../../png-a-jpg/">PNGからJPGへ</a>
+                            <a href="../../webp-a-jpg/">WebPからJPGへ</a>
+                            <a href="../../webp-a-png/">WebPからPNGへ</a>
+                            <a href="../../convertir-a-webp/">WebPに変換</a>
+                            <a href="../../svg-a-imagen/">SVGから画像へ</a>
+                            <a href="../../convertidor-universal/">万能画像変換ツール</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4>[圧縮・リサイズ]</h4>
+                            <a href="../../comprimir-imagenes/">画像圧縮</a>
+                            <a href="../../redimensionar-imagenes/">画像サイズ変更</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4>[画像編集]</h4>
+                            <a href="../../recortar-imagen/">画像切り抜き</a>
+                            <a href="../../rotar-imagen/">画像回転・反転</a>
+                            <a href="../../generador-favicon/">Favicon / ICO</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4>[ドキュメント]</h4>
+                            <a href="../../imagenes-a-pdf/">画像をPDFに</a>
+                            <a href="../../pdf-a-imagenes/">PDFから画像へ</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enlaces Directos en Móvil (Mobile Only Scrollable) -->
+                <a href="../../comprimir-imagenes/" class="nav-link mobile-nav-only">画像圧縮</a>
+                <a href="../../redimensionar-imagenes/" class="nav-link mobile-nav-only">画像サイズ変更</a>
+                <a href="../../jpg-a-png/" class="nav-link mobile-nav-only">JPG/PNG</a>
+                <a href="../../imagenes-a-pdf/" class="nav-link mobile-nav-only">PDF</a>
+                <a href="../../convertidor-universal/" class="nav-link mobile-nav-only">万能変換</a>
             </nav>
             <div class="header-actions">
                 <div class="stats-counter" id="stats-counter" title="セッション内で安全に処理された画像">

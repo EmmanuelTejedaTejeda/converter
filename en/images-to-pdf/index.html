@@ -42,11 +42,50 @@
                 <span class="logo-text">Convertify</span>
             </a>
             <nav class="header-nav">
-                <a href="../compress-images/" class="nav-link">Compress</a>
-                <a href="../resize-images/" class="nav-link">Resize</a>
-                <a href="../jpg-to-png/" class="nav-link">JPG to PNG</a>
-                <a href="../webp-to-jpg/" class="nav-link">WebP to JPG</a>
-                <a href="../images-to-pdf/" class="nav-link active">Images to PDF</a>
+                <!-- Dropdown de Herramientas (Desktop Only) -->
+                <div class="nav-dropdown desktop-nav-only">
+                    <button class="nav-dropdown-trigger">
+                        Tools
+                        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <div class="dropdown-category">
+                            <h4>[CONVERT]</h4>
+                            <a href="../../jpg-a-png/">JPG to PNG</a>
+                            <a href="../../png-a-jpg/">PNG to JPG</a>
+                            <a href="../../webp-a-jpg/">WebP to JPG</a>
+                            <a href="../../webp-a-png/">WebP to PNG</a>
+                            <a href="../../convertir-a-webp/">Convert to WebP</a>
+                            <a href="../../svg-a-imagen/">SVG to Image</a>
+                            <a href="../../convertidor-universal/">Universal Converter</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4>[OPTIMIZE]</h4>
+                            <a href="../../comprimir-imagenes/">Compress</a>
+                            <a href="../../redimensionar-imagenes/">Resize</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4>[EDIT]</h4>
+                            <a href="../../recortar-imagen/">Crop Image</a>
+                            <a href="../../rotar-imagen/">Rotate & Flip</a>
+                            <a href="../../generador-favicon/">Favicon / ICO</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4>[DOCUMENTS]</h4>
+                            <a href="../../imagenes-a-pdf/">Images to PDF</a>
+                            <a href="../../pdf-a-imagenes/">PDF to Images</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enlaces Directos en Móvil (Mobile Only Scrollable) -->
+                <a href="../../comprimir-imagenes/" class="nav-link mobile-nav-only">Compress</a>
+                <a href="../../redimensionar-imagenes/" class="nav-link mobile-nav-only">Resize</a>
+                <a href="../../jpg-a-png/" class="nav-link mobile-nav-only">JPG/PNG</a>
+                <a href="../../imagenes-a-pdf/" class="nav-link mobile-nav-only">PDF</a>
+                <a href="../../convertidor-universal/" class="nav-link mobile-nav-only">Universal</a>
             </nav>
             <div class="header-actions">
                 <div class="stats-counter" id="stats-counter" title="Files converted securely in this session">

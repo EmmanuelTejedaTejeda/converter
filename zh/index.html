@@ -42,11 +42,50 @@
                 <span class="logo-text">Convertify</span>
             </a>
             <nav class="header-nav">
-                <a href="./yasuo-tupian/" class="nav-link">压缩图片</a>
-                <a href="./tupian-tiaozheng-daxiao/" class="nav-link">调整图片大小</a>
-                <a href="./jpg-zhuan-png/" class="nav-link">JPG转PNG</a>
-                <a href="./webp-zhuan-jpg/" class="nav-link">WebP转JPG</a>
-                <a href="./tupian-zhuan-pdf/" class="nav-link">图片转PDF</a>
+                <!-- Dropdown de Herramientas (Desktop Only) -->
+                <div class="nav-dropdown desktop-nav-only">
+                    <button class="nav-dropdown-trigger">
+                        工具
+                        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <div class="dropdown-category">
+                            <h4>[转换格式]</h4>
+                            <a href="../jpg-a-png/">JPG转PNG</a>
+                            <a href="../png-a-jpg/">PNG转JPG</a>
+                            <a href="../webp-a-jpg/">WebP转JPG</a>
+                            <a href="../webp-a-png/">WebP转PNG</a>
+                            <a href="../convertir-a-webp/">转换至WebP</a>
+                            <a href="../svg-a-imagen/">SVG转图片</a>
+                            <a href="../convertidor-universal/">万能图片转换器</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4>[尺寸重量]</h4>
+                            <a href="../comprimir-imagenes/">压缩图片</a>
+                            <a href="../redimensionar-imagenes/">调整大小</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4>[便捷编辑]</h4>
+                            <a href="../recortar-imagen/">裁剪图片</a>
+                            <a href="../rotar-imagen/">旋转和镜像</a>
+                            <a href="../generador-favicon/">Favicon / ICO</a>
+                        </div>
+                        <div class="dropdown-category">
+                            <h4>[文档工具]</h4>
+                            <a href="../imagenes-a-pdf/">图片转PDF</a>
+                            <a href="../pdf-a-imagenes/">PDF转图片</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enlaces Directos en Móvil (Mobile Only Scrollable) -->
+                <a href="../comprimir-imagenes/" class="nav-link mobile-nav-only">压缩图片</a>
+                <a href="../redimensionar-imagenes/" class="nav-link mobile-nav-only">调整大小</a>
+                <a href="../jpg-a-png/" class="nav-link mobile-nav-only">JPG/PNG</a>
+                <a href="../imagenes-a-pdf/" class="nav-link mobile-nav-only">PDF</a>
+                <a href="../convertidor-universal/" class="nav-link mobile-nav-only">万能转换</a>
             </nav>
             <div class="header-actions">
                 <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">
@@ -82,12 +121,12 @@
                     <h2>[可用工具]</h2>
                 </div>
                 
-                <div class="tools-grid">
-                    <!-- Tool: JPG to PNG -->
+                                <div class="tools-grid">
+                    <!-- JPG to PNG Tool -->
                     <a href="jpg-zhuan-png/index.html" class="tool-card-item">
                         <div class="tool-info">
                             <div class="tool-card-header">
-                                <span class="tool-status-tag">[活跃]</span>
+                                <span class="tool-status-tag">[使用中]</span>
                                 <span class="tool-action-arrow">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -95,6 +134,232 @@
                                     </svg>
                                 </span>
                             </div>
+                            <h3>JPG转PNG</h3>
+                            <p>在本地快速将JPG照片转换为高质量的PNG格式。</p>
+                        </div>
+                    </a>
+
+                    <!-- PNG to JPG Tool -->
+                    <a href="png-zhuan-jpg/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>PNG转JPG</h3>
+                            <p>快速将PNG图片转换为JPG格式，同时保留原图画质。</p>
+                        </div>
+                    </a>
+
+                    <!-- WebP to JPG Tool -->
+                    <a href="webp-zhuan-jpg/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>WebP转JPG</h3>
+                            <p>安全快速地在本地将WebP格式转换为通用JPG格式。</p>
+                        </div>
+                    </a>
+
+                    <!-- WebP to PNG Tool -->
+                    <a href="webp-zhuan-png/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>WebP转PNG</h3>
+                            <p>将WebP图片转换为PNG格式，同时保留透明通道。</p>
+                        </div>
+                    </a>
+
+                    <!-- Convert to WebP Tool -->
+                    <a href="zhuan-webp/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>图片转WebP</h3>
+                            <p>将照片转换为现代WebP格式，以加快网页的加载速度。</p>
+                        </div>
+                    </a>
+
+                    <!-- SVG to Image Tool -->
+                    <a href="svg-zhuan-tupian/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>SVG转图片</h3>
+                            <p>将SVG矢量文件渲染为任意自定义分辨率的PNG或JPG图片。</p>
+                        </div>
+                    </a>
+
+                    <!-- Universal Converter Tool -->
+                    <a href="wanneng-zhuanhuanqi/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>万能图片转换器</h3>
+                            <p>一站式本地图片转换工具，支持多种格式安全互转。</p>
+                        </div>
+                    </a>
+
+                    <!-- Compress Images Tool -->
+                    <a href="yasuo-tupian/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>压缩图片</h3>
+                            <p>在浏览器中直接将图片体积减少高达80%，不损画质。</p>
+                        </div>
+                    </a>
+
+                    <!-- Resize Images Tool -->
+                    <a href="tupian-tiaozheng-daxiao/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>调整图片大小</h3>
+                            <p>批量修改图片尺寸，同时保持原有比例和高清画质。</p>
+                        </div>
+                    </a>
+
+                    <!-- Crop Image Tool -->
+                    <a href="caijian-tupian/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>裁剪图片</h3>
+                            <p>以自定义或预设比例可视化、无损地裁剪您的照片。</p>
+                        </div>
+                    </a>
+
+                    <!-- Rotate & Flip Tool -->
+                    <a href="xuanzhuan-tupian/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>旋转和镜像图片</h3>
+                            <p>纠正照片方向或瞬间应用水平、垂直镜像翻转效果。</p>
+                        </div>
+                    </a>
+
+                    <!-- Favicon Generator Tool -->
+                    <a href="favicon-shengchengqi/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>Favicon生成器 (ICO)</h3>
+                            <p>在本地快速为您的网站生成多分辨率.ico格式的图标。</p>
+                        </div>
+                    </a>
+
+                    <!-- Images to PDF Tool -->
+                    <a href="tupian-zhuan-pdf/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>图片转PDF</h3>
+                            <p>在几秒钟内将多张照片合并为单个高质PDF文档。</p>
+                        </div>
+                    </a>
+
+                    <!-- PDF to Images Tool -->
+                    <a href="pdf-zhuan-tupian/index.html" class="tool-card-item">
+                        <div class="tool-info">
+                            <div class="tool-card-header">
+                                <span class="tool-status-tag">[使用中]</span>
+                                <span class="tool-action-arrow">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </div>
+                            <h3>PDF转图片</h3>
+                            <p>自动从PDF文档中提取所有页面并保存为单独的PNG图片。</p>
+                        </div>
+                    </a>
+                </div>
                             <h3 class="tool-title">JPG转PNG</h3>
                             <p class="tool-description">快速将JPG图片转换为PNG格式。保留原图品质，支持批量转换，安全无忧。</p>
                         </div>
