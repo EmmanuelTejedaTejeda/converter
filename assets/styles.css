@@ -2093,9 +2093,9 @@ body.light-theme .moon-icon {
 .mobile-nav-drawer {
     position: fixed;
     top: 72px; /* Adjust to header height */
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - 72px);
     background-color: var(--bg-primary);
     border-top: 1px solid var(--header-border);
     z-index: 999;
@@ -2104,7 +2104,8 @@ body.light-theme .moon-icon {
     transform: translateY(-10px);
     transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal);
     overflow-y: auto;
-    padding: 1.5rem 2rem;
+    -webkit-overflow-scrolling: touch;
+    padding: 1.5rem 2rem 4rem 2rem;
 }
 
 body.mobile-menu-open {
