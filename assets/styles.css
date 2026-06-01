@@ -48,8 +48,11 @@ body.light-theme {
     --dropzone-bg: rgba(255, 255, 255, 0.45);
     --dropzone-bg-hover: rgba(124, 58, 237, 0.03);
 
-    --header-bg: rgba(255, 255, 255, 0.65);
+    --header-bg: rgba(255, 255, 255, 0.88);
     --header-border: rgba(124, 58, 237, 0.18);
+    
+    --dropdown-bg: #ffffff;
+    --dropdown-shadow: 0 15px 35px rgba(124, 58, 237, 0.16), 0 5px 15px rgba(0, 0, 0, 0.08);
     
     --blob-color-1: rgba(124, 58, 237, 0.22);
     --blob-color-2: rgba(219, 39, 119, 0.18);
@@ -79,8 +82,11 @@ body.dark-theme {
     --dropzone-bg: rgba(11, 15, 25, 0.35);
     --dropzone-bg-hover: rgba(167, 139, 250, 0.03);
 
-    --header-bg: rgba(3, 7, 18, 0.75);
+    --header-bg: rgba(3, 7, 18, 0.88);
     --header-border: rgba(255, 255, 255, 0.15);
+    
+    --dropdown-bg: #0c101d;
+    --dropdown-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), 0 5px 20px rgba(0, 0, 0, 0.35);
     
     --blob-color-1: rgba(139, 92, 246, 0.28);
     --blob-color-2: rgba(236, 72, 153, 0.2);
@@ -1889,28 +1895,28 @@ a.tool-card-item {
 .nav-dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
+    left: 0;
+    transform: translateY(10px);
     opacity: 0;
     visibility: hidden;
-    background-color: var(--card-bg);
+    background-color: var(--dropdown-bg);
     border: 1px solid var(--header-border);
     border-radius: 16px;
     padding: 1.5rem;
-    box-shadow: var(--card-shadow);
+    box-shadow: var(--dropdown-shadow);
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
     z-index: 1000;
     transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     min-width: 780px;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
 }
 
 .dropdown-category {
@@ -1972,18 +1978,18 @@ a.tool-card-item {
     transform: translateY(10px);
     opacity: 0;
     visibility: hidden;
-    background-color: var(--card-bg);
+    background-color: var(--dropdown-bg);
     border: 1px solid var(--header-border);
     border-radius: 12px;
     padding: 0.5rem;
-    box-shadow: var(--card-shadow);
+    box-shadow: var(--dropdown-shadow);
     display: flex;
     flex-direction: column;
     min-width: 140px;
     z-index: 1000;
     transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .lang-dropdown:hover .lang-dropdown-menu {
@@ -1991,7 +1997,6 @@ a.tool-card-item {
     visibility: visible;
     transform: translateY(0);
 }
-
 .lang-option {
     font-family: var(--font-body);
     font-size: 0.85rem;
@@ -2266,10 +2271,10 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
     top: calc(100% + 8px);
     right: 0;
     width: 320px;
-    background-color: var(--card-bg);
+    background-color: var(--dropdown-bg);
     border: 1px solid var(--header-border);
     border-radius: 12px;
-    box-shadow: var(--card-shadow);
+    box-shadow: var(--dropdown-shadow);
     padding: 0.5rem;
     max-height: 380px;
     overflow-y: auto;
