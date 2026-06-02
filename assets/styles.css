@@ -1808,6 +1808,7 @@ a.tool-card-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative; /* Acts as the anchor for the full-width mega menu */
 }
 
 .logo {
@@ -1854,8 +1855,13 @@ a.tool-card-item {
 /* ============================
    Dropdowns Common Styling
    ============================ */
-.nav-dropdown, .lang-dropdown {
+.lang-dropdown {
     position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown {
+    position: static; /* Allows the mega menu to escape and anchor to .header-container */
     display: inline-block;
 }
 
@@ -1895,14 +1901,16 @@ a.tool-card-item {
 .nav-dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 2rem; /* Aligns with header-container padding */
+    right: 2rem; /* Spans the full width of the container minus padding */
+    width: auto;
     transform: translateY(10px);
     opacity: 0;
     visibility: hidden;
     background-color: var(--dropdown-bg);
     border: 1px solid var(--header-border);
     border-radius: 16px;
-    padding: 1.5rem;
+    padding: 2rem;
     box-shadow: var(--dropdown-shadow);
     display: flex;
     gap: 2.5rem;
@@ -1910,7 +1918,6 @@ a.tool-card-item {
     transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    min-width: 780px;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu {
