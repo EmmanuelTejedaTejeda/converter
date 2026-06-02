@@ -302,6 +302,44 @@ document.addEventListener('DOMContentLoaded', () => {
         startBoxH = boxH;
     });
 
+    // Click/Tap on Canvas to move box instantly
+    function handleCanvasClick(clientX, clientY) {
+        if (isDragging || isResizing) return;
+        
+        const rect = editorCanvas.getBoundingClientRect();
+        
+        // Ensure click is within image bounds (ignore clicks on container padding)
+        if (clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom) return;
+
+        const scaleX = imgWidth / rect.width;
+        const scaleY = imgHeight / rect.height;
+
+        const clickImgX = (clientX - rect.left) * scaleX;
+        const clickImgY = (clientY - rect.top) * scaleY;
+
+        boxX = Math.round(clickImgX - boxW / 2);
+        boxY = Math.round(clickImgY - boxH / 2);
+
+        // Constrain
+        boxX = Math.max(0, Math.min(imgWidth - boxW, boxX));
+        boxY = Math.max(0, Math.min(imgHeight - boxH, boxY));
+
+        presetSelect.value = 'custom';
+        syncSliders();
+        updateOverlayPosition();
+    }
+
+    canvasContainer.addEventListener('mousedown', (e) => {
+        if (e.target === selectionBox || e.target === resizeHandle) return;
+        handleCanvasClick(e.clientX, e.clientY);
+    });
+
+    canvasContainer.addEventListener('touchstart', (e) => {
+        if (e.target === selectionBox || e.target === resizeHandle) return;
+        const touch = e.touches[0];
+        handleCanvasClick(touch.clientX, touch.clientY);
+    });
+
     document.addEventListener('mousemove', handlePointerMove);
     document.addEventListener('touchmove', handlePointerMove, { passive: false });
 
