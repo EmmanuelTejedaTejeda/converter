@@ -2093,12 +2093,13 @@ body.light-theme .moon-icon {
 .mobile-nav-drawer {
     position: fixed;
     top: 72px; /* Adjust to header height */
-    bottom: 0;
+    height: calc(100vh - 72px);
     left: 0;
     width: 100%;
     background-color: var(--bg-primary);
     border-top: 1px solid var(--header-border);
-    z-index: 999;
+    z-index: 9999;
+    isolation: isolate; /* Prevents text bleeding through */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -2458,6 +2459,7 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
 
 #editor-canvas {
     max-width: 100%;
+    height: auto; /* Ensures it shrinks proportionally */
     max-height: 65vh;
     object-fit: contain; /* Keeps aspect ratio */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -2508,6 +2510,25 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
     font-weight: 600;
     margin-bottom: 0.4rem;
     display: block;
+}
+
+.select-wrapper {
+    width: 100%;
+}
+
+.form-select {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    border: 1px solid var(--header-border);
+    border-radius: 4px;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .input-range-wrapper {
