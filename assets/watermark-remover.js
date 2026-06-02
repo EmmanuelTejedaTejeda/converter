@@ -538,6 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const originalText = removeBtn.innerHTML;
         removeBtn.innerHTML = `<svg class="spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg> ${msgLoading}`;
         
+        // Placebo delay to make the AI feel like it's doing heavy work
         setTimeout(() => {
             // Restore original image canvas and run inpainting on it
             drawOriginal();
@@ -573,7 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     modal.classList.remove('hidden');
                 }, 800);
             }
-        }, 300);
+        }, 1800);
     });
 
     downloadBtn.addEventListener('click', () => {
