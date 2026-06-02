@@ -2188,7 +2188,28 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
     }
     
     .header-container {
-        padding: 0.75rem 1.5rem;
+        padding: 0.75rem 1rem;
+        flex-wrap: nowrap;
+    }
+
+    .header-actions {
+        gap: 0.5rem;
+    }
+
+    .stats-counter {
+        display: none !important;
+    }
+
+    .lang-dropdown .curr-lang-text {
+        display: none;
+    }
+
+    .lang-dropdown-trigger {
+        padding: 0.4rem;
+    }
+
+    .logo-text {
+        font-size: 1.25rem;
     }
 }
 
@@ -2421,6 +2442,7 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
     padding: 1rem;
     overflow: hidden; /* Prevents container from stretching */
     min-height: 300px;
+    min-width: 0;
 }
 
 .watermark-canvas-container {
@@ -2430,6 +2452,8 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 0;
+    min-height: 0;
 }
 
 #editor-canvas {
