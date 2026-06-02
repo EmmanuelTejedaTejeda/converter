@@ -312,41 +312,6 @@
 
                 <!-- PDF Layout Settings -->
                 <div class="compressor-settings">
-                    <div class="setting-item">
-                        <label for="page-size">页面大小：</label>
-                        <select id="page-size" class="format-select">
-                            <option value="a4" selected>标准 A4 尺寸 (推荐)</option>
-                            <option value="letter">信纸尺寸 (US Letter)</option>
-                            <option value="auto">适应每张图片</option>
-                        </select>
-                    </div>
-                    
-                    <div class="setting-item">
-                        <label for="page-orientation">方向：</label>
-                        <select id="page-orientation" class="format-select">
-                            <option value="p" selected>纵向 (Portrait)</option>
-                            <option value="auto">自动适应</option>
-                            <option value="l">横向 (Landscape)</option>
-                        </select>
-                    </div>
-
-                    <div class="setting-item">
-                        <label for="page-margin">边距:</label>
-                        <select id="page-margin" class="format-select">
-                            <option value="0">无边距（完整图片）</option>
-                            <option value="10">小边距 (10 毫米)</option>
-                            <option value="20">大边距 (20 毫米)</option>
-                        </select>
-                    </div>
-
-                    <div class="setting-item">
-                        <label for="page-fit">图像适配:</label>
-                        <select id="page-fit" class="format-select" title="图片如何在PDF内适配">
-                            <option value="contain">适合页面（推荐）</option>
-                            <option value="cover">裁剪填充（无白边）</option>
-                        </select>
-                    </div>
-
                     <div class="setting-item" style="flex-direction: row; align-items: center; gap: 0.5rem; justify-content: flex-start; padding-top: 0.75rem;">
                         <input type="checkbox" id="compress-pdf" class="compress-checkbox" style="width: 16px; height: 16px; accent-color: var(--accent-primary); cursor: pointer;">
                         <label for="compress-pdf" style="margin: 0; cursor: pointer; user-select: none;">压缩照片以减小 PDF 文件大小</label>

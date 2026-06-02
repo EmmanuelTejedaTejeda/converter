@@ -311,41 +311,6 @@
 
                 <!-- PDF Layout Settings -->
                 <div class="compressor-settings">
-                    <div class="setting-item">
-                        <label for="page-size">ページサイズ：</label>
-                        <select id="page-size" class="format-select">
-                            <option value="a4" selected>標準 A4 サイズ (推奨)</option>
-                            <option value="letter">レターサイズ (US Letter)</option>
-                            <option value="auto">画像サイズに合わせる</option>
-                        </select>
-                    </div>
-                    
-                    <div class="setting-item">
-                        <label for="page-orientation">方向：</label>
-                        <select id="page-orientation" class="format-select">
-                            <option value="p" selected>縦向き (Portrait)</option>
-                            <option value="auto">自動調整</option>
-                            <option value="l">横向き (Landscape)</option>
-                        </select>
-                    </div>
-
-                    <div class="setting-item">
-                        <label for="page-margin">余白:</label>
-                        <select id="page-margin" class="format-select">
-                            <option value="0">余白なし（フル画像）</option>
-                            <option value="10">小さい余白 (10 mm)</option>
-                            <option value="20">大きい余白 (20 mm)</option>
-                        </select>
-                    </div>
-
-                    <div class="setting-item">
-                        <label for="page-fit">画像サイズ合わせ:</label>
-                        <select id="page-fit" class="format-select" title="画像をPDF内でどう合わせるか">
-                            <option value="contain">ページに合わせる（推奨）</option>
-                            <option value="cover">塗りつぶす（白い枠なし）</option>
-                        </select>
-                    </div>
-
                     <div class="setting-item" style="flex-direction: row; align-items: center; gap: 0.5rem; justify-content: flex-start; padding-top: 0.75rem;">
                         <input type="checkbox" id="compress-pdf" class="compress-checkbox" style="width: 16px; height: 16px; accent-color: var(--accent-primary); cursor: pointer;">
                         <label for="compress-pdf" style="margin: 0; cursor: pointer; user-select: none;">PDFの容量を抑えるために写真を圧縮する</label>

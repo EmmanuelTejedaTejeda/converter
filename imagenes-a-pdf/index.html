@@ -311,41 +311,6 @@
 
                 <!-- Ajustes de Diseño de PDF -->
                 <div class="compressor-settings">
-                    <div class="setting-item">
-                        <label for="page-size">Tamaño de página:</label>
-                        <select id="page-size" class="format-select">
-                            <option value="a4" selected>Tamaño A4 estándar (Recomendado)</option>
-                            <option value="letter">Tamaño Carta (US Letter)</option>
-                            <option value="auto">Adaptar a cada imagen</option>
-                        </select>
-                    </div>
-                    
-                    <div class="setting-item">
-                        <label for="page-orientation">Orientación:</label>
-                        <select id="page-orientation" class="format-select">
-                            <option value="p" selected>Vertical (Portrait)</option>
-                            <option value="auto">Adaptar automáticamente</option>
-                            <option value="l">Horizontal (Landscape)</option>
-                        </select>
-                    </div>
-
-                    <div class="setting-item">
-                        <label for="page-margin">Margen:</label>
-                        <select id="page-margin" class="format-select">
-                            <option value="0">Sin márgenes (Imagen Completa)</option>
-                            <option value="10">Margen pequeño (10 mm)</option>
-                            <option value="20">Margen grande (20 mm)</option>
-                        </select>
-                    </div>
-
-                    <div class="setting-item">
-                        <label for="page-fit">Ajuste de Foto:</label>
-                        <select id="page-fit" class="format-select" title="Cómo encaja la imagen dentro del PDF">
-                            <option value="contain">Ajustar a la página (Recomendado)</option>
-                            <option value="cover">Recortar para rellenar (Sin bordes blancos)</option>
-                        </select>
-                    </div>
-
                     <div class="setting-item" style="flex-direction: row; align-items: center; gap: 0.5rem; justify-content: flex-start; padding-top: 0.75rem;">
                         <input type="checkbox" id="compress-pdf" class="compress-checkbox" style="width: 16px; height: 16px; accent-color: var(--accent-primary); cursor: pointer;">
                         <label for="compress-pdf" style="margin: 0; cursor: pointer; user-select: none;">Comprimir fotos para reducir peso del PDF</label>
