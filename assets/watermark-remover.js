@@ -164,8 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (preset === 'bottom-right-48') {
             boxW = 48;
             boxH = 48;
-            boxX = Math.max(0, imgWidth - boxW);
-            boxY = Math.max(0, imgHeight - boxH);
+            boxX = Math.max(0, Math.min(imgWidth - boxW, 505));
+            boxY = Math.max(0, Math.min(imgHeight - boxH, 957));
         } else if (preset === 'bottom-right-96') {
             boxW = 96;
             boxH = 96;
