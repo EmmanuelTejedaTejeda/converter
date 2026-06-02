@@ -12,22 +12,24 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="将您的SVG矢量文件转换为任意大小的PNG或JPG图片。自定义输出分辨率，100%在浏览器本地安全处理。">
-    <title>在线SVG转PNG/JPG - 免费且高清</title>
+    <meta name="description" content="免费、快速且 100% 安全地删除 AI 生成图像右下角的可见 Google Gemini 水印。您的图像不会上传到互联网。">
+    <title>在线删除 Gemini 水印 - 免费和安全</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/styles.css">
-    <link rel="canonical" href="https://herramientas-imagen.pages.dev/zh/svg-zhuan-tupian/">
-    <link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/svg-a-imagen/">
-    <link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/svg-to-image/">
-    <link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/svg-zhuan-tupian/">
-    <link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/svg-gazo-henkan/">
-    <link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/svg-a-imagen/">
+    <link rel="canonical" href="https://herramientas-imagen.pages.dev/zh/quchu-gemini-shuiyin/">
+    <link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/">
+    <link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/remove-gemini-watermark/">
+    <link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/quchu-gemini-shuiyin/">
+    <link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/">
+    <link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/">
     <script src="../../assets/theme.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017"
             crossorigin="anonymous"></script>
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
 </head>
 <body class="dark-theme">
     
@@ -36,14 +38,14 @@
             <a href="../" class="logo">
                 <span class="logo-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 16L8.586 11.414C8.96102 11.0392 9.46953 10.8284 10 10.8284C10.5305 10.8284 11.039 11.0392 11.414 11.414L16 16M14 14L15.586 12.414C15.961 12.0392 16.4695 11.8284 17 11.8284C17.5305 11.8284 18.039 12.0392 18.414 12.414L20 14M14 8H14.01M6 20H18C18.5304 20 19.0391 19.7893 19.4142 19.4142C19.7893 19.0391 20 18.5304 20 18V6C20 5.46957 19.7893 4.96086 19.4142 4.58579C19.0391 4.21071 18.5304 4 18 4H6C5.46957 4 4.96086 4.21071 4.58579 4.58579C4.21071 4.96086 4 5.46957 4 6V18C4 18.5304 4.21071 19.0391 4.58579 19.4142C4.96086 19.7893 5.46957 20 6 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 16L8.586 11.414C8.96102 11.0392 9.46953 10.8284 10 10.8284C10.5305 10.8284 11.039 11.0392 11.414 11.414L16 16M14 14L15.586 12.414C15.961 12.0392 16.4695 11.8284 17 11.8284C17.5305 11.8284 18.039 12.0392 18.414 12.414L20 14M14 8H14.01M6 20H18C18.5304 20 19.0391 19.7893 19.4142 19.4142C19.7893 19.0391 20 18.5304 20 18V6C20 5.46957 19.7893 4.96086 19.4142 4.58579C19.0391 4.21071 18.5304 4 18 4H6C5.46957 4 4.96086 4.21071 4.58579 4.58579C4.21071 4.96086 4 5.46957 4 6V18C4 18.5304 4.21071 19.4142C4.96086 19.7893 5.46957 20 6 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </span>
                 <span class="logo-text">Convertify</span>
             </a>
             
             <nav class="header-nav">
-                <!-- Dropdown de Herramientas (Desktop Only) -->
+                <!-- 导航下拉菜单 (Desktop Only) -->
                 <div class="nav-dropdown">
                     <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
                         <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -52,7 +54,7 @@
                             <rect x="14" y="12" width="7" height="9"></rect>
                             <rect x="3" y="16" width="7" height="5"></rect>
                         </svg>
-                        工具
+                        工具列表
                         <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
@@ -60,72 +62,72 @@
                     <div class="nav-dropdown-menu">
                         <div class="dropdown-category">
                             <h4>格式转换</h4>
-                            <a href="../jpg-zhuan-png/" data-keywords="jpg, png, 转换, 转换器, 格式">
+                            <a href="../jpg-zhuan-png/" data-keywords="jpg, png, zhuanhuan, zhuanhuanqi">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 JPG 转 PNG
                             </a>
-                            <a href="../png-zhuan-jpg/" data-keywords="png, jpg, jpeg, 转换, 转换器, 格式">
+                            <a href="../png-zhuan-jpg/" data-keywords="png, jpg, jpeg, zhuanhuan, zhuanhuanqi">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 PNG 转 JPG
                             </a>
-                            <a href="../webp-zhuan-jpg/" data-keywords="webp, jpg, jpeg, 转换, 转换器, 格式">
+                            <a href="../webp-zhuan-jpg/" data-keywords="webp, jpg, jpeg, zhuanhuan, zhuanhuanqi">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 WebP 转 JPG
                             </a>
-                            <a href="../webp-zhuan-png/" data-keywords="webp, png, 转换, 转换器, 格式">
+                            <a href="../webp-zhuan-png/" data-keywords="webp, png, zhuanhuan, zhuanhuanqi">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 WebP 转 PNG
                             </a>
-                            <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">
+                            <a href="../zhuan-webp/" data-keywords="webp, zhuanhuan, zhuanhuanqi, yasuo">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
-                                转换至 WebP
+                                转换为 WebP
                             </a>
-                            <a href="./" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">
+                            <a href="../svg-zhuan-tupian/" data-keywords="svg, png, jpg, tupian, zhuanhuan, vector">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 SVG 转图片
                             </a>
-                            <a href="../wanneng-zhuanhuanqi/" data-keywords="转换, 转换器, 万能, 所有, png, jpg, webp, svg, gif, bmp, ico">
+                            <a href="../wanneng-zhuanhuanqi/" data-keywords="zhuanhuanqi, wanneng, png, jpg, webp, svg, gif, bmp, ico">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-                                万能图片转换
+                                万能转换器
                             </a>
                         </div>
                         <div class="dropdown-category">
-                            <h4>体积尺寸</h4>
-                            <a href="../yasuo-tupian/" data-keywords="压缩, 体积, 大小, 减小, 优化">
+                            <h4>大小优化</h4>
+                            <a href="../yasuo-tupian/" data-keywords="yasuo, daxiao, optimize">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h16M4 10h16M12 3v18"/></svg>
                                 压缩图片
                             </a>
-                            <a href="../tupian-tiaozheng-daxiao/" data-keywords="调整大小, 尺寸, 像素, 宽度, 高度">
+                            <a href="../tupian-tiaozheng-daxiao/" data-keywords="resize, pixels, width, height">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 3H3v18h18V3zM9 9h6v6H9V9z"/></svg>
-                                调整大小
+                                调整图片大小
                             </a>
                         </div>
                         <div class="dropdown-category">
-                            <h4>便捷编辑</h4>
-                            <a href="../caijian-tupian/" data-keywords="裁剪, 切割, 区域, 裁剪器">
+                            <h4>编辑操作</h4>
+                            <a href="../caijian-tupian/" data-keywords="caijian, cut, area">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v16h16M2 6h16v16"/></svg>
                                 裁剪图片
                             </a>
-                            <a href="../xuanzhuan-tupian/" data-keywords="旋转, 翻转, 镜像, 水平, 垂直">
+                            <a href="../xuanzhuan-tupian/" data-keywords="xuanzhuan, turn, flip, mirror">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-                                旋转和镜像
+                                旋转和翻转
                             </a>
-                            <a href="../favicon-shengchengqi/" data-keywords="favicon, ico, 图标, 生成器, 创建, 网页, 浏览器">
+                            <a href="../favicon-shengchengqi/" data-keywords="favicon, ico, shengchengqi, create, web">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                                 Favicon 生成器
                             </a>
-                                                    <a href="../quchu-gemini-shuiyin/" data-keywords="gemini, shuiyin, quchu shuiyin, remove watermark, ai, google">
+                            <a href="./" data-keywords="gemini, shuiyin, quchu shuiyin, remove watermark, ai, google">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                                 清除 Gemini 水印
                             </a>
-</div>
+                        </div>
                         <div class="dropdown-category">
-                            <h4>文档工具</h4>
-                            <a href="../tupian-zhuan-pdf/" data-keywords="图片转 pdf, 转换成 pdf, 照片转 pdf, pdf, 合并 pdf">
+                            <h4>文档转换</h4>
+                            <a href="../tupian-zhuan-pdf/" data-keywords="pdf, tupian zhuan pdf, merge pdf">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                                 图片转 PDF
                             </a>
-                            <a href="../pdf-zhuan-tupian/" data-keywords="pdf 转图片, 提取 pdf 图片, pdf 转 png, pdf 转 jpg">
+                            <a href="../pdf-zhuan-tupian/" data-keywords="pdf, pdf zhuan tupian, extract images">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                                 PDF 转图片
                             </a>
@@ -133,7 +135,7 @@
                     </div>
                 </div>
 
-                <!-- Buscador de Escritorio (Desktop Only) -->
+                <!-- 桌面搜索框 (Desktop Only) -->
                 <div class="header-search">
                     <div class="search-input-wrapper">
                         <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -148,13 +150,13 @@
             </nav>
             
             <div class="header-actions">
-                <!-- Contador de Estadísticas -->
-                <div class="stats-counter" id="stats-counter" title="在本会话中安全转换的照片">
+                <!-- 统计计数 -->
+                <div class="stats-counter" id="stats-counter" title="本会话内安全处理的图片数">
                     <span class="stats-icon">🔥</span>
                     <span class="stats-number" id="stats-number">0</span>
                 </div>
                 
-                <!-- Botón de Sonido -->
+                <!-- 音效按钮 -->
                 <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound" title="开启/关闭声音">
                     <svg class="volume-on-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -167,7 +169,7 @@
                     </svg>
                 </button>
 
-                <!-- Selector de Idiomas -->
+                <!-- 语言下拉菜单 -->
                 <div class="lang-dropdown">
                     <button class="lang-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
                         <svg class="globe-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -181,15 +183,15 @@
                         </svg>
                     </button>
                     <div class="lang-dropdown-menu">
-                        <a href="../../svg-a-imagen/" class="lang-option "><span class="flag">🇪🇸</span> Español</a>
-                        <a href="../../en/svg-to-image/" class="lang-option "><span class="flag">🇺🇸</span> English</a>
+                        <a href="../../quitar-marca-agua-gemini/" class="lang-option"><span class="flag">🇪🇸</span> Español</a>
+                        <a href="../../en/remove-gemini-watermark/" class="lang-option"><span class="flag">🇺🇸</span> English</a>
                         <a href="./" class="lang-option active"><span class="flag">🇨🇳</span> 简体中文</a>
-                        <a href="../../ja/svg-gazo-henkan/" class="lang-option "><span class="flag">🇯🇵</span> 日本語</a>
+                        <a href="../../ja/gemini-watermark-remover/" class="lang-option"><span class="flag">🇯🇵</span> 日本語</a>
                     </div>
                 </div>
 
-                <!-- Botón de Tema -->
-                <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <!-- 主题切换按钮 -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">
                     <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -206,7 +208,7 @@
                     </svg>
                 </button>
 
-                <!-- Hamburger Button (Mobile Only) -->
+                <!-- 移动端菜单按钮 (Mobile Only) -->
                 <button class="hamburger-menu-btn" aria-label="Menu" aria-expanded="false">
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
@@ -215,7 +217,7 @@
             </div>
         </div>
         
-        <!-- Mobile Navigation Menu Drawer -->
+        <!-- 移动端抽屉式菜单 -->
         <div class="mobile-nav-drawer">
             <div class="mobile-nav-search">
                 <div class="search-input-wrapper">
@@ -231,36 +233,36 @@
                     <div class="mobile-category">
                         <h5>格式转换</h5>
                         <div class="mobile-links-grid">
-                            <a href="../jpg-zhuan-png/" data-keywords="jpg, png, 转换, 转换器, 格式">JPG 转 PNG</a>
-                            <a href="../png-zhuan-jpg/" data-keywords="png, jpg, jpeg, 转换, 转换器, 格式">PNG 转 JPG</a>
-                            <a href="../webp-zhuan-jpg/" data-keywords="webp, jpg, jpeg, 转换, 转换器, 格式">WebP 转 JPG</a>
-                            <a href="../webp-zhuan-png/" data-keywords="webp, png, 转换, 转换器, 格式">WebP 转 PNG</a>
-                            <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">转换至 WebP</a>
-                            <a href="./" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">SVG 转图片</a>
-                            <a href="../wanneng-zhuanhuanqi/" data-keywords="转换, 转换器, 万能, 所有, png, jpg, webp, svg, gif, bmp, ico">万能图片转换</a>
+                            <a href="../jpg-zhuan-png/">JPG 转 PNG</a>
+                            <a href="../png-zhuan-jpg/">PNG 转 JPG</a>
+                            <a href="../webp-zhuan-jpg/">WebP 转 JPG</a>
+                            <a href="../webp-zhuan-png/">WebP 转 PNG</a>
+                            <a href="../zhuan-webp/">转换为 WebP</a>
+                            <a href="../svg-zhuan-tupian/">SVG 转图片</a>
+                            <a href="../wanneng-zhuanhuanqi/">万能转换器</a>
                         </div>
                     </div>
                     <div class="mobile-category">
-                        <h5>体积尺寸</h5>
+                        <h5>大小优化</h5>
                         <div class="mobile-links-grid">
-                            <a href="../yasuo-tupian/" data-keywords="压缩, 体积, 大小, 减小, 优化">压缩图片</a>
-                            <a href="../tupian-tiaozheng-daxiao/" data-keywords="调整大小, 尺寸, 像素, 宽度, 高度">调整大小</a>
+                            <a href="../yasuo-tupian/">压缩图片</a>
+                            <a href="../tupian-tiaozheng-daxiao/">调整图片大小</a>
                         </div>
                     </div>
                     <div class="mobile-category">
-                        <h5>便捷编辑</h5>
+                        <h5>编辑操作</h5>
                         <div class="mobile-links-grid">
-                            <a href="../caijian-tupian/" data-keywords="裁剪, 切割, 区域, 裁剪器">裁剪图片</a>
-                            <a href="../xuanzhuan-tupian/" data-keywords="旋转, 翻转, 镜像, 水平, 垂直">旋转和镜像</a>
-                            <a href="../favicon-shengchengqi/" data-keywords="favicon, ico, 图标, 生成器, 创建, 网页, 浏览器">Favicon 生成器</a>
-                                                    <a href="../quchu-gemini-shuiyin/" data-keywords="gemini, shuiyin, quchu shuiyin, remove watermark, ai, google">清除 Gemini 水印</a>
-</div>
+                            <a href="../caijian-tupian/">裁剪图片</a>
+                            <a href="../xuanzhuan-tupian/">旋转和翻转</a>
+                            <a href="../favicon-shengchengqi/">Favicon 生成器</a>
+                            <a href=".//">清除 Gemini 水印</a>
+                        </div>
                     </div>
                     <div class="mobile-category">
-                        <h5>文档工具</h5>
+                        <h5>文档转换</h5>
                         <div class="mobile-links-grid">
-                            <a href="../tupian-zhuan-pdf/" data-keywords="图片转 pdf, 转换成 pdf, 照片转 pdf, pdf, 合并 pdf">图片转 PDF</a>
-                            <a href="../pdf-zhuan-tupian/" data-keywords="pdf 转图片, 提取 pdf 图片, pdf 转 png, pdf 转 jpg">PDF 转图片</a>
+                            <a href="../tupian-zhuan-pdf/">图片转 PDF</a>
+                            <a href="../pdf-zhuan-tupian/">PDF 转图片</a>
                         </div>
                     </div>
                 </div>
@@ -271,94 +273,163 @@
     <main class="app-main">
         <div class="converter-wrapper">
             <section class="hero-section">
-                <h1 class="hero-title">SVG转图片</h1>
-                <p class="hero-subtitle">在您的设备上直接将SVG矢量图形渲染并导出为PNG或JPG图片。</p>
+                <h1 class="hero-title">在线免费删除 Gemini 图片水印</h1>
+                <p class="hero-subtitle">免费、快速且 100% 安全。立即移除 Google AI 生成图像右下角的可见水印。</p>
             </section>
 
             <section class="converter-card">
-                <!-- Dropzone -->
+                <!-- 拖拽上传区 -->
                 <div id="drop-zone" class="drop-zone">
-                    <input type="file" id="file-input" class="file-input" accept="image/svg+xml" multiple>
+                    <input type="file" id="file-input" class="file-input" accept="image/jpeg,image/jpg,image/png,image/webp">
                     <div class="drop-zone-content">
                         <div class="drop-icon">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L13 16M17 20L21 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 16V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V16M16 12L12 16M12 16L8 12M12 16V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h3 class="drop-title">拖放您的SVG文件至此或点击选择</h3>
-                        <p class="drop-text">支持的格式：SVG</p>
-                        <span class="drop-badge">支持多文件处理</span>
+                        <h3 class="drop-title">拖放您的 Gemini 图像至此</h3>
+                        <p class="drop-text">或点击在设备中浏览文件</p>
+                        <span class="drop-badge">支持最大 25MB 的 JPG, PNG, WEBP 文件</span>
                     </div>
                 </div>
 
-                <!-- Privacy Tip -->
+                <!-- 隐私提示 -->
                 <div class="privacy-notice">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M9 11L11 13L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span>您的照片100%安全。它们始终保留在您的手机或电脑上，除了您之外没有人能够看到它们。</span>
+                    <span>本地安全：您的图像绝不会上传到互联网。智能填充 (inpainting) 100% 在您的浏览器中进行。</span>
                 </div>
 
-                <!-- Área de configuración específica para cada herramienta -->
-                
+                <!-- 字符串翻译加载容器 -->
+                <div id="watermark-strings" class="hidden" 
+                     data-msg-select="请选择有效的图片文件。" 
+                     data-msg-done="水印清除成功！" 
+                     data-msg-loading="正在填充区域..."></div>
 
-                <!-- File List Container -->
-                <div id="file-list-container" class="file-list-container hidden">
-                    <div class="list-header">
-                        <h4>已加载文件 (<span id="file-count">0</span>) 👇</h4>
-                        <div class="list-actions">
-                            <button id="convert-all-btn" class="btn btn-primary btn-sm">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="23 4 23 10 17 10"></polyline>
-                                    <polyline points="1 20 1 14 7 14"></polyline>
-                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                <!-- 编辑工作区 (上传文件后显示) -->
+                <div id="editor-section" class="watermark-editor-grid hidden">
+                    <!-- 图像预览区 -->
+                    <div class="watermark-image-area" id="image-area">
+                        <div class="watermark-canvas-container" id="canvas-container">
+                            <canvas id="editor-canvas"></canvas>
+                            <!-- 选框遮罩层 -->
+                            <div class="watermark-selection-box" id="selection-box">
+                                <div class="watermark-resize-handle" id="resize-handle"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右侧控制面板 -->
+                    <div class="watermark-controls-panel">
+                        <h3 class="editor-title">水印清除设置</h3>
+                        
+                        <div class="control-group">
+                            <label for="preset-select">标志位置预设：</label>
+                            <div class="select-wrapper">
+                                <select id="preset-select" class="form-select">
+                                    <option value="bottom-right-48">Gemini 小标志 (右侧 48x48)</option>
+                                    <option value="bottom-right-96">Gemini 大标志 (右侧 96x96)</option>
+                                    <option value="bottom-left-48">Gemini 小标志 (左侧 48x48)</option>
+                                    <option value="bottom-left-96">Gemini 大标志 (左侧 96x96)</option>
+                                    <option value="custom">手动调整 (自定义)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 手动调整滑块 -->
+                        <div class="control-group">
+                            <label>X 轴坐标 (水平)</label>
+                            <div class="input-range-wrapper">
+                                <input type="range" id="slider-x" min="0" value="0">
+                                <span id="val-x">0px</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Y 轴坐标 (垂直)</label>
+                            <div class="input-range-wrapper">
+                                <input type="range" id="slider-y" min="0" value="0">
+                                <span id="val-y">0px</span>
+                            </div>
+                        </div>
+
+                        <div class="control-row">
+                            <div class="control-group">
+                                <label>宽度 (区域)</label>
+                                <div class="input-range-wrapper">
+                                    <input type="range" id="slider-w" min="10" value="48">
+                                    <span id="val-w">48px</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label>高度 (区域)</label>
+                                <div class="input-range-wrapper">
+                                    <input type="range" id="slider-h" min="10" value="48">
+                                    <span id="val-h">48px</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group" style="margin-top: 0.5rem;">
+                            <button id="remove-btn" class="btn btn-primary btn-block">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 2 12 2Z"/>
+                                    <path d="M8 12H16"/>
                                 </svg>
-                                全部转换
+                                消除水印
                             </button>
-                            <button id="download-all-btn" class="btn btn-secondary btn-sm disabled" disabled>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <button id="download-btn" class="btn btn-secondary btn-block hidden">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                     <polyline points="7 10 12 15 17 10"></polyline>
                                     <line x1="12" y1="15" x2="12" y2="3"></line>
                                 </svg>
-                                全部下载
+                                保存无水印图片
                             </button>
-                            <button id="clear-all-btn" class="btn btn-danger-outline btn-sm">
-                                清除列表
+                            <button id="reset-btn" class="btn btn-danger-outline btn-block">
+                                恢复原图
                             </button>
                         </div>
-                    </div>
-                    
-                    <div id="file-list" class="file-list">
-                        <!-- Cards will be dynamically inserted here -->
+
+                        <div class="control-group" style="border-top: 1px solid var(--header-border); padding-top: 0.75rem;">
+                            <span style="font-size: 0.75rem; font-weight: bold; color: var(--text-muted); text-transform: uppercase;">如何使用？</span>
+                            <ul class="instructions-list">
+                                <li>默认自动选择右下角的水印位置。</li>
+                                <li>您可以直接在照片上拖动粉色选框来修改位置。</li>
+                                <li>拖动选区右下角的手柄可更改覆盖面积。</li>
+                                <li>点击“消除水印”，系统将自动补齐背景。</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Bloque de publicidad minimalista integrado (estilo editorial) -->
+            <!-- 极简广告栏 -->
             <div class="ad-container-minimal">
-                <a href="https://ethicalads.io" target="_blank" rel="noopener noreferrer" class="ad-link">
-                    <span class="ad-badge">[赞助]</span>
+                <a href="../yasuo-tupian/" class="ad-link">
+                    <span class="ad-badge">[推荐]</span>
                     <div class="ad-body">
-                        <span class="ad-text">想在不损失画质的情况下压缩照片大小吗？试试我们的姐妹工具。</span>
-                        <span class="ad-cta">立即体验 &rarr;</span>
+                        <span class="ad-text">AI 图像文件体积太大？使用本地压缩工具，快速减小 80% 图片体积而不失真。</span>
+                        <span class="ad-cta">立即免费压缩 &rarr;</span>
                     </div>
                 </a>
             </div>
         </div>
 
-        <!-- Features Info -->
+        <!-- 功能特点 -->
         <section class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-                        <path d="M12 6v6l4 2"></path>
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
                     </svg>
                 </div>
-                <h3>瞬间转换</h3>
-                <p>无需等待。您的照片将即时转换，并可立即保存。</p>
+                <h3>智能填充 (Inpainting)</h3>
+                <p>分析水印选区周围的纹理和色彩，生成与周边背景完美融合的自然画面。</p>
             </div>
             
             <div class="feature-card">
@@ -368,65 +439,74 @@
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                     </svg>
                 </div>
-                <h3>100%安全</h3>
-                <p>您的照片永远不会离开您的设备。整个转换过程100%在您的浏览器本地进行。</p>
+                <h3>极致私密安全</h3>
+                <p>所有的图像处理完全发生在您的本地设备中，绝不上传到任何远程服务器。</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                     </svg>
                 </div>
-                <h3>画质完美</h3>
-                <p>100%保留您原始文件的清晰度、颜色和细节。即可下载与分享。</p>
+                <h3>Gemini 标志预设</h3>
+                <p>针对 Gemini 常见的 48px 和 96px 右下角水印提供了一键预设，秒级清除。</p>
             </div>
         </section>
 
-        <!-- Contenido SEO On-Page: Guía y FAQs -->
+        <!-- SEO 优化内容 -->
         <section class="seo-content-section">
             <div class="seo-block">
-                <h2>如何免费快速地使用 SVG转图片</h2>
-                <p>使用我们的工具更改照片格式或编辑非常简单。只需遵循以下三个基本步骤：</p>
+                <h2>如何删除 Gemini AI 图片水印？</h2>
+                <p>清除 Google 在 Gemini 生成图片角落中添加的星形标志或 AI 标识非常容易：</p>
                 <ol class="seo-steps-list">
-                    <li><strong>上传文件：</strong> 将您的图片直接拖拽到上方的框中，或点击浏览文件夹选择文件。</li>
-                    <li><strong>一键处理：</strong> 点击每张照片旁的转换/处理按钮，或点击批量处理按钮以同时处理所有图片。</li>
-                    <li><strong>保存结果：</strong> 点击每个文件旁的保存/下载按钮，将其下载到您的电脑或手机中。100%本地且自动！</li>
+                    <li><strong>上传图片：</strong> 将 Gemini 生成的图片拖拽到上方上传区，或点击上传。</li>
+                    <li><strong>定位覆盖选框：</strong> 上传后，右下角将出现半透明的粉色选区。您可以根据情况自由拖动或调整大小。</li>
+                    <li><strong>消除水印：</strong> 点击“消除水印”按钮，系统将在毫秒级内通过智能插值法修补水印区域。</li>
+                    <li><strong>保存无水印图片：</strong> 点击“保存无水印图片”按钮将无标志的干净图片下载至本地。</li>
                 </ol>
             </div>
 
-            
-            <section class="faq-section" style="margin-top: 3rem;">
-                <div class="faq-header">
-                    <h2>常见问题解答</h2>
+            <div class="seo-block">
+                <h2>关于 Gemini 图片水印的常见问题</h2>
+                
+                <div class="faq-item">
+                    <h3>为什么 Gemini 生成的图像带有水印？</h3>
+                    <p>Google 出于合规与透明性方面的考量，在其人工智能生成的媒体资源中加入了标记。这有助于互联网用户辨别哪些媒介是 AI 生成的，以防范虚假信息。</p>
                 </div>
-                <div class="faq-list">
-    
-                    <div class="faq-item">
-                        <h3>SVG转图片是如何工作的？</h3>
-                        <p>浏览器会读取SVG代码并将其作为矢量图形绘制在HTML5 Canvas上。这使您能将其导出为高清的PNG或JPG文件，且不会出现像素模糊。</p>
-                    </div>
-        
+
+                <div class="faq-item">
+                    <h3>这个 Gemini 水印消除工具的原理是什么？</h3>
+                    <p>它采用基于拉普拉斯方程和反距离平方权的本地图像修复算法。程序并不只是简单地将图片模糊化，而是读取并推算选区边界之外邻近像素的色彩和渐变纹理，反向投影填充到内部，以实现自然的融合效果。</p>
                 </div>
-            </section>
-    
+
+                <div class="faq-item">
+                    <h3>我可以移除不可见水印 (SynthID) 吗？</h3>
+                    <p>不可以。SynthID 是 Google 研发的像素深度级不可见水印技术，它对裁切、压缩或重度滤镜有很高的抗性。不过，我们的工具可以 100% 清除**可见的角落标志**，这对绝大多数需要干净、无杂质画面的场景已经完全足够。</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>使用此工具需要付费或注册吗？</h3>
+                    <p>不需要。Convertify 是一个完全免费的开源工具，不设注册门槛，不限制文件大小和使用次数，您在断网（离线）状态下仍可正常运行。</p>
+                </div>
+            </div>
         </section>
 
-        <!-- Recursos Recomendados / Afiliados Adicionales -->
+        <!-- 推荐资源 -->
         <section class="resources-section">
             <h4 class="resources-title">[推荐资源]</h4>
             <div class="resources-list">
                 <a href="https://partner.canva.com" target="_blank" rel="noopener noreferrer" class="resource-item">
                     <span class="resource-name">Canva Pro</span>
-                    <span class="resource-desc">使用您转换后的图片创建精美设计。免费试用。</span>
+                    <span class="resource-desc">使用已清除水印的干净图片来设计传单、海报和 PPT。</span>
                 </a>
                 <a href="https://hostinger.com" target="_blank" rel="noopener noreferrer" class="resource-item">
-                    <span class="resource-name">高级主机服务</span>
-                    <span class="resource-desc">发布您的网站的最快速、最经济的主机。</span>
+                    <span class="resource-name">购买独立域名</span>
+                    <span class="resource-desc">注册您专属的品牌域名，搭建并上线您的网站。</span>
                 </a>
                 <a href="https://fiverr.com" target="_blank" rel="noopener noreferrer" class="resource-item">
-                    <span class="resource-name">专业图片精修</span>
-                    <span class="resource-desc">聘请专业的平面设计师为您精修照片，价格低至 5 美元起。</span>
+                    <span class="resource-name">专业图像后期</span>
+                    <span class="resource-desc">雇佣数字艺术家进行更复杂的图像处理、合成与修图。</span>
                 </a>
             </div>
         </section>
@@ -440,92 +520,30 @@
                 <a href="../lianxi-women/" class="footer-link">联系我们</a>
                 <a href="../yinsi-zhengce/" class="footer-link">隐私政策</a>
                 <a href="../shiyong-tiaokuan/" class="footer-link">使用条款</a>
-                <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="footer-support-link">[支持项目 ☕]</a>
+                <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="footer-support-link">[赞助项目 ☕]</a>
             </div>
         </div>
     </footer>
 
-    <!-- Templates for Dynamic Elements -->
-    <template id="file-card-template">
-        <div class="file-card">
-            <div class="file-info-group">
-                <div class="file-preview-wrapper">
-                    <img src="" alt="预览" class="file-preview">
-                    <div class="file-preview-fallback">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <polyline points="21 15 16 10 5 21"></polyline>
-                        </svg>
-                    </div>
-                </div>
-                <div class="file-details">
-                    <div class="file-name" title="">filename</div>
-                    <div class="file-meta">
-                        <span class="file-size">0 KB</span>
-                        <span class="file-divider">&bull;</span>
-                        <span class="file-dims">-- x --</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="file-status-group">
-                <!-- Status badges: pending, converting, done, error -->
-                <span class="status-badge badge-pending">等待中</span>
-                
-                <div class="file-progress-wrapper hidden">
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-
-                <div class="file-actions">
-                    <button class="btn-convert-text btn-action-convert" title="转换">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="23 4 23 10 17 10"></polyline>
-                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-                        </svg>
-                        转换
-                    </button>
-                    <a class="btn-download-text btn-action-download hidden" title="保存照片">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        保存照片
-                    </a>
-                    <button class="btn-icon btn-action-remove" title="删除">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </template>
-
-    <!-- Modal de Agradecimiento y Monetización Post-Descarga -->
+    <!-- 成功弹窗 -->
     <div id="thank-you-modal" class="modal-overlay hidden">
         <div class="modal-card">
             <button id="close-modal-btn" class="modal-close-btn" aria-label="关闭窗口">&times;</button>
             <div class="modal-content">
                 <div class="modal-icon">🎉</div>
-                <h3 class="modal-title">图片已保存！</h3>
-                <p class="modal-text">您的下载已成功开始。</p>
+                <h3 class="modal-title">水印已清除！</h3>
+                <p class="modal-text">您的无水印图片已成功下载，本地处理，安全可靠。</p>
                 
                 <div class="modal-ad-box">
-                    <span class="modal-ad-tag">[推荐]</span>
-                    <h4>您的照片文件是不是太大而无法上传到互联网？</h4>
-                    <p>使用我们推荐的优化工具，在不改变画质的前提下，将照片文件大小减小多达 80%。</p>
-                    <a href="../../yasuo-tupian/index.html" class="btn btn-primary btn-block">免费压缩照片</a>
+                    <span class="modal-ad-tag">[推荐工具]</span>
+                    <h4>您需要转换图片格式吗？</h4>
+                    <p>使用本地万能格式转换工具，立即将您的图片转为 WEBP, PNG 或 JPG 格式。</p>
+                    <a href="../wanneng-zhuanhuanqi/" class="btn btn-primary btn-block">打开万能转换器</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- JS de la herramienta -->
-    <script src="../../assets/svg-to-image.js"></script>
+    <script src="../../assets/watermark-remover.js"></script>
 </body>
 </html>

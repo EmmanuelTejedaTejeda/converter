@@ -875,4 +875,49 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/banno-henkanki/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/convertidor-universal/" />
     </url>
+    <!-- GEMINI WATERMARK REMOVER -->
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/</loc>
+        <lastmod>2026-06-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/remove-gemini-watermark/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/quchu-gemini-shuiyin/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/en/remove-gemini-watermark/</loc>
+        <lastmod>2026-06-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/remove-gemini-watermark/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/quchu-gemini-shuiyin/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/quchu-gemini-shuiyin/</loc>
+        <lastmod>2026-06-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/remove-gemini-watermark/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/quchu-gemini-shuiyin/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/</loc>
+        <lastmod>2026-06-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/remove-gemini-watermark/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/quchu-gemini-shuiyin/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/" />
+    </url>
 </urlset>

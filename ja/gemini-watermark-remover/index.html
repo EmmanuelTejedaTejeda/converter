@@ -12,22 +12,24 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="無料で高速、100%安全にWebP画像をJPGに変換します。インターネットにアップロードすることなく、お使いのデバイス上で直接ローカルに変換できます。">
-    <title>WebP JPG 変換 - オンライン無料でWebPをJPGに変換</title>
+    <meta name="description" content="AIが生成した画像の右下にあるGoogle Geminiの表示可能な透かし（ウォーターマーク）を、無料、迅速、かつ100%安全に削除します。画像はアップロードされません。">
+    <title>Gemini 透かし消去オンライン - 無料で安全</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/styles.css">
-    <link rel="canonical" href="https://herramientas-imagen.pages.dev/ja/webp-jpg-henkan/">
-    <link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/webp-a-jpg/">
-    <link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/webp-to-jpg/">
-    <link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/webp-zhuan-jpg/">
-    <link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/webp-jpg-henkan/">
-    <link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/webp-a-jpg/">
+    <link rel="canonical" href="https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/">
+    <link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/">
+    <link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/remove-gemini-watermark/">
+    <link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/quchu-gemini-shuiyin/">
+    <link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/">
+    <link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/">
     <script src="../../assets/theme.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017"
             crossorigin="anonymous"></script>
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
 </head>
 <body class="dark-theme">
     
@@ -43,7 +45,7 @@
             </a>
             
             <nav class="header-nav">
-                <!-- Dropdown de Herramientas (Desktop Only) -->
+                <!-- ツールメニュー (Desktop Only) -->
                 <div class="nav-dropdown">
                     <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
                         <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -52,7 +54,7 @@
                             <rect x="14" y="12" width="7" height="9"></rect>
                             <rect x="3" y="16" width="7" height="5"></rect>
                         </svg>
-                        ツール
+                        ツール一覧
                         <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
@@ -60,80 +62,80 @@
                     <div class="nav-dropdown-menu">
                         <div class="dropdown-category">
                             <h4>フォーマット変換</h4>
-                            <a href="../jpg-png-henkan/" data-keywords="jpg, png, 変換, 変換器, コンバーター">
+                            <a href="../jpg-png-henkan/" data-keywords="jpg, png, henkan, henkanki">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 JPG から PNG
                             </a>
-                            <a href="../png-jpg-henkan/" data-keywords="png, jpg, jpeg, 変換, 変換器, コンバーター">
+                            <a href="../png-jpg-henkan/" data-keywords="png, jpg, jpeg, henkan, henkanki">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 PNG から JPG
                             </a>
-                            <a href="./" data-keywords="webp, jpg, jpeg, 変換, 変換器, コンバーター">
+                            <a href="../webp-jpg-henkan/" data-keywords="webp, jpg, jpeg, henkan, henkanki">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 WebP から JPG
                             </a>
-                            <a href="../webp-png-henkan/" data-keywords="webp, png, 変換, 変換器, コンバーター">
+                            <a href="../webp-png-henkan/" data-keywords="webp, png, henkan, henkanki">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 WebP から PNG
                             </a>
-                            <a href="../webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">
+                            <a href="../webp-henkan/" data-keywords="webp, henkan, henkanki, asshuku">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 WebP に変換
                             </a>
-                            <a href="../svg-gazo-henkan/" data-keywords="svg, png, jpg, 画像, 変換, 変換器, ベクター">
+                            <a href="../svg-gazo-henkan/" data-keywords="svg, png, jpg, gazo, henkan, vector">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
-                                SVG から画像へ
+                                SVG から画像
                             </a>
-                            <a href="../banno-henkanki/" data-keywords="変換, 変換器, 万能, すべて, png, jpg, webp, svg, gif, bmp, ico">
+                            <a href="../banno-henkanki/" data-keywords="henkanki, banno, png, jpg, webp, svg, gif, bmp, ico">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-                                万能画像変換
+                                万能変換器
                             </a>
                         </div>
                         <div class="dropdown-category">
-                            <h4>容量・サイズ</h4>
-                            <a href="../gazo-asshuku/" data-keywords="圧縮, 容量, サイズ, 縮小, 最適化">
+                            <h4>容量・サイズ最適化</h4>
+                            <a href="../gazo-asshuku/" data-keywords="asshuku, compress, optimize">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h16M4 10h16M12 3v18"/></svg>
                                 画像圧縮
                             </a>
-                            <a href="../gazo-saizu-henko/" data-keywords="サイズ変更, リサイズ, ピクセル, 横幅, 縦幅">
+                            <a href="../gazo-saizu-henko/" data-keywords="resize, size, width, height">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 3H3v18h18V3zM9 9h6v6H9V9z"/></svg>
                                 サイズ変更
                             </a>
                         </div>
                         <div class="dropdown-category">
                             <h4>画像編集</h4>
-                            <a href="../gazo-caijian/" data-keywords="切り抜き, カット, トリミング, エリア">
+                            <a href="../gazo-caijian/" data-keywords="caijian, crop, ratio">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v16h16M2 6h16v16"/></svg>
                                 画像切り抜き
                             </a>
-                            <a href="../gazo-kaiten/" data-keywords="回転, 反転, ミラー, 水平, 垂直">
+                            <a href="../gazo-kaiten/" data-keywords="rotate, rotation, turn, flip">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
                                 回転・反転
                             </a>
-                            <a href="../favicon-sakusei/" data-keywords="ファビコン, favicon, ico, アイコン, 作成, 生成, ブラウザ">
+                            <a href="../favicon-sakusei/" data-keywords="favicon, ico, icon, generator, browser">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                                 ファビコン作成
                             </a>
-                                                    <a href="../gemini-watermark-remover/" data-keywords="gemini, watermark, remove, watermark, ai, google, logo">
+                            <a href="./" data-keywords="gemini, watermark, remove, watermark, ai, google, logo">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                                 Gemini 透かし消去
                             </a>
-</div>
+                        </div>
                         <div class="dropdown-category">
                             <h4>ドキュメント</h4>
-                            <a href="../gazo-pdf-henkan/" data-keywords="画像から pdf, pdf に変換, 写真から pdf, pdf, 結合 pdf">
+                            <a href="../gazo-pdf-henkan/" data-keywords="pdf, merge, image to pdf">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                                画像を PDF に
+                                画像から PDF
                             </a>
-                            <a href="../pdf-gazo-henkan/" data-keywords="pdf から画像, pdf から画像抽出, pdf から png, pdf から jpg">
+                            <a href="../pdf-gazo-henkan/" data-keywords="pdf, extract, pdf to image">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                                PDF から画像へ
+                                PDF から画像
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Buscador de Escritorio (Desktop Only) -->
+                <!-- デスクトップ検索 (Desktop Only) -->
                 <div class="header-search">
                     <div class="search-input-wrapper">
                         <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -148,14 +150,14 @@
             </nav>
             
             <div class="header-actions">
-                <!-- Contador de Estadísticas -->
-                <div class="stats-counter" id="stats-counter" title="このセッションで安全に変換された写真">
+                <!-- セッション統計 -->
+                <div class="stats-counter" id="stats-counter" title="このセッションで安全に処理された写真数">
                     <span class="stats-icon">🔥</span>
                     <span class="stats-number" id="stats-number">0</span>
                 </div>
                 
-                <!-- Botón de Sonido -->
-                <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound" title="音声をオン/オフ">
+                <!-- 音声ボタン -->
+                <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound" title="音声を有効/無効化">
                     <svg class="volume-on-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                         <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
@@ -167,7 +169,7 @@
                     </svg>
                 </button>
 
-                <!-- Selector de Idiomas -->
+                <!-- 言語切り替え -->
                 <div class="lang-dropdown">
                     <button class="lang-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
                         <svg class="globe-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -181,15 +183,15 @@
                         </svg>
                     </button>
                     <div class="lang-dropdown-menu">
-                        <a href="../../webp-a-jpg/" class="lang-option "><span class="flag">🇪🇸</span> Español</a>
-                        <a href="../../en/webp-to-jpg/" class="lang-option "><span class="flag">🇺🇸</span> English</a>
-                        <a href="../../zh/webp-zhuan-jpg/" class="lang-option "><span class="flag">🇨🇳</span> 简体中文</a>
+                        <a href="../../quitar-marca-agua-gemini/" class="lang-option"><span class="flag">🇪🇸</span> Español</a>
+                        <a href="../../en/remove-gemini-watermark/" class="lang-option"><span class="flag">🇺🇸</span> English</a>
+                        <a href="../../zh/quchu-gemini-shuiyin/" class="lang-option"><span class="flag">🇨🇳</span> 简体中文</a>
                         <a href="./" class="lang-option active"><span class="flag">🇯🇵</span> 日本語</a>
                     </div>
                 </div>
 
-                <!-- Botón de Tema -->
-                <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <!-- テーマ切り替えボタン -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="テーマの切り替え">
                     <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -206,7 +208,7 @@
                     </svg>
                 </button>
 
-                <!-- Hamburger Button (Mobile Only) -->
+                <!-- ハンバーガーメニュー (Mobile Only) -->
                 <button class="hamburger-menu-btn" aria-label="Menu" aria-expanded="false">
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
@@ -215,7 +217,7 @@
             </div>
         </div>
         
-        <!-- Mobile Navigation Menu Drawer -->
+        <!-- モバイルドロワーメニュー -->
         <div class="mobile-nav-drawer">
             <div class="mobile-nav-search">
                 <div class="search-input-wrapper">
@@ -231,36 +233,36 @@
                     <div class="mobile-category">
                         <h5>フォーマット変換</h5>
                         <div class="mobile-links-grid">
-                            <a href="../jpg-png-henkan/" data-keywords="jpg, png, 変換, 変換器, コンバーター">JPG から PNG</a>
-                            <a href="../png-jpg-henkan/" data-keywords="png, jpg, jpeg, 変換, 変換器, コンバーター">PNG から JPG</a>
-                            <a href="./" data-keywords="webp, jpg, jpeg, 変換, 変換器, コンバーター">WebP から JPG</a>
-                            <a href="../webp-png-henkan/" data-keywords="webp, png, 変換, 変換器, コンバーター">WebP から PNG</a>
-                            <a href="../webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">WebP に変換</a>
-                            <a href="../svg-gazo-henkan/" data-keywords="svg, png, jpg, 画像, 変換, 変換器, ベクター">SVG から画像へ</a>
-                            <a href="../banno-henkanki/" data-keywords="変換, 変換器, 万能, すべて, png, jpg, webp, svg, gif, bmp, ico">万能画像変換</a>
+                            <a href="../jpg-png-henkan/">JPG から PNG</a>
+                            <a href="../png-jpg-henkan/">PNG から JPG</a>
+                            <a href="../webp-jpg-henkan/">WebP から JPG</a>
+                            <a href="../webp-png-henkan/">WebP から PNG</a>
+                            <a href="../webp-henkan/">WebP に変換</a>
+                            <a href="../svg-gazo-henkan/">SVG から画像</a>
+                            <a href="../banno-henkanki/">万能変換器</a>
                         </div>
                     </div>
                     <div class="mobile-category">
-                        <h5>容量・サイズ</h5>
+                        <h5>容量・サイズ最適化</h5>
                         <div class="mobile-links-grid">
-                            <a href="../gazo-asshuku/" data-keywords="圧縮, 容量, サイズ, 縮小, 最適化">画像圧縮</a>
-                            <a href="../gazo-saizu-henko/" data-keywords="サイズ変更, リサイズ, ピクセル, 横幅, 縦幅">サイズ変更</a>
+                            <a href="../gazo-asshuku/">画像圧縮</a>
+                            <a href="../gazo-saizu-henko/">サイズ変更</a>
                         </div>
                     </div>
                     <div class="mobile-category">
                         <h5>画像編集</h5>
                         <div class="mobile-links-grid">
-                            <a href="../gazo-caijian/" data-keywords="切り抜き, カット, トリミング, エリア">画像切り抜き</a>
-                            <a href="../gazo-kaiten/" data-keywords="回転, 反転, ミラー, 水平, 垂直">回転・反転</a>
-                            <a href="../favicon-sakusei/" data-keywords="ファビコン, favicon, ico, アイコン, 作成, 生成, ブラウザ">ファビコン作成</a>
-                                                    <a href="../gemini-watermark-remover/" data-keywords="gemini, watermark, remove, watermark, ai, google, logo">Gemini 透かし消去</a>
-</div>
+                            <a href="../gazo-caijian/">画像切り抜き</a>
+                            <a href="../gazo-kaiten/">回転・反転</a>
+                            <a href="../favicon-sakusei/">ファビコン作成</a>
+                            <a href="./">Gemini 透かし消去</a>
+                        </div>
                     </div>
                     <div class="mobile-category">
                         <h5>ドキュメント</h5>
                         <div class="mobile-links-grid">
-                            <a href="../gazo-pdf-henkan/" data-keywords="画像から pdf, pdf に変換, 写真から pdf, pdf, 結合 pdf">画像を PDF に</a>
-                            <a href="../pdf-gazo-henkan/" data-keywords="pdf から画像, pdf から画像抽出, pdf から png, pdf から jpg">PDF から画像へ</a>
+                            <a href="../gazo-pdf-henkan/">画像から PDF</a>
+                            <a href="../pdf-gazo-henkan/">PDF から画像</a>
                         </div>
                     </div>
                 </div>
@@ -271,91 +273,163 @@
     <main class="app-main">
         <div class="converter-wrapper">
             <section class="hero-section">
-                <h1 class="hero-title">オンラインWebPからJPGへ変換</h1>
-                <p class="hero-subtitle">無料で100%安全。写真はすべてデバイス上でローカルに変換され、インターネットにアップロードされることはありません。</p>
+                <h1 class="hero-title">Gemini 画像の透かし（ロゴ）消去ツール</h1>
+                <p class="hero-subtitle">完全無料、超高速、100%安全。Google GeminiのAIが生成した画像の右下の透かしを瞬時に消去します。</p>
             </section>
 
             <section class="converter-card">
-                <!-- Dropzone -->
+                <!-- アップロードゾーン -->
                 <div id="drop-zone" class="drop-zone">
-                    <input type="file" id="file-input" class="file-input" accept="image/webp" multiple>
+                    <input type="file" id="file-input" class="file-input" accept="image/jpeg,image/jpg,image/png,image/webp">
                     <div class="drop-zone-content">
                         <div class="drop-icon">
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7 16V4M7 4L3 8M7 4L11 8M17 8V20M17 20L13 16M17 20L21 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 16V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V16M16 12L12 16M12 16L8 12M12 16V4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h3 class="drop-title">ここにWebPファイルをドラッグ＆ドロップしてください</h3>
-                        <p class="drop-text">またはクリックしてお使いのデバイスからファイルを選択</p>
-                        <span class="drop-badge">複数ファイルに対応</span>
+                        <h3 class="drop-title">Geminiの画像をドラッグ＆ドロップ</h3>
+                        <p class="drop-text">またはファイルを選択します</p>
+                        <span class="drop-badge">JPG, PNG, WEBPに対応（最大25MB）</span>
                     </div>
                 </div>
 
-                <!-- Privacy Tip -->
+                <!-- プライバシー通知 -->
                 <div class="privacy-notice">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M9 11L11 13L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <span>写真のセキュリティは保証されています。ファイルは常にスマートフォンやPC内に残り、あなた以外の誰も見ることはできません。</span>
+                    <span>ローカル実行: 画像は外部サーバーに送信されません。AIインペインティングは100%お使いのブラウザで動きます。</span>
                 </div>
 
-                <!-- File List Container -->
-                <div id="file-list-container" class="file-list-container hidden">
-                    <div class="list-header">
-                        <h4>アップロードされた写真 (<span id="file-count">0</span>) 👇</h4>
-                        <div class="list-actions">
-                            <button id="convert-all-btn" class="btn btn-primary btn-sm">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="23 4 23 10 17 10"></polyline>
-                                    <polyline points="1 20 1 14 7 14"></polyline>
-                                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                <!-- 文字列の翻訳 -->
+                <div id="watermark-strings" class="hidden" 
+                     data-msg-select="有効な画像ファイルを選択してください。" 
+                     data-msg-done="透かしの消去が完了しました！" 
+                     data-msg-loading="背景を補正中..."></div>
+
+                <!-- 編集エリア (画像選択後に表示) -->
+                <div id="editor-section" class="watermark-editor-grid hidden">
+                    <!-- 画像プレビューエリア -->
+                    <div class="watermark-image-area" id="image-area">
+                        <div class="watermark-canvas-container" id="canvas-container">
+                            <canvas id="editor-canvas"></canvas>
+                            <!-- 調整用のピンク枠 -->
+                            <div class="watermark-selection-box" id="selection-box">
+                                <div class="watermark-resize-handle" id="resize-handle"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 操作パネル -->
+                    <div class="watermark-controls-panel">
+                        <h3 class="editor-title">消去エリア調整</h3>
+                        
+                        <div class="control-group">
+                            <label for="preset-select">ロゴの位置プリセット:</label>
+                            <div class="select-wrapper">
+                                <select id="preset-select" class="form-select">
+                                    <option value="bottom-right-48">Gemini 小ロゴ (右下 48x48)</option>
+                                    <option value="bottom-right-96">Gemini 大ロゴ (右下 96x96)</option>
+                                    <option value="bottom-left-48">Gemini 小ロゴ (左下 48x48)</option>
+                                    <option value="bottom-left-96">Gemini 大ロゴ (左下 96x96)</option>
+                                    <option value="custom">手動調整 (カスタム)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 手動スライダー -->
+                        <div class="control-group">
+                            <label>X座標 (横方向位置)</label>
+                            <div class="input-range-wrapper">
+                                <input type="range" id="slider-x" min="0" value="0">
+                                <span id="val-x">0px</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Y座標 (縦方向位置)</label>
+                            <div class="input-range-wrapper">
+                                <input type="range" id="slider-y" min="0" value="0">
+                                <span id="val-y">0px</span>
+                            </div>
+                        </div>
+
+                        <div class="control-row">
+                            <div class="control-group">
+                                <label>幅 (エリア)</label>
+                                <div class="input-range-wrapper">
+                                    <input type="range" id="slider-w" min="10" value="48">
+                                    <span id="val-w">48px</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label>高さ (エリア)</label>
+                                <div class="input-range-wrapper">
+                                    <input type="range" id="slider-h" min="10" value="48">
+                                    <span id="val-h">48px</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group" style="margin-top: 0.5rem;">
+                            <button id="remove-btn" class="btn btn-primary btn-block">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 2 12 2Z"/>
+                                    <path d="M8 12H16"/>
                                 </svg>
-                                一括変換
+                                透かしを消去する
                             </button>
-                            <button id="download-all-btn" class="btn btn-secondary btn-sm disabled" disabled>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <button id="download-btn" class="btn btn-secondary btn-block hidden">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                     <polyline points="7 10 12 15 17 10"></polyline>
                                     <line x1="12" y1="15" x2="12" y2="3"></line>
                                 </svg>
-                                すべての画像をダウンロード
+                                綺麗な写真を保存
                             </button>
-                            <button id="clear-all-btn" class="btn btn-danger-outline btn-sm">
-                                リストをクリア
+                            <button id="reset-btn" class="btn btn-danger-outline btn-block">
+                                元画像に戻す
                             </button>
                         </div>
-                    </div>
-                    
-                    <div id="file-list" class="file-list">
-                        <!-- Cards will be dynamically inserted here -->
+
+                        <div class="control-group" style="border-top: 1px solid var(--header-border); padding-top: 0.75rem;">
+                            <span style="font-size: 0.75rem; font-weight: bold; color: var(--text-muted); text-transform: uppercase;">使い方</span>
+                            <ul class="instructions-list">
+                                <li>デフォルトで右下角の透かし位置が選択されます。</li>
+                                <li>ピンク色の調整枠をマウスで直接移動することも可能です。</li>
+                                <li>枠の右下のつまみをドラッグして、ロゴを覆うようにサイズを調整します。</li>
+                                <li>「透かしを消去する」をクリックすると自動的に補正されます。</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Minimalist Sponsored Section -->
+            <!-- 広告枠 -->
             <div class="ad-container-minimal">
-                <a href="https://ethicalads.io" target="_blank" rel="noopener noreferrer" class="ad-link">
-                    <span class="ad-badge">[スポンサー]</span>
+                <a href="../gazo-asshuku/" class="ad-link">
+                    <span class="ad-badge">[推奨]</span>
                     <div class="ad-body">
-                        <span class="ad-text">写真を圧縮してファイルサイズを最大80%削減したいですか？画像圧縮ツールをお試しください。</span>
-                        <span class="ad-cta">今すぐ試す &rarr;</span>
+                        <span class="ad-text">AIで出力された画像のサイズが大きすぎますか？品質を落とさずに最大80%容量を縮小できます。</span>
+                        <span class="ad-cta">無料で圧縮する &rarr;</span>
                     </div>
                 </a>
             </div>
         </div>
 
-        <!-- Features Info -->
+        <!-- 特徴 -->
         <section class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-                        <path d="M12 6v6l4 2"></path>
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
                     </svg>
                 </div>
-                <h3>瞬時に変換</h3>
-                <p>待ち時間はありません。写真はアップロード不要で即座に変換され、すぐにダウンロードできます。</p>
+                <h3>スマート背景補正 (Inpainting)</h3>
+                <p>透かしの周囲のテクスチャや色彩を解析し、欠損箇所を自然な形でシームレスに再現します。</p>
             </div>
             
             <div class="feature-card">
@@ -365,73 +439,74 @@
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                     </svg>
                 </div>
-                <h3>100%安全</h3>
-                <p>写真がお使いのデバイスから送信されることはありません。すべての変換はブラウザ内でローカルに行われます。</p>
+                <h3>高度なプライバシー</h3>
+                <p>Canvas処理はお使いのデバイス上で行われます。アップロードは不要で、画像は完全保護されます。</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                     </svg>
                 </div>
-                <h3>高い互換性</h3>
-                <p>JPGフォーマットはユニバーサルです。変換された写真は、あらゆるアプリ、ウェブサイト、デバイスで使用できます。</p>
+                <h3>Gemini ロゴサイズ対応</h3>
+                <p>Geminiが出力する代表的なウォーターマークのサイズ（48px / 96px）のプリセットを標準搭載。</p>
             </div>
         </section>
 
-        <!-- On-Page SEO Content: Guide and FAQs -->
+        <!-- SEO解説 -->
         <section class="seo-content-section">
             <div class="seo-block">
-                <h2>無料で素早くWebPからJPGに変換する方法</h2>
-                <p>当ツールを使えば、WebP写真をJPGに変更するのは極めて簡単です。以下の3つの基本手順に従ってください：</p>
+                <h2>Gemini画像からロゴ透かしを消す方法</h2>
+                <p>GoogleのAI生成画像に追加される星形アイコンやAIラベルは簡単に消去できます。</p>
                 <ol class="seo-steps-list">
-                    <li><strong>写真をアップロード：</strong>WebP画像を上部のボックスに直接ドラッグ＆ドロップするか、クリックしてファイルを選択します。</li>
-                    <li><strong>ワンクリックで変換：</strong>各写真の横にある「変換」ボタンをクリックするか、「一括変換」をクリックして一括処理します。</li>
-                    <li><strong>JPG画像を保存：</strong>各ファイルにあるオレンジ色の「画像を保存」ボタンをクリックしてダウンロードします。100%自動です！</li>
+                    <li><strong>画像を読み込む:</strong> Geminiで生成した画像を上のエリアにドラッグ、または選択します。</li>
+                    <li><strong>枠を重ねる:</strong> 画像読み込み後、右下角にピンクの選択枠が出現します。ロゴを覆うように位置やサイズを合わせます。</li>
+                    <li><strong>消去を実行:</strong> 「透かしを消去する」をクリックします。数ミリ秒でインペインティングアルゴリズムが背景を補正します。</li>
+                    <li><strong>綺麗になった画像をダウンロード:</strong> 「綺麗な写真を保存」をクリックして端末に保存します。</li>
                 </ol>
             </div>
 
             <div class="seo-block">
-                <h2>よくある質問 (FAQ)</h2>
+                <h2>Gemini画像の透かしに関するよくある質問 (FAQ)</h2>
                 
                 <div class="faq-item">
-                    <h3>なぜWebPからJPGへ変換するのですか？</h3>
-                    <p>WebPはウェブに最適な優れた最新フォーマットですが、古い画像エディタや、一部の行政・学校のオンライン管理システム（フォームやアップロードポータルなど）ではサポートされていません。JPGフォーマットであれば、どこでも確実に写真を開くことができます。</p>
+                    <h3>なぜGeminiの画像には透かしが入っているのですか？</h3>
+                    <p>Googleは安全面および透明性の配慮から透かしを挿入しています。ユーザーや第三者が「AIによって作られた偽画像・合成画像」であるかを見極め、誤情報の拡散を防ぐ目的があります。</p>
                 </div>
 
                 <div class="faq-item">
-                    <h3>このツールは完全に無料ですか？</h3>
-                    <p>はい。すべてのWebP写真を登録不要で無料でJPGに変換できます。ファイル数やファイルサイズの制限はありません。</p>
+                    <h3>この透かし消去ツールの仕組みはどうなっていますか？</h3>
+                    <p>ラプラス方程式と逆二乗距離の加重法を利用した画像修復技術を使用しています。単にロゴの箇所をぼかす（モザイクをかける）のではなく、枠の外側周囲のグラデーションや色を内側に投影してシームレスに背景を再描写します。</p>
                 </div>
 
                 <div class="faq-item">
-                    <h3>なぜ変換処理が100%安全でプライベートなのですか？</h3>
-                    <p>他のウェブサイトとは異なり、画像がインターネット上のサーバーに送信されることはありません。すべての変換処理はお使いのブラウザのローカル内で直接実行されます。完全にプライバシーが保護されます。</p>
+                    <h3>不可視の透かし(SynthID)も消せますか？</h3>
+                    <p>いいえ。SynthIDは画像のピクセル全体のパターンに埋め込まれたGoogleの特許技術です。切り抜きや一般的な圧縮を施しても消えません。当サイトでは「目に見える表示可能なロゴ透かし」のみを100%消去します。画像の見た目をすっきりと美しくする目的にはこれで十分です。</p>
                 </div>
 
                 <div class="faq-item">
-                    <h3>WebPからJPGに変換する際、透明な背景はどうなりますか？</h3>
-                    <p>JPGフォーマットは透明度（アルファチャンネル）をサポートしていないため、元のWebP画像の透明な部分は自動的に純白の背景で塗りつぶされます。これにより、画像の内容を綺麗に維持できます。</p>
+                    <h3>利用料はかかりますか？</h3>
+                    <p>いいえ、登録不要・制限なしで完全に無料でお使いいただけます。回数制限やファイルサイズ制限もありません。</p>
                 </div>
             </div>
         </section>
 
-        <!-- Recommended Resources -->
+        <!-- 推薦資源 -->
         <section class="resources-section">
-            <h4 class="resources-title">[おすすめのリソース]</h4>
+            <h4 class="resources-title">[おすすめリソース]</h4>
             <div class="resources-list">
                 <a href="https://partner.canva.com" target="_blank" rel="noopener noreferrer" class="resource-item">
                     <span class="resource-name">Canva Pro</span>
-                    <span class="resource-desc">変換した画像を使って素晴らしいデザインを作成しましょう。無料体験あり。</span>
+                    <span class="resource-desc">透かしを消した綺麗なAI写真を使って、高品質なプレゼンやチラシを作成。</span>
                 </a>
                 <a href="https://hostinger.com" target="_blank" rel="noopener noreferrer" class="resource-item">
-                    <span class="resource-name">プレミアムホスティング</span>
-                    <span class="resource-desc">独自のウェブサイトを立ち上げるための高速かつ手頃なホスティングプラン。</span>
+                    <span class="resource-name">独自ドメインを取得</span>
+                    <span class="resource-desc">個人用やブログ用、ビジネス用の独自のドメイン名を購入します。</span>
                 </a>
                 <a href="https://fiverr.com" target="_blank" rel="noopener noreferrer" class="resource-item">
-                    <span class="resource-name">プロの写真レタッチ</span>
-                    <span class="resource-desc">わずか5ドルからプロのグラフィックデザイナーに写真レタッチを依頼できます。</span>
+                    <span class="resource-name">プロ画像編集</span>
+                    <span class="resource-desc">高度な切り抜き・色調補正・複雑な合成作業をプロのデザイナーに依頼。</span>
                 </a>
             </div>
         </section>
@@ -441,7 +516,7 @@
         <div class="footer-container">
             <p>&copy; 2026 Convertify. 高速、安全、プライベート。</p>
             <div class="footer-links">
-                <a href="../about/" class="footer-link">運営者情報</a>
+                <a href="../about/" class="footer-link">アバウト</a>
                 <a href="../contact/" class="footer-link">お問い合わせ</a>
                 <a href="../privacy-policy/" class="footer-link">プライバシーポリシー</a>
                 <a href="../riyo-kiyaku/" class="footer-link">利用規約</a>
@@ -450,85 +525,25 @@
         </div>
     </footer>
 
-    <!-- Templates for Dynamic Elements -->
-    <template id="file-card-template">
-        <div class="file-card">
-            <div class="file-info-group">
-                <div class="file-preview-wrapper">
-                    <img src="" alt="プレビュー" class="file-preview">
-                    <div class="file-preview-fallback">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <polyline points="21 15 16 10 5 21"></polyline>
-                        </svg>
-                    </div>
-                </div>
-                <div class="file-details">
-                    <div class="file-name" title="">filename.webp</div>
-                    <div class="file-meta">
-                        <span class="file-size">0 KB</span>
-                        <span class="file-divider">&bull;</span>
-                        <span class="file-dims">-- x --</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="file-status-group">
-                <span class="status-badge badge-pending">待機中</span>
-                
-                <div class="file-progress-wrapper hidden">
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 0%"></div>
-                    </div>
-                </div>
-
-                <div class="file-actions">
-                    <button class="btn-convert-text btn-action-convert" title="変換">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="23 4 23 10 17 10"></polyline>
-                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-                        </svg>
-                        変換
-                    </button>
-                    <a class="btn-download-text btn-action-download hidden" title="画像を保存">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        画像を保存
-                    </a>
-                    <button class="btn-icon btn-action-remove" title="削除">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="3 6 5 6 21 6"></polyline>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </template>
-
-    <!-- Modal de Agradecimiento y Monetización Post-Descarga -->
+    <!-- 成功ポップアップ -->
     <div id="thank-you-modal" class="modal-overlay hidden">
         <div class="modal-card">
-            <button id="close-modal-btn" class="modal-close-btn" aria-label="关闭窗口">&times;</button>
+            <button id="close-modal-btn" class="modal-close-btn" aria-label="閉じる">&times;</button>
             <div class="modal-content">
                 <div class="modal-icon">🎉</div>
-                <h3 class="modal-title">画像が保存されました！</h3>
-                <p class="modal-text">ダウンロードが正常に開始されました。</p>
+                <h3 class="modal-title">透かし消去完了！</h3>
+                <p class="modal-text">ローカル処理が終了し、ダウンロードが正常に開始されました。</p>
                 
                 <div class="modal-ad-box">
-                    <span class="modal-ad-tag">[おすすめ]</span>
-                    <h4>写真のファイルサイズが大きすぎてインターネットにアップロードしづらいですか？</h4>
-                    <p>当サイトの圧縮ツールを使用すれば、画質を損なうことなく写真のファイルサイズを最大80%削減できます。</p>
-                    <a href="../gazo-asshuku/index.html" class="btn btn-primary btn-block">無料で画像を圧縮</a>
+                    <span class="modal-ad-tag">[推奨ツール]</span>
+                    <h4>画像のファイル形式を変更しますか？</h4>
+                    <p>当サイトのローカル万能変換器を使用すると、画像を即座に WEBP, PNG, または JPG 形式に変換できます。</p>
+                    <a href="../banno-henkanki/" class="btn btn-primary btn-block">万能変換器を開く</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="../../assets/webp-to-jpg.js"></script>
+    <script src="../../assets/watermark-remover.js"></script>
 </body>
 </html>
