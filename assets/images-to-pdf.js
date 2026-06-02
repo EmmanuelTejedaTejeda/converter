@@ -541,9 +541,9 @@ document.addEventListener('DOMContentLoaded', () => {
             let doc = null;
 
             // Retrieve configuration values
-            const configSize = pageSizeSelect.value; // 'auto', 'a4', 'letter'
-            const configOrientation = pageOrientationSelect.value; // 'auto', 'p', 'l'
-            const configMarginVal = parseInt(pageMarginSelect.value, 10); // 0, 10, 20
+            const configSize = pageSizeSelect ? pageSizeSelect.value : 'a4'; // 'auto', 'a4', 'letter'
+            const configOrientation = pageOrientationSelect ? pageOrientationSelect.value : 'p'; // 'auto', 'p', 'l'
+            const configMarginVal = pageMarginSelect ? parseInt(pageMarginSelect.value, 10) : 0; // 0, 10, 20
             const configFit = pageFitSelect ? pageFitSelect.value : 'contain';
             const shouldCompress = compressPdfCheck.checked;
             const compressQuality = shouldCompress ? (parseInt(qualityRange.value, 10) / 100) : 1.0;
@@ -773,8 +773,8 @@ document.addEventListener('DOMContentLoaded', () => {
         layoutZoomBadge.textContent = '100%';
         layoutZoomRange.value = 100;
 
-        const configSize = pageSizeSelect.value;
-        const configOrientation = pageOrientationSelect.value;
+        const configSize = pageSizeSelect ? pageSizeSelect.value : 'a4';
+        const configOrientation = pageOrientationSelect ? pageOrientationSelect.value : 'p';
 
         for (let i = 0; i < filesArray.length; i++) {
             const fileWrapper = filesArray[i];
