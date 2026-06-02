@@ -884,6 +884,42 @@ document.addEventListener('DOMContentLoaded', () => {
             previewPagesContainer.appendChild(wrapper);
         }
 
+        // Auto-select the first image so the slider works immediately
+        const firstImg = previewPagesContainer.querySelector('.draggable-image');
+        if (firstImg && filesArray.length > 0) {
+            firstImg.classList.add('active-edit');
+            activeEditId = filesArray[0].id;
+            layoutZoomRange.disabled = false;
+            resetLayoutBtn.disabled = false;
+            layoutZoomRange.value = filesArray[0].customTransform.scale * 100;
+            layoutZoomBadge.textContent = `${Math.round(filesArray[0].customTransform.scale * 100)}%`;
+        }
+
+        // Add scroll hint if there are multiple pages
+        if (filesArray.length > 1) {
+            const scrollHint = document.createElement('div');
+            scrollHint.className = 'scroll-hint-indicator';
+            scrollHint.innerHTML = isEnglish 
+                ? '↓ Scroll down to see more pages ↓' 
+                : '↓ Haz scroll hacia abajo para ver más páginas ↓';
+            // Insert it into the workspace so it is sticky at the bottom of the viewport
+            const workspace = document.getElementById('canvas-workspace');
+            if (workspace) {
+                // Remove existing if any
+                const existing = workspace.querySelector('.scroll-hint-indicator');
+                if (existing) existing.remove();
+                workspace.appendChild(scrollHint);
+                
+                // Hide scroll hint when user scrolls down
+                workspace.addEventListener('scroll', function onScroll() {
+                    if (workspace.scrollTop > 50) {
+                        scrollHint.style.display = 'none';
+                        workspace.removeEventListener('scroll', onScroll);
+                    }
+                });
+            }
+        }
+
         layoutEditorModal.classList.remove('hidden');
     };
 

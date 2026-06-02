@@ -2723,6 +2723,29 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
     padding-bottom: 2rem;
 }
 
+.scroll-hint-indicator {
+    position: sticky;
+    bottom: 20px;
+    background-color: var(--accent-primary);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    pointer-events: none;
+    animation: scroll-bounce 2s infinite;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@keyframes scroll-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
 .preview-page-wrapper {
     position: relative;
     display: flex;
