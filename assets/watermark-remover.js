@@ -405,7 +405,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inpainting Algorithm (Jacobi Boundary Interpolation)
     // ==========================================================================
 
-    function inpaintRect(ctx, bx, by, bw, bh) {
+    // ==========================================================================
+    // Inpainting Algorithm (OpenCV Telea + Jacobi Fallback)
+    // ==========================================================================
+
+    function manualInpaintRect(ctx, bx, by, bw, bh) {
         const canvas = ctx.canvas;
         const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const data = imgData.data;
@@ -483,6 +487,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         ctx.putImageData(imgData, 0, 0);
+    }
+
+    function inpaintRect(ctx, bx, by, bw, bh) {
+        // Check if OpenCV is loaded and WebAssembly is fully initialized
+        if (typeof cv !== 'undefined' && cv.Mat && window.cvReady) {
+            try {
+                const src = cv.imread(ctx.canvas);
+                const mask = new cv.Mat(src.rows, src.cols, cv.CV_8UC1, new cv.Scalar(0));
+                
+                // Draw white rectangle on the mask where the watermark is
+                const point1 = new cv.Point(bx, by);
+                const point2 = new cv.Point(bx + bw, by + bh);
+                // -1 thickness means filled rectangle
+                cv.rectangle(mask, point1, point2, new cv.Scalar(255, 255, 255, 255), -1, cv.LINE_8, 0);
+                
+                const dst = new cv.Mat();
+                
+                // Perform Telea Inpainting (radius 3)
+                cv.inpaint(src, mask, dst, 3, cv.INPAINT_TELEA);
+                
+                // Render back to canvas
+                cv.imshow(ctx.canvas, dst);
+                
+                // Free memory to avoid WebAssembly memory leaks
+                src.delete();
+                mask.delete();
+                dst.delete();
+                return;
+            } catch (err) {
+                console.warn("OpenCV inpainting failed, using mathematical fallback:", err);
+            }
+        }
+        
+        // Fallback to manual algorithm if OpenCV is not loaded or failed
+        manualInpaintRect(ctx, bx, by, bw, bh);
     }
 
     // ==========================================================================
