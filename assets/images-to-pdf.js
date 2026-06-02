@@ -926,7 +926,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Global Slider control
     if (layoutZoomRange) {
         layoutZoomRange.addEventListener('input', (e) => {
-            if (!activeEditId) return;
+            if (activeEditId === null) return;
             const fileWrapper = filesArray.find(f => f.id === activeEditId);
             if (fileWrapper) {
                 fileWrapper.customTransform.scale = e.target.value / 100;
@@ -943,7 +943,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (resetLayoutBtn) {
         resetLayoutBtn.addEventListener('click', () => {
-            if (!activeEditId) return;
+            if (activeEditId === null) return;
             const fileWrapper = filesArray.find(f => f.id === activeEditId);
             if (fileWrapper) {
                 fileWrapper.customTransform = { x: 0, y: 0, scale: 1 };
