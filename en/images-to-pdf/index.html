@@ -371,6 +371,13 @@
                         <div class="list-actions">
                             <button id="convert-all-btn" class="btn btn-primary btn-sm">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                Preview & Edit
+                            </button>
+                            <button id="convert-all-btn" class="btn btn-primary btn-sm">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
                                     <polyline points="14 2 14 8 20 8"></polyline>
                                     <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -539,12 +546,7 @@
             
             <div class="file-status-group">
                 <div class="file-actions">
-                    <button type="button" class="btn-icon btn-action-edit" title="Edit Layout">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                        </svg>
-                    </button>
+
                     <button type="button" class="btn-icon btn-action-remove" title="Remove">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="3 6 5 6 21 6"></polyline>
@@ -575,31 +577,36 @@
         </div>
     </div>
 
-    <!-- Modal de Editor Visual de Diseño -->
-    <div id="layout-editor-modal" class="modal-overlay hidden">
-        <div class="modal-card" style="max-width: 600px; width: 95%;">
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--card-border); padding-bottom: 1rem; margin-bottom: 1.5rem;">
-                <h3 class="modal-title" style="margin: 0; font-size: 1.25rem;">Adjust Position and Size</h3>
-                <button id="close-layout-modal-btn" class="modal-close-btn" style="position: static;" aria-label="Close window">&times;</button>
+    <!-- Modal de Editor Visual de Diseño Global -->
+    <div id="layout-editor-modal" class="modal-overlay hidden" style="z-index: 2000;">
+        <div class="global-preview-modal-card">
+            <div class="global-preview-header">
+                <h3 class="modal-title" style="margin: 0; font-size: 1.25rem; color: #fff;">PDF Preview</h3>
+                <div style="display: flex; gap: 1rem;">
+                    <button id="save-layout-btn" class="btn btn-primary btn-sm">Save & Close</button>
+                    <button id="close-layout-modal-btn" class="modal-close-btn" style="position: static; color: #fff;" aria-label="Close window">&times;</button>
+                </div>
             </div>
             
-            <div class="layout-modal-content">
-                <div class="canvas-workspace" id="canvas-workspace">
-                    <div id="simulated-page" class="simulated-page">
-                        <img id="draggable-image" class="draggable-image" src="" alt="Drag image" draggable="false">
+            <div class="global-preview-content">
+                <div class="global-canvas-workspace" id="canvas-workspace">
+                    <div id="preview-pages-container" class="preview-pages-container">
+                        <!-- Las hojas A4 se inyectarán aquí por JS -->
                     </div>
                 </div>
                 
-                <div class="layout-controls">
-                    <label for="layout-zoom-range" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Image Size (Scale): <span id="layout-zoom-badge">100%</span></label>
+                <div class="global-layout-controls">
+                    <h4 style="margin-top: 0; margin-bottom: 1rem; color: var(--text-primary); font-size: 1rem;">Active Page Settings</h4>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem;">Click on any image on the left pages to adjust its size.</p>
+                    
+                    <label for="layout-zoom-range" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Scale: <span id="layout-zoom-badge">100%</span></label>
                     <div class="slider-container">
                         <span class="slider-label">Small</span>
-                        <input type="range" id="layout-zoom-range" min="10" max="300" value="100" class="quality-slider">
+                        <input type="range" id="layout-zoom-range" min="10" max="300" value="100" class="quality-slider" disabled>
                         <span class="slider-label">Large</span>
                     </div>
                     <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <button id="reset-layout-btn" class="btn btn-secondary" style="flex: 1;">Reset</button>
-                        <button id="save-layout-btn" class="btn btn-primary" style="flex: 2;">Save Layout</button>
+                        <button id="reset-layout-btn" class="btn btn-secondary" style="flex: 1;" disabled>Reset Image</button>
                     </div>
                 </div>
             </div>

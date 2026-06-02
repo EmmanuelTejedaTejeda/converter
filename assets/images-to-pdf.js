@@ -13,12 +13,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const fileCountSpan = document.getElementById('file-count');
     const generatePdfBtn = document.getElementById('convert-all-btn'); // reusing standard ID for styling
     const clearAllBtn = document.getElementById('clear-all-btn');
+    const previewAllBtn = document.getElementById('preview-all-btn'); // Global Preview
     const soundToggle = document.getElementById('sound-toggle');
     const statsCounter = document.getElementById('stats-counter');
     const statsNumber = document.getElementById('stats-number');
     const fileCardTemplate = document.getElementById('file-card-template');
     const thankYouModal = document.getElementById('thank-you-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
+    
+    // Global Layout Editor Elements
+    const layoutEditorModal = document.getElementById('layout-editor-modal');
+    const closeLayoutModalBtn = document.getElementById('close-layout-modal-btn');
+    const saveLayoutBtn = document.getElementById('save-layout-btn');
+    const resetLayoutBtn = document.getElementById('reset-layout-btn');
+    const layoutZoomRange = document.getElementById('layout-zoom-range');
+    const layoutZoomBadge = document.getElementById('layout-zoom-badge');
+    const previewPagesContainer = document.getElementById('preview-pages-container');
     
     // PDF Design Settings Elements
     const pageSizeSelect = document.getElementById('page-size');
@@ -357,7 +367,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const upBtn = card.querySelector('.btn-reorder-up');
         const downBtn = card.querySelector('.btn-reorder-down');
         const removeBtn = card.querySelector('.btn-action-remove');
-        const editBtn = card.querySelector('.btn-action-edit');
 
         upBtn.addEventListener('click', () => {
             reorderFile(id, -1);
@@ -370,12 +379,6 @@ document.addEventListener('DOMContentLoaded', () => {
         removeBtn.addEventListener('click', () => {
             removeFile(id);
         });
-
-        if (editBtn) {
-            editBtn.addEventListener('click', () => {
-                openLayoutEditor(id);
-            });
-        }
 
         filesArray.push(fileWrapper);
         fileList.appendChild(card);
@@ -466,16 +469,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateGlobalActionButtons() {
-        generatePdfBtn.disabled = (filesArray.length === 0);
-        if (filesArray.length > 0) {
+        const hasFiles = filesArray.length > 0;
+        generatePdfBtn.disabled = !hasFiles;
+        if (previewAllBtn) previewAllBtn.disabled = !hasFiles;
+        
+        if (hasFiles) {
             generatePdfBtn.classList.remove('disabled');
+            if (previewAllBtn) previewAllBtn.classList.remove('disabled');
         } else {
             generatePdfBtn.classList.add('disabled');
+            if (previewAllBtn) previewAllBtn.classList.add('disabled');
         }
     }
 
     if (clearAllBtn) {
         clearAllBtn.addEventListener('click', clearAllFiles);
+    }
+    if (previewAllBtn) {
+        previewAllBtn.addEventListener('click', openGlobalPreview);
     }
 
     // ==========================================================================
@@ -743,134 +754,180 @@ document.addEventListener('DOMContentLoaded', () => {
         closeLayoutModalBtn.addEventListener('click', closeLayoutEditor);
     }
     
+    if (closeLayoutModalBtn) {
+        closeLayoutModalBtn.addEventListener('click', closeLayoutEditor);
+    }
+    if (saveLayoutBtn) {
+        saveLayoutBtn.addEventListener('click', closeLayoutEditor);
+    }
+    
     function closeLayoutEditor() {
         if (layoutEditorModal) {
             layoutEditorModal.classList.add('hidden');
             activeEditId = null;
+            playPopSound();
         }
     }
 
-    window.openLayoutEditor = async function(id) {
-        const fileWrapper = filesArray.find(f => f.id === id);
-        if (!fileWrapper || !layoutEditorModal) return;
+    window.openGlobalPreview = async function() {
+        if (!layoutEditorModal || filesArray.length === 0) return;
         
-        activeEditId = id;
+        previewPagesContainer.innerHTML = '';
+        activeEditId = null;
         
-        // Setup initial transform state
-        if (fileWrapper.customTransform) {
-            editTransform = { ...fileWrapper.customTransform };
-        } else {
-            editTransform = { x: 0, y: 0, scale: 1 };
-        }
-        
-        // Determine aspect ratio based on selected config
+        layoutZoomRange.disabled = true;
+        resetLayoutBtn.disabled = true;
+        layoutZoomBadge.textContent = '100%';
+        layoutZoomRange.value = 100;
+
         const configSize = pageSizeSelect.value;
         const configOrientation = pageOrientationSelect.value;
-        
-        let ratio = 1 / 1.414; // Default portrait A4
-        if (configSize === 'letter') ratio = 8.5 / 11;
-        
-        // Check image native dims for 'auto'
-        const img = await loadImageAsync(fileWrapper.previewUrl);
-        const imgW = img.naturalWidth || img.width;
-        const imgH = img.naturalHeight || img.height;
-        
-        let isLandscape = false;
-        if (configOrientation === 'l' || (configOrientation === 'auto' && imgW >= imgH)) {
-            isLandscape = true;
-            ratio = 1 / ratio; // invert for landscape
+
+        for (let i = 0; i < filesArray.length; i++) {
+            const fileWrapper = filesArray[i];
+            
+            // Setup transform object if it doesn't exist
+            if (!fileWrapper.customTransform) {
+                fileWrapper.customTransform = { x: 0, y: 0, scale: 1 };
+            }
+
+            let ratio = 1 / 1.414; // Default portrait A4
+            if (configSize === 'letter') ratio = 8.5 / 11;
+
+            const img = await loadImageAsync(fileWrapper.previewUrl);
+            const imgW = img.naturalWidth || img.width;
+            const imgH = img.naturalHeight || img.height;
+
+            let isLandscape = false;
+            if (configOrientation === 'l' || (configOrientation === 'auto' && imgW >= imgH)) {
+                isLandscape = true;
+                ratio = 1 / ratio; // invert for landscape
+            }
+
+            if (configSize === 'auto') {
+                ratio = imgW / imgH; 
+            }
+
+            // Size the simulated page
+            const workspaceW = previewPagesContainer.clientWidth || 300;
+            let simW = workspaceW * 0.9;
+            let simH = simW / ratio;
+            
+            // Limit max height for better visibility
+            if (simH > 800) {
+                simH = 800;
+                simW = simH * ratio;
+            }
+
+            fileWrapper.uiSimRatio = simW;
+
+            // Build DOM
+            const wrapper = document.createElement('div');
+            wrapper.className = 'preview-page-wrapper';
+            
+            const numberLabel = document.createElement('div');
+            numberLabel.className = 'preview-page-number';
+            numberLabel.textContent = isEnglish ? `Page ${i + 1}` : `Página ${i + 1}`;
+            
+            const simPage = document.createElement('div');
+            simPage.className = 'simulated-page';
+            simPage.style.width = `${simW}px`;
+            simPage.style.height = `${simH}px`;
+            
+            const imgEl = document.createElement('img');
+            imgEl.className = 'draggable-image';
+            imgEl.src = fileWrapper.previewUrl;
+            imgEl.draggable = false;
+            
+            const updateTransformUI = () => {
+                imgEl.style.transform = `translate(calc(-50% + ${fileWrapper.customTransform.x}px), calc(-50% + ${fileWrapper.customTransform.y}px)) scale(${fileWrapper.customTransform.scale})`;
+            };
+            
+            updateTransformUI();
+
+            // Dragging Logic
+            let isDragging = false;
+            let dragStart = { x: 0, y: 0 };
+
+            imgEl.addEventListener('pointerdown', (e) => {
+                // Set as active
+                document.querySelectorAll('.draggable-image').forEach(el => el.classList.remove('active-edit'));
+                imgEl.classList.add('active-edit');
+                activeEditId = fileWrapper.id;
+                
+                // Enable controls
+                layoutZoomRange.disabled = false;
+                resetLayoutBtn.disabled = false;
+                layoutZoomRange.value = fileWrapper.customTransform.scale * 100;
+                layoutZoomBadge.textContent = `${Math.round(fileWrapper.customTransform.scale * 100)}%`;
+
+                // Start dragging
+                isDragging = true;
+                dragStart = { x: e.clientX - fileWrapper.customTransform.x, y: e.clientY - fileWrapper.customTransform.y };
+                imgEl.setPointerCapture(e.pointerId);
+            });
+
+            imgEl.addEventListener('pointermove', (e) => {
+                if (!isDragging) return;
+                fileWrapper.customTransform.x = e.clientX - dragStart.x;
+                fileWrapper.customTransform.y = e.clientY - dragStart.y;
+                fileWrapper.simWidthOnSave = simW; // Update physical ratio reference dynamically
+                updateTransformUI();
+            });
+
+            const stopDrag = (e) => {
+                if (isDragging) {
+                    isDragging = false;
+                    imgEl.releasePointerCapture(e.pointerId);
+                }
+            };
+
+            imgEl.addEventListener('pointerup', stopDrag);
+            imgEl.addEventListener('pointercancel', stopDrag);
+
+            simPage.appendChild(imgEl);
+            wrapper.appendChild(numberLabel);
+            wrapper.appendChild(simPage);
+            previewPagesContainer.appendChild(wrapper);
         }
-        
-        if (configSize === 'auto') {
-            ratio = imgW / imgH; // Exact image ratio
-        }
-        
-        // Size the simulated page (UI only)
-        const workspaceH = 350;
-        const workspaceW = simulatedPage.parentElement.clientWidth || 300;
-        
-        let simH = workspaceH * 0.9;
-        let simW = simH * ratio;
-        
-        if (simW > workspaceW * 0.9) {
-            simW = workspaceW * 0.9;
-            simH = simW / ratio;
-        }
-        
-        simulatedPage.style.width = `${simW}px`;
-        simulatedPage.style.height = `${simH}px`;
-        
-        // Set scale ratio to map physical pixels to UI simulated pixels
-        fileWrapper.uiSimRatio = simW; // used during PDF generation
-        
-        draggableImage.src = fileWrapper.previewUrl;
-        updateDraggableTransform();
-        
-        layoutZoomRange.value = editTransform.scale * 100;
-        layoutZoomBadge.textContent = `${Math.round(editTransform.scale * 100)}%`;
-        
+
         layoutEditorModal.classList.remove('hidden');
     };
-    
-    function updateDraggableTransform() {
-        if (!draggableImage) return;
-        draggableImage.style.transform = `translate(calc(-50% + ${editTransform.x}px), calc(-50% + ${editTransform.y}px)) scale(${editTransform.scale})`;
-    }
-    
+
+    // Global Slider control
     if (layoutZoomRange) {
         layoutZoomRange.addEventListener('input', (e) => {
-            editTransform.scale = e.target.value / 100;
-            layoutZoomBadge.textContent = `${e.target.value}%`;
-            updateDraggableTransform();
-        });
-    }
-    
-    if (resetLayoutBtn) {
-        resetLayoutBtn.addEventListener('click', () => {
-            editTransform = { x: 0, y: 0, scale: 1 };
-            layoutZoomRange.value = 100;
-            layoutZoomBadge.textContent = '100%';
-            updateDraggableTransform();
-            playPopSound();
-        });
-    }
-    
-    if (saveLayoutBtn) {
-        saveLayoutBtn.addEventListener('click', () => {
-            if (activeEditId) {
-                const fileWrapper = filesArray.find(f => f.id === activeEditId);
-                if (fileWrapper) {
-                    fileWrapper.customTransform = { ...editTransform };
-                    // Guardamos también el ancho de la simulación para saber escalar los valores X e Y
-                    fileWrapper.simWidthOnSave = parseFloat(simulatedPage.style.width);
-                    playPopSound();
+            if (!activeEditId) return;
+            const fileWrapper = filesArray.find(f => f.id === activeEditId);
+            if (fileWrapper) {
+                fileWrapper.customTransform.scale = e.target.value / 100;
+                layoutZoomBadge.textContent = `${e.target.value}%`;
+                
+                // Update UI visually
+                const activeImg = document.querySelector(`.draggable-image.active-edit`);
+                if (activeImg) {
+                    activeImg.style.transform = `translate(calc(-50% + ${fileWrapper.customTransform.x}px), calc(-50% + ${fileWrapper.customTransform.y}px)) scale(${fileWrapper.customTransform.scale})`;
                 }
             }
-            closeLayoutEditor();
         });
     }
-    
-    if (draggableImage) {
-        draggableImage.addEventListener('pointerdown', (e) => {
-            isDragging = true;
-            dragStart = { x: e.clientX - editTransform.x, y: e.clientY - editTransform.y };
-            draggableImage.setPointerCapture(e.pointerId);
-        });
-        
-        draggableImage.addEventListener('pointermove', (e) => {
-            if (!isDragging) return;
-            editTransform.x = e.clientX - dragStart.x;
-            editTransform.y = e.clientY - dragStart.y;
-            updateDraggableTransform();
-        });
-        
-        draggableImage.addEventListener('pointerup', (e) => {
-            isDragging = false;
-            draggableImage.releasePointerCapture(e.pointerId);
-        });
-        
-        draggableImage.addEventListener('pointercancel', (e) => {
-            isDragging = false;
+
+    if (resetLayoutBtn) {
+        resetLayoutBtn.addEventListener('click', () => {
+            if (!activeEditId) return;
+            const fileWrapper = filesArray.find(f => f.id === activeEditId);
+            if (fileWrapper) {
+                fileWrapper.customTransform = { x: 0, y: 0, scale: 1 };
+                layoutZoomRange.value = 100;
+                layoutZoomBadge.textContent = '100%';
+                
+                // Update UI visually
+                const activeImg = document.querySelector(`.draggable-image.active-edit`);
+                if (activeImg) {
+                    activeImg.style.transform = `translate(calc(-50% + 0px), calc(-50% + 0px)) scale(1)`;
+                }
+                playPopSound();
+            }
         });
     }
 });
