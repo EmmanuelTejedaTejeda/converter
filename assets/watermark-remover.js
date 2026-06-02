@@ -30,11 +30,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.getElementById('download-btn');
     const resetBtn = document.getElementById('reset-btn');
     
-    // String translations loaded from HTML data attributes
-    const stringsEl = document.getElementById('watermark-strings');
-    const msgSelect = stringsEl.dataset.msgSelect || 'Por favor selecciona una imagen primero';
-    const msgDone = stringsEl.dataset.msgDone || 'Marca de agua eliminada con éxito';
-    const msgLoading = stringsEl.dataset.msgLoading || 'Procesando...';
+    // String translations based on language
+    const lang = document.documentElement.lang;
+    let msgSelect = 'Por favor selecciona una imagen primero';
+    let msgDone = 'Marca de agua eliminada con éxito';
+    let msgLoading = 'Procesando...';
+    
+    if (lang === 'en') {
+        msgSelect = 'Please select an image first';
+        msgDone = 'Watermark removed successfully';
+        msgLoading = 'Processing...';
+    } else if (lang === 'ja') {
+        msgSelect = 'まず画像を選択してください';
+        msgDone = '透かしが正常に削除されました';
+        msgLoading = '処理中...';
+    } else if (lang === 'zh') {
+        msgSelect = '请先选择一张图片';
+        msgDone = '成功去除水印';
+        msgLoading = '处理中...';
+    }
     
     // App State
     let loadedImage = null;
