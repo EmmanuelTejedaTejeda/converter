@@ -2807,17 +2807,38 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
 
 /* Responsive modal */
 @media (max-width: 768px) {
+    .global-preview-modal-card {
+        width: 100vw;
+        height: 100vh;
+        max-width: none;
+        max-height: none;
+        border-radius: 0;
+    }
+    .global-preview-header {
+        padding: 0.75rem 1rem;
+    }
+    .global-preview-header h3 {
+        font-size: 1.1rem !important;
+    }
+    .global-preview-header .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
     .global-preview-content {
         flex-direction: column;
     }
     .global-layout-controls {
         width: 100%;
         height: auto;
+        max-height: 45vh;
         border-left: none;
         border-top: 1px solid var(--card-border);
         padding: 1rem;
+        box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+        z-index: 20;
     }
     .global-canvas-workspace {
         padding: 1rem;
+        padding-bottom: 2rem;
     }
 }

@@ -803,12 +803,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Size the simulated page
             const workspaceW = previewPagesContainer.clientWidth || 300;
+            const workspaceH = document.getElementById('canvas-workspace').clientHeight || window.innerHeight;
+            
             let simW = workspaceW * 0.9;
             let simH = simW / ratio;
             
-            // Limit max height for better visibility
-            if (simH > 800) {
-                simH = 800;
+            // Limit max height for better visibility, especially on mobile
+            // Ensure the page fits within 75% of the viewport height so it doesn't get cut off
+            const maxAllowedHeight = Math.min(800, workspaceH * 0.75);
+            if (simH > maxAllowedHeight) {
+                simH = maxAllowedHeight;
                 simW = simH * ratio;
             }
 
