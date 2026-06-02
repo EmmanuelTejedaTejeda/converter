@@ -2430,6 +2430,22 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
 @media (max-width: 900px) {
     .watermark-editor-grid {
         grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .control-row {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .control-row .control-group {
+        flex: 1 1 100%; /* Force them to take full width */
+    }
+    
+    .watermark-editor-grid {
+        padding: 0.75rem; /* Reduce padding even more for very small phones */
     }
 }
 
@@ -2461,7 +2477,7 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
     max-width: 100%;
     height: auto; /* Ensures it shrinks proportionally */
     max-height: 65vh;
-    object-fit: contain; /* Keeps aspect ratio */
+    /* object-fit removed to ensure bounding box strictly wraps the canvas content */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     background-color: var(--card-bg);
 }
