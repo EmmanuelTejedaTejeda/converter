@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
 
     if (dropZone && fileInput) {
-        dropZone.addEventListener('click', () => fileInput.click());
+
 
         fileInput.addEventListener('change', handleFileSelect);
 
@@ -230,14 +230,20 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateOverlayPosition() {
         if (!loadedImage) return;
         
+        // Calculate offset if canvas is centered in the container
+        const containerRect = canvasContainer.getBoundingClientRect();
+        const canvasRect = editorCanvas.getBoundingClientRect();
+        
+        const offsetX = canvasRect.left - containerRect.left;
+        const offsetY = canvasRect.top - containerRect.top;
+        
         // Calculate scale between canvas display size and actual image resolution
-        const rect = editorCanvas.getBoundingClientRect();
-        const scaleX = rect.width / imgWidth;
-        const scaleY = rect.height / imgHeight;
+        const scaleX = canvasRect.width / imgWidth;
+        const scaleY = canvasRect.height / imgHeight;
         
         // Position overlays
-        selectionBox.style.left = (boxX * scaleX) + 'px';
-        selectionBox.style.top = (boxY * scaleY) + 'px';
+        selectionBox.style.left = (offsetX + boxX * scaleX) + 'px';
+        selectionBox.style.top = (offsetY + boxY * scaleY) + 'px';
         selectionBox.style.width = (boxW * scaleX) + 'px';
         selectionBox.style.height = (boxH * scaleY) + 'px';
     }
@@ -417,7 +423,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     data[idx] = Math.round(rSum / wSum);
                     data[idx+1] = Math.round(gSum / wSum);
                     data[idx+2] = Math.round(bSum / wSum);
-                    data[idx+3] = Math.round(aSum / wSum);
+                    data[idx+3] = 255; // Set fully opaque to prevent transparency issues
+
                 }
             }
         }
