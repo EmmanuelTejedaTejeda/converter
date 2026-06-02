@@ -736,14 +736,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     // Visual Layout Editor Logic
     // ==========================================================================
-    const layoutEditorModal = document.getElementById('layout-editor-modal');
-    const closeLayoutModalBtn = document.getElementById('close-layout-modal-btn');
-    const simulatedPage = document.getElementById('simulated-page');
-    const draggableImage = document.getElementById('draggable-image');
-    const layoutZoomRange = document.getElementById('layout-zoom-range');
-    const layoutZoomBadge = document.getElementById('layout-zoom-badge');
-    const resetLayoutBtn = document.getElementById('reset-layout-btn');
-    const saveLayoutBtn = document.getElementById('save-layout-btn');
+    // (Variables already declared at the top of the file)
     
     let activeEditId = null;
     let editTransform = { x: 0, y: 0, scale: 1 };
@@ -769,7 +762,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    window.openGlobalPreview = async function() {
+    async function openGlobalPreview() {
         if (!layoutEditorModal || filesArray.length === 0) return;
         
         previewPagesContainer.innerHTML = '';
