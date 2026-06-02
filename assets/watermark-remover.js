@@ -133,8 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
         sliderW.max = imgWidth;
         sliderH.max = imgHeight;
         
-        // Set default preset: Bottom-Right 48px
-        presetSelect.value = 'bottom-right-48';
+        // Set default preset: Gemini Vertical
+        presetSelect.value = 'gemini-vertical';
         applyPreset();
         
         // Draw image on canvas
@@ -161,11 +161,26 @@ document.addEventListener('DOMContentLoaded', () => {
     function applyPreset() {
         const preset = presetSelect.value;
         
-        if (preset === 'bottom-right-48') {
+        if (preset === 'gemini-vertical') {
             boxW = 48;
             boxH = 48;
             boxX = Math.max(0, Math.min(imgWidth - boxW, 505));
             boxY = Math.max(0, Math.min(imgHeight - boxH, 957));
+        } else if (preset === 'gemini-horizontal') {
+            boxW = 48;
+            boxH = 48;
+            boxX = Math.max(0, Math.min(imgWidth - boxW, 953));
+            boxY = Math.max(0, Math.min(imgHeight - boxH, 509));
+        } else if (preset === 'gemini-square') {
+            boxW = 48;
+            boxH = 48;
+            boxX = Math.max(0, Math.min(imgWidth - boxW, 953));
+            boxY = Math.max(0, Math.min(imgHeight - boxH, 957));
+        } else if (preset === 'bottom-right-48') {
+            boxW = 48;
+            boxH = 48;
+            boxX = Math.max(0, imgWidth - boxW);
+            boxY = Math.max(0, imgHeight - boxH);
         } else if (preset === 'bottom-right-96') {
             boxW = 96;
             boxH = 96;
