@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageSizeSelect = document.getElementById('page-size');
     const pageOrientationSelect = document.getElementById('page-orientation');
     const pageMarginSelect = document.getElementById('page-margin');
+    const pageFitSelect = document.getElementById('page-fit');
     const compressPdfCheck = document.getElementById('compress-pdf');
     const compressionSettings = document.getElementById('compression-settings');
     const qualityRange = document.getElementById('quality-range');
@@ -356,6 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const upBtn = card.querySelector('.btn-reorder-up');
         const downBtn = card.querySelector('.btn-reorder-down');
         const removeBtn = card.querySelector('.btn-action-remove');
+        const editBtn = card.querySelector('.btn-action-edit');
 
         upBtn.addEventListener('click', () => {
             reorderFile(id, -1);
@@ -368,6 +370,12 @@ document.addEventListener('DOMContentLoaded', () => {
         removeBtn.addEventListener('click', () => {
             removeFile(id);
         });
+
+        if (editBtn) {
+            editBtn.addEventListener('click', () => {
+                openLayoutEditor(id);
+            });
+        }
 
         filesArray.push(fileWrapper);
         fileList.appendChild(card);
@@ -525,6 +533,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const configSize = pageSizeSelect.value; // 'auto', 'a4', 'letter'
             const configOrientation = pageOrientationSelect.value; // 'auto', 'p', 'l'
             const configMarginVal = parseInt(pageMarginSelect.value, 10); // 0, 10, 20
+            const configFit = pageFitSelect ? pageFitSelect.value : 'contain';
             const shouldCompress = compressPdfCheck.checked;
             const compressQuality = shouldCompress ? (parseInt(qualityRange.value, 10) / 100) : 1.0;
 
@@ -578,16 +587,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 const printableW = pageW - (margin * 2);
                 const printableH = pageH - (margin * 2);
 
-                const scaleX = printableW / imgW;
-                const scaleY = printableH / imgH;
-                const scale = Math.min(scaleX, scaleY);
+                let finalW, finalH, x, y;
 
-                const finalW = imgW * scale;
-                const finalH = imgH * scale;
+                if (fileWrapper.customTransform && fileWrapper.simWidthOnSave) {
+                    // Apply visual editor transformations
+                    const physicalToUiRatio = printableW / fileWrapper.simWidthOnSave;
+                    
+                    const baseScaleX = printableW / imgW;
+                    const baseScaleY = printableH / imgH;
+                    const baseScale = Math.min(baseScaleX, baseScaleY); // matches object-fit: contain
+                    
+                    finalW = imgW * baseScale * fileWrapper.customTransform.scale;
+                    finalH = imgH * baseScale * fileWrapper.customTransform.scale;
+                    
+                    const centerPtX = margin + (printableW / 2);
+                    const centerPtY = margin + (printableH / 2);
+                    
+                    const offsetPtX = fileWrapper.customTransform.x * physicalToUiRatio;
+                    const offsetPtY = fileWrapper.customTransform.y * physicalToUiRatio;
+                    
+                    x = centerPtX + offsetPtX - (finalW / 2);
+                    y = centerPtY + offsetPtY - (finalH / 2);
+                } else {
+                    // Standard auto-fit mode
+                    const scaleX = printableW / imgW;
+                    const scaleY = printableH / imgH;
+                    
+                    // If fit is 'cover', we use max instead of min to fill the area, cropping what overflows
+                    const scale = configFit === 'cover' ? Math.max(scaleX, scaleY) : Math.min(scaleX, scaleY);
 
-                // Center in printable area
-                const x = margin + (printableW - finalW) / 2;
-                const y = margin + (printableH - finalH) / 2;
+                    finalW = imgW * scale;
+                    finalH = imgH * scale;
+
+                    // Center in printable area
+                    x = margin + (printableW - finalW) / 2;
+                    y = margin + (printableH - finalH) / 2;
+                }
 
                 // 4. Format/Compress Image
                 let finalImgSrc = img;
@@ -685,5 +720,157 @@ document.addEventListener('DOMContentLoaded', () => {
         const sizes = ['Bytes', 'KB', 'MB', 'GB'];
         const i = Math.floor(Math.log(bytes) / Math.log(k));
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+
+    // ==========================================================================
+    // Visual Layout Editor Logic
+    // ==========================================================================
+    const layoutEditorModal = document.getElementById('layout-editor-modal');
+    const closeLayoutModalBtn = document.getElementById('close-layout-modal-btn');
+    const simulatedPage = document.getElementById('simulated-page');
+    const draggableImage = document.getElementById('draggable-image');
+    const layoutZoomRange = document.getElementById('layout-zoom-range');
+    const layoutZoomBadge = document.getElementById('layout-zoom-badge');
+    const resetLayoutBtn = document.getElementById('reset-layout-btn');
+    const saveLayoutBtn = document.getElementById('save-layout-btn');
+    
+    let activeEditId = null;
+    let editTransform = { x: 0, y: 0, scale: 1 };
+    let isDragging = false;
+    let dragStart = { x: 0, y: 0 };
+    
+    if (closeLayoutModalBtn) {
+        closeLayoutModalBtn.addEventListener('click', closeLayoutEditor);
+    }
+    
+    function closeLayoutEditor() {
+        if (layoutEditorModal) {
+            layoutEditorModal.classList.add('hidden');
+            activeEditId = null;
+        }
+    }
+
+    window.openLayoutEditor = async function(id) {
+        const fileWrapper = filesArray.find(f => f.id === id);
+        if (!fileWrapper || !layoutEditorModal) return;
+        
+        activeEditId = id;
+        
+        // Setup initial transform state
+        if (fileWrapper.customTransform) {
+            editTransform = { ...fileWrapper.customTransform };
+        } else {
+            editTransform = { x: 0, y: 0, scale: 1 };
+        }
+        
+        // Determine aspect ratio based on selected config
+        const configSize = pageSizeSelect.value;
+        const configOrientation = pageOrientationSelect.value;
+        
+        let ratio = 1 / 1.414; // Default portrait A4
+        if (configSize === 'letter') ratio = 8.5 / 11;
+        
+        // Check image native dims for 'auto'
+        const img = await loadImageAsync(fileWrapper.previewUrl);
+        const imgW = img.naturalWidth || img.width;
+        const imgH = img.naturalHeight || img.height;
+        
+        let isLandscape = false;
+        if (configOrientation === 'l' || (configOrientation === 'auto' && imgW >= imgH)) {
+            isLandscape = true;
+            ratio = 1 / ratio; // invert for landscape
+        }
+        
+        if (configSize === 'auto') {
+            ratio = imgW / imgH; // Exact image ratio
+        }
+        
+        // Size the simulated page (UI only)
+        const workspaceH = 350;
+        const workspaceW = simulatedPage.parentElement.clientWidth || 300;
+        
+        let simH = workspaceH * 0.9;
+        let simW = simH * ratio;
+        
+        if (simW > workspaceW * 0.9) {
+            simW = workspaceW * 0.9;
+            simH = simW / ratio;
+        }
+        
+        simulatedPage.style.width = `${simW}px`;
+        simulatedPage.style.height = `${simH}px`;
+        
+        // Set scale ratio to map physical pixels to UI simulated pixels
+        fileWrapper.uiSimRatio = simW; // used during PDF generation
+        
+        draggableImage.src = fileWrapper.previewUrl;
+        updateDraggableTransform();
+        
+        layoutZoomRange.value = editTransform.scale * 100;
+        layoutZoomBadge.textContent = `${Math.round(editTransform.scale * 100)}%`;
+        
+        layoutEditorModal.classList.remove('hidden');
+    };
+    
+    function updateDraggableTransform() {
+        if (!draggableImage) return;
+        draggableImage.style.transform = `translate(calc(-50% + ${editTransform.x}px), calc(-50% + ${editTransform.y}px)) scale(${editTransform.scale})`;
+    }
+    
+    if (layoutZoomRange) {
+        layoutZoomRange.addEventListener('input', (e) => {
+            editTransform.scale = e.target.value / 100;
+            layoutZoomBadge.textContent = `${e.target.value}%`;
+            updateDraggableTransform();
+        });
+    }
+    
+    if (resetLayoutBtn) {
+        resetLayoutBtn.addEventListener('click', () => {
+            editTransform = { x: 0, y: 0, scale: 1 };
+            layoutZoomRange.value = 100;
+            layoutZoomBadge.textContent = '100%';
+            updateDraggableTransform();
+            playPopSound();
+        });
+    }
+    
+    if (saveLayoutBtn) {
+        saveLayoutBtn.addEventListener('click', () => {
+            if (activeEditId) {
+                const fileWrapper = filesArray.find(f => f.id === activeEditId);
+                if (fileWrapper) {
+                    fileWrapper.customTransform = { ...editTransform };
+                    // Guardamos también el ancho de la simulación para saber escalar los valores X e Y
+                    fileWrapper.simWidthOnSave = parseFloat(simulatedPage.style.width);
+                    playPopSound();
+                }
+            }
+            closeLayoutEditor();
+        });
+    }
+    
+    if (draggableImage) {
+        draggableImage.addEventListener('pointerdown', (e) => {
+            isDragging = true;
+            dragStart = { x: e.clientX - editTransform.x, y: e.clientY - editTransform.y };
+            draggableImage.setPointerCapture(e.pointerId);
+        });
+        
+        draggableImage.addEventListener('pointermove', (e) => {
+            if (!isDragging) return;
+            editTransform.x = e.clientX - dragStart.x;
+            editTransform.y = e.clientY - dragStart.y;
+            updateDraggableTransform();
+        });
+        
+        draggableImage.addEventListener('pointerup', (e) => {
+            isDragging = false;
+            draggableImage.releasePointerCapture(e.pointerId);
+        });
+        
+        draggableImage.addEventListener('pointercancel', (e) => {
+            isDragging = false;
+        });
     }
 });
