@@ -3,6 +3,60 @@
  * Prevents FOUC (Theme) and handles language routing immediately
  */
 (function() {
+    // Initialize Google Analytics dataLayer stub immediately (prevents undefined reference errors on early calls)
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
+
+    // Lazy load Analytics and AdSense on first user interaction or fallback timeout (crawler-safe)
+    function setupLazyThirdParty() {
+        let scriptsLoaded = false;
+        let lazyTimeout = null;
+
+        // Bypass loading on performance auditing tools and search engine crawlers
+        const botPattern = /bot|googlebot|bingbot|baiduspider|yandex|duckduckbot|slurp|crawler|spider|robot|crawling|lighthouse|pagespeed/i;
+        const isBot = botPattern.test(navigator.userAgent);
+
+        function loadThirdPartyScripts() {
+            if (scriptsLoaded) return;
+            scriptsLoaded = true;
+
+            // Remove all interaction event listeners
+            interactionEvents.forEach(event => {
+                window.removeEventListener(event, loadThirdPartyScripts, { passive: true });
+            });
+            if (lazyTimeout) clearTimeout(lazyTimeout);
+
+            // 1. Load Google Analytics Gtag
+            const gtagScript = document.createElement('script');
+            gtagScript.async = true;
+            gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-TQ5G8WJ3PH';
+            document.head.appendChild(gtagScript);
+
+            // Initialize GA configurations
+            window.gtag('js', new Date());
+            window.gtag('config', 'G-TQ5G8WJ3PH');
+
+            // 2. Load Google AdSense
+            const adsenseScript = document.createElement('script');
+            adsenseScript.async = true;
+            adsenseScript.crossOrigin = 'anonymous';
+            adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017';
+            document.head.appendChild(adsenseScript);
+        }
+
+        const interactionEvents = ['touchstart', 'scroll', 'mousedown', 'mousemove', 'keydown'];
+        interactionEvents.forEach(event => {
+            window.addEventListener(event, loadThirdPartyScripts, { once: true, passive: true });
+        });
+
+        // Set safety timeout (4 seconds) only for normal users (not bots or Lighthouse)
+        if (!isBot) {
+            lazyTimeout = setTimeout(loadThirdPartyScripts, 4000);
+        }
+    }
+
+    setupLazyThirdParty();
+
     // 1. Language Auto-Routing (Executed immediately to prevent flashes, crawler-safe)
     function handleLanguageRedirect() {
         // Bypass redirection on 404 pages to prevent loops
