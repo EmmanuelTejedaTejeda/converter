@@ -596,10 +596,10 @@
     </div>
 
     <!-- JS de la herramienta -->
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
-    <script>
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    <script type="module">
+        import * as pdfjsLib from '../assets/pdf.min.mjs';
+        pdfjsLib.GlobalWorkerOptions.workerSrc = '../assets/pdf.worker.min.mjs';
+        window.pdfjsLib = pdfjsLib;
     </script>
     <script src="../assets/pdf-to-images.js"></script>
                 
