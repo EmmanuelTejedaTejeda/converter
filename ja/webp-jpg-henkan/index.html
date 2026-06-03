@@ -66,6 +66,48 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "なぜWebPからJPGへ変換するのですか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "WebPはウェブに最適な優れた最新フォーマットですが、古い画像エディタや、一部の行政・学校のオンライン管理システム（フォームやアップロードポータルなど）ではサポートされていません。JPGフォーマットであれば、どこでも確実に写真を開くことができます。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "このツールは完全に無料ですか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "はい。すべてのWebP写真を登録不要で無料でJPGに変換できます。ファイル数やファイルサイズの制限はありません。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "なぜ変換処理が100%安全でプライベートなのですか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "他のウェブサイトとは異なり、画像がインターネット上のサーバーに送信されることはありません。すべての変換処理はお使いのブラウザのローカル内で直接実行されます。完全にプライバシーが保護されます。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "WebPからJPGに変換する際、透明な背景はどうなりますか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "JPGフォーマットは透明度（アルファチャンネル）をサポートしていないため、元のWebP画像の透明な部分は自動的に純白の背景で塗りつぶされます。これにより、画像の内容を綺麗に維持できます。"
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -117,6 +159,10 @@
                             <a href="../webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 WebP に変換
+                            </a>
+                            <a href="../heic-jpg-henkan/" data-keywords="heic, heif, jpg, jpeg, 変換, コンバーター, アップル, iphone">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC JPG 変換
                             </a>
                             <a href="../svg-gazo-henkan/" data-keywords="svg, png, jpg, 画像, 変換, 変換器, ベクター">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -273,7 +319,7 @@
                             <a href="../png-jpg-henkan/" data-keywords="png, jpg, jpeg, 変換, 変換器, コンバーター">PNG から JPG</a>
                             <a href="./" data-keywords="webp, jpg, jpeg, 変換, 変換器, コンバーター">WebP から JPG</a>
                             <a href="../webp-png-henkan/" data-keywords="webp, png, 変換, 変換器, コンバーター">WebP から PNG</a>
-                            <a href="../webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">WebP に変換</a>
+                            <a href="../webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">WebP に変換</a>                            <a href="../heic-jpg-henkan/" data-keywords="heic, heif, jpg, jpeg, 変換, コンバーター, アップル, iphone">HEIC JPG 変換</a>
                             <a href="../svg-gazo-henkan/" data-keywords="svg, png, jpg, 画像, 変換, 変換器, ベクター">SVG から画像へ</a>
                             <a href="../banno-henkanki/" data-keywords="変換, 変換器, 万能, すべて, png, jpg, webp, svg, gif, bmp, ico">万能画像変換</a>
                         </div>
@@ -480,6 +526,7 @@
             <p>&copy; 2026 Convertify. 高速、安全、プライベート。</p>
             <div class="footer-links">
                 <a href="../about/" class="footer-link">運営者情報</a>
+                <a href="../resources/" class="footer-link">リソース</a>
                 <a href="../contact/" class="footer-link">お問い合わせ</a>
                 <a href="../privacy-policy/" class="footer-link">プライバシーポリシー</a>
                 <a href="../riyo-kiyaku/" class="footer-link">利用規約</a>

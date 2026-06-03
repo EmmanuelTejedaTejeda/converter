@@ -66,6 +66,48 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "此工具会减小文件大小（占用存储空间）吗？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "是的。通过减少图片的物理像素尺寸，它所包含的数据量会大幅度减少，从而使最终的文件大小明显变小，且不失清晰度。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "为什么保持宽高比（Aspect Ratio）很重要？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "宽高比是图片宽度和高度的比例。如果只将宽度改为固定值而不等比例调整高度，图片就会变形。保持比例会自动计算最合适的高度。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "支持哪些格式？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "您可以上传 JPG、JPEG、PNG 和 WebP 格式的图片。保存时，您可以选择保留原格式或将其转换为其他受支持的格式。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "在这个网站上调整个人照片尺寸安全吗？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "非常安全。与传统的云端工具不同，Convertify 100% 在您的浏览器本地使用现代 HTML5 Canvas API 处理所有照片。您的照片绝不会传输或存储在任何外部服务器上。"
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -117,6 +159,10 @@
                             <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 转换至 WebP
+                            </a>
+                            <a href="../heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC 转 JPG
                             </a>
                             <a href="../svg-zhuan-tupian/" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -273,7 +319,7 @@
                             <a href="../png-zhuan-jpg/" data-keywords="png, jpg, jpeg, 转换, 转换器, 格式">PNG 转 JPG</a>
                             <a href="../webp-zhuan-jpg/" data-keywords="webp, jpg, jpeg, 转换, 转换器, 格式">WebP 转 JPG</a>
                             <a href="../webp-zhuan-png/" data-keywords="webp, png, 转换, 转换器, 格式">WebP 转 PNG</a>
-                            <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">转换至 WebP</a>
+                            <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">转换至 WebP</a>                            <a href="../heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">HEIC 转 JPG</a>
                             <a href="../svg-zhuan-tupian/" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">SVG 转图片</a>
                             <a href="../wanneng-zhuanhuanqi/" data-keywords="转换, 转换器, 万能, 所有, png, jpg, webp, svg, gif, bmp, ico">万能图片转换</a>
                         </div>
@@ -536,6 +582,7 @@
             <p>&copy; 2026 Convertify. 快速、安全、私密。</p>
             <div class="footer-links">
                 <a href="../guanyu-women/" class="footer-link">关于我们</a>
+                <a href="../resources/" class="footer-link">资源</a>
                 <a href="../lianxi-women/" class="footer-link">联系我们</a>
                 <a href="../yinsi-zhengce/" class="footer-link">隐私政策</a>
                 <a href="../shiyong-tiaokuan/" class="footer-link">使用条款</a>

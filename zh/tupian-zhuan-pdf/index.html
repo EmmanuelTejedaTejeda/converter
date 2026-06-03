@@ -66,6 +66,48 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "合并为 PDF 的图片数量有限制吗？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "没有限制。您可以上传和添加任意数量的照片。请注意，图片数量越多，浏览器进行本地处理和压缩所需的时间就会越长。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "为什么该工具比其他在线转换网站更安全？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "大多数在线转换网站都需要将您的个人文件上传到云端服务器。而我们的工具保证照片始终留在您的电脑或手机上。PDF 文件的生成和合并完全使用您的本地浏览器资源进行，确保绝对的安全与隐私。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "自适应页面大小 (Auto) 是如何工作的？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "如果您选择“适应每张图片 (Auto)”，生成的 PDF 的每一页尺寸都将完美贴合该照片的原始像素比例。这样可以在不裁剪或拉伸图片的情况下保留其原生外观。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "支持合并哪些格式的图片？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "我们的工具支持常见的 JPEG、JPG、PNG 和 WebP 格式。您可以在单次转换中混合上传并合并这些格式。"
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -117,6 +159,10 @@
                             <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 转换至 WebP
+                            </a>
+                            <a href="../heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC 转 JPG
                             </a>
                             <a href="../svg-zhuan-tupian/" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -273,7 +319,7 @@
                             <a href="../png-zhuan-jpg/" data-keywords="png, jpg, jpeg, 转换, 转换器, 格式">PNG 转 JPG</a>
                             <a href="../webp-zhuan-jpg/" data-keywords="webp, jpg, jpeg, 转换, 转换器, 格式">WebP 转 JPG</a>
                             <a href="../webp-zhuan-png/" data-keywords="webp, png, 转换, 转换器, 格式">WebP 转 PNG</a>
-                            <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">转换至 WebP</a>
+                            <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">转换至 WebP</a>                            <a href="../heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">HEIC 转 JPG</a>
                             <a href="../svg-zhuan-tupian/" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">SVG 转图片</a>
                             <a href="../wanneng-zhuanhuanqi/" data-keywords="转换, 转换器, 万能, 所有, png, jpg, webp, svg, gif, bmp, ico">万能图片转换</a>
                         </div>
@@ -512,6 +558,7 @@
             <p>&copy; 2026 Convertify. 快速、安全、私密。</p>
             <div class="footer-links">
                 <a href="../guanyu-women/" class="footer-link">关于我们</a>
+                <a href="../resources/" class="footer-link">资源</a>
                 <a href="../lianxi-women/" class="footer-link">联系我们</a>
                 <a href="../yinsi-zhengce/" class="footer-link">隐私政策</a>
                 <a href="../shiyong-tiaokuan/" class="footer-link">使用条款</a>

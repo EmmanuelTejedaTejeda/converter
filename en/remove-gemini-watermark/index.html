@@ -70,6 +70,48 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "Why do Gemini images have a watermark?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "Google adds these marks for safety and transparency, helping viewers identify if an image was generated synthetically by an artificial intelligence, preventing misinformation."
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "How does this Gemini logo remover work?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "The remover utilizes an inpainting algorithm based on the Laplace equation and inverse square distances. Instead of blurring, it reads pixels adjacent to the box and projects them inward, seamlessly recreating the background."
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "Can I remove the invisible watermark (SynthID)?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "No. SynthID is Google's technology that embeds micro-modulations directly into the pixel structure. This invisible mark stays even after edits. Our tool removes the **visible corner logo**, which is enough to make your image look clean and professional."
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "Do I need to pay to use this tool?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "No. Convertify is a free and unlimited project. You can clean as many AI images as you want without registering, paying fees, or dealing with size limits."
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -121,6 +163,10 @@
                             <a href="../convert-to-webp/" data-keywords="webp, converter, conversion, convert, optimize, compression">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 Convert to WebP
+                            </a>
+                            <a href="../heic-to-jpg/" data-keywords="heic, heif, jpg, jpeg, convert, conversion, converter, transform, apple, iphone, heic to jpg">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC to JPG
                             </a>
                             <a href="../svg-to-image/" data-keywords="svg, png, jpg, image, converter, conversion, convert, vector">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -277,7 +323,7 @@
                             <a href="../png-to-jpg/" data-keywords="png, jpg, jpeg, converter, conversion, convert">PNG to JPG</a>
                             <a href="../webp-to-jpg/" data-keywords="webp, jpg, jpeg, converter, conversion, convert">WebP to JPG</a>
                             <a href="../webp-to-png/" data-keywords="webp, png, converter, conversion, convert">WebP to PNG</a>
-                            <a href="../convert-to-webp/" data-keywords="webp, converter, conversion, convert, optimize, compression">Convert to WebP</a>
+                            <a href="../convert-to-webp/" data-keywords="webp, converter, conversion, convert, optimize, compression">Convert to WebP</a>                            <a href="../heic-to-jpg/" data-keywords="heic, heif, jpg, jpeg, convert, conversion, converter, transform, apple, iphone, heic to jpg">HEIC to JPG</a>
                             <a href="../svg-to-image/" data-keywords="svg, png, jpg, image, converter, conversion, convert, vector">SVG to Image</a>
                             <a href="../universal-converter/" data-keywords="converter, conversion, convert, universal, all, png, jpg, webp, svg, gif, bmp, ico">Universal Converter</a>
                         </div>
@@ -559,6 +605,7 @@
             <p>&copy; 2026 Convertify. Fast, secure, and private.</p>
             <div class="footer-links">
                 <a href="../about/" class="footer-link">About</a>
+                <a href="../resources/" class="footer-link">Resources</a>
                 <a href="../contact/" class="footer-link">Contact</a>
                 <a href="../privacy-policy/" class="footer-link">Privacy Policy</a>
                 <a href="../terms-of-use/" class="footer-link">Terms of Use</a>

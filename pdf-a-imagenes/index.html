@@ -66,6 +66,32 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "¿Cómo se procesa mi archivo PDF?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "El navegador carga la librería PDF.js localmente, decodifica el PDF en memoria y dibuja cada página en un lienzo de Canvas para guardarlo como imagen. Tus archivos confidenciales no pasan por internet."
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "¿Tiene algún límite de páginas el conversor?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "No hay límites rígidos de páginas ya que no consumimos recursos de servidores. El rendimiento depende del procesador y la memoria RAM de tu dispositivo."
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -117,6 +143,10 @@
                             <a href="../convertir-a-webp/" data-keywords="webp, convertidor, conversion, convertir, transformar, optimizar, compresión">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 Convertir a WebP
+                            </a>
+                            <a href="../convertir-heic-a-jpg/" data-keywords="heic, heif, jpg, jpeg, convertidor, conversion, convertir, transformar, apple, iphone, heic a jpg">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                Convertir HEIC a JPG
                             </a>
                             <a href="../svg-a-imagen/" data-keywords="svg, png, jpg, imagen, convertidor, conversion, convertir, vector">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -273,7 +303,7 @@
                             <a href="../png-a-jpg/" data-keywords="png, jpg, jpeg, convertidor, conversion, convertir, transformar">PNG a JPG</a>
                             <a href="../webp-a-jpg/" data-keywords="webp, jpg, jpeg, convertidor, conversion, convertir, transformar">WebP a JPG</a>
                             <a href="../webp-a-png/" data-keywords="webp, png, convertidor, conversion, convertir, transformar">WebP a PNG</a>
-                            <a href="../convertir-a-webp/" data-keywords="webp, convertidor, conversion, convertir, transformar, optimizar, compresión">Convertir a WebP</a>
+                            <a href="../convertir-a-webp/" data-keywords="webp, convertidor, conversion, convertir, transformar, optimizar, compresión">Convertir a WebP</a>                            <a href="../convertir-heic-a-jpg/" data-keywords="heic, heif, jpg, jpeg, convertidor, conversion, convertir, transformar, apple, iphone, heic a jpg">Convertir HEIC a JPG</a>
                             <a href="../svg-a-imagen/" data-keywords="svg, png, jpg, imagen, convertidor, conversion, convertir, vector">SVG a Imagen</a>
                             <a href="../convertidor-universal/" data-keywords="convertidor, conversion, convertir, universal, todos, png, jpg, webp, svg, gif, bmp, ico">Convertidor Universal</a>
                         </div>
@@ -480,6 +510,7 @@
             <p>&copy; 2026 Convertify. Rápido, seguro y privado.</p>
             <div class="footer-links">
                 <a href="../acerca-de/" class="footer-link">Acerca de</a>
+                <a href="../recursos/" class="footer-link">Recursos</a>
                 <a href="../contacto/" class="footer-link">Contacto</a>
                 <a href="../politica-privacidad/" class="footer-link">Política de Privacidad</a>
                 <a href="../terminos-uso/" class="footer-link">Términos de Uso</a>

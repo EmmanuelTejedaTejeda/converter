@@ -70,6 +70,48 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "なぜGeminiの画像には透かしが入っているのですか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "Googleは安全面および透明性の配慮から透かしを挿入しています。ユーザーや第三者が「AIによって作られた偽画像・合成画像」であるかを見極め、誤情報の拡散を防ぐ目的があります。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "この透かし消去ツールの仕組みはどうなっていますか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "ラプラス方程式と逆二乗距離の加重法を利用した画像修復技術を使用しています。単にロゴの箇所をぼかす（モザイクをかける）のではなく、枠の外側周囲のグラデーションや色を内側に投影してシームレスに背景を再描写します。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "不可視の透かし(SynthID)も消せますか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "いいえ。SynthIDは画像のピクセル全体のパターンに埋め込まれたGoogleの特許技術です。切り抜きや一般的な圧縮を施しても消えません。当サイトでは「目に見える表示可能なロゴ透かし」のみを100%消去します。画像の見た目をすっきりと美しくする目的にはこれで十分です。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "利用料はかかりますか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "いいえ、登録不要・制限なしで完全に無料でお使いいただけます。回数制限やファイルサイズ制限もありません。"
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -121,6 +163,10 @@
                             <a href="../webp-henkan/" data-keywords="webp, henkan, henkanki, asshuku">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 WebP に変換
+                            </a>
+                            <a href="../heic-jpg-henkan/" data-keywords="heic, heif, jpg, jpeg, 変換, コンバーター, アップル, iphone">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC JPG 変換
                             </a>
                             <a href="../svg-gazo-henkan/" data-keywords="svg, png, jpg, gazo, henkan, vector">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -277,7 +323,7 @@
                             <a href="../png-jpg-henkan/">PNG から JPG</a>
                             <a href="../webp-jpg-henkan/">WebP から JPG</a>
                             <a href="../webp-png-henkan/">WebP から PNG</a>
-                            <a href="../webp-henkan/">WebP に変換</a>
+                            <a href="../webp-henkan/">WebP に変換</a>                            <a href="../heic-jpg-henkan/" data-keywords="heic, heif, jpg, jpeg, 変換, コンバーター, アップル, iphone">HEIC JPG 変換</a>
                             <a href="../svg-gazo-henkan/">SVG から画像</a>
                             <a href="../banno-henkanki/">万能変換器</a>
                         </div>
@@ -559,6 +605,7 @@
             <p>&copy; 2026 Convertify. 高速、安全、プライベート。</p>
             <div class="footer-links">
                 <a href="../about/" class="footer-link">アバウト</a>
+                <a href="../resources/" class="footer-link">リソース</a>
                 <a href="../contact/" class="footer-link">お問い合わせ</a>
                 <a href="../privacy-policy/" class="footer-link">プライバシーポリシー</a>
                 <a href="../riyo-kiyaku/" class="footer-link">利用規約</a>

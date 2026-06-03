@@ -627,32 +627,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             }, 400);
         };
-                        
-                        // Show download button
-                        const downloadBtn = card.querySelector('.btn-action-download');
-                        downloadBtn.classList.remove('hidden');
-                        
-                        // Create download URL
-                        const downloadUrl = URL.createObjectURL(finalBlob);
-                        downloadBtn.href = downloadUrl;
-                        
-                        // Generate dynamic clean download filename
-                        const origName = fileObj.name;
-                        const lastDot = origName.lastIndexOf('.');
-                        const baseName = lastDot !== -1 ? origName.substring(0, lastDot) : origName;
-                        let extension = mimeVal.split('/')[1];
-                        if (extension === 'jpeg') extension = 'jpg';
-                        downloadBtn.download = `${baseName}-compressed.${extension}`;
-                        
-                        playSuccessChime();
-                        triggerConfetti(badge);
-                        updateGlobalActionButtons();
-                    }, 200);
-                } else {
-                    handleCompressionError(fileObj, card, badge, progressWrapper);
-                }
-            }, mimeVal, qualityVal);
-        };
         
         img.onerror = () => {
             handleCompressionError(fileObj, card, badge, progressWrapper);

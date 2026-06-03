@@ -66,6 +66,32 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "我的PDF文件是如何被处理的？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "您的浏览器在本地加载PDF.js库，在内存中解码PDF，并将其页面渲染到HTML5 Canvas上保存为图片。机密文件绝不会在互联网上传输。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "这个转换器有页面限制吗？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "没有严格的页面限制，因为我们不占用服务器资源。性能完全取决于您设备的处理器性能和内存大小。"
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -117,6 +143,10 @@
                             <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 转换至 WebP
+                            </a>
+                            <a href="../heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC 转 JPG
                             </a>
                             <a href="../svg-zhuan-tupian/" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -273,7 +303,7 @@
                             <a href="../png-zhuan-jpg/" data-keywords="png, jpg, jpeg, 转换, 转换器, 格式">PNG 转 JPG</a>
                             <a href="../webp-zhuan-jpg/" data-keywords="webp, jpg, jpeg, 转换, 转换器, 格式">WebP 转 JPG</a>
                             <a href="../webp-zhuan-png/" data-keywords="webp, png, 转换, 转换器, 格式">WebP 转 PNG</a>
-                            <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">转换至 WebP</a>
+                            <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">转换至 WebP</a>                            <a href="../heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">HEIC 转 JPG</a>
                             <a href="../svg-zhuan-tupian/" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">SVG 转图片</a>
                             <a href="../wanneng-zhuanhuanqi/" data-keywords="转换, 转换器, 万能, 所有, png, jpg, webp, svg, gif, bmp, ico">万能图片转换</a>
                         </div>
@@ -480,6 +510,7 @@
             <p>&copy; 2026 Convertify. 快速、安全、私密。</p>
             <div class="footer-links">
                 <a href="../guanyu-women/" class="footer-link">关于我们</a>
+                <a href="../resources/" class="footer-link">资源</a>
                 <a href="../lianxi-women/" class="footer-link">联系我们</a>
                 <a href="../yinsi-zhengce/" class="footer-link">隐私政策</a>
                 <a href="../shiyong-tiaokuan/" class="footer-link">使用条款</a>

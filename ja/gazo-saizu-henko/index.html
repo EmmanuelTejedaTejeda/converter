@@ -66,6 +66,48 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "このツールを使用するとファイルサイズ（容量）は小さくなりますか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "はい。画像のピクセル寸法を縮小すると、画像に含まれるデータ量が劇的に減少するため、画質を損なうことなく最終的なファイルサイズが大幅に軽くなります。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "なぜ縦横比（アスペクト比）が重要なのですか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "縦横比とは、画像の幅と高さの比率です。高さを自動調整せずに幅だけを固定値に変更すると、画像が縦長または横長に歪んでしまいます。比率を維持すると、自動的に適切な高さが計算されます。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "どのようなフォーマットに対応していますか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "JPG、JPEG、PNG、WebP 形式の画像をアップロードできます。保存時には、元の形式を維持するか、他のサポートされている形式に変換して保存できます。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "このサイトで個人写真のサイズを変更しても安全ですか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "非常に安全です。従来のクラウドツールとは異なり、Convertify は現代の HTML5 Canvas API を使用して、すべての処理を100%ローカル（お使いのブラウザ内）で実行します。写真が外部サーバーに送信または保存されることはありません。"
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -117,6 +159,10 @@
                             <a href="../webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 WebP に変換
+                            </a>
+                            <a href="../heic-jpg-henkan/" data-keywords="heic, heif, jpg, jpeg, 変換, コンバーター, アップル, iphone">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC JPG 変換
                             </a>
                             <a href="../svg-gazo-henkan/" data-keywords="svg, png, jpg, 画像, 変換, 変換器, ベクター">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -273,7 +319,7 @@
                             <a href="../png-jpg-henkan/" data-keywords="png, jpg, jpeg, 変換, 変換器, コンバーター">PNG から JPG</a>
                             <a href="../webp-jpg-henkan/" data-keywords="webp, jpg, jpeg, 変換, 変換器, コンバーター">WebP から JPG</a>
                             <a href="../webp-png-henkan/" data-keywords="webp, png, 変換, 変換器, コンバーター">WebP から PNG</a>
-                            <a href="../webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">WebP に変換</a>
+                            <a href="../webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">WebP に変換</a>                            <a href="../heic-jpg-henkan/" data-keywords="heic, heif, jpg, jpeg, 変換, コンバーター, アップル, iphone">HEIC JPG 変換</a>
                             <a href="../svg-gazo-henkan/" data-keywords="svg, png, jpg, 画像, 変換, 変換器, ベクター">SVG から画像へ</a>
                             <a href="../banno-henkanki/" data-keywords="変換, 変換器, 万能, すべて, png, jpg, webp, svg, gif, bmp, ico">万能画像変換</a>
                         </div>
@@ -536,6 +582,7 @@
             <p>&copy; 2026 Convertify. 高速、安全、プライベート。</p>
             <div class="footer-links">
                 <a href="../about/" class="footer-link">運営者情報</a>
+                <a href="../resources/" class="footer-link">リソース</a>
                 <a href="../contact/" class="footer-link">お問い合わせ</a>
                 <a href="../privacy-policy/" class="footer-link">プライバシーポリシー</a>
                 <a href="../riyo-kiyaku/" class="footer-link">利用規約</a>

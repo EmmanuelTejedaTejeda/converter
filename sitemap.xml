@@ -921,4 +921,185 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/" />
         <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/" />
     </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/heic-to-jpg/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/heic-zhuan-jpg/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/heic-jpg-henkan/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/en/heic-to-jpg/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/heic-to-jpg/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/heic-zhuan-jpg/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/heic-jpg-henkan/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/heic-zhuan-jpg/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/heic-to-jpg/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/heic-zhuan-jpg/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/heic-jpg-henkan/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/ja/heic-jpg-henkan/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/heic-to-jpg/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/heic-zhuan-jpg/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/heic-jpg-henkan/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/" />
+    </url>
+    <!-- RESOURCES INDEXES -->
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/recursos/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/en/resources/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/resources/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/ja/resources/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/" />
+    </url>
+
+    <!-- ARTICLE 1: HOW TO CONVERT HEIC TO JPG -->
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/how-to-convert-heic-to-jpg/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/heic-zhuan-jpg-fangfa/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/heic-jpg-henkan-houhou/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/en/resources/how-to-convert-heic-to-jpg/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/how-to-convert-heic-to-jpg/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/heic-zhuan-jpg-fangfa/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/heic-jpg-henkan-houhou/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/resources/heic-zhuan-jpg-fangfa/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/how-to-convert-heic-to-jpg/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/heic-zhuan-jpg-fangfa/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/heic-jpg-henkan-houhou/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/ja/resources/heic-jpg-henkan-houhou/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/how-to-convert-heic-to-jpg/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/heic-zhuan-jpg-fangfa/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/heic-jpg-henkan-houhou/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/" />
+    </url>
+
+    <!-- ARTICLE 2: WEBP VS JPG VS PNG -->
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/webp-vs-jpg-png-format/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/webp-vs-jpg-png/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/webp-jpg-png-chigai/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/en/resources/webp-vs-jpg-png-format/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/webp-vs-jpg-png-format/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/webp-vs-jpg-png/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/webp-jpg-png-chigai/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/zh/resources/webp-vs-jpg-png/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/webp-vs-jpg-png-format/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/webp-vs-jpg-png/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/webp-jpg-png-chigai/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/" />
+    </url>
+    <url>
+        <loc>https://herramientas-imagen.pages.dev/ja/resources/webp-jpg-png-chigai/</loc>
+        <lastmod>2026-06-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/resources/webp-vs-jpg-png-format/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/resources/webp-vs-jpg-png/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/webp-jpg-png-chigai/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/" />
+    </url>
 </urlset>

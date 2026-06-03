@@ -66,6 +66,48 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "PDFに結合できる画像の枚数に制限はありますか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "アップロードして結合できる写真の枚数に制限はありません。ただし、枚数が非常に多い場合は、ブラウザでのローカル処理と圧縮に時間がかかることがあります。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "なぜこのツールは他のオンライン変換サイトより安全なのですか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "ほとんどのオンライン変換サイトは、処理のために個人ファイルをクラウドサーバーにアップロードします。しかし、当ツールは写真がお使いのPCやスマホに残り続けます。お使いのブラウザのローカルリソースだけでPDFが作成されるため、絶対的な安全性が保証されます。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "「画像サイズに合わせる (Auto)」オプションはどのように機能しますか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "「画像サイズに合わせる (Auto)」を選択すると、PDFの各ページのサイズがその写真の元のピクセル縦横比にぴったり合わされます。切り抜きや引き伸ばしをせずに元のサイズを維持するのに最適です。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "どのような画像形式をサポートしていますか？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "JPEG、JPG、PNG、WebP などの一般的な形式をサポートしています。1回の変換でこれらの形式を混在させてアップロードし、結合することができます。"
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -117,6 +159,10 @@
                             <a href="../webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 WebP に変換
+                            </a>
+                            <a href="../heic-jpg-henkan/" data-keywords="heic, heif, jpg, jpeg, 変換, コンバーター, アップル, iphone">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC JPG 変換
                             </a>
                             <a href="../svg-gazo-henkan/" data-keywords="svg, png, jpg, 画像, 変換, 変換器, ベクター">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -273,7 +319,7 @@
                             <a href="../png-jpg-henkan/" data-keywords="png, jpg, jpeg, 変換, 変換器, コンバーター">PNG から JPG</a>
                             <a href="../webp-jpg-henkan/" data-keywords="webp, jpg, jpeg, 変換, 変換器, コンバーター">WebP から JPG</a>
                             <a href="../webp-png-henkan/" data-keywords="webp, png, 変換, 変換器, コンバーター">WebP から PNG</a>
-                            <a href="../webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">WebP に変換</a>
+                            <a href="../webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">WebP に変換</a>                            <a href="../heic-jpg-henkan/" data-keywords="heic, heif, jpg, jpeg, 変換, コンバーター, アップル, iphone">HEIC JPG 変換</a>
                             <a href="../svg-gazo-henkan/" data-keywords="svg, png, jpg, 画像, 変換, 変換器, ベクター">SVG から画像へ</a>
                             <a href="../banno-henkanki/" data-keywords="変換, 変換器, 万能, すべて, png, jpg, webp, svg, gif, bmp, ico">万能画像変換</a>
                         </div>
@@ -511,6 +557,7 @@
             <p>&copy; 2026 Convertify. 高速、安全、プライベート。</p>
             <div class="footer-links">
                 <a href="../about/" class="footer-link">運営者情報</a>
+                <a href="../resources/" class="footer-link">リソース</a>
                 <a href="../contact/" class="footer-link">お問い合わせ</a>
                 <a href="../privacy-policy/" class="footer-link">プライバシーポリシー</a>
                 <a href="../riyo-kiyaku/" class="footer-link">利用規約</a>

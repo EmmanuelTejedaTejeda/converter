@@ -66,6 +66,48 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "¿Esta herramienta disminuye el peso de la imagen?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "Sí. Al reducir las dimensiones físicas en píxeles de una imagen, la cantidad de datos que contiene se reduce drásticamente, haciendo que el archivo final pese mucho menos sin perder nitidez."
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "¿Por qué la relación de aspecto (Aspect Ratio) es importante?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "La relación de aspecto es la proporción entre el ancho y el alto de una foto. Si cambias el ancho a un valor fijo sin ajustar proporcionalmente el alto, la imagen se distorsionará. Mantener la proporción calcula el alto ideal de forma automática."
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "¿Qué formatos son compatibles?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "Puedes subir imágenes en formatos JPG, JPEG, PNG y WebP. Al guardarlas, puedes elegir conservar su formato original o convertirlas en cualquiera de los otros formatos soportados."
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "¿Es seguro redimensionar fotos personales en este sitio?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "Totalmente. A diferencia de las utilidades convencionales en la nube, Convertify procesa todas tus fotos 100% de manera local utilizando APIs modernas del navegador (HTML5 Canvas). Tus fotos nunca se transmiten ni se almacenan en servidores externos."
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -117,6 +159,10 @@
                             <a href="../convertir-a-webp/" data-keywords="webp, convertidor, conversion, convertir, transformar, optimizar, compresión">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 Convertir a WebP
+                            </a>
+                            <a href="../convertir-heic-a-jpg/" data-keywords="heic, heif, jpg, jpeg, convertidor, conversion, convertir, transformar, apple, iphone, heic a jpg">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                Convertir HEIC a JPG
                             </a>
                             <a href="../svg-a-imagen/" data-keywords="svg, png, jpg, imagen, convertidor, conversion, convertir, vector">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -273,7 +319,7 @@
                             <a href="../png-a-jpg/" data-keywords="png, jpg, jpeg, convertidor, conversion, convertir, transformar">PNG a JPG</a>
                             <a href="../webp-a-jpg/" data-keywords="webp, jpg, jpeg, convertidor, conversion, convertir, transformar">WebP a JPG</a>
                             <a href="../webp-a-png/" data-keywords="webp, png, convertidor, conversion, convertir, transformar">WebP a PNG</a>
-                            <a href="../convertir-a-webp/" data-keywords="webp, convertidor, conversion, convertir, transformar, optimizar, compresión">Convertir a WebP</a>
+                            <a href="../convertir-a-webp/" data-keywords="webp, convertidor, conversion, convertir, transformar, optimizar, compresión">Convertir a WebP</a>                            <a href="../convertir-heic-a-jpg/" data-keywords="heic, heif, jpg, jpeg, convertidor, conversion, convertir, transformar, apple, iphone, heic a jpg">Convertir HEIC a JPG</a>
                             <a href="../svg-a-imagen/" data-keywords="svg, png, jpg, imagen, convertidor, conversion, convertir, vector">SVG a Imagen</a>
                             <a href="../convertidor-universal/" data-keywords="convertidor, conversion, convertir, universal, todos, png, jpg, webp, svg, gif, bmp, ico">Convertidor Universal</a>
                         </div>
@@ -536,6 +582,7 @@
             <p>&copy; 2026 Convertify. Rápido, seguro y privado.</p>
             <div class="footer-links">
                 <a href="../acerca-de/" class="footer-link">Acerca de</a>
+                <a href="../recursos/" class="footer-link">Recursos</a>
                 <a href="../contacto/" class="footer-link">Contacto</a>
                 <a href="../politica-privacidad/" class="footer-link">Política de Privacidad</a>
                 <a href="../terminos-uso/" class="footer-link">Términos de Uso</a>

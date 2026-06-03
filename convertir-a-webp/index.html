@@ -66,6 +66,32 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "¿Por qué debería convertir mis imágenes a WebP?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "WebP es un formato moderno de Google que ofrece una compresión superior para imágenes web, reduciendo el peso de tus archivos significativamente en comparación con JPG y PNG sin perder calidad visible."
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "¿Es seguro el procesamiento local?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "Sí. Las conversiones se realizan a través de APIs de tu navegador sin subir tus fotos a internet."
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -480,6 +506,7 @@
             <p>&copy; 2026 Convertify. Rápido, seguro y privado.</p>
             <div class="footer-links">
                 <a href="../acerca-de/" class="footer-link">Acerca de</a>
+                <a href="../recursos/" class="footer-link">Recursos</a>
                 <a href="../contacto/" class="footer-link">Contacto</a>
                 <a href="../politica-privacidad/" class="footer-link">Política de Privacidad</a>
                 <a href="../terminos-uso/" class="footer-link">Términos de Uso</a>

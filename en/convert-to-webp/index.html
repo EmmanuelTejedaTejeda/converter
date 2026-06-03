@@ -66,6 +66,32 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "Why should I convert my images to WebP?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "WebP is a modern image format developed by Google that provides superior compression for web images, significantly reducing file sizes compared to JPG and PNG without losing noticeable quality."
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "Is local processing safe?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "Absolutely. Conversions run via browser Canvas APIs, meaning your original photos never leave your device."
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -480,6 +506,7 @@
             <p>&copy; 2026 Convertify. Fast, secure, and private.</p>
             <div class="footer-links">
                 <a href="../about/" class="footer-link">About Us</a>
+                <a href="../resources/" class="footer-link">Resources</a>
                 <a href="../contact/" class="footer-link">Contact</a>
                 <a href="../privacy-policy/" class="footer-link">Privacy Policy</a>
                 <a href="../terms-of-use/" class="footer-link">Terms of Use</a>

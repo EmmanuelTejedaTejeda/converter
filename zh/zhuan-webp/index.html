@@ -66,6 +66,32 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "为什么要将图片转换为WebP？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "WebP是Google开发的一种现代图片格式，可为网页图片提供卓越的压缩率，与JPG和PNG相比，在不损失明显画质的前提下显著减小文件体积。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "本地处理安全吗？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "非常安全。所有转换都通过浏览器本地API进行，您的图片不会上传到网络。"
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -480,6 +506,7 @@
             <p>&copy; 2026 Convertify. 快速、安全、私密。</p>
             <div class="footer-links">
                 <a href="../guanyu-women/" class="footer-link">关于我们</a>
+                <a href="../resources/" class="footer-link">资源</a>
                 <a href="../lianxi-women/" class="footer-link">联系我们</a>
                 <a href="../yinsi-zhengce/" class="footer-link">隐私政策</a>
                 <a href="../shiyong-tiaokuan/" class="footer-link">使用条款</a>

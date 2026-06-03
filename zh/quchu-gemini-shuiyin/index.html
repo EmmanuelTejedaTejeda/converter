@@ -70,6 +70,48 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "为什么 Gemini 生成的图像带有水印？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "Google 出于合规与透明性方面的考量，在其人工智能生成的媒体资源中加入了标记。这有助于互联网用户辨别哪些媒介是 AI 生成的，以防范虚假信息。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "这个 Gemini 水印消除工具的原理是什么？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "它采用基于拉普拉斯方程和反距离平方权的本地图像修复算法。程序并不只是简单地将图片模糊化，而是读取并推算选区边界之外邻近像素的色彩和渐变纹理，反向投影填充到内部，以实现自然的融合效果。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "我可以移除不可见水印 (SynthID) 吗？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "不可以。SynthID 是 Google 研发的像素深度级不可见水印技术，它对裁切、压缩或重度滤镜有很高的抗性。不过，我们的工具可以 100% 清除**可见的角落标志**，这对绝大多数需要干净、无杂质画面的场景已经完全足够。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "使用此工具需要付费或注册吗？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "不需要。Convertify 是一个完全免费的开源工具，不设注册门槛，不限制文件大小和使用次数，您在断网（离线）状态下仍可正常运行。"
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -121,6 +163,10 @@
                             <a href="../zhuan-webp/" data-keywords="webp, zhuanhuan, zhuanhuanqi, yasuo">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 转换为 WebP
+                            </a>
+                            <a href="../heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC 转 JPG
                             </a>
                             <a href="../svg-zhuan-tupian/" data-keywords="svg, png, jpg, tupian, zhuanhuan, vector">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -277,7 +323,7 @@
                             <a href="../png-zhuan-jpg/">PNG 转 JPG</a>
                             <a href="../webp-zhuan-jpg/">WebP 转 JPG</a>
                             <a href="../webp-zhuan-png/">WebP 转 PNG</a>
-                            <a href="../zhuan-webp/">转换为 WebP</a>
+                            <a href="../zhuan-webp/">转换为 WebP</a>                            <a href="../heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">HEIC 转 JPG</a>
                             <a href="../svg-zhuan-tupian/">SVG 转图片</a>
                             <a href="../wanneng-zhuanhuanqi/">万能转换器</a>
                         </div>
@@ -559,6 +605,7 @@
             <p>&copy; 2026 Convertify. 快速、安全、私密。</p>
             <div class="footer-links">
                 <a href="../guanyu-women/" class="footer-link">关于我们</a>
+                <a href="../resources/" class="footer-link">资源</a>
                 <a href="../lianxi-women/" class="footer-link">联系我们</a>
                 <a href="../yinsi-zhengce/" class="footer-link">隐私政策</a>
                 <a href="../shiyong-tiaokuan/" class="footer-link">使用条款</a>

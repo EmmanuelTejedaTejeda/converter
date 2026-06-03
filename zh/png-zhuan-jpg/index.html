@@ -66,6 +66,40 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "使用这个PNG转JPG转换器安全吗？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "非常安全。与其他在线转换器不同，Convertify在您的浏览器内存中（HTML5 Canvas）本地处理所有图片。您的照片绝不会发送到外部服务器，保证完全的隐私。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "PNG转换成JPG会损失画质吗？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "从PNG（无损）转换为JPG（有损）可能会轻微减小文件大小并带来微小的画质变化，但Convertify利用您浏览器的最高渲染质量来保持图片清晰。"
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "我能一次转换多张PNG图片吗？",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "可以。我们的转换器支持批量处理，您可以拖入多个PNG文件并一次性下载它们。"
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -117,6 +151,10 @@
                             <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 转换至 WebP
+                            </a>
+                            <a href="../heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC 转 JPG
                             </a>
                             <a href="../svg-zhuan-tupian/" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -273,7 +311,7 @@
                             <a href="./" data-keywords="png, jpg, jpeg, 转换, 转换器, 格式">PNG 转 JPG</a>
                             <a href="../webp-zhuan-jpg/" data-keywords="webp, jpg, jpeg, 转换, 转换器, 格式">WebP 转 JPG</a>
                             <a href="../webp-zhuan-png/" data-keywords="webp, png, 转换, 转换器, 格式">WebP 转 PNG</a>
-                            <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">转换至 WebP</a>
+                            <a href="../zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">转换至 WebP</a>                            <a href="../heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">HEIC 转 JPG</a>
                             <a href="../svg-zhuan-tupian/" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">SVG 转图片</a>
                             <a href="../wanneng-zhuanhuanqi/" data-keywords="转换, 转换器, 万能, 所有, png, jpg, webp, svg, gif, bmp, ico">万能图片转换</a>
                         </div>
@@ -485,6 +523,7 @@
             <p>&copy; 2026 Convertify. 快速、安全、私密。</p>
             <div class="footer-links">
                 <a href="../guanyu-women/" class="footer-link">关于我们</a>
+                <a href="../resources/" class="footer-link">资源</a>
                 <a href="../lianxi-women/" class="footer-link">联系我们</a>
                 <a href="../yinsi-zhengce/" class="footer-link">隐私政策</a>
                 <a href="../shiyong-tiaokuan/" class="footer-link">使用条款</a>

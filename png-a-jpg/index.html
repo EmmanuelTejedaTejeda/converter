@@ -66,6 +66,40 @@
           }
       }
     </script>
+
+    <!-- Structured Data (FAQ Schema) -->
+    <script type="application/ld+json">
+{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                          {
+                                    "@type": "Question",
+                                    "name": "¿Es seguro utilizar este conversor de PNG a JPG?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "Totalmente. A diferencia de otros conversores online, Convertify procesa todas tus imágenes localmente en la memoria de tu navegador (HTML5 Canvas). Tus fotos nunca se envían a ningún servidor externo, garantizando tu total privacidad."
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "¿Se pierde calidad al convertir de PNG a JPG?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "Al convertir de PNG (formato sin pérdida) a JPG (formato con pérdida), puede haber una mínima reducción de peso y calidad según la compresión, pero Convertify utiliza la máxima calidad de renderizado de tu navegador para mantener tus fotos nítidas."
+                                    }
+                          },
+                          {
+                                    "@type": "Question",
+                                    "name": "¿Puedo convertir varias imágenes PNG a la vez?",
+                                    "acceptedAnswer": {
+                                              "@type": "Answer",
+                                              "text": "Sí. Nuestro conversor soporta procesamiento por lotes, por lo que puedes arrastrar múltiples archivos PNG y descargarlos todos a la vez."
+                                    }
+                          }
+                ]
+      }
+    </script>
 </head>
 <body class="dark-theme">
     
@@ -117,6 +151,10 @@
                             <a href="../convertir-a-webp/" data-keywords="webp, convertidor, conversion, convertir, transformar, optimizar, compresión">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
                                 Convertir a WebP
+                            </a>
+                            <a href="../convertir-heic-a-jpg/" data-keywords="heic, heif, jpg, jpeg, convertidor, conversion, convertir, transformar, apple, iphone, heic a jpg">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                Convertir HEIC a JPG
                             </a>
                             <a href="../svg-a-imagen/" data-keywords="svg, png, jpg, imagen, convertidor, conversion, convertir, vector">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
@@ -273,7 +311,7 @@
                             <a href="./" data-keywords="png, jpg, jpeg, convertidor, conversion, convertir, transformar">PNG a JPG</a>
                             <a href="../webp-a-jpg/" data-keywords="webp, jpg, jpeg, convertidor, conversion, convertir, transformar">WebP a JPG</a>
                             <a href="../webp-a-png/" data-keywords="webp, png, convertidor, conversion, convertir, transformar">WebP a PNG</a>
-                            <a href="../convertir-a-webp/" data-keywords="webp, convertidor, conversion, convertir, transformar, optimizar, compresión">Convertir a WebP</a>
+                            <a href="../convertir-a-webp/" data-keywords="webp, convertidor, conversion, convertir, transformar, optimizar, compresión">Convertir a WebP</a>                            <a href="../convertir-heic-a-jpg/" data-keywords="heic, heif, jpg, jpeg, convertidor, conversion, convertir, transformar, apple, iphone, heic a jpg">Convertir HEIC a JPG</a>
                             <a href="../svg-a-imagen/" data-keywords="svg, png, jpg, imagen, convertidor, conversion, convertir, vector">SVG a Imagen</a>
                             <a href="../convertidor-universal/" data-keywords="convertidor, conversion, convertir, universal, todos, png, jpg, webp, svg, gif, bmp, ico">Convertidor Universal</a>
                         </div>
@@ -485,6 +523,7 @@
             <p>&copy; 2026 Convertify. Rápido, seguro y privado.</p>
             <div class="footer-links">
                 <a href="../acerca-de/" class="footer-link">Acerca de</a>
+                <a href="../recursos/" class="footer-link">Recursos</a>
                 <a href="../contacto/" class="footer-link">Contacto</a>
                 <a href="../politica-privacidad/" class="footer-link">Política de Privacidad</a>
                 <a href="../terminos-uso/" class="footer-link">Términos de Uso</a>
