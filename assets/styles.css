@@ -3248,3 +3248,80 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
     outline: 3px solid var(--accent-primary) !important;
     outline-offset: 3px !important;
 }
+
+/* ==========================================================================
+   Microinteracciones y Animaciones Aceleradas por Hardware (GPU)
+   ========================================================================== */
+
+/* 1. Transición de Entrada de Página Suave */
+.app-main {
+    animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    will-change: opacity, transform;
+}
+
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(8px) scale(0.995);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 2. Efecto Magnet y Elevación en Tarjetas de Herramientas */
+.tool-card-item, .resource-item, .feature-card {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease !important;
+    will-change: transform, box-shadow;
+}
+
+.tool-card-item:hover, .resource-item:hover, .feature-card:hover {
+    transform: translateY(-5px) scale(1.02) !important;
+    box-shadow: 0 12px 30px rgba(167, 139, 250, 0.15), 0 4px 10px rgba(0, 0, 0, 0.08) !important;
+    border-color: var(--accent-primary) !important;
+}
+
+/* 3. Subrayado Dinámico Expandible para Enlaces */
+.footer-links a, .header-nav a:not(.btn) {
+    position: relative;
+    text-decoration: none;
+}
+
+.footer-links a::after, .header-nav a:not(.btn)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent-primary);
+    transform-origin: bottom center;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
+
+.footer-links a:hover::after, .header-nav a:not(.btn):hover::after {
+    transform: scaleX(1);
+}
+
+/* 4. Efecto Físico Esponjoso en Botones al Hacer Click */
+.btn, .btn-action-convert, .volume-on-icon, .volume-off-icon, .theme-toggle, .lang-dropdown-trigger {
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:active, .btn-action-convert:active, .theme-toggle:active, .lang-dropdown-trigger:active {
+    transform: scale(0.95) !important;
+}
+
+/* 5. Giro Animado en Botón del Tema */
+.theme-toggle:hover .sun-icon, .theme-toggle:hover .moon-icon {
+    transform: rotate(15deg);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-toggle:active .sun-icon, .theme-toggle:active .moon-icon {
+    transform: rotate(360deg);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}

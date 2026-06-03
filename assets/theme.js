@@ -57,6 +57,64 @@
 
     setupLazyThirdParty();
 
+    // 3. Centralized Audio Feedback (Programmatic Web Audio API, 0 KB payload)
+    let audioCtx = null;
+    function initAudioContext() {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    // Global playPopSound function with 50ms rate-limiter
+    window.playPopSound = function() {
+        // Exclude search engine bots and audits
+        const botPattern = /bot|googlebot|bingbot|baiduspider|yandex|duckduckbot|slurp|crawler|spider|robot|crawling|lighthouse|pagespeed/i;
+        if (botPattern.test(navigator.userAgent)) return;
+
+        // Verify if sounds are disabled by user preference
+        if (localStorage.getItem('soundEnabled') === 'false') return;
+
+        // Rate-limiting: prevent playing sounds too close together (less than 50ms)
+        const now = Date.now();
+        if (window._lastSoundTime && (now - window._lastSoundTime < 50)) return;
+        window._lastSoundTime = now;
+
+        try {
+            initAudioContext();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(160, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(70, audioCtx.currentTime + 0.08);
+            
+            gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.08);
+        } catch (e) {
+            console.warn('Audio synthesis failed:', e);
+        }
+    };
+
+    // Override the old window.playPopSoundExternal to point to our global pop sound
+    window.playPopSoundExternal = window.playPopSound;
+
+    // Delegate click event listeners to play pop sounds on interactive elements
+    document.addEventListener('click', (e) => {
+        const target = e.target.closest('button, .btn, a, input[type="checkbox"], input[type="radio"], select, .lang-dropdown-trigger, .theme-toggle, .btn-reorder');
+        if (target) {
+            window.playPopSound();
+        }
+    }, { passive: true });
+
     // 1. Language Auto-Routing (Executed immediately to prevent flashes, crawler-safe)
     function handleLanguageRedirect() {
         // Bypass redirection on 404 pages to prevent loops
