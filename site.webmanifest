@@ -1,0 +1,23 @@
+{
+  "name": "Convertify - Herramientas de Imagen Gratuitas",
+  "short_name": "Convertify",
+  "description": "Suite de herramientas de imagen gratuitas y 100% seguras. Convierte, edita y optimiza tus fotos directamente en tu dispositivo de forma privada.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030712",
+  "theme_color": "#a78bfa",
+  "orientation": "portrait-primary",
+  "categories": ["utilities", "photo"],
+  "icons": [
+    {
+      "src": "/assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

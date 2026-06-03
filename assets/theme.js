@@ -5,6 +5,9 @@
 (function() {
     // 1. Language Auto-Routing (Executed immediately to prevent flashes, crawler-safe)
     function handleLanguageRedirect() {
+        // Bypass redirection on 404 pages to prevent loops
+        if (window.is404Page || window.location.pathname.endsWith('/404.html') || window.location.pathname.endsWith('/404') || window.location.pathname.includes('404')) return;
+
         // Bypass redirection for search engine bots and performance auditing tools
         const botPattern = /bot|googlebot|bingbot|baiduspider|yandex|duckduckbot|slurp|crawler|spider|robot|crawling|lighthouse|pagespeed/i;
         if (botPattern.test(navigator.userAgent)) return;
