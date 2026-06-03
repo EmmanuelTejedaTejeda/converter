@@ -182,6 +182,13 @@ document.addEventListener('DOMContentLoaded', () => {
         totalConverted += count;
         localStorage.setItem('totalConverted', totalConverted);
         updateStatsDisplay();
+        if (typeof gtag === 'function') {
+            gtag('event', 'convert_image', {
+                'tool': 'compress-images',
+                'status': 'success',
+                'count': count
+            });
+        }
     }
 
     // ==========================================================================

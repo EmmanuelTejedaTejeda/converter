@@ -141,6 +141,12 @@ document.addEventListener('DOMContentLoaded', () => {
         totalConverted++;
         localStorage.setItem('totalConverted', totalConverted);
         updateStatsUI(true);
+        if (typeof gtag === 'function') {
+            gtag('event', 'convert_image', {
+                'tool': 'svg-to-image',
+                'status': 'success'
+            });
+        }
     }
 
     function triggerConfetti(targetElement) {

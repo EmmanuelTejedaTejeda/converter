@@ -580,6 +580,12 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('totalConverted', totalConverted);
             const statsNum = document.getElementById('stats-number');
             if (statsNum) statsNum.textContent = totalConverted;
+            if (typeof gtag === 'function') {
+                gtag('event', 'convert_image', {
+                    'tool': 'watermark-remover',
+                    'status': 'success'
+                });
+            }
             
             // Show modal thank you popup
             const modal = document.getElementById('thank-you-modal');

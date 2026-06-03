@@ -156,6 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
         totalConverted++;
         localStorage.setItem('totalConverted', totalConverted);
         updateStatsUI(true);
+        if (typeof gtag === 'function') {
+            gtag('event', 'convert_image', {
+                'tool': 'jpg-to-png',
+                'status': 'success'
+            });
+        }
     }
 
     updateStatsUI(false);

@@ -195,6 +195,12 @@ document.addEventListener('DOMContentLoaded', () => {
         totalConverted++;
         localStorage.setItem('totalConverted', totalConverted);
         updateStatsUI(true);
+        if (typeof gtag === 'function') {
+            gtag('event', 'convert_image', {
+                'tool': 'images-to-pdf',
+                'status': 'success'
+            });
+        }
     }
 
     updateStatsUI(false);
