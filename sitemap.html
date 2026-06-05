@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mapa del sitio web de Convertify. Encuentra todas nuestras herramientas de conversión, compresión y edición de imágenes en un solo lugar.">
+    <title>Mapa del Sitio - Convertify</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #030712;
+            --bg-secondary: #0b0f19;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-primary: #a78bfa;
+            --accent-secondary: #8b5cf6;
+            --card-border: #1f2937;
+            --card-bg: #0f172a;
+            --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        p.subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .sitemap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .lang-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .lang-section:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(167, 139, 250, 0.08);
+        }
+
+        .lang-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            color: var(--accent-primary);
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .links-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .links-list li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+            display: inline-block;
+        }
+
+        .links-list li a:hover {
+            color: var(--text-primary);
+            transform: translateX(3px);
+        }
+
+        footer {
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+            padding-top: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            body {
+                padding: 1.5rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mapa del Sitio (Sitemap)</h1>
+            <p class="subtitle">Directorio completo de herramientas de imagen en todos los idiomas</p>
+        </header>
+
+        <main class="sitemap-grid">
+
+            <section class="lang-section">
+                <h2>Español (ES)</h2>
+                <ul class="links-list">
+                    <li><a href="https://herramientas-imagen.pages.dev/">Inicio / Home</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/jpg-a-png/">Jpg A Png</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/png-a-jpg/">Png A Jpg</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/webp-a-jpg/">Webp A Jpg</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/webp-a-png/">Webp A Png</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/convertir-a-webp/">Convertir A Webp</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/">Convertir Heic A Jpg</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/svg-a-imagen/">Svg A Imagen</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/convertidor-universal/">Convertidor Universal</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/comprimir-imagenes/">Comprimir Imagenes</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/redimensionar-imagenes/">Redimensionar Imagenes</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/recortar-imagen/">Recortar Imagen</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/rotar-imagen/">Rotar Imagen</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/generador-favicon/">Generador Favicon</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/">Quitar Marca Agua Gemini</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/imagenes-a-pdf/">Imagenes A Pdf</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/pdf-a-imagenes/">Pdf A Imagenes</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/acerca-de/">Acerca De</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/recursos/">Recursos</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/contacto/">Contacto</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/politica-privacidad/">Politica Privacidad</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/terminos-uso/">Terminos Uso</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/">Recursos / Como Convertir Heic A Jpg</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/">Recursos / Formato Webp Vs Jpg Png</a></li>
+                </ul>
+            </section>
+            <section class="lang-section">
+                <h2>English (EN)</h2>
+                <ul class="links-list">
+                    <li><a href="https://herramientas-imagen.pages.dev/en/">En</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/jpg-to-png/">Jpg To Png</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/png-to-jpg/">Png To Jpg</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/webp-to-jpg/">Webp To Jpg</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/webp-to-png/">Webp To Png</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/convert-to-webp/">Convert To Webp</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/heic-to-jpg/">Heic To Jpg</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/svg-to-image/">Svg To Image</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/universal-converter/">Universal Converter</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/compress-images/">Compress Images</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/resize-images/">Resize Images</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/crop-image/">Crop Image</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/rotate-image/">Rotate Image</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/favicon-generator/">Favicon Generator</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/remove-gemini-watermark/">Remove Gemini Watermark</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/images-to-pdf/">Images To Pdf</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/pdf-to-images/">Pdf To Images</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/about/">About</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/resources/">Resources</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/contact/">Contact</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/privacy-policy/">Privacy Policy</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/terms-of-use/">Terms Of Use</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/resources/how-to-convert-heic-to-jpg/">Resources / How To Convert Heic To Jpg</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/en/resources/webp-vs-jpg-png-format/">Resources / Webp Vs Jpg Png Format</a></li>
+                </ul>
+            </section>
+            <section class="lang-section">
+                <h2>简体中文 (ZH)</h2>
+                <ul class="links-list">
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/">Zh</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/jpg-zhuan-png/">Jpg Zhuan Png</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/png-zhuan-jpg/">Png Zhuan Jpg</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/webp-zhuan-jpg/">Webp Zhuan Jpg</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/webp-zhuan-png/">Webp Zhuan Png</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/zhuan-webp/">Zhuan Webp</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/heic-zhuan-jpg/">Heic Zhuan Jpg</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/svg-zhuan-tupian/">Svg Zhuan Tupian</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/wanneng-zhuanhuanqi/">Wanneng Zhuanhuanqi</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/yasuo-tupian/">Yasuo Tupian</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/tupian-tiaozheng-daxiao/">Tupian Tiaozheng Daxiao</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/caijian-tupian/">Caijian Tupian</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/xuanzhuan-tupian/">Xuanzhuan Tupian</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/favicon-shengchengqi/">Favicon Shengchengqi</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/quchu-gemini-shuiyin/">Quchu Gemini Shuiyin</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/tupian-zhuan-pdf/">Tupian Zhuan Pdf</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/pdf-zhuan-tupian/">Pdf Zhuan Tupian</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/guanyu-women/">Guanyu Women</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/resources/">Resources</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/lianxi-women/">Lianxi Women</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/yinsi-zhengce/">Yinsi Zhengce</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/shiyong-tiaokuan/">Shiyong Tiaokuan</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/resources/heic-zhuan-jpg-fangfa/">Resources / Heic Zhuan Jpg Fangfa</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/zh/resources/webp-vs-jpg-png/">Resources / Webp Vs Jpg Png</a></li>
+                </ul>
+            </section>
+            <section class="lang-section">
+                <h2>日本語 (JA)</h2>
+                <ul class="links-list">
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/">Ja</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/jpg-png-henkan/">Jpg Png Henkan</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/png-jpg-henkan/">Png Jpg Henkan</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/webp-jpg-henkan/">Webp Jpg Henkan</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/webp-png-henkan/">Webp Png Henkan</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/webp-henkan/">Webp Henkan</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/heic-jpg-henkan/">Heic Jpg Henkan</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/svg-gazo-henkan/">Svg Gazo Henkan</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/banno-henkanki/">Banno Henkanki</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/gazo-asshuku/">Gazo Asshuku</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/gazo-saizu-henko/">Gazo Saizu Henko</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/gazo-caijian/">Gazo Caijian</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/gazo-kaiten/">Gazo Kaiten</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/favicon-sakusei/">Favicon Sakusei</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/">Gemini Watermark Remover</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/gazo-pdf-henkan/">Gazo Pdf Henkan</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/pdf-gazo-henkan/">Pdf Gazo Henkan</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/about/">About</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/resources/">Resources</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/contact/">Contact</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/privacy-policy/">Privacy Policy</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/riyo-kiyaku/">Riyo Kiyaku</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/resources/heic-jpg-henkan-houhou/">Resources / Heic Jpg Henkan Houhou</a></li>
+                    <li><a href="https://herramientas-imagen.pages.dev/ja/resources/webp-jpg-png-chigai/">Resources / Webp Jpg Png Chigai</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Convertify. Volver a la <a href="index.html">Página de Inicio</a>.</p>
+        </footer>
+    </div>
+</body>
+</html>
