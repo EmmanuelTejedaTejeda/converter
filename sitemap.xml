@@ -3,6 +3,9 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+  <!-- ========================================== -->
+  <!-- 1. HOME                                    -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -40,6 +43,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 2. JPG A PNG                               -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/jpg-a-png/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -77,6 +83,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/jpg-png-henkan/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 3. PNG A JPG                               -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/png-a-jpg/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -114,6 +123,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/png-jpg-henkan/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 4. WEBP A JPG                              -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/webp-a-jpg/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -151,6 +163,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/webp-jpg-henkan/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 5. WEBP A PNG                              -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/webp-a-png/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -188,6 +203,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/webp-png-henkan/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 6. CONVERTIR A WEBP                        -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/convertir-a-webp/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -225,6 +243,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/webp-henkan/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 7. CONVERTIR HEIC A JPG                    -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -262,6 +283,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/heic-jpg-henkan/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 8. SVG A IMAGEN                            -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/svg-a-imagen/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -299,6 +323,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/svg-gazo-henkan/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 9. CONVERTIDOR UNIVERSAL                   -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/convertidor-universal/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -336,6 +363,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/banno-henkanki/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 10. COMPRIMIR IMÁGENES                     -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/comprimir-imagenes/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -373,6 +403,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gazo-asshuku/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 11. REDIMENSIONAR IMÁGENES                 -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/redimensionar-imagenes/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -410,6 +443,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gazo-saizu-henko/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 12. RECORTAR IMAGEN                        -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/recortar-imagen/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -447,6 +483,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gazo-caijian/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 13. ROTAR IMAGEN                           -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/rotar-imagen/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -484,6 +523,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gazo-kaiten/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 14. GENERADOR FAVICON                      -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/generador-favicon/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -521,6 +563,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/favicon-sakusei/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 15. QUITAR MARCA AGUA GEMINI               -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -558,6 +603,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 16. IMÁGENES A PDF                         -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/imagenes-a-pdf/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -595,6 +643,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/gazo-pdf-henkan/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 17. PDF A IMÁGENES                         -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/pdf-a-imagenes/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -632,6 +683,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/pdf-gazo-henkan/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 18. ACERCA DE                              -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/acerca-de/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -669,6 +723,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/about/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 19. RECURSOS (RAÍZ CATEGORÍA)               -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/recursos/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -706,6 +763,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 20. CONTACTO                               -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/contacto/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -743,6 +803,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/contact/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 21. POLÍTICA PRIVACIDAD                    -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/politica-privacidad/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -780,6 +843,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/privacy-policy/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 22. TÉRMINOS DE USO                        -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/terminos-uso/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -810,13 +876,16 @@
   <url>
     <loc>https://herramientas-imagen.pages.dev/ja/riyo-kiyaku/</loc>
     <lastmod>2026-06-08</lastmod>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/terminos-uso/"/>
+    <xhtml:link inversion="true" rel="alternate" hreflang="x-default" href="https://herramientas-imagen.pages.dev/terminos-uso/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://herramientas-imagen.pages.dev/terminos-uso/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://herramientas-imagen.pages.dev/en/terms-of-use/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://herramientas-imagen.pages.dev/zh/shiyong-tiaokuan/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/riyo-kiyaku/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 23. ARTÍCULO: HEIC A JPG                   -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/</loc>
     <lastmod>2026-06-08</lastmod>
@@ -854,6 +923,9 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://herramientas-imagen.pages.dev/ja/resources/heic-jpg-henkan-houhou/"/>
   </url>
 
+  <!-- ========================================== -->
+  <!-- 24. ARTÍCULO: WEBP VS JPG/PNG              -->
+  <!-- ========================================== -->
   <url>
     <loc>https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/</loc>
     <lastmod>2026-06-08</lastmod>
