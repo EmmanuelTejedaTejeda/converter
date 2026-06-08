@@ -10,21 +10,14 @@
     // Lazy load Analytics and AdSense on first user interaction or fallback timeout (crawler-safe)
     function setupLazyThirdParty() {
         let scriptsLoaded = false;
-        let lazyTimeout = null;
 
         // Bypass loading on performance auditing tools and search engine crawlers
-        const botPattern = /bot|googlebot|bingbot|baiduspider|yandex|duckduckbot|slurp|crawler|spider|robot|crawling|lighthouse|pagespeed/i;
+        const botPattern = /bot|googlebot|bingbot|baiduspider|yandex|duckduckbot|slurp|crawler|spider|robot|crawling|lighthouse|pagespeed|Mediapartners-Google/i;
         const isBot = botPattern.test(navigator.userAgent);
 
         function loadThirdPartyScripts() {
             if (scriptsLoaded) return;
             scriptsLoaded = true;
-
-            // Remove all interaction event listeners
-            interactionEvents.forEach(event => {
-                window.removeEventListener(event, loadThirdPartyScripts, { passive: true });
-            });
-            if (lazyTimeout) clearTimeout(lazyTimeout);
 
             // 1. Load Google Analytics Gtag
             const gtagScript = document.createElement('script');
@@ -44,14 +37,92 @@
             document.head.appendChild(adsenseScript);
         }
 
-        const interactionEvents = ['touchstart', 'scroll', 'mousedown', 'mousemove', 'keydown'];
-        interactionEvents.forEach(event => {
-            window.addEventListener(event, loadThirdPartyScripts, { once: true, passive: true });
-        });
+        const translations = {
+            es: {
+                text: 'Utilizamos cookies de terceros (Google Analytics y Google AdSense) para analizar el tráfico del sitio y mostrar anuncios personalizados. Al hacer clic en Aceptar, consientes el uso de estas cookies.',
+                accept: 'Aceptar',
+                decline: 'Rechazar',
+                linkText: 'Política de Privacidad',
+                linkUrl: '/politica-privacidad/'
+            },
+            en: {
+                text: 'We use third-party cookies (Google Analytics and Google AdSense) to analyze site traffic and display personalized ads. By clicking Accept, you consent to the use of these cookies.',
+                accept: 'Accept',
+                decline: 'Decline',
+                linkText: 'Privacy Policy',
+                linkUrl: '/en/privacy-policy/'
+            },
+            zh: {
+                text: '我们使用第三方 Cookie（Google Analytics 和 Google AdSense）来分析网站流量并展示个性化广告。点击“接受”即表示您同意使用这些 Cookie。',
+                accept: '接受',
+                decline: '拒绝',
+                linkText: '隐私政策',
+                linkUrl: '/zh/yinsi-zhengce/'
+            },
+            ja: {
+                text: '当サイトでは、トラフィック分析やパーソナライズ広告表示のために、サードパーティCookie（GoogleアナリティクスやAdSenseなど）を使用しています。「同意する」をクリックすると、Cookieの使用に同意したことになります。',
+                accept: '同意する',
+                decline: '拒否する',
+                linkText: 'プライバシーポリシー',
+                linkUrl: '/ja/privacy-policy/'
+            }
+        };
 
-        // Set safety timeout (4 seconds) only for normal users (not bots or Lighthouse)
-        if (!isBot) {
-            lazyTimeout = setTimeout(loadThirdPartyScripts, 4000);
+        function showCookieConsentBanner() {
+            if (document.getElementById('cookie-consent-banner')) return;
+
+            const pageLang = document.documentElement.lang || 'es';
+            const t = translations[pageLang] || translations['es'];
+
+            const banner = document.createElement('div');
+            banner.id = 'cookie-consent-banner';
+            banner.className = 'cookie-consent-banner';
+            banner.innerHTML = `
+                <div class="cookie-container">
+                    <p class="cookie-text">
+                        ${t.text} 
+                        <a href="${t.linkUrl}" class="cookie-link" target="_blank">${t.linkText}</a>.
+                    </p>
+                    <div class="cookie-buttons">
+                        <button id="cookie-decline-btn" class="btn btn-cookie-decline">${t.decline}</button>
+                        <button id="cookie-accept-btn" class="btn btn-cookie-accept">${t.accept}</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(banner);
+
+            // Add events
+            document.getElementById('cookie-accept-btn').addEventListener('click', () => {
+                localStorage.setItem('cookie_consent', 'accepted');
+                banner.classList.add('cookie-banner-hide');
+                setTimeout(() => banner.remove(), 400);
+                loadThirdPartyScripts();
+            });
+
+            document.getElementById('cookie-decline-btn').addEventListener('click', () => {
+                localStorage.setItem('cookie_consent', 'declined');
+                banner.classList.add('cookie-banner-hide');
+                setTimeout(() => banner.remove(), 400);
+            });
+        }
+
+        if (isBot) {
+            // Load immediately for search engine crawlers and AdSense verification bots
+            loadThirdPartyScripts();
+        } else {
+            const consent = localStorage.getItem('cookie_consent');
+            if (consent === 'accepted') {
+                loadThirdPartyScripts();
+            } else if (consent === 'declined') {
+                // Do not load scripts, respect user choice
+            } else {
+                // If no preference stored, show banner after window is fully loaded to prevent performance impact
+                if (document.readyState === 'complete') {
+                    showCookieConsentBanner();
+                } else {
+                    window.addEventListener('load', showCookieConsentBanner);
+                }
+            }
         }
     }
 
