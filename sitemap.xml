@@ -1,492 +1,389 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-
-<url>
-  <loc>https://herramientas-imagen.pages.dev/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/jpg-a-png/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/png-a-jpg/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/webp-a-jpg/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/webp-a-png/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/convertir-a-webp/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/svg-a-imagen/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/convertidor-universal/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/comprimir-imagenes/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/redimensionar-imagenes/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/recortar-imagen/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/rotar-imagen/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/generador-favicon/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/imagenes-a-pdf/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/pdf-a-imagenes/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/acerca-de/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/recursos/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/contacto/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/politica-privacidad/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/terminos-uso/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/jpg-to-png/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/jpg-zhuan-png/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/jpg-png-henkan/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/png-to-jpg/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/png-zhuan-jpg/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/png-jpg-henkan/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/webp-to-jpg/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/webp-zhuan-jpg/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/webp-jpg-henkan/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/webp-to-png/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/webp-zhuan-png/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/webp-png-henkan/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/convert-to-webp/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/zhuan-webp/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/webp-henkan/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/heic-to-jpg/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/heic-zhuan-jpg/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/heic-jpg-henkan/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/svg-to-image/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/svg-zhuan-tupian/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/svg-gazo-henkan/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/universal-converter/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/wanneng-zhuanhuanqi/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/banno-henkanki/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/compress-images/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/yasuo-tupian/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/gazo-asshuku/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/resize-images/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/tupian-tiaozheng-daxiao/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/gazo-saizu-henko/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/crop-image/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/caijian-tupian/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/gazo-caijian/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/rotate-image/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/xuanzhuan-tupian/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/gazo-kaiten/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/favicon-generator/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/favicon-shengchengqi/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/favicon-sakusei/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/remove-gemini-watermark/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/quchu-gemini-shuiyin/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/images-to-pdf/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/tupian-zhuan-pdf/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/gazo-pdf-henkan/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/pdf-to-images/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/pdf-zhuan-tupian/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/pdf-gazo-henkan/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/about/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/resources/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/contact/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/privacy-policy/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/terms-of-use/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/guanyu-women/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/resources/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/lianxi-women/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/yinsi-zhengce/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/shiyong-tiaokuan/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/about/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/resources/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/contact/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/privacy-policy/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/riyo-kiyaku/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/resources/how-to-convert-heic-to-jpg/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/en/resources/webp-vs-jpg-png-format/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/resources/heic-zhuan-jpg-fangfa/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/zh/resources/webp-vs-jpg-png/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/resources/heic-jpg-henkan-houhou/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://herramientas-imagen.pages.dev/ja/resources/webp-jpg-png-chigai/</loc>
-  <lastmod>2026-06-05T17:21:27+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/jpg-a-png/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/png-a-jpg/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/webp-a-jpg/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/webp-a-png/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/convertir-a-webp/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/convertir-heic-a-jpg/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/svg-a-imagen/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/convertidor-universal/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/comprimir-imagenes/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/redimensionar-imagenes/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/recortar-imagen/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/rotar-imagen/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/generador-favicon/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/quitar-marca-agua-gemini/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/imagenes-a-pdf/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/pdf-a-imagenes/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/acerca-de/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/recursos/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/contacto/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/politica-privacidad/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/terminos-uso/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/jpg-to-png/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/png-to-jpg/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/webp-to-jpg/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/webp-to-png/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/convert-to-webp/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/heic-to-jpg/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/svg-to-image/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/universal-converter/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/compress-images/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/resize-images/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/crop-image/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/rotate-image/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/favicon-generator/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/remove-gemini-watermark/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/images-to-pdf/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/pdf-to-images/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/about/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/resources/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/contact/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/privacy-policy/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/terms-of-use/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/jpg-zhuan-png/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/png-zhuan-jpg/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/webp-zhuan-jpg/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/webp-zhuan-png/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/zhuan-webp/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/heic-zhuan-jpg/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/svg-zhuan-tupian/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/wanneng-zhuanhuanqi/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/yasuo-tupian/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/tupian-tiaozheng-daxiao/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/caijian-tupian/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/xuanzhuan-tupian/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/favicon-shengchengqi/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/quchu-gemini-shuiyin/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/tupian-zhuan-pdf/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/pdf-zhuan-tupian/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/guanyu-women/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/resources/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/lianxi-women/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/yinsi-zhengce/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/shiyong-tiaokuan/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/jpg-png-henkan/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/png-jpg-henkan/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/webp-jpg-henkan/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/webp-png-henkan/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/webp-henkan/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/heic-jpg-henkan/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/svg-gazo-henkan/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/banno-henkanki/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/gazo-asshuku/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/gazo-saizu-henko/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/gazo-caijian/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/gazo-kaiten/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/favicon-sakusei/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/gemini-watermark-remover/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/gazo-pdf-henkan/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/pdf-gazo-henkan/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/about/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/resources/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/contact/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/privacy-policy/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/riyo-kiyaku/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/recursos/como-convertir-heic-a-jpg/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/recursos/formato-webp-vs-jpg-png/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/resources/how-to-convert-heic-to-jpg/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/en/resources/webp-vs-jpg-png-format/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/resources/heic-zhuan-jpg-fangfa/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/zh/resources/webp-vs-jpg-png/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/resources/heic-jpg-henkan-houhou/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://herramientas-imagen.pages.dev/ja/resources/webp-jpg-png-chigai/</loc>
+    <lastmod>2026-06-08</lastmod>
+  </url>
 
 </urlset>
