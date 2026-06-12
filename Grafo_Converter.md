@@ -6,7 +6,7 @@ graph TD
     Root[Raíz del Proyecto] --> HTML_Pages[Páginas HTML]
     Root --> Assets[Directorio /assets/]
     Root --> Locales[Internacionalización /en, /ja, /zh/]
-    Root --> Config[Configuración: wrangler.toml, sw.js, manifest]
+    Root --> Config[Configuración: wrangler.toml, sw.js, manifest, _headers, association/favicons]
 
     %% Páginas y Herramientas
     HTML_Pages --> Index[index.html Principal]
