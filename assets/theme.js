@@ -770,7 +770,7 @@
                         });
                     });
             });
-        });
+        }, true);
 
         // Helper to load JSZip dynamically
         function loadJSZip(callback) {
@@ -822,8 +822,8 @@
         const t = installTranslations[pageLang] || installTranslations['es'];
 
         window.addEventListener('beforeinstallprompt', (e) => {
-            // Check if dismissed before
-            if (localStorage.getItem('pwa_dismissed') === 'true') {
+            // Check if dismissed before in this session
+            if (sessionStorage.getItem('pwa_dismissed') === 'true') {
                 return;
             }
 
@@ -889,7 +889,7 @@
                 banner.classList.remove('show');
                 setTimeout(() => banner.remove(), 400);
                 // Don't show again in this browser session
-                localStorage.setItem('pwa_dismissed', 'true');
+                sessionStorage.setItem('pwa_dismissed', 'true');
             });
         }
     }
