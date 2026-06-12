@@ -15,13 +15,13 @@ Convertify es una suite de herramientas web de procesamiento y conversión de im
 ## 3. Arquitectura del Proyecto
 El proyecto sigue una arquitectura de sitio estático con múltiples páginas (Multi-Page Application - MPA) y un enrutamiento basado en carpetas físicas.
 
-*   **Raíz (`/`):** Contiene la página principal (`index.html`), rediseñada con un sistema dinámico de pestañas de filtrado interactivo por categorías (Conversión, Optimización, Edición, Documentos), tarjetas con identidad visual propia (iconos SVG personalizados y resplandores/glows de color por familia), configuraciones de despliegue y manifiestos PWA.
+*   **Raíz (`/`):** Contiene la página principal (`index.html`), rediseñada con un sistema dinámico de pestañas de filtrado interactivo por categorías (Conversión, Optimización, Edición, Documentos), tarjetas con identidad visual propia, y un buscador destacado en el Hero con soporte en tiempo real y alerta de "sin resultados".
 *   **Subdirectorios de Herramientas (`/jpg-a-png/`, `/comprimir-imagenes/`, etc.):** Cada herramienta tiene su propia carpeta, con su propio `index.html` para mejorar el SEO y permitir el acceso directo a herramientas específicas.
 *   **Directorio `/assets/`:** Contiene los recursos compartidos:
-    *   Lógica JS compartida y específica: `app.js`, `theme.js`, scripts por herramienta (`compressor.js`, `convert-to-webp.js`, etc.).
-    *   Hoja de estilos global: `styles.css` (actualizada con variables de color y estilos interactivos para el rediseño).
+    *   Lógica JS compartida y específica: `app.js`, `theme.js`, scripts por herramienta.
+    *   Hoja de estilos global: `styles.css` (actualizada con variables de color y estilos interactivos para el rediseño y buscador).
     *   Iconos, fuentes y librerías de terceros minificadas.
-*   **Internacionalización (`/en/`, `/zh/`, `/ja/`):** Carpetas que replican la estructura para soportar otros idiomas.
+*   **Internacionalización (`/en/`, `/zh/`, `/ja/`):** Carpetas que replican la estructura para soportar otros idiomas. Tienen el buscador central en el Hero y la lógica de filtrado unificada y traducida correspondiente a su idioma.
 
 ## 4. Flujo de Trabajo Típico de una Herramienta
 1.  **Entrada:** El usuario arrastra o selecciona un archivo (File API).

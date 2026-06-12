@@ -43,7 +43,7 @@ graph TD
         F_Download[Generación de Descargas Blob/URL]
         F_Theme[Gestión de Tema Claro/Oscuro]
         F_I18n[Navegación Multi-idioma]
-        F_Filter[Filtrado Dinámico JS de Categorías]
+        F_Filter[Filtrado Dinámico JS de Categorías y Buscador en Hero]
     end
     
     AppJS --> F_Load
@@ -51,4 +51,5 @@ graph TD
     ThemeJS --> F_Theme
     ToolScripts --> F_Canvas
     Index --> F_Filter
+    Locales -.-> F_Filter
 ```

@@ -353,6 +353,19 @@
             <section class="hero-section" style="margin-bottom: 2rem;">
                 <h1 class="hero-title">無料オンライン画像ツール</h1>
                 <p class="hero-subtitle">100%安全な処理。写真はデバイスから送信されず、他の誰にも見られません。</p>
+                
+                <!-- 巨大中央検索バー -->
+                <div class="hero-search-container">
+                    <div class="hero-search-wrapper">
+                        <span class="hero-search-icon">
+                            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </span>
+                        <input type="text" id="hero-search-input" class="hero-search-input" placeholder="今日は何をしますか？（例：圧縮、pngからjpgへ、heic...）" autocomplete="off" aria-label="ツールを検索">
+                    </div>
+                </div>
             </section>
 
             <!-- Tools Grid (Suite) -->
@@ -383,6 +396,14 @@
                         <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                         文書
                     </button>
+                </div>
+                
+                <!-- 検索結果なしメッセージ -->
+                <div id="no-results-message" class="no-results-message hidden">
+                    <div class="no-results-icon">🔍</div>
+                    <h3>一致するツールが見つかりませんでした</h3>
+                    <p>別のキーワードを入力するか、以下の人気カテゴリから探してみてください。</p>
+                    <button id="clear-search-btn" class="btn btn-clear-search">すべてのツールを表示</button>
                 </div>
                 
                 <div class="tools-grid">
@@ -696,26 +717,96 @@
         document.addEventListener('DOMContentLoaded', () => {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const toolCards = document.querySelectorAll('.tools-grid .tool-card-item');
+            const searchInput = document.getElementById('hero-search-input');
+            const noResultsMsg = document.getElementById('no-results-message');
+            const clearSearchBtn = document.getElementById('clear-search-btn');
 
+            let currentCategory = 'all';
+            let searchQuery = '';
+
+            function filterTools() {
+                let visibleCount = 0;
+
+                toolCards.forEach(card => {
+                    // カテゴリの一致を判定
+                    const matchesCategory = currentCategory === 'all' || card.classList.contains('category-' + currentCategory);
+                    
+                    // 検索の一致を判定（タイトルと説明）
+                    const titleText = card.querySelector('h3').textContent.toLowerCase();
+                    const descText = card.querySelector('p').textContent.toLowerCase();
+                    
+                    const matchesSearch = !searchQuery || 
+                                          titleText.includes(searchQuery) || 
+                                          descText.includes(searchQuery);
+
+                    if (matchesCategory && matchesSearch) {
+                        card.classList.remove('filter-hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('filter-hidden');
+                    }
+                });
+
+                // 検索結果なしメッセージの表示/非表示
+                if (visibleCount === 0) {
+                    noResultsMsg.classList.remove('hidden');
+                } else {
+                    noResultsMsg.classList.add('hidden');
+                }
+            }
+
+            // カテゴリタブのクリックイベント
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    // Remove active class from all
                     filterBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked
                     btn.classList.add('active');
-
-                    const category = btn.getAttribute('data-category');
-
-                    // Filter cards
-                    toolCards.forEach(card => {
-                        if (category === 'all' || card.classList.contains('category-' + category)) {
-                            card.classList.remove('filter-hidden');
-                        } else {
-                            card.classList.add('filter-hidden');
-                        }
-                    });
+                    currentCategory = btn.getAttribute('data-category');
+                    filterTools();
                 });
             });
+
+            // 検索入力の入力イベント
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    searchQuery = searchInput.value.trim().toLowerCase();
+                    // 特定のキーワードで検索している場合、カテゴリを「すべて」にリセットして
+                    // グローバル検索を実行し、ユーザーの混乱を防ぎます。
+                    if (searchQuery && currentCategory !== 'all') {
+                        currentCategory = 'all';
+                        filterBtns.forEach(b => {
+                            if (b.getAttribute('data-category') === 'all') b.classList.add('active');
+                            else b.classList.remove('active');
+                        });
+                    }
+                    filterTools();
+                });
+
+                // Escapeキーで検索をクリア
+                searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        searchInput.value = '';
+                        searchQuery = '';
+                        filterTools();
+                        searchInput.blur();
+                    }
+                });
+            }
+
+            // 検索クリアボタンのイベント
+            if (clearSearchBtn) {
+                clearSearchBtn.addEventListener('click', () => {
+                    if (searchInput) {
+                        searchInput.value = '';
+                    }
+                    searchQuery = '';
+                    currentCategory = 'all';
+                    filterBtns.forEach(b => {
+                        if (b.getAttribute('data-category') === 'all') b.classList.add('active');
+                        else b.classList.remove('active');
+                    });
+                    filterTools();
+                });
+            }
         });
     </script>
 </body>

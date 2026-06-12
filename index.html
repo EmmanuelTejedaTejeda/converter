@@ -352,6 +352,19 @@
             <section class="hero-section" style="margin-bottom: 2rem;">
                 <h1 class="hero-title">Herramientas de Imagen Gratuitas</h1>
                 <p class="hero-subtitle">Procesamiento 100% seguro. Tus fotos nunca salen de tu computadora o teléfono y nadie más las verá.</p>
+                
+                <!-- Buscador Central Gigante -->
+                <div class="hero-search-container">
+                    <div class="hero-search-wrapper">
+                        <span class="hero-search-icon">
+                            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </span>
+                        <input type="text" id="hero-search-input" class="hero-search-input" placeholder="¿Qué quieres hacer hoy? (Ej: comprimir, png a jpg, heic...)" autocomplete="off" aria-label="Buscar herramientas">
+                    </div>
+                </div>
             </section>
 
             <!-- Parrilla de Herramientas (Suite) -->
@@ -382,6 +395,14 @@
                         <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                         Documentos
                     </button>
+                </div>
+
+                <!-- Mensaje de Sin Resultados -->
+                <div id="no-results-message" class="no-results-message hidden">
+                    <div class="no-results-icon">🔍</div>
+                    <h3>No encontramos herramientas que coincidan</h3>
+                    <p>Prueba con otras palabras o explora nuestras categorías populares abajo.</p>
+                    <button id="clear-search-btn" class="btn btn-clear-search">Ver todas las herramientas</button>
                 </div>
                 
                 <div class="tools-grid">
@@ -711,26 +732,96 @@
         document.addEventListener('DOMContentLoaded', () => {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const toolCards = document.querySelectorAll('.tools-grid .tool-card-item');
+            const searchInput = document.getElementById('hero-search-input');
+            const noResultsMsg = document.getElementById('no-results-message');
+            const clearSearchBtn = document.getElementById('clear-search-btn');
 
+            let currentCategory = 'all';
+            let searchQuery = '';
+
+            function filterTools() {
+                let visibleCount = 0;
+
+                toolCards.forEach(card => {
+                    // Determinar coincidencia de categoría
+                    const matchesCategory = currentCategory === 'all' || card.classList.contains('category-' + currentCategory);
+                    
+                    // Determinar coincidencia de búsqueda (título y descripción)
+                    const titleText = card.querySelector('h3').textContent.toLowerCase();
+                    const descText = card.querySelector('p').textContent.toLowerCase();
+                    
+                    const matchesSearch = !searchQuery || 
+                                          titleText.includes(searchQuery) || 
+                                          descText.includes(searchQuery);
+
+                    if (matchesCategory && matchesSearch) {
+                        card.classList.remove('filter-hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('filter-hidden');
+                    }
+                });
+
+                // Mostrar/Ocultar mensaje de sin resultados
+                if (visibleCount === 0) {
+                    noResultsMsg.classList.remove('hidden');
+                } else {
+                    noResultsMsg.classList.add('hidden');
+                }
+            }
+
+            // Eventos para pestañas de categorías
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    // Remover clase activa de todos
                     filterBtns.forEach(b => b.classList.remove('active'));
-                    // Añadir clase activa al presionado
                     btn.classList.add('active');
-
-                    const category = btn.getAttribute('data-category');
-
-                    // Filtrar tarjetas
-                    toolCards.forEach(card => {
-                        if (category === 'all' || card.classList.contains('category-' + category)) {
-                            card.classList.remove('filter-hidden');
-                        } else {
-                            card.classList.add('filter-hidden');
-                        }
-                    });
+                    currentCategory = btn.getAttribute('data-category');
+                    filterTools();
                 });
             });
+
+            // Eventos para entrada de búsqueda
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    searchQuery = searchInput.value.trim().toLowerCase();
+                    // Si se está buscando algo específico, restablecemos la categoría a "all"
+                    // para buscar de forma global. Esto evita confusión al usuario.
+                    if (searchQuery && currentCategory !== 'all') {
+                        currentCategory = 'all';
+                        filterBtns.forEach(b => {
+                            if (b.getAttribute('data-category') === 'all') b.classList.add('active');
+                            else b.classList.remove('active');
+                        });
+                    }
+                    filterTools();
+                });
+
+                // Limpiar búsqueda con Escape
+                searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        searchInput.value = '';
+                        searchQuery = '';
+                        filterTools();
+                        searchInput.blur();
+                    }
+                });
+            }
+
+            // Evento para botón de restablecer búsqueda
+            if (clearSearchBtn) {
+                clearSearchBtn.addEventListener('click', () => {
+                    if (searchInput) {
+                        searchInput.value = '';
+                    }
+                    searchQuery = '';
+                    currentCategory = 'all';
+                    filterBtns.forEach(b => {
+                        if (b.getAttribute('data-category') === 'all') b.classList.add('active');
+                        else b.classList.remove('active');
+                    });
+                    filterTools();
+                });
+            }
         });
     </script>
 </body>

@@ -3671,3 +3671,141 @@ body.mobile-menu-open .hamburger-menu-btn .hamburger-bar:nth-child(3) {
         font-size: 0.9rem;
     }
 }
+
+/* ==========================================================================
+   Hero Search Bar & No Results (Dynamic UI Overhaul)
+   ========================================================================== */
+.hero-search-container {
+    max-width: 580px;
+    margin: 1.75rem auto 0 auto;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.hero-search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 50px;
+    padding: 0.25rem 0.5rem 0.25rem 1.25rem;
+    transition: all var(--transition-normal);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.hero-search-wrapper:focus-within {
+    border-color: var(--accent-primary);
+    box-shadow: 0 10px 30px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+.hero-search-icon {
+    color: var(--accent-primary);
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.hero-search-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 0.75rem 0;
+    outline: none;
+}
+
+.hero-search-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.65;
+}
+
+/* No Results Message Styling */
+.no-results-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px dashed var(--card-border);
+    border-radius: 16px;
+    margin: 2rem 0;
+    width: 100%;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.no-results-message.hidden {
+    display: none !important;
+}
+
+.no-results-icon {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.no-results-message h3 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.no-results-message p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    max-width: 420px;
+    line-height: 1.5;
+}
+
+.btn-clear-search {
+    background: var(--accent-primary);
+    color: var(--white);
+    border: none;
+    padding: 0.65rem 1.75rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.btn-clear-search:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px var(--accent-glow);
+}
+
+.btn-clear-search:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+    .hero-search-wrapper {
+        padding: 0.15rem 0.5rem 0.15rem 1rem;
+    }
+    
+    .hero-search-input {
+        font-size: 0.95rem;
+        padding: 0.6rem 0;
+    }
+    
+    .no-results-message {
+        padding: 2.5rem 1rem;
+    }
+    
+    .no-results-message h3 {
+        font-size: 1.15rem;
+    }
+}
+
