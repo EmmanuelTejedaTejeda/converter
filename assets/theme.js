@@ -678,6 +678,222 @@
         }
     }
 
+    function setupGlobalZIP() {
+        const downloadAllBtn = document.getElementById('download-all-btn');
+        if (!downloadAllBtn) return;
+
+        downloadAllBtn.addEventListener('click', (e) => {
+            // Find all ready download buttons inside cards
+            const readyButtons = Array.from(document.querySelectorAll('.btn-action-download'))
+                .filter(btn => btn.href && btn.href.startsWith('blob:') && !btn.classList.contains('hidden'));
+
+            if (readyButtons.length <= 1) {
+                // Let the default single-file or sequential download propagate if only 1 or 0 files
+                return;
+            }
+
+            // If there are multiple files, we intercept and package them into a ZIP!
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            const originalText = downloadAllBtn.innerHTML;
+            downloadAllBtn.disabled = true;
+            downloadAllBtn.classList.add('disabled');
+
+            // Detect language
+            const pageLang = document.documentElement.lang || 'es';
+            const zipText = {
+                es: 'Creando ZIP...',
+                en: 'Creating ZIP...',
+                zh: '正在生成ZIP...',
+                ja: 'ZIP作成中...'
+            };
+            downloadAllBtn.innerHTML = zipText[pageLang] || zipText['es'];
+
+            // Dynamically load JSZip
+            loadJSZip(() => {
+                const zip = new JSZip();
+                const promises = readyButtons.map((btn, index) => {
+                    // Extract filename from download attribute or fallback to index
+                    let filename = btn.getAttribute('download');
+                    if (!filename) {
+                        const fileCard = btn.closest('.file-card');
+                        const nameEl = fileCard ? fileCard.querySelector('.file-name') : null;
+                        filename = nameEl ? nameEl.textContent.trim() : `file-${index}`;
+                    }
+                    
+                    return fetch(btn.href)
+                        .then(r => r.blob())
+                        .then(blob => {
+                            zip.file(filename, blob);
+                        });
+                });
+
+                Promise.all(promises)
+                    .then(() => {
+                        return zip.generateAsync({ type: 'blob' });
+                    })
+                    .then(zipBlob => {
+                        const zipUrl = URL.createObjectURL(zipBlob);
+                        const link = document.createElement('a');
+                        link.href = zipUrl;
+                        link.download = 'convertify-files.zip';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        
+                        setTimeout(() => URL.revokeObjectURL(zipUrl), 10000);
+
+                        // Reset button
+                        downloadAllBtn.disabled = false;
+                        downloadAllBtn.classList.remove('disabled');
+                        downloadAllBtn.innerHTML = originalText;
+
+                        // Show thank you modal
+                        const thankYouModal = document.getElementById('thank-you-modal');
+                        if (thankYouModal) {
+                            thankYouModal.classList.remove('hidden');
+                        }
+                    })
+                    .catch(err => {
+                        console.error('ZIP generation failed, falling back to default sequential downloads:', err);
+                        // Reset button
+                        downloadAllBtn.disabled = false;
+                        downloadAllBtn.classList.remove('disabled');
+                        downloadAllBtn.innerHTML = originalText;
+
+                        // Click all buttons sequentially as fallback
+                        let delay = 0;
+                        readyButtons.forEach(btn => {
+                            setTimeout(() => btn.click(), delay);
+                            delay += 300;
+                        });
+                    });
+            });
+        });
+
+        // Helper to load JSZip dynamically
+        function loadJSZip(callback) {
+            if (window.JSZip) {
+                callback();
+                return;
+            }
+            const script = document.createElement('script');
+            const pathPrefix = window.location.pathname.includes('/en/') || 
+                               window.location.pathname.includes('/zh/') || 
+                               window.location.pathname.includes('/ja/') ? '../../' : '../';
+            script.src = pathPrefix + 'assets/jszip.min.js';
+            script.onload = () => callback();
+            script.onerror = () => {
+                console.error('Failed to load JSZip');
+                callback(new Error('Load failed'));
+            };
+            document.head.appendChild(script);
+        }
+    }
+
+    function setupPWAInstall() {
+        let deferredPrompt;
+        const pageLang = document.documentElement.lang || 'es';
+
+        const installTranslations = {
+            es: {
+                text: 'Instala Convertify en tu dispositivo para usarlo sin conexión.',
+                btn: 'Instalar',
+                title: 'Instalar App'
+            },
+            en: {
+                text: 'Install Convertify on your device for offline use.',
+                btn: 'Install',
+                title: 'Install App'
+            },
+            zh: {
+                text: '安装 Convertify 以便离线使用。',
+                btn: '安装',
+                title: '安装应用'
+            },
+            ja: {
+                text: 'オフラインで利用するためアプリをインストール。',
+                btn: 'インストール',
+                title: 'アプリをインストール'
+            }
+        };
+
+        const t = installTranslations[pageLang] || installTranslations['es'];
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Check if dismissed before
+            if (localStorage.getItem('pwa_dismissed') === 'true') {
+                return;
+            }
+
+            // Prevent default prompt
+            e.preventDefault();
+            deferredPrompt = e;
+
+            // Show custom install promo banner
+            showInstallBanner();
+        });
+
+        function showInstallBanner() {
+            if (document.getElementById('pwa-install-banner')) return;
+
+            const banner = document.createElement('div');
+            banner.id = 'pwa-install-banner';
+            banner.className = 'pwa-install-banner';
+            banner.innerHTML = `
+                <div class="pwa-install-content">
+                    <div class="pwa-icon-wrapper">
+                        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </div>
+                    <div class="pwa-text-container">
+                        <p class="pwa-text">${t.text}</p>
+                    </div>
+                    <div class="pwa-buttons-wrapper">
+                        <button id="pwa-install-btn" class="btn btn-pwa-install">${t.btn}</button>
+                        <button id="pwa-close-btn" class="pwa-close-btn" aria-label="Close">&times;</button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(banner);
+
+            // Trigger show animation
+            setTimeout(() => {
+                banner.classList.add('show');
+            }, 100);
+
+            // Install click event
+            document.getElementById('pwa-install-btn').addEventListener('click', () => {
+                if (!deferredPrompt) return;
+                banner.classList.remove('show');
+                setTimeout(() => banner.remove(), 400);
+
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the PWA install prompt');
+                    } else {
+                        console.log('User dismissed the PWA install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+
+            // Dismiss click event
+            document.getElementById('pwa-close-btn').addEventListener('click', () => {
+                banner.classList.remove('show');
+                setTimeout(() => banner.remove(), 400);
+                // Don't show again in this browser session
+                localStorage.setItem('pwa_dismissed', 'true');
+            });
+        }
+    }
+
     function initTheme() {
         const savedTheme = localStorage.getItem('theme');
         const theme = savedTheme || getSystemTheme();
@@ -689,6 +905,8 @@
             setupMobileMenu();
             setupGlobalSearch();
             setupShareFAB();
+            setupGlobalZIP();
+            setupPWAInstall();
 
             // Register PWA Service Worker
             if ('serviceWorker' in navigator) {

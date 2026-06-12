@@ -45,12 +45,16 @@ graph TD
         F_I18n[Navegación Multi-idioma]
         F_Filter[Filtrado Dinámico JS de Categorías y Buscador en Hero]
         F_Share[Botón de Compartir Nativo Web Share API]
+        F_PWAInstall[Promoción de Instalación PWA Personalizada]
+        F_Zip[Compresión y Descarga en Lote ZIP JSZip]
     end
     
     AppJS --> F_Load
     AppJS --> F_Download
     ThemeJS --> F_Theme
     ThemeJS --> F_Share
+    ThemeJS --> F_PWAInstall
+    ThemeJS --> F_Zip
     ToolScripts --> F_Canvas
     Index --> F_Filter
     Locales -.-> F_Filter

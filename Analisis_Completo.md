@@ -10,6 +10,7 @@ Convertify es una suite de herramientas web de procesamiento y conversión de im
     *   `heic2any.min.js`: Conversión de formato HEIC/HEIF de Apple.
     *   `jspdf.umd.min.js`: Generación de documentos PDF a partir de imágenes.
     *   `pdf.min.mjs` y `pdf.worker.min.mjs` (PDF.js): Renderizado y extracción de imágenes desde archivos PDF.
+    *   `jszip.min.js`: Compresión local de múltiples archivos procesados en lote para descarga en formato ZIP.
 *   **Despliegue:** Cloudflare Pages (evidenciado por `wrangler.toml` y `_headers`).
 
 ## 3. Arquitectura del Proyecto
@@ -36,5 +37,5 @@ El proyecto sigue una arquitectura de sitio estático con múltiples páginas (M
 ## 5. Puntos Fuertes y Consideraciones
 *   **Rendimiento y Seguridad:** Al ejecutarse en el cliente, es rápido (dependiendo del hardware del usuario) e inherentemente seguro.
 *   **SEO y Compartibilidad:** Estructura MPA con metadatos localizados nítidos y canonicals en todos los idiomas, esquemas JSON-LD integrados (`WebApplication` y `FAQPage` en todas las herramientas) para rich snippets de Google, y un botón de compartir flotante dinámico (Web Share API con fallback a portapapeles) integrado globalmente en `theme.js`.
-*   **PWA:** Cuenta con un Service Worker (`sw.js`) y manifiesto, lo que permite instalar la aplicación en dispositivos móviles y de escritorio.
+*   **PWA e Instalación:** Cuenta con Service Worker (`sw.js`), manifiesto y un banner/promoción de instalación PWA personalizada flotante e interactiva (capturando `beforeinstallprompt`) para retener usuarios sin pasar por tiendas oficiales.
 *   **Mantenimiento:** El uso de Vanilla JS requiere cuidado en la gestión del DOM para evitar memory leaks y mantener el código ordenado.
