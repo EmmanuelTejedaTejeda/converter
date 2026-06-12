@@ -35,6 +35,6 @@ El proyecto sigue una arquitectura de sitio estático con múltiples páginas (M
 
 ## 5. Puntos Fuertes y Consideraciones
 *   **Rendimiento y Seguridad:** Al ejecutarse en el cliente, es rápido (dependiendo del hardware del usuario) e inherentemente seguro.
-*   **SEO:** La estructura MPA con directorios claros y metadata estructurada ayuda al posicionamiento orgánico.
+*   **SEO y Compartibilidad:** Estructura MPA con metadatos localizados nítidos y canonicals en todos los idiomas, esquemas JSON-LD integrados (`WebApplication` y `FAQPage` en todas las herramientas) para rich snippets de Google, y un botón de compartir flotante dinámico (Web Share API con fallback a portapapeles) integrado globalmente en `theme.js`.
 *   **PWA:** Cuenta con un Service Worker (`sw.js`) y manifiesto, lo que permite instalar la aplicación en dispositivos móviles y de escritorio.
 *   **Mantenimiento:** El uso de Vanilla JS requiere cuidado en la gestión del DOM para evitar memory leaks y mantener el código ordenado.

@@ -44,11 +44,13 @@ graph TD
         F_Theme[Gestión de Tema Claro/Oscuro]
         F_I18n[Navegación Multi-idioma]
         F_Filter[Filtrado Dinámico JS de Categorías y Buscador en Hero]
+        F_Share[Botón de Compartir Nativo Web Share API]
     end
     
     AppJS --> F_Load
     AppJS --> F_Download
     ThemeJS --> F_Theme
+    ThemeJS --> F_Share
     ToolScripts --> F_Canvas
     Index --> F_Filter
     Locales -.-> F_Filter

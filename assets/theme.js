@@ -569,6 +569,115 @@
         });
     }
 
+    function setupShareFAB() {
+        // Translations dictionary for Share Toast
+        const shareTranslations = {
+            es: {
+                toast: '¡Enlace copiado al portapapeles! Compártelo con tus amigos. 🚀',
+                title: 'Compartir',
+                description: 'Comparte Convertify'
+            },
+            en: {
+                toast: 'Link copied to clipboard! Share it with your friends. 🚀',
+                title: 'Share',
+                description: 'Share Convertify'
+            },
+            zh: {
+                toast: '链接已复制到剪贴板！与朋友分享吧。🚀',
+                title: '分享',
+                description: '分享 Convertify'
+            },
+            ja: {
+                toast: 'リンクがクリップボードにコピーされました！友達と共有しましょう。🚀',
+                title: '共有',
+                description: 'Convertifyを共有'
+            }
+        };
+
+        const pageLang = document.documentElement.lang || 'es';
+        const t = shareTranslations[pageLang] || shareTranslations['es'];
+
+        // Create the button element
+        const shareBtn = document.createElement('button');
+        shareBtn.id = 'share-float-btn';
+        shareBtn.className = 'share-float-btn';
+        shareBtn.setAttribute('aria-label', t.title);
+        shareBtn.setAttribute('title', t.description);
+        
+        // Use a clean connected node/share SVG icon
+        shareBtn.innerHTML = `
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+        `;
+
+        document.body.appendChild(shareBtn);
+
+        // Click event handler
+        shareBtn.addEventListener('click', () => {
+            const shareData = {
+                title: document.title,
+                text: document.querySelector('meta[name="description"]')?.getAttribute('content') || 'Convertify - Free Online Image Tools',
+                url: window.location.href
+            };
+
+            // Detect native Web Share API
+            if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+                navigator.share(shareData)
+                    .catch(err => {
+                        // If user cancels, do not show error
+                        if (err.name !== 'AbortError') console.error('Share error:', err);
+                    });
+            } else {
+                // Fallback: Clipboard Copy
+                navigator.clipboard.writeText(window.location.href)
+                    .then(() => {
+                        showShareToast(t.toast);
+                    })
+                    .catch(err => {
+                        console.error('Clipboard copy failed:', err);
+                        // Hard fallback if clipboard API permissions fail
+                        const tempInput = document.createElement('input');
+                        tempInput.value = window.location.href;
+                        document.body.appendChild(tempInput);
+                        tempInput.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(tempInput);
+                        showShareToast(t.toast);
+                    });
+            }
+        });
+
+        // Toast show helper
+        function showShareToast(message) {
+            // Check if there is an existing toast
+            let toast = document.getElementById('share-toast');
+            if (toast) toast.remove();
+
+            toast = document.createElement('div');
+            toast.id = 'share-toast';
+            toast.className = 'share-toast';
+            toast.textContent = message;
+
+            document.body.appendChild(toast);
+
+            // Active animation class
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            // Remove toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 400);
+            }, 3000);
+        }
+    }
+
     function initTheme() {
         const savedTheme = localStorage.getItem('theme');
         const theme = savedTheme || getSystemTheme();
@@ -579,6 +688,7 @@
             setupThemeToggler();
             setupMobileMenu();
             setupGlobalSearch();
+            setupShareFAB();
 
             // Register PWA Service Worker
             if ('serviceWorker' in navigator) {
