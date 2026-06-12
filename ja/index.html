@@ -314,7 +314,8 @@
                             <a href="png-jpg-henkan/" data-keywords="png, jpg, jpeg, 変換, 変換器, コンバーター">PNG から JPG</a>
                             <a href="webp-jpg-henkan/" data-keywords="webp, jpg, jpeg, 変換, 変換器, コンバーター">WebP から JPG</a>
                             <a href="webp-png-henkan/" data-keywords="webp, png, 変換, 変換器, コンバーター">WebP から PNG</a>
-                            <a href="webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">WebP に変換</a>                            <a href="heic-jpg-henkan/" data-keywords="heic, heif, jpg, jpeg, 変換, コンバーター, アップル, iphone">HEIC JPG 変換</a>
+                            <a href="webp-henkan/" data-keywords="webp, 変換, 変換器, コンバーター, 変更, 最適化">WebP に変換</a>
+                            <a href="heic-jpg-henkan/" data-keywords="heic, heif, jpg, jpeg, 変換, コンバーター, アップル, iphone">HEIC JPG 変換</a>
                             <a href="svg-gazo-henkan/" data-keywords="svg, png, jpg, 画像, 変換, 変換器, ベクター">SVG から画像へ</a>
                             <a href="banno-henkanki/" data-keywords="変換, 変換器, 万能, すべて, png, jpg, webp, svg, gif, bmp, ico">万能画像変換</a>
                         </div>
@@ -359,223 +360,235 @@
                 <div class="directory-header">
                     <h2>[利用可能なツール]</h2>
                 </div>
+
+                <!-- Category Filters -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-category="all">
+                        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                        すべて
+                    </button>
+                    <button class="filter-btn" data-category="conversion">
+                        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                        変換
+                    </button>
+                    <button class="filter-btn" data-category="optimization">
+                        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h16M4 10h16M12 3v18"/></svg>
+                        最適化
+                    </button>
+                    <button class="filter-btn" data-category="edit">
+                        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v16h16M2 6h16v16"/></svg>
+                        編集
+                    </button>
+                    <button class="filter-btn" data-category="doc">
+                        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        文書
+                    </button>
+                </div>
                 
-                                <div class="tools-grid">
+                <div class="tools-grid">
                     <!-- JPG to PNG Tool -->
-                    <a href="jpg-png-henkan/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="jpg-png-henkan/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13l3-3 3 3M8 17h8"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>JPGからPNGへ変換</h3>
                             <p>JPG写真を高品質なPNG形式にブラウザ内でローカルに即座に変換します。</p>
                         </div>
                     </a>
 
                     <!-- PNG to JPG Tool -->
-                    <a href="png-jpg-henkan/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="png-jpg-henkan/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13l-3 3-3-3M8 11h8"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>PNGからJPGへ変換</h3>
                             <p>画質を維持しながら、PNG画像からJPG形式へ素早く安全に変換します。</p>
                         </div>
                     </a>
 
                     <!-- WebP to JPG Tool -->
-                    <a href="webp-jpg-henkan/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="webp-jpg-henkan/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>WebPからJPGへ変換</h3>
                             <p>WebP画像をすばやく安全に標準のJPG形式にローカル処理で変換します。</p>
                         </div>
                     </a>
 
                     <!-- WebP to PNG Tool -->
-                    <a href="webp-png-henkan/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="webp-png-henkan/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 3L21 7L17 11M7 21L3 17L7 13"/><path d="M21 7H9a4 4 0 0 0-4 4v10M3 17h12a4 4 0 0 0 4-4V3"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>WebPからPNGへ変換</h3>
                             <p>透過情報を維持したまま、WebP画像からPNG形式へローカルに変換します。</p>
                         </div>
                     </a>
 
                     <!-- Convert to WebP Tool -->
-                    <a href="webp-henkan/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="webp-henkan/index.html" class="tool-card-item category-optimization">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>画像をWebPに変換</h3>
                             <p>表示速度向上のため、画像を現代的なWebP形式にブラウザ内で最適化します。</p>
                         </div>
                     </a>
+
                     <!-- Tool HEIC to JPG -->
-                    <a href="heic-jpg-henkan/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[新規]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="heic-jpg-henkan/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="badge-new">新規</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>HEIC JPG 変換</h3>
                             <p>iPhoneのHEIC写真をJPGやPNGにローカルで安全かつ瞬時に変換します。</p>
                         </div>
                     </a>
 
                     <!-- SVG to Image Tool -->
-                    <a href="svg-gazo-henkan/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="svg-gazo-henkan/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>SVGから画像へ変換</h3>
                             <p>SVGベクターファイルを任意の解像度・サイズでPNGまたはJPG画像に変換します。</p>
                         </div>
                     </a>
 
                     <!-- Universal Converter Tool -->
-                    <a href="banno-henkanki/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="banno-henkanki/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>万能画像変換ツール</h3>
                             <p>複数画像形式間の相互変換が可能なオールインワンローカル変換ツール。</p>
                         </div>
                     </a>
 
                     <!-- Compress Images Tool -->
-                    <a href="gazo-asshuku/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="gazo-asshuku/index.html" class="tool-card-item category-optimization">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 14h16M4 10h16M12 3v7M12 21v-7"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>画像圧縮</h3>
                             <p>画質を落とさずにファイルサイズを最大80%削減するブラウザ圧縮ツール。</p>
                         </div>
                     </a>
 
                     <!-- Resize Images Tool -->
-                    <a href="gazo-saizu-henko/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="gazo-saizu-henko/index.html" class="tool-card-item category-optimization">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="16" height="16" rx="2"/><rect x="9" y="9" width="13" height="13" rx="2"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>画像サイズ変更</h3>
                             <p>アスペクト比を維持しながら、画像の寸法を一括でまとめて変更します。</p>
                         </div>
                     </a>
 
                     <!-- Crop Image Tool -->
-                    <a href="gazo-caijian/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="gazo-caijian/index.html" class="tool-card-item category-edit">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2v16h16M2 6h16v16"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>画像切り抜き</h3>
                             <p>カスタムまたはプリセット比率で画像をブラウザ上で視覚的に切り抜きます。</p>
                         </div>
                     </a>
 
                     <!-- Rotate & Flip Tool -->
-                    <a href="gazo-kaiten/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="gazo-kaiten/index.html" class="tool-card-item category-edit">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg>
                             </div>
-                            <h3>画像回転・反転</h3>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
+                            <h3>画像回転・反翻</h3>
                             <p>画像の向きを補正したり、上下左右の鏡像効果をその場で適用します。</p>
                         </div>
                     </a>
 
                     <!-- Favicon Generator Tool -->
-                    <a href="favicon-sakusei/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[有効]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="favicon-sakusei/index.html" class="tool-card-item category-edit">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9h18M9 21V9M12 2L2 7l10 5 10-5-10-5z"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">無料</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>ファビコン作成</h3>
                             <p>お使いのウェブサイト用のマルチ解像度.icoファイルをローカルに作成します。</p>
                         </div>
@@ -677,5 +690,33 @@
             </div>
         </div>
     </footer>
+
+    <!-- Interactive filtering script for Japanese -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const toolCards = document.querySelectorAll('.tools-grid .tool-card-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked
+                    btn.classList.add('active');
+
+                    const category = btn.getAttribute('data-category');
+
+                    // Filter cards
+                    toolCards.forEach(card => {
+                        if (category === 'all' || card.classList.contains('category-' + category)) {
+                            card.classList.remove('filter-hidden');
+                        } else {
+                            card.classList.add('filter-hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
