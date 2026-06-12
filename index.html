@@ -359,274 +359,283 @@
                 <div class="directory-header">
                     <h2>[HERRAMIENTAS DISPONIBLES]</h2>
                 </div>
+
+                <!-- Pestañas de Filtrado -->
+                <div class="filter-container">
+                    <button class="filter-btn active" data-category="all">
+                        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                        Todas
+                    </button>
+                    <button class="filter-btn" data-category="conversion">
+                        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                        Conversión
+                    </button>
+                    <button class="filter-btn" data-category="optimization">
+                        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h16M4 10h16M12 3v18"/></svg>
+                        Optimización
+                    </button>
+                    <button class="filter-btn" data-category="edit">
+                        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v16h16M2 6h16v16"/></svg>
+                        Edición
+                    </button>
+                    <button class="filter-btn" data-category="doc">
+                        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        Documentos
+                    </button>
+                </div>
                 
-                                <div class="tools-grid">
+                <div class="tools-grid">
                     <!-- Herramienta JPG a PNG -->
-                    <a href="jpg-a-png/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="jpg-a-png/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M8 13l3-3 3 3M8 17h8"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Convertir JPG a PNG</h3>
                             <p>Convierte tus fotos en formato JPG a imágenes PNG de alta calidad sin subirlas a internet.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta PNG a JPG -->
-                    <a href="png-a-jpg/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="png-a-jpg/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13l-3 3-3-3M8 11h8"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Convertir PNG a JPG</h3>
                             <p>Convierte tus imágenes PNG a formato JPG rápidamente preservando la calidad original.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta WebP a JPG -->
-                    <a href="webp-a-jpg/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="webp-a-jpg/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Convertir WebP a JPG</h3>
                             <p>Convierte tus fotos en formato WebP a imágenes JPG de forma rápida y 100% segura.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta WebP a PNG -->
-                    <a href="webp-a-png/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="webp-a-png/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 3L21 7L17 11M7 21L3 17L7 13"/><path d="M21 7H9a4 4 0 0 0-4 4v10M3 17h12a4 4 0 0 0 4-4V3"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Convertir WebP a PNG</h3>
                             <p>Convierte tus imágenes WebP a formato PNG conservando las transparencias originales.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta Convertir a WebP -->
-                    <a href="convertir-a-webp/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="convertir-a-webp/index.html" class="tool-card-item category-optimization">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Convertir Imagen a WebP</h3>
                             <p>Optimiza tus fotos convirtiéndolas al formato moderno WebP para cargarlas en tu web.</p>
                         </div>
                     </a>
+
                     <!-- Herramienta HEIC a JPG -->
-                    <a href="convertir-heic-a-jpg/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[NUEVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="convertir-heic-a-jpg/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="badge-new">Nuevo</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Convertir HEIC a JPG</h3>
                             <p>Convierte fotos HEIC de iPhone a JPG o PNG de forma local y 100% segura.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta SVG a Imagen -->
-                    <a href="svg-a-imagen/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="svg-a-imagen/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Convertir SVG a Imagen</h3>
                             <p>Renderiza tus vectores SVG a imágenes PNG o JPG con cualquier resolución y tamaño.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta Convertidor Universal -->
-                    <a href="convertidor-universal/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="convertidor-universal/index.html" class="tool-card-item category-conversion">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Convertidor de Imagen Universal</h3>
                             <p>Convierte imágenes entre múltiples formatos de forma local y 100% segura.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta Comprimir Imágenes -->
-                    <a href="comprimir-imagenes/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="comprimir-imagenes/index.html" class="tool-card-item category-optimization">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 14h16M4 10h16M12 3v7M12 21v-7"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Comprimir Imágenes</h3>
                             <p>Reduce el peso de tus fotos hasta un 80% sin perder nitidez directamente en tu navegador.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta Redimensionar Imágenes -->
-                    <a href="redimensionar-imagenes/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="redimensionar-imagenes/index.html" class="tool-card-item category-optimization">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="16" height="16" rx="2"/><rect x="9" y="9" width="13" height="13" rx="2"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Redimensionar Imágenes</h3>
                             <p>Cambia el tamaño y las dimensiones de tus fotos en lote conservando la proporción.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta Recortar Imagen -->
-                    <a href="recortar-imagen/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="recortar-imagen/index.html" class="tool-card-item category-edit">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2v16h16M2 6h16v16"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Recortar Imagen</h3>
                             <p>Recorta tus fotos con proporciones personalizadas o fijas visualmente y en lote.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta Rotar y Voltear -->
-                    <a href="rotar-imagen/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="rotar-imagen/index.html" class="tool-card-item category-edit">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Rotar y Voltear Imagen</h3>
                             <p>Corrige la orientación de tus imágenes o aplica efectos de espejo rápidamente.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta Generador de Favicon -->
-                    <a href="generador-favicon/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="generador-favicon/index.html" class="tool-card-item category-edit">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9h18M9 21V9M12 2L2 7l10 5 10-5-10-5z"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Generador de Favicon (ICO)</h3>
                             <p>Crea iconos .ico de escritorio y favicons multi-resolución para tu web.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta Quitar Marca Gemini -->
-                    <a href="quitar-marca-agua-gemini/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="quitar-marca-agua-gemini/index.html" class="tool-card-item category-edit">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 4V2M15 16v-2M8 9h2M20 9h2M17.8 5.2l-1.4 1.4M17.8 12.8l-1.4-1.4M12.2 5.2l1.4 1.4M12.2 12.8l1.4-1.4M9 18H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5M22 22l-5-5M17 22l5-5"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Quitar Marca Gemini</h3>
                             <p>Remueve el logo estrellado de Gemini de tus imágenes generadas por IA de forma 100% local.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta Imágenes a PDF -->
-                    <a href="imagenes-a-pdf/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="imagenes-a-pdf/index.html" class="tool-card-item category-doc">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15h6M9 11h3"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Convertir Imágenes a PDF</h3>
                             <p>Une tus fotos en un único documento PDF de forma rápida, ordenada y 100% segura.</p>
                         </div>
                     </a>
 
                     <!-- Herramienta PDF a Imágenes -->
-                    <a href="pdf-a-imagenes/index.html" class="tool-card-item">
-                        <div class="tool-info">
-                            <div class="tool-card-header">
-                                <span class="tool-status-tag">[ACTIVO]</span>
-                                <span class="tool-action-arrow">
-                                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                    <a href="pdf-a-imagenes/index.html" class="tool-card-item category-doc">
+                        <div class="tool-card-header-v2">
+                            <div class="tool-icon-wrapper">
+                                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18l3-3-3-3M15 15H9"/></svg>
                             </div>
+                            <div class="badge-container">
+                                <span class="tool-status-dot">Gratis</span>
+                            </div>
+                        </div>
+                        <div class="tool-info">
                             <h3>Convertir PDF a Imágenes</h3>
                             <p>Extrae de forma automática todas las páginas de tus archivos PDF como imágenes PNG.</p>
                         </div>
@@ -696,5 +705,33 @@
             </div>
         </div>
     </footer>
+
+    <!-- Script de filtrado interactivo para la página principal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const toolCards = document.querySelectorAll('.tools-grid .tool-card-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remover clase activa de todos
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Añadir clase activa al presionado
+                    btn.classList.add('active');
+
+                    const category = btn.getAttribute('data-category');
+
+                    // Filtrar tarjetas
+                    toolCards.forEach(card => {
+                        if (category === 'all' || card.classList.contains('category-' + category)) {
+                            card.classList.remove('filter-hidden');
+                        } else {
+                            card.classList.add('filter-hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
