@@ -1,5 +1,5 @@
-/**
- * Convertify - Shared Theme Management & Auto-Redirect
+﻿/**
+ * My Local Picture - Shared Theme Management & Auto-Redirect
  * Prevents FOUC (Theme) and handles language routing immediately
  */
 (function() {
@@ -575,22 +575,22 @@
             es: {
                 toast: '¡Enlace copiado al portapapeles! Compártelo con tus amigos. 🚀',
                 title: 'Compartir',
-                description: 'Comparte Convertify'
+                description: 'Comparte My Local Picture'
             },
             en: {
                 toast: 'Link copied to clipboard! Share it with your friends. 🚀',
                 title: 'Share',
-                description: 'Share Convertify'
+                description: 'Share My Local Picture'
             },
             zh: {
                 toast: '链接已复制到剪贴板！与朋友分享吧。🚀',
                 title: '分享',
-                description: '分享 Convertify'
+                description: '分享 My Local Picture'
             },
             ja: {
                 toast: 'リンクがクリップボードにコピーされました！友達と共有しましょう。🚀',
                 title: '共有',
-                description: 'Convertifyを共有'
+                description: 'My Local Pictureを共有'
             }
         };
 
@@ -621,7 +621,7 @@
         shareBtn.addEventListener('click', () => {
             const shareData = {
                 title: document.title,
-                text: document.querySelector('meta[name="description"]')?.getAttribute('content') || 'Convertify - Free Online Image Tools',
+                text: document.querySelector('meta[name="description"]')?.getAttribute('content') || 'My Local Picture - Free Online Image Tools',
                 url: window.location.href
             };
 
@@ -737,7 +737,7 @@
                         const zipUrl = URL.createObjectURL(zipBlob);
                         const link = document.createElement('a');
                         link.href = zipUrl;
-                        link.download = 'convertify-files.zip';
+                        link.download = 'My Local Picture-files.zip';
                         document.body.appendChild(link);
                         link.click();
                         document.body.removeChild(link);
@@ -798,17 +798,17 @@
 
         const installTranslations = {
             es: {
-                text: 'Instala Convertify en tu dispositivo para usarlo sin conexión.',
+                text: 'Instala My Local Picture en tu dispositivo para usarlo sin conexión.',
                 btn: 'Instalar',
                 title: 'Instalar App'
             },
             en: {
-                text: 'Install Convertify on your device for offline use.',
+                text: 'Install My Local Picture on your device for offline use.',
                 btn: 'Install',
                 title: 'Install App'
             },
             zh: {
-                text: '安装 Convertify 以便离线使用。',
+                text: '安装 My Local Picture 以便离线使用。',
                 btn: '安装',
                 title: '安装应用'
             },
@@ -919,3 +919,4 @@
 
     initTheme();
 })();
+

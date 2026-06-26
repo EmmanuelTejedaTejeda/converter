@@ -1,5 +1,5 @@
-/**
- * Convertify - Client-side PDF to Images Extractor
+﻿/**
+ * My Local Picture - Client-side PDF to Images Extractor
  * Pure Vanilla JavaScript with PDF.js and Canvas APIs
  */
 
@@ -528,3 +528,4 @@ document.addEventListener('DOMContentLoaded', () => {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
 });
+

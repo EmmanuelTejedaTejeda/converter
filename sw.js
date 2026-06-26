@@ -1,4 +1,4 @@
-// Convertify PWA Service Worker
+﻿// My Local Picture PWA Service Worker
 // Enables PWA installation criteria without caching overhead
 
 self.addEventListener('install', (e) => {
@@ -13,3 +13,4 @@ self.addEventListener('fetch', (e) => {
   // Pass-through fetch handler (required by Chrome to enable PWA installation)
   e.respondWith(fetch(e.request));
 });
+

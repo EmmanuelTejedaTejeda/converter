@@ -7,7 +7,7 @@
     <xsl:template match="/">
         <html xmlns="http://www.w3.org/1999/xhtml" lang="es">
             <head>
-                <title>Sitemap XML - Convertify</title>
+                <title>Sitemap XML - My Local Picture</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
                 <style type="text/css">
@@ -138,7 +138,7 @@
                                 <line x1="2" y1="12" x2="22" y2="12" />
                                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                             </svg>
-                            Convertify Sitemap XML
+                            My Local Picture Sitemap XML
                         </h1>
                         <span class="badge-count">
                             <xsl:value-of select="count(sitemap:urlset/sitemap:url)"/> URLs
@@ -146,7 +146,7 @@
                     </div>
                     <div class="info">
                         Este es un archivo XML Sitemap optimizado para motores de búsqueda como Google, Bing o Yandex. 
-                        Usa esta página para comprobar todas las secciones y páginas de Convertify indexadas para cada idioma (Español, Inglés, Chino y Japonés).
+                        Usa esta página para comprobar todas las secciones y páginas de My Local Picture indexadas para cada idioma (Español, Inglés, Chino y Japonés).
                     </div>
                     <div class="table-wrapper">
                         <table>

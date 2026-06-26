@@ -1,5 +1,5 @@
-/**
- * Convertify - Gemini Watermark Remover
+﻿/**
+ * My Local Picture - Gemini Watermark Remover
  * Client-side Content-Aware Inpainting (Jacobi Laplace Diffusion)
  */
 
@@ -634,3 +634,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+

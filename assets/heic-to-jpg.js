@@ -1,5 +1,5 @@
-/**
- * Convertify - Client-side HEIC to JPG/PNG Converter
+﻿/**
+ * My Local Picture - Client-side HEIC to JPG/PNG Converter
  * Uses heic2any library for local processing
  */
 
@@ -574,3 +574,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+

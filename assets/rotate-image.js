@@ -1,5 +1,5 @@
-/**
- * Convertify - Client-side Image Rotate & Flip
+﻿/**
+ * My Local Picture - Client-side Image Rotate & Flip
  * Pure Vanilla JavaScript with HTML5 Canvas API
  */
 
@@ -600,3 +600,4 @@ document.addEventListener('DOMContentLoaded', () => {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
 });
+

@@ -1,5 +1,5 @@
-/**
- * Convertify - Client-side Images to PDF Converter
+﻿/**
+ * My Local Picture - Client-side Images to PDF Converter
  * Pure Vanilla JavaScript with jsPDF API
  */
 
@@ -678,7 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Save PDF document
             if (doc) {
-                doc.save('convertify_document.pdf');
+                doc.save('My Local Picture_document.pdf');
                 playSuccessChime();
                 triggerConfetti(generatePdfBtn);
                 incrementConvertedStats();
@@ -970,3 +970,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+

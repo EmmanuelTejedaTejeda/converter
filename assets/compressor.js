@@ -1,5 +1,5 @@
-/**
- * Convertify - Client-side Image Compressor
+﻿/**
+ * My Local Picture - Client-side Image Compressor
  * Pure Vanilla JavaScript with HTML5 Canvas API
  */
 
@@ -738,3 +738,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+

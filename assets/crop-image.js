@@ -1,5 +1,5 @@
-/**
- * Convertify - Client-side Interactive Image Cropper
+﻿/**
+ * My Local Picture - Client-side Interactive Image Cropper
  * Pure Vanilla JavaScript with HTML5 Canvas API
  */
 
@@ -819,3 +819,4 @@ document.addEventListener('DOMContentLoaded', () => {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
 });
+

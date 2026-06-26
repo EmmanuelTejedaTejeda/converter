@@ -1,6 +1,6 @@
-{
-  "name": "Convertify - Herramientas de Imagen Gratuitas",
-  "short_name": "Convertify",
+﻿{
+  "name": "My Local Picture - Herramientas de Imagen Gratuitas",
+  "short_name": "My Local Picture",
   "description": "Suite de herramientas de imagen gratuitas y 100% seguras. Convierte, edita y optimiza tus fotos directamente en tu dispositivo de forma privada.",
   "start_url": "/",
   "display": "standalone",
@@ -21,3 +21,4 @@
     }
   ]
 }
+

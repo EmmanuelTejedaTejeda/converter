@@ -1,5 +1,5 @@
-/**
- * Convertify - Client-side Convert to WebP
+﻿/**
+ * My Local Picture - Client-side Convert to WebP
  * Pure Vanilla JavaScript with HTML5 Canvas API
  */
 
@@ -512,3 +512,4 @@ document.addEventListener('DOMContentLoaded', () => {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
 });
+

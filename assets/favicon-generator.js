@@ -1,5 +1,5 @@
-/**
- * Convertify - Client-side Favicon & ICO Generator
+﻿/**
+ * My Local Picture - Client-side Favicon & ICO Generator
  * Pure Vanilla JavaScript with HTML5 Canvas and Binary Array Packing
  */
 
@@ -574,3 +574,4 @@ document.addEventListener('DOMContentLoaded', () => {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
 });
+

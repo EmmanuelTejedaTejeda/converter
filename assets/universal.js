@@ -1,5 +1,5 @@
-/**
- * Convertify - Client-side Universal Image Converter
+﻿/**
+ * My Local Picture - Client-side Universal Image Converter
  * Pure Vanilla JavaScript with HTML5 Canvas and Binary ICO Packing
  */
 
@@ -661,3 +661,4 @@ document.addEventListener('DOMContentLoaded', () => {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
 });
+
