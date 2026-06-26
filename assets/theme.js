@@ -1,8 +1,14 @@
-﻿/**
+/**
  * My Local Picture - Shared Theme Management & Auto-Redirect
  * Prevents FOUC (Theme) and handles language routing immediately
  */
 (function() {
+    // Auto-redirect from old subdomain to new domain
+    if (window.location.hostname === 'herramientas-imagen.pages.dev') {
+        window.location.replace('https://mylocalpicture.com' + window.location.pathname + window.location.search);
+        return;
+    }
+
     // Initialize Google Analytics dataLayer stub immediately (prevents undefined reference errors on early calls)
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
