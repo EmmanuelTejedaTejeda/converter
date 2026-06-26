@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://herramientas-imagen.pages.dev/sitemap.xml
+Sitemap: https://mylocalpicture.com/sitemap.xml

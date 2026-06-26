@@ -1,7 +1,7 @@
-# Análisis Técnico Detallado - Convertify
+# Análisis Técnico Detallado - My Local Picture (mylocalpicture.com)
 
 ## 1. Descripción del Proyecto
-Convertify es una suite de herramientas web de procesamiento y conversión de imágenes. Su principal propuesta de valor es que todas las operaciones se realizan 100% de manera local en el navegador del usuario, garantizando la privacidad y seguridad, ya que no se suben archivos a servidores externos.
+My Local Picture (`mylocalpicture.com`) es una suite de herramientas web de procesamiento y conversión de imágenes. Su principal propuesta de valor es que todas las operaciones se realizan 100% de manera local en el navegador del usuario, garantizando la privacidad y seguridad, ya que no se suben archivos a servidores externos.
 
 ## 2. Pila Tecnológica (Tech Stack)
 *   **Frontend:** HTML5, CSS3 (Vanilla), JavaScript (Vanilla ES6+).
@@ -11,7 +11,7 @@ Convertify es una suite de herramientas web de procesamiento y conversión de im
     *   `jspdf.umd.min.js`: Generación de documentos PDF a partir de imágenes.
     *   `pdf.min.mjs` y `pdf.worker.min.mjs` (PDF.js): Renderizado y extracción de imágenes desde archivos PDF.
     *   `jszip.min.js`: Compresión local de múltiples archivos procesados en lote para descarga en formato ZIP.
-*   **Despliegue:** Cloudflare Pages (evidenciado por `wrangler.toml` y `_headers`).
+*   **Despliegue & Dominio:** Desplegado en Cloudflare Pages, respondiendo bajo el dominio principal propio **`mylocalpicture.com`** (evidenciado por `wrangler.toml` y `_headers`).
 
 ## 3. Arquitectura del Proyecto
 El proyecto sigue una arquitectura de sitio estático con múltiples páginas (Multi-Page Application - MPA) y un enrutamiento basado en carpetas físicas.
