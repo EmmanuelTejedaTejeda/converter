@@ -28,12 +28,12 @@
             // 1. Load Google Analytics Gtag
             const gtagScript = document.createElement('script');
             gtagScript.async = true;
-            gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-TQ5G8WJ3PH';
+            gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-6DWDN024S9';
             document.head.appendChild(gtagScript);
 
             // Initialize GA configurations
             window.gtag('js', new Date());
-            window.gtag('config', 'G-TQ5G8WJ3PH');
+            window.gtag('config', 'G-6DWDN024S9');
 
             // 2. Load Google AdSense
             const adsenseScript = document.createElement('script');
