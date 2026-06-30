@@ -17,7 +17,7 @@ My Local Picture (`mylocalpicture.com`) es una suite de herramientas web de proc
 El proyecto sigue una arquitectura de sitio estático con múltiples páginas (Multi-Page Application - MPA) y un enrutamiento basado en carpetas físicas.
 
 *   **Raíz (`/`):** Contiene la página principal (`index.html`), rediseñada con un sistema dinámico de pestañas de filtrado interactivo por categorías (Conversión, Optimización, Edición, Documentos), tarjetas con identidad visual propia, y un buscador destacado en el Hero con soporte en tiempo real y alerta de "sin resultados".
-*   **Subdirectorios de Herramientas (`/jpg-a-png/`, `/jpg-a-webp/`, `/png-a-webp/`, `/heic-a-png/`, `/pdf-a-jpg/`, `/pdf-a-png/`, `/comprimir-imagenes/`, etc.):** Cada herramienta tiene su propia carpeta, con su propio `index.html` para mejorar el SEO y permitir el acceso directo a herramientas específicas.
+*   **Subdirectorios de Herramientas:** Cuenta con 21 herramientas dedicadas (como `/jpg-a-png/`, `/jpg-a-webp/`, `/gif-a-png/`, `/bmp-a-png/`, `/svg-a-jpg/`, `/jpg-a-pdf/`, etc.), cada una con su propia carpeta física e `index.html` para potenciar el SEO de cola larga (Long-Tail SEO) en todos los idiomas soportados.
 *   **Directorio `/assets/`:** Contiene los recursos compartidos:
     *   Lógica JS compartida y específica: `app.js`, `theme.js`, scripts por herramienta.
     *   Hoja de estilos global: `styles.css` (actualizada con variables de color y estilos interactivos para el rediseño y buscador).
