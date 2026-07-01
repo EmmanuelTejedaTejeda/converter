@@ -1,4 +1,4 @@
-﻿/**
+/**
  * My Local Picture - Client-side Images to PDF Converter
  * Pure Vanilla JavaScript with jsPDF API
  */
@@ -53,6 +53,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Statistics State
     let totalConverted = parseInt(localStorage.getItem('totalConverted') || '0', 10);
+
+    function getAssetsPrefix() {
+        const link = document.querySelector('link[rel="stylesheet"]');
+        if (link) {
+            const href = link.getAttribute('href');
+            const index = href.indexOf('assets/');
+            if (index !== -1) {
+                return href.substring(0, index);
+            }
+        }
+        return '';
+    }
+
+    let jspdfLoadingPromise = null;
+    function loadJsPdfLibrary() {
+        if (window.jspdf && window.jspdf.jsPDF) {
+            return Promise.resolve(window.jspdf);
+        }
+        if (jspdfLoadingPromise) {
+            return jspdfLoadingPromise;
+        }
+        jspdfLoadingPromise = new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = getAssetsPrefix() + 'assets/jspdf.umd.min.js';
+            script.onload = () => {
+                if (window.jspdf && window.jspdf.jsPDF) {
+                    resolve(window.jspdf);
+                } else {
+                    reject(new Error('jsPDF library failed to initialize'));
+                }
+            };
+            script.onerror = () => {
+                jspdfLoadingPromise = null;
+                reject(new Error('Failed to load jsPDF library'));
+            };
+            document.head.appendChild(script);
+        });
+        return jspdfLoadingPromise;
+    }
 
     // Expose pop sound for theme.js external usage
     window.playPopSoundExternal = playPopSound;
@@ -513,11 +552,14 @@ document.addEventListener('DOMContentLoaded', () => {
     async function generatePdf() {
         if (filesArray.length === 0) return;
         
-        // Safety: verify jsPDF library is loaded
-        if (!window.jspdf || !window.jspdf.jsPDF) {
+        // Load jsPDF library lazily
+        try {
+            await loadJsPdfLibrary();
+        } catch (libErr) {
+            console.error(libErr);
             const errorMsg = isEnglish 
-                ? 'PDF library (jsPDF) is not loaded. Please check your internet connection and try again.'
-                : 'La biblioteca de PDF (jsPDF) no se ha cargado. Verifica tu conexión a internet e inténtalo de nuevo.';
+                ? 'PDF library (jsPDF) failed to load. Please try again.'
+                : 'La biblioteca de PDF (jsPDF) no se pudo cargar. Inténtalo de nuevo.';
             alert(errorMsg);
             return;
         }

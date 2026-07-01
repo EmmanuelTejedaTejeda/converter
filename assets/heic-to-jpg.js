@@ -1,4 +1,4 @@
-﻿/**
+/**
  * My Local Picture - Client-side HEIC to JPG/PNG Converter
  * Uses heic2any library for local processing
  */
@@ -42,6 +42,45 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Statistics State
     let totalConverted = parseInt(localStorage.getItem('totalConverted') || '0', 10);
+
+    function getAssetsPrefix() {
+        const link = document.querySelector('link[rel="stylesheet"]');
+        if (link) {
+            const href = link.getAttribute('href');
+            const index = href.indexOf('assets/');
+            if (index !== -1) {
+                return href.substring(0, index);
+            }
+        }
+        return '';
+    }
+
+    let libraryLoadingPromise = null;
+    function loadHeicLibrary() {
+        if (typeof heic2any === 'function') {
+            return Promise.resolve();
+        }
+        if (libraryLoadingPromise) {
+            return libraryLoadingPromise;
+        }
+        libraryLoadingPromise = new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = getAssetsPrefix() + 'assets/heic2any.min.js';
+            script.onload = () => {
+                if (typeof heic2any === 'function') {
+                    resolve();
+                } else {
+                    reject(new Error('heic2any library failed to initialize'));
+                }
+            };
+            script.onerror = () => {
+                libraryLoadingPromise = null;
+                reject(new Error('Failed to load heic2any library'));
+            };
+            document.head.appendChild(script);
+        });
+        return libraryLoadingPromise;
+    }
 
     function initSoundToggle() {
         const volumeOnIcon = soundToggle.querySelector('.volume-on-icon');
@@ -406,10 +445,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const toType = 'image/' + selectedFormat;
         const extension = '.' + (selectedFormat === 'jpeg' ? 'jpg' : selectedFormat);
 
-        // Check if library is available
-        if (typeof heic2any !== 'function') {
-            console.error('heic2any library is not loaded');
-            handleConversionError(fileWrapper, 'heic2any library not loaded');
+        // Load library lazily
+        try {
+            await loadHeicLibrary();
+        } catch (libErr) {
+            console.error(libErr);
+            handleConversionError(fileWrapper, isEnglish ? 'Library failed to load' : 'Error al cargar la librería');
             return;
         }
 

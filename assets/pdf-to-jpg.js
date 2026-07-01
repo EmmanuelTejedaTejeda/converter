@@ -1,4 +1,4 @@
-﻿/**
+/**
  * My Local Picture - Client-side PDF to Images Extractor
  * Pure Vanilla JavaScript with PDF.js and Canvas APIs
  */
@@ -34,6 +34,42 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Statistics State
     let totalConverted = parseInt(localStorage.getItem('totalConverted') || '0', 10);
+
+    function getAssetsPrefix() {
+        const link = document.querySelector('link[rel="stylesheet"]');
+        if (link) {
+            const href = link.getAttribute('href');
+            const index = href.indexOf('assets/');
+            if (index !== -1) {
+                return href.substring(0, index);
+            }
+        }
+        return '';
+    }
+
+    let pdfjsLoadingPromise = null;
+    function loadPdfjsLibrary() {
+        if (window.pdfjsLib) {
+            return Promise.resolve(window.pdfjsLib);
+        }
+        if (pdfjsLoadingPromise) {
+            return pdfjsLoadingPromise;
+        }
+        pdfjsLoadingPromise = new Promise((resolve, reject) => {
+            const prefix = getAssetsPrefix();
+            import(prefix + 'assets/pdf.min.mjs')
+                .then(pdfjsLib => {
+                    pdfjsLib.GlobalWorkerOptions.workerSrc = prefix + 'assets/pdf.worker.min.mjs';
+                    window.pdfjsLib = pdfjsLib;
+                    resolve(pdfjsLib);
+                })
+                .catch(err => {
+                    pdfjsLoadingPromise = null;
+                    reject(err);
+                });
+        });
+        return pdfjsLoadingPromise;
+    }
 
     function initSoundToggle() {
         const volumeOnIcon = soundToggle.querySelector('.volume-on-icon');
@@ -354,6 +390,9 @@ document.addEventListener('DOMContentLoaded', () => {
         convertBtn.classList.add('hidden');
 
         try {
+            // Load PDF.js dynamically
+            await loadPdfjsLibrary();
+
             const arrayBuffer = await fileWrapper.file.arrayBuffer();
             progressFill.style.width = '25%';
 
