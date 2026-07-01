@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         pdfjsLoadingPromise = new Promise((resolve, reject) => {
             const prefix = getAssetsPrefix();
-            import(prefix + 'assets/pdf.min.mjs')
+            import('./pdf.min.mjs')
                 .then(pdfjsLib => {
                     pdfjsLib.GlobalWorkerOptions.workerSrc = prefix + 'assets/pdf.worker.min.mjs';
                     window.pdfjsLib = pdfjsLib;
