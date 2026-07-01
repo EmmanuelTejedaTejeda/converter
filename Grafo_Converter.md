@@ -7,6 +7,13 @@ graph TD
     Root --> Assets[Directorio /assets/]
     Root --> Locales[Internacionalización /en, /ja, /zh/]
     Root --> Config[Configuración: wrangler.toml, sw.js, manifest, _headers, association/favicons]
+    Root --> Partials[Directorio /partials/ y Plantillas]
+    Root --> UpdateScript[Script update_partials.py]
+
+    %% Relación de Sincronización Estática
+    UpdateScript -.-> Partials
+    UpdateScript -.-> HTML_Pages
+    UpdateScript -.-> Locales
 
     %% Páginas y Herramientas
     HTML_Pages --> Index[index.html Principal]

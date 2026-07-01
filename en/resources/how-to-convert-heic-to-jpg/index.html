@@ -105,6 +105,7 @@
 </head>
 <body class="dark-theme">
     
+    <!-- HEADER_START -->
     <header class="app-header">
         <div class="header-container">
             <a href="../../../en/" class="logo">
@@ -117,7 +118,7 @@
             </a>
             
             <nav class="header-nav">
-                <!-- Dropdown de Herramientas -->
+                <!-- Dropdown de Herramientas (Desktop Only) -->
                 <div class="nav-dropdown">
                     <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
                         <svg aria-hidden="true" class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -134,36 +135,88 @@
                     <div class="nav-dropdown-menu">
                         <div class="dropdown-category">
                             <h4>Conversion</h4>
-                            <a href="../../../en/jpg-to-png/" data-keywords="jpg, png, convert, conversion, converter, transform">JPG to PNG</a>
-                            <a href="../../../en/png-to-jpg/" data-keywords="png, jpg, jpeg, convert, conversion, converter, transform">PNG to JPG</a>
-                            <a href="../../../en/webp-to-jpg/" data-keywords="webp, jpg, jpeg, convert, conversion, converter, transform">WebP to JPG</a>
-                            <a href="../../../en/webp-to-png/" data-keywords="webp, png, convert, conversion, converter, transform">WebP to PNG</a>
-                            <a href="../../../en/convert-to-webp/" data-keywords="webp, convert, conversion, converter, transform, optimize, compress">Convert to WebP</a>
-                            <a href="../../../convertir-heic-a-jpg/" data-keywords="heic, heif, jpg, jpeg, convert, conversion, converter, transform, apple, iphone, heic to jpg">HEIC to JPG</a>
-                            <a href="../../../en/svg-to-image/" data-keywords="svg, png, jpg, image, convert, conversion, converter, vector">SVG to Image</a>
-                            <a href="../../../en/universal-converter/" data-keywords="convert, conversion, converter, universal, all, png, jpg, webp, svg, gif, bmp, ico">Universal Converter</a>
+                            <a href="../../../en/jpg-to-png/" data-keywords="jpg, png, convert, conversion, converter, transform">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                JPG to PNG
+                            </a>
+                            <a href="../../../en/png-to-jpg/" data-keywords="png, jpg, jpeg, convert, conversion, converter, transform">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                PNG to JPG
+                            </a>
+                            <a href="../../../en/webp-to-jpg/" data-keywords="webp, jpg, jpeg, convert, conversion, converter, transform">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                WebP to JPG
+                            </a>
+                            <a href="../../../en/webp-to-png/" data-keywords="webp, png, convert, conversion, converter, transform">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                WebP to PNG
+                            </a>
+                            <a href="../../../en/convert-to-webp/" data-keywords="webp, convert, conversion, converter, transform, optimize, compress">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                Convert to WebP
+                            </a>
+                            <a href="../../../en/heic-to-jpg/" data-keywords="heic, heif, jpg, jpeg, convert, conversion, converter, transform, apple, iphone, heic to jpg">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC to JPG
+                            </a>
+                            <a href="../../../en/heic-to-png/" data-keywords="heic, heif, png, convert, conversion, converter, transform, apple, iphone, heic to png">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC to PNG
+                            </a>
+                            <a href="../../../en/svg-to-image/" data-keywords="svg, png, jpg, image, convert, conversion, converter, vector">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                SVG to Image
+                            </a>
+                            <a href="../../../en/universal-converter/" data-keywords="convert, conversion, converter, universal, all, png, jpg, webp, svg, gif, bmp, ico">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+                                Universal Converter
+                            </a>
                         </div>
                         <div class="dropdown-category">
                             <h4>Optimization</h4>
-                            <a href="../../../en/compress-images/" data-keywords="compress, compression, weight, size, reduce, optimize, optimization">Compress Images</a>
-                            <a href="../../../en/resize-images/" data-keywords="resize, change size, pixels, dimensions, width, height">Resize Images</a>
+                            <a href="../../../en/compress-images/" data-keywords="compress, compression, weight, size, reduce, optimize, optimization">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h16M4 10h16M12 3v18"/></svg>
+                                Compress Images
+                            </a>
+                            <a href="../../../en/resize-images/" data-keywords="resize, change size, pixels, dimensions, width, height">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 3H3v18h18V3zM9 9h6v6H9V9z"/></svg>
+                                Resize Images
+                            </a>
                         </div>
                         <div class="dropdown-category">
                             <h4>Editing</h4>
-                            <a href="../../../en/crop-image/" data-keywords="crop, cropping, cut, area, cropper">Crop Image</a>
-                            <a href="../../../en/rotate-image/" data-keywords="rotate, rotation, turn, flip, mirror, horizontal, vertical">Rotate & Flip</a>
-                            <a href="../../../en/favicon-generator/" data-keywords="favicon, ico, icon, generator, create, web, browser">Favicon Generator</a>
-                            <a href="../../../en/remove-gemini-watermark/" data-keywords="gemini, watermark, remove watermark, erase watermark, ai, google">Remove Gemini Watermark</a>
+                            <a href="../../../en/crop-image/" data-keywords="crop, cropping, cut, area, cropper">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v16h16M2 6h16v16"/></svg>
+                                Crop Image
+                            </a>
+                            <a href="../../../en/rotate-image/" data-keywords="rotate, rotation, turn, flip, mirror, horizontal, vertical">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                                Rotate & Flip
+                            </a>
+                            <a href="../../../en/favicon-generator/" data-keywords="favicon, ico, icon, generator, create, web, browser">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                Favicon Generator
+                            </a>
+                            <a href="../../../en/remove-gemini-watermark/" data-keywords="gemini, watermark, remove watermark, erase watermark, ai, google">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                Remove Gemini Watermark
+                            </a>
                         </div>
                         <div class="dropdown-category">
                             <h4>Documents</h4>
-                            <a href="../../../en/images-to-pdf/" data-keywords="images to pdf, convert to pdf, photos to pdf, pdf, merge pdf">Images to PDF</a>
-                            <a href="../../../en/pdf-to-images/" data-keywords="pdf to images, extract images from pdf, pdf to png, pdf to jpg">PDF to Images</a>
+                            <a href="../../../en/images-to-pdf/" data-keywords="images to pdf, convert to pdf, photos to pdf, pdf, merge pdf">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                Images to PDF
+                            </a>
+                            <a href="../../../en/pdf-to-images/" data-keywords="pdf to images, extract images from pdf, pdf to png, pdf to jpg">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                PDF to Images
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Buscador de Escritorio -->
+                <!-- Buscador de Escritorio (Desktop Only) -->
                 <div class="header-search">
                     <div class="search-input-wrapper">
                         <svg aria-hidden="true" class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -178,6 +231,25 @@
             </nav>
             
             <div class="header-actions">
+                <!-- Contador de Estadísticas -->
+                <div class="stats-counter" id="stats-counter" title="Photos converted securely in this session">
+                    <span class="stats-icon">🔥</span>
+                    <span class="stats-number" id="stats-number">0</span>
+                </div>
+                
+                <!-- Botón de Sonido -->
+                <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound" title="Toggle sound">
+                    <svg aria-hidden="true" class="volume-on-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                    <svg aria-hidden="true" class="volume-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <line x1="23" y1="9" x2="17" y2="15"></line>
+                        <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                </button>
+
                 <!-- Selector de Idiomas -->
                 <div class="lang-dropdown">
                     <button class="lang-dropdown-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
@@ -192,7 +264,7 @@
                         </svg>
                     </button>
                     <div class="lang-dropdown-menu">
-                        <a href="https://mylocalpicture.com/recursos/como-convertir-heic-a-jpg/" class="lang-option "><span class="flag">🇪🇸</span> Español</a>
+                                                <a href="https://mylocalpicture.com/recursos/como-convertir-heic-a-jpg/" class="lang-option "><span class="flag">🇪🇸</span> Español</a>
                         <a href="https://mylocalpicture.com/en/resources/how-to-convert-heic-to-jpg/" class="lang-option active"><span class="flag">🇺🇸</span> English</a>
                         <a href="https://mylocalpicture.com/zh/resources/heic-zhuan-jpg-fangfa/" class="lang-option "><span class="flag">🇨🇳</span> 简体中文</a>
                         <a href="https://mylocalpicture.com/ja/resources/heic-jpg-henkan-houhou/" class="lang-option "><span class="flag">🇯🇵</span> 日本語</a>
@@ -216,10 +288,17 @@
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
+
+                <!-- Hamburger Button (Mobile Only) -->
+                <button class="hamburger-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
             </div>
         </div>
         
-        <!-- Mobile Drawer -->
+        <!-- Mobile Navigation Menu Drawer -->
         <div class="mobile-nav-drawer">
             <div class="mobile-nav-search">
                 <div class="search-input-wrapper">
@@ -231,31 +310,52 @@
                 </div>
             </div>
             <div class="mobile-nav-content">
-                <div class="mobile-nav-categories">
-                    <div class="mobile-category">
-                        <h5>Conversion</h5>
-                        <div class="mobile-links-grid">
-                            <a href="../../../en/jpg-to-png/">JPG to PNG</a>
-                            <a href="../../../en/png-to-jpg/">PNG to JPG</a>
-                            <a href="../../../en/webp-to-jpg/">WebP to JPG</a>
-                            <a href="../../../en/webp-to-png/">WebP to PNG</a>
-                            <a href="../../../en/convert-to-webp/">Convert to WebP</a>
-                            <a href="../../../convertir-heic-a-jpg/">HEIC to JPG</a>
-                            <a href="../../../en/svg-to-image/">SVG to Image</a>
-                            <a href="../../../en/universal-converter/">Universal Converter</a>
+                <div class="mobile-nav-content">
+                    <div class="mobile-nav-categories">
+                        <div class="mobile-category">
+                            <h5>Conversion</h5>
+                            <div class="mobile-links-grid">
+                                <a href="../../../en/jpg-to-png/" data-keywords="jpg, png, convert, conversion, converter, transform">JPG to PNG</a>
+                                <a href="../../../en/png-to-jpg/" data-keywords="png, jpg, jpeg, convert, conversion, converter, transform">PNG to JPG</a>
+                                <a href="../../../en/webp-to-jpg/" data-keywords="webp, jpg, jpeg, convert, conversion, converter, transform">WebP to JPG</a>
+                                <a href="../../../en/webp-to-png/" data-keywords="webp, png, convert, conversion, converter, transform">WebP to PNG</a>
+                                <a href="../../../en/convert-to-webp/" data-keywords="webp, convert, conversion, converter, transform, optimize, compress">Convert to WebP</a>
+                                <a href="../../../en/heic-to-jpg/" data-keywords="heic, heif, jpg, jpeg, convert, conversion, converter, transform, apple, iphone, heic to jpg">HEIC to JPG</a>
+                                <a href="../../../en/heic-to-png/" data-keywords="heic, heif, png, convert, conversion, converter, transform, apple, iphone, heic to png">HEIC to PNG</a>
+                                <a href="../../../en/svg-to-image/" data-keywords="svg, png, jpg, image, convert, conversion, converter, vector">SVG to Image</a>
+                                <a href="../../../en/universal-converter/" data-keywords="convert, conversion, converter, universal, all, png, jpg, webp, svg, gif, bmp, ico">Universal Converter</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mobile-category">
-                        <h5>Optimization</h5>
-                        <div class="mobile-links-grid">
-                            <a href="../../../en/compress-images/">Compress Images</a>
-                            <a href="../../../en/resize-images/">Resize Images</a>
+                        <div class="mobile-category">
+                            <h5>Optimization</h5>
+                            <div class="mobile-links-grid">
+                                <a href="../../../en/compress-images/" data-keywords="compress, compression, weight, size, reduce, optimize, optimization">Compress Images</a>
+                                <a href="../../../en/resize-images/" data-keywords="resize, change size, pixels, dimensions, width, height">Resize Images</a>
+                            </div>
+                        </div>
+                        <div class="mobile-category">
+                            <h5>Editing</h5>
+                            <div class="mobile-links-grid">
+                                <a href="../../../en/crop-image/" data-keywords="crop, cropping, cut, area, cropper">Crop Image</a>
+                                <a href="../../../en/rotate-image/" data-keywords="rotate, rotation, turn, flip, mirror, horizontal, vertical">Rotate & Flip</a>
+                                <a href="../../../en/favicon-generator/" data-keywords="favicon, ico, icon, generator, create, web, browser">Favicon Generator</a>
+                                <a href="../../../en/remove-gemini-watermark/" data-keywords="gemini, watermark, remove watermark, erase watermark, ai, google">Remove Gemini Watermark</a>
+                            </div>
+                        </div>
+                        <div class="mobile-category">
+                            <h5>Documents</h5>
+                            <div class="mobile-links-grid">
+                                <a href="../../../en/images-to-pdf/" data-keywords="images to pdf, convert to pdf, photos to pdf, pdf, merge pdf">Images to PDF</a>
+                                <a href="../../../en/pdf-to-images/" data-keywords="pdf to images, extract images from pdf, pdf to png, pdf to jpg">PDF to Images</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
+<!-- HEADER_END -->
 
     <main class="app-main">
         <div class="privacy-body">
@@ -288,19 +388,23 @@
         </div>
     </main>
 
+    <!-- FOOTER_START -->
     <footer class="app-footer-bar">
         <div class="footer-container">
             <p>&copy; 2026 My Local Picture. Fast, secure, and private.</p>
             <div class="footer-links">
                 <a href="../../../en/about/" class="footer-link">About Us</a>
-                <a href="../" class="footer-link">Resources</a>
+                <a href="../../../en/resources/" class="footer-link">Resources</a>
                 <a href="../../../en/contact/" class="footer-link">Contact</a>
                 <a href="../../../en/privacy-policy/" class="footer-link">Privacy Policy</a>
                 <a href="../../../en/terms-of-use/" class="footer-link">Terms of Use</a>
                 <a href="../../../sitemap.html" class="footer-link">Sitemap</a>
+                <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="footer-support-link">[SUPPORT PROJECT ☕]</a>
             </div>
         </div>
     </footer>
+
+<!-- FOOTER_END -->
 </body>
 </html>
 

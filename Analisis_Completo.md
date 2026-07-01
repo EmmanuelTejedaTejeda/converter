@@ -23,6 +23,7 @@ El proyecto sigue una arquitectura de sitio estático con múltiples páginas (M
     *   Hoja de estilos global: `styles.css` (actualizada con variables de color y estilos interactivos para el rediseño y buscador).
     *   Iconos, fuentes y librerías de terceros minificadas.
 *   **Internacionalización (`/en/`, `/zh/`, `/ja/`):** Carpetas que replican la estructura para soportar otros idiomas. Tienen el buscador central en el Hero y la lógica de filtrado unificada y traducida correspondiente a su idioma.
+*   **Directorio `/partials/` y Motor de Sincronización (`update_partials.py`):** Sistema de plantillas globales para inyección estática en bloque. Contiene los fragmentos comunes de cabecera y pie de página en cada uno de los 4 idiomas (`header_[lang].html` y `footer_[lang].html`) con marcadores `{{BASE_PATH}}`. El script de Python `update_partials.py` recorre las 124 herramientas, calcula su profundidad de directorios, lee sus enlaces alternativos en el `<head>` y regenera dinámicamente el selector de idiomas de forma específica para cada página.
 *   **Archivos de Compatibilidad de Rastreo:** Se dispone de `favicon.ico` en la raíz (para peticiones automáticas de navegadores/crawlers) y archivos `apple-app-site-association` (en la raíz y en `.well-known/`) con contenido JSON vacío para evitar falsos errores 404 de integración móvil de iOS, configurados en `_headers` con su tipo MIME correspondiente.
 
 

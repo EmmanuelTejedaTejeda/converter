@@ -105,6 +105,7 @@
 </head>
 <body class="dark-theme">
     
+    <!-- HEADER_START -->
     <header class="app-header">
         <div class="header-container">
             <a href="../../../zh/" class="logo">
@@ -117,7 +118,7 @@
             </a>
             
             <nav class="header-nav">
-                <!-- Dropdown de Herramientas -->
+                <!-- Dropdown de Herramientas (Desktop Only) -->
                 <div class="nav-dropdown">
                     <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
                         <svg aria-hidden="true" class="nav-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -126,51 +127,103 @@
                             <rect x="14" y="12" width="7" height="9"></rect>
                             <rect x="3" y="16" width="7" height="5"></rect>
                         </svg>
-                        工具列表
+                        工具
                         <svg aria-hidden="true" class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     <div class="nav-dropdown-menu">
                         <div class="dropdown-category">
-                            <h4>转换</h4>
-                            <a href="../../../zh/jpg-zhuan-png/" data-keywords="jpg, png, 转换, 转化, 格式转换">JPG 转 PNG</a>
-                            <a href="../../../zh/png-zhuan-jpg/" data-keywords="png, jpg, jpeg, 转换, 转化, 格式转换">PNG 转 JPG</a>
-                            <a href="../../../zh/webp-zhuan-jpg/" data-keywords="webp, jpg, jpeg, 转换, 转化, 格式转换">WebP 转 JPG</a>
-                            <a href="../../../zh/webp-zhuan-png/" data-keywords="webp, png, 转换, 转化, 格式转换">WebP 转 PNG</a>
-                            <a href="../../../zh/zhuan-webp/" data-keywords="webp, 转换, 转化, 格式转换, 优化, 压缩">图片转 WebP</a>
-                            <a href="../../../convertir-heic-a-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">HEIC 转 JPG</a>
-                            <a href="../../../zh/svg-zhuan-tupian/" data-keywords="svg, png, jpg, 图片, 转换, 矢量图">SVG 转图片</a>
-                            <a href="../../../zh/wanneng-zhuanhuanqi/" data-keywords="转换, 转化, 万能, 所有, png, jpg, webp, svg, gif, bmp, ico">万能转换器</a>
+                            <h4>格式转换</h4>
+                            <a href="../../../zh/jpg-zhuan-png/" data-keywords="jpg, png, 转换, 转换器, 格式">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                JPG 转 PNG
+                            </a>
+                            <a href="../../../zh/png-zhuan-jpg/" data-keywords="png, jpg, jpeg, 转换, 转换器, 格式">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                PNG 转 JPG
+                            </a>
+                            <a href="../../../zh/webp-zhuan-jpg/" data-keywords="webp, jpg, jpeg, 转换, 转换器, 格式">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                WebP 转 JPG
+                            </a>
+                            <a href="../../../zh/webp-zhuan-png/" data-keywords="webp, png, 转换, 转换器, 格式">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                WebP 转 PNG
+                            </a>
+                            <a href="../../../zh/zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                转换至 WebP
+                            </a>
+                            <a href="../../../zh/heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC 转 JPG
+                            </a>
+                            <a href="../../../zh/heic-zhuan-png/" data-keywords="heic, heif, png, 转换, 转化, 苹果, iphone, heic转png">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                HEIC 转 PNG
+                            </a>
+                            <a href="../../../zh/svg-zhuan-tupian/" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+                                SVG 转图片
+                            </a>
+                            <a href="../../../zh/wanneng-zhuanhuanqi/" data-keywords="转换, 转换器, 万能, 所有, png, jpg, webp, svg, gif, bmp, ico">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+                                万能图片转换
+                            </a>
                         </div>
                         <div class="dropdown-category">
-                            <h4>优化</h4>
-                            <a href="../../../zh/yasuo-tupian/" data-keywords="压缩, 重量, 大小, 减少, 优化">压缩图片</a>
-                            <a href="../../../zh/tupian-tiaozheng-daxiao/" data-keywords="调整大小, 像素, 尺寸, 宽度, 高度">调整大小</a>
+                            <h4>体积尺寸</h4>
+                            <a href="../../../zh/yasuo-tupian/" data-keywords="压缩, 体积, 大小, 减小, 优化">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14h16M4 10h16M12 3v18"/></svg>
+                                压缩图片
+                            </a>
+                            <a href="../../../zh/tupian-tiaozheng-daxiao/" data-keywords="调整大小, 尺寸, 像素, 宽度, 高度">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 3H3v18h18V3zM9 9h6v6H9V9z"/></svg>
+                                调整大小
+                            </a>
                         </div>
                         <div class="dropdown-category">
-                            <h4>编辑</h4>
-                            <a href="../../../zh/caijian-tupian/" data-keywords="裁剪, 切割, 区域, 裁剪器">裁剪图片</a>
-                            <a href="../../../zh/xuanzhuan-tupian/" data-keywords="旋转, 翻转, 镜像, 水平, 垂直">旋转与翻转</a>
-                            <a href="../../../zh/favicon-shengchengqi/" data-keywords="favicon, ico, 图标, 生成, 创建">Favicon生成器</a>
-                            <a href="../../../zh/quchu-gemini-shuiyin/" data-keywords="gemini, 水印, 去除水印, 擦除水印, ai">去除Gemini水印</a>
+                            <h4>便捷编辑</h4>
+                            <a href="../../../zh/caijian-tupian/" data-keywords="裁剪, 切割, 区域, 裁剪器">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2v16h16M2 6h16v16"/></svg>
+                                裁剪图片
+                            </a>
+                            <a href="../../../zh/xuanzhuan-tupian/" data-keywords="旋转, 翻转, 镜像, 水平, 垂直">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                                旋转和镜像
+                            </a>
+                            <a href="../../../zh/favicon-shengchengqi/" data-keywords="favicon, ico, 图标, 生成器, 创建, 网页, 浏览器">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                Favicon 生成器
+                            </a>
+                            <a href="../../../zh/quchu-gemini-shuiyin/" data-keywords="gemini, shuiyin, quchu shuiyin, remove watermark, ai, google">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                清除 Gemini 水印
+                            </a>
                         </div>
                         <div class="dropdown-category">
-                            <h4>文档</h4>
-                            <a href="../../../zh/tupian-zhuan-pdf/" data-keywords="图片转 pdf, 照片转 pdf, 结合">图片转 PDF</a>
-                            <a href="../../../zh/pdf-zhuan-tupian/" data-keywords="pdf 转图片, 提取, pdf 转 png, pdf 转 jpg">PDF 转图片</a>
+                            <h4>文档工具</h4>
+                            <a href="../../../zh/tupian-zhuan-pdf/" data-keywords="图片转 pdf, 转换成 pdf, 照片转 pdf, pdf, 合并 pdf">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                图片转 PDF
+                            </a>
+                            <a href="../../../zh/pdf-zhuan-tupian/" data-keywords="pdf 转图片, 提取 pdf 图片, pdf 转 png, pdf 转 jpg">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                PDF 转图片
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Buscador de Escritorio -->
+                <!-- Buscador de Escritorio (Desktop Only) -->
                 <div class="header-search">
                     <div class="search-input-wrapper">
                         <svg aria-hidden="true" class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
-                        <input type="text" class="global-search-input" placeholder="搜索工具... (/) 或 Ctrl+K" data-no-results="未找到工具" autocomplete="off" aria-label="Search tools">
+                        <input type="text" class="global-search-input" placeholder="搜索工具... (/) 或 Ctrl+K" data-no-results="未找到相关工具" autocomplete="off" aria-label="Search tools">
                         <span class="search-shortcut">/</span>
                     </div>
                     <div class="search-results-dropdown hidden"></div>
@@ -178,6 +231,25 @@
             </nav>
             
             <div class="header-actions">
+                <!-- Contador de Estadísticas -->
+                <div class="stats-counter" id="stats-counter" title="在本会话中安全转换的照片">
+                    <span class="stats-icon">🔥</span>
+                    <span class="stats-number" id="stats-number">0</span>
+                </div>
+                
+                <!-- Botón de Sonido -->
+                <button id="sound-toggle" class="sound-toggle" aria-label="Toggle sound" title="开启/关闭声音">
+                    <svg aria-hidden="true" class="volume-on-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                    <svg aria-hidden="true" class="volume-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <line x1="23" y1="9" x2="17" y2="15"></line>
+                        <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                </button>
+
                 <!-- Selector de Idiomas -->
                 <div class="lang-dropdown">
                     <button class="lang-dropdown-trigger" aria-haspopup="true" aria-expanded="false" aria-label="选择语言">
@@ -192,7 +264,7 @@
                         </svg>
                     </button>
                     <div class="lang-dropdown-menu">
-                        <a href="https://mylocalpicture.com/recursos/como-convertir-heic-a-jpg/" class="lang-option "><span class="flag">🇪🇸</span> Español</a>
+                                                <a href="https://mylocalpicture.com/recursos/como-convertir-heic-a-jpg/" class="lang-option "><span class="flag">🇪🇸</span> Español</a>
                         <a href="https://mylocalpicture.com/en/resources/how-to-convert-heic-to-jpg/" class="lang-option "><span class="flag">🇺🇸</span> English</a>
                         <a href="https://mylocalpicture.com/zh/resources/heic-zhuan-jpg-fangfa/" class="lang-option active"><span class="flag">🇨🇳</span> 简体中文</a>
                         <a href="https://mylocalpicture.com/ja/resources/heic-jpg-henkan-houhou/" class="lang-option "><span class="flag">🇯🇵</span> 日本語</a>
@@ -200,7 +272,7 @@
                 </div>
 
                 <!-- Botón de Tema -->
-                <button id="theme-toggle" class="theme-toggle" aria-label="Theme toggle">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
                     <svg aria-hidden="true" class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -216,10 +288,17 @@
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
+
+                <!-- Hamburger Button (Mobile Only) -->
+                <button class="hamburger-menu-btn" aria-label="打开导航菜单" aria-expanded="false">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
             </div>
         </div>
         
-        <!-- Mobile Drawer -->
+        <!-- Mobile Navigation Menu Drawer -->
         <div class="mobile-nav-drawer">
             <div class="mobile-nav-search">
                 <div class="search-input-wrapper">
@@ -233,29 +312,48 @@
             <div class="mobile-nav-content">
                 <div class="mobile-nav-categories">
                     <div class="mobile-category">
-                        <h5>转换</h5>
+                        <h5>格式转换</h5>
                         <div class="mobile-links-grid">
-                            <a href="../../../zh/jpg-zhuan-png/">JPG 转 PNG</a>
-                            <a href="../../../zh/png-zhuan-jpg/">PNG 转 JPG</a>
-                            <a href="../../../zh/webp-zhuan-jpg/">WebP 转 JPG</a>
-                            <a href="../../../zh/webp-zhuan-png/">WebP 转 PNG</a>
-                            <a href="../../../zh/zhuan-webp/">图片转 WebP</a>
-                            <a href="../../../convertir-heic-a-jpg/">HEIC 转 JPG</a>
-                            <a href="../../../zh/svg-zhuan-tupian/">SVG 转图片</a>
-                            <a href="../../../zh/wanneng-zhuanhuanqi/">万能转换器</a>
+                            <a href="../../../zh/jpg-zhuan-png/" data-keywords="jpg, png, 转换, 转换器, 格式">JPG 转 PNG</a>
+                            <a href="../../../zh/png-zhuan-jpg/" data-keywords="png, jpg, jpeg, 转换, 转换器, 格式">PNG 转 JPG</a>
+                            <a href="../../../zh/webp-zhuan-jpg/" data-keywords="webp, jpg, jpeg, 转换, 转换器, 格式">WebP 转 JPG</a>
+                            <a href="../../../zh/webp-zhuan-png/" data-keywords="webp, png, 转换, 转换器, 格式">WebP 转 PNG</a>
+                            <a href="../../../zh/zhuan-webp/" data-keywords="webp, 转换, 转换器, 格式, 优化, 压缩">转换至 WebP</a>
+                            <a href="../../../zh/heic-zhuan-jpg/" data-keywords="heic, heif, jpg, jpeg, 转换, 转化, 苹果, iphone, heic转jpg">HEIC 转 JPG</a>
+                            <a href="../../../zh/heic-zhuan-png/" data-keywords="heic, heif, png, 转换, 转化, 苹果, iphone, heic转png">HEIC 转 PNG</a>
+                            <a href="../../../zh/svg-zhuan-tupian/" data-keywords="svg, png, jpg, 图片, 转换, 转换器, 矢量">SVG 转图片</a>
+                            <a href="../../../zh/wanneng-zhuanhuanqi/" data-keywords="转换, 转换器, 万能, 所有, png, jpg, webp, svg, gif, bmp, ico">万能图片转换</a>
                         </div>
                     </div>
                     <div class="mobile-category">
-                        <h5>优化</h5>
+                        <h5>体积尺寸</h5>
                         <div class="mobile-links-grid">
-                            <a href="../../../zh/yasuo-tupian/">压缩图片</a>
-                            <a href="../../../zh/tupian-tiaozheng-daxiao/">调整大小</a>
+                            <a href="../../../zh/yasuo-tupian/" data-keywords="压缩, 体积, 大小, 减小, 优化">压缩图片</a>
+                            <a href="../../../zh/tupian-tiaozheng-daxiao/" data-keywords="调整大小, 尺寸, 像素, 宽度, 高度">调整大小</a>
+                        </div>
+                    </div>
+                    <div class="mobile-category">
+                        <h5>便捷编辑</h5>
+                        <div class="mobile-links-grid">
+                            <a href="../../../zh/caijian-tupian/" data-keywords="裁剪, 切割, 区域, 裁剪器">裁剪图片</a>
+                            <a href="../../../zh/xuanzhuan-tupian/" data-keywords="旋转, 翻转, 镜像, 水平, 垂直">旋转和镜像</a>
+                            <a href="../../../zh/favicon-shengchengqi/" data-keywords="favicon, ico, 图标, 生成器, 创建, 网页, 浏览器">Favicon 生成器</a>
+                            <a href="../../../zh/quchu-gemini-shuiyin/" data-keywords="gemini, shuiyin, quchu shuiyin, remove watermark, ai, google">清除 Gemini 水印</a>
+                        </div>
+                    </div>
+                    <div class="mobile-category">
+                        <h5>文档工具</h5>
+                        <div class="mobile-links-grid">
+                            <a href="../../../zh/tupian-zhuan-pdf/" data-keywords="图片转 pdf, 转换成 pdf, 照片转 pdf, pdf, 合并 pdf">图片转 PDF</a>
+                            <a href="../../../zh/pdf-zhuan-tupian/" data-keywords="pdf 转图片, 提取 pdf 图片, pdf 转 png, pdf 转 jpg">PDF 转图片</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
+<!-- HEADER_END -->
 
     <main class="app-main">
         <div class="privacy-body">
@@ -288,19 +386,23 @@
         </div>
     </main>
 
+    <!-- FOOTER_START -->
     <footer class="app-footer-bar">
         <div class="footer-container">
-            <p>&copy; 2026 My Local Picture. 快速、安全且私人保护。</p>
+            <p>&copy; 2026 My Local Picture. 快速、安全、私密。</p>
             <div class="footer-links">
-                <a href="../../../zh/about/" class="footer-link">关于我们</a>
-                <a href="../" class="footer-link">资源</a>
-                <a href="../../../zh/contact/" class="footer-link">联系方式</a>
-                <a href="../../../zh/privacy-policy/" class="footer-link">隐私政策</a>
-                <a href="../../../zh/terms-of-use/" class="footer-link">服务条款</a>
+                <a href="../../../zh/guanyu-women/" class="footer-link">关于我们</a>
+                <a href="../../../zh/resources/" class="footer-link">资源</a>
+                <a href="../../../zh/lianxi-women/" class="footer-link">联系我们</a>
+                <a href="../../../zh/yinsi-zhengce/" class="footer-link">隐私政策</a>
+                <a href="../../../zh/shiyong-tiaokuan/" class="footer-link">使用条款</a>
                 <a href="../../../sitemap.html" class="footer-link">网站地图</a>
+                <a href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer" class="footer-support-link">[支持项目 ☕]</a>
             </div>
         </div>
     </footer>
+
+<!-- FOOTER_END -->
 </body>
 </html>
 
