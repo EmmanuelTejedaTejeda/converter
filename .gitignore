@@ -1,0 +1,8 @@
+scratch/
+.system_generated/
+*.log
+*.xlsx
+*.xlsx.tmp
+*.xlsx.crdownload
+*.pyc
+__pycache__/

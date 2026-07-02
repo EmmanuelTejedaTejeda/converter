@@ -900,11 +900,210 @@
         }
     }
 
+    function setupSmartDropzone() {
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        if (!dropZone || !fileInput) return;
+
+        const lang = document.documentElement.lang || 'es';
+        
+        const getRedirectPath = (ext) => {
+            const paths = {
+                es: {
+                    png: '/png-a-jpg/',
+                    jpg: '/jpg-a-png/',
+                    jpeg: '/jpg-a-png/',
+                    webp: '/webp-a-jpg/',
+                    heic: '/convertir-heic-a-jpg/',
+                    heif: '/convertir-heic-a-jpg/',
+                    svg: '/svg-a-jpg/',
+                    bmp: '/bmp-a-jpg/',
+                    gif: '/gif-a-jpg/',
+                    pdf: '/pdf-a-jpg/'
+                },
+                en: {
+                    png: '/en/png-to-jpg/',
+                    jpg: '/en/jpg-to-png/',
+                    jpeg: '/en/jpg-to-png/',
+                    webp: '/en/webp-to-jpg/',
+                    heic: '/en/heic-to-jpg/',
+                    heif: '/en/heic-to-jpg/',
+                    svg: '/en/svg-to-jpg/',
+                    bmp: '/en/bmp-to-jpg/',
+                    gif: '/en/gif-to-jpg/',
+                    pdf: '/en/pdf-to-jpg/'
+                },
+                ja: {
+                    png: '/ja/png-jpg-henkan/',
+                    jpg: '/ja/jpg-png-henkan/',
+                    jpeg: '/ja/jpg-png-henkan/',
+                    webp: '/ja/webp-jpg-henkan/',
+                    heic: '/ja/heic-jpg-henkan/',
+                    heif: '/ja/heic-jpg-henkan/',
+                    svg: '/ja/svg-to-jpg/',
+                    bmp: '/ja/bmp-jpg-henkan/',
+                    gif: '/ja/gif-jpg-henkan/',
+                    pdf: '/ja/pdf-jpg-henkan/'
+                },
+                zh: {
+                    png: '/zh/png-zhuan-jpg/',
+                    jpg: '/zh/jpg-zhuan-png/',
+                    jpeg: '/zh/jpg-zhuan-png/',
+                    webp: '/zh/webp-zhuan-jpg/',
+                    heic: '/zh/heic-zhuan-jpg/',
+                    heif: '/zh/heic-zhuan-jpg/',
+                    svg: '/zh/svg-zhuan-jpg/',
+                    bmp: '/zh/bmp-zhuan-jpg/',
+                    gif: '/zh/gif-zhuan-jpg/',
+                    pdf: '/zh/pdf-zhuan-jpg/'
+                }
+            };
+            const langPaths = paths[lang] || paths['es'];
+            return langPaths[ext.toLowerCase()];
+        };
+
+        const getAcceptExtensions = () => {
+            const acceptAttr = fileInput.getAttribute('accept') || '';
+            const exts = [];
+            acceptAttr.split(',').forEach(item => {
+                const clean = item.trim().toLowerCase();
+                if (clean.startsWith('.')) {
+                    exts.push(clean.substring(1));
+                } else if (clean.startsWith('image/')) {
+                    exts.push(clean.substring(6));
+                } else if (clean === 'application/pdf') {
+                    exts.push('pdf');
+                }
+            });
+            if (exts.length === 0) {
+                const path = window.location.pathname.toLowerCase();
+                if (path.includes('png')) exts.push('png');
+                if (path.includes('jpg') || path.includes('jpeg')) exts.push('jpg', 'jpeg');
+                if (path.includes('webp')) exts.push('webp');
+                if (path.includes('heic') || path.includes('heif')) exts.push('heic', 'heif');
+                if (path.includes('svg')) exts.push('svg');
+                if (path.includes('bmp')) exts.push('bmp');
+                if (path.includes('gif')) exts.push('gif');
+                if (path.includes('pdf')) exts.push('pdf');
+            }
+            return exts;
+        };
+
+        const isAccepted = (fileName) => {
+            const exts = getAcceptExtensions();
+            if (exts.length === 0) return true;
+            const fileExt = fileName.split('.').pop().toLowerCase();
+            return exts.includes(fileExt);
+        };
+
+        dropZone.addEventListener('drop', (e) => {
+            if (!e.dataTransfer || e.dataTransfer.files.length === 0) return;
+            const files = e.dataTransfer.files;
+            
+            const mismatchFiles = [];
+            Array.from(files).forEach(file => {
+                if (!isAccepted(file.name)) {
+                    mismatchFiles.push(file);
+                }
+            });
+
+            if (mismatchFiles.length > 0) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const firstFile = mismatchFiles[0];
+                const ext = firstFile.name.split('.').pop().toLowerCase();
+                const redirectPath = getRedirectPath(ext);
+
+                if (redirectPath) {
+                    showRedirectModal(firstFile.name, ext.toUpperCase(), redirectPath);
+                } else {
+                    const msg = {
+                        es: `El formato de "${firstFile.name}" no es compatible con esta herramienta.`,
+                        en: `The format of "${firstFile.name}" is not supported by this tool.`,
+                        ja: `"${firstFile.name}" の形式はこのツールでサポートされていません。`,
+                        zh: `此工具不支持 "${firstFile.name}" 格式。`
+                    };
+                    alert(msg[lang] || msg['es']);
+                }
+            }
+        }, true);
+
+        function showRedirectModal(fileName, formatName, redirectPath) {
+            const existing = document.getElementById('smart-redirect-modal');
+            if (existing) existing.remove();
+
+            const modalTranslations = {
+                es: {
+                    title: '¡Formato detectado!',
+                    text: `Has arrastrado un archivo <strong>${formatName}</strong> (${fileName}). ¿Quieres ir a la herramienta correcta para procesarlo?`,
+                    btnRedirect: 'Ir al Convertidor',
+                    btnCancel: 'Cancelar'
+                },
+                en: {
+                    title: 'Format Detected!',
+                    text: `You dragged a <strong>${formatName}</strong> file (${fileName}). Would you like to open the correct tool for it?`,
+                    btnRedirect: 'Go to Converter',
+                    btnCancel: 'Cancel'
+                },
+                ja: {
+                    title: 'フォーマット検出！',
+                    text: `<strong>${formatName}</strong> ファイル (${fileName}) がドロップされました。対応するツールを開きますか？`,
+                    btnRedirect: '変換ツールへ行く',
+                    btnCancel: 'キャンセル'
+                },
+                zh: {
+                    title: '检测到文件格式！',
+                    text: `您拖入了 <strong>${formatName}</strong> 文件 (${fileName})。是否跳转到对应的转换工具进行处理？`,
+                    btnRedirect: '前往转换器',
+                    btnCancel: '取消'
+                }
+            };
+
+            const t = modalTranslations[lang] || modalTranslations['es'];
+
+            const modal = document.createElement('div');
+            modal.id = 'smart-redirect-modal';
+            modal.className = 'modal-overlay';
+            modal.style.zIndex = '9999';
+            modal.innerHTML = `
+                <div class="modal-card success-pulse" style="max-width: 450px;">
+                    <button class="modal-close-btn" id="redirect-close-btn" aria-label="Close">&times;</button>
+                    <div class="modal-content" style="text-align: center; padding: 1rem 0.5rem 0.5rem 0.5rem;">
+                        <div class="modal-icon" style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent-primary);">🎯</div>
+                        <h3 class="modal-title" style="margin-bottom: 0.75rem;">${t.title}</h3>
+                        <p class="modal-text" style="font-size: 0.95rem; line-height: 1.5; color: var(--text-secondary); margin-bottom: 1.5rem;">${t.text}</p>
+                        <div style="display: flex; gap: 0.75rem; justify-content: center; width: 100%;">
+                            <button id="redirect-cancel-btn" class="btn" style="flex: 1; padding: 0.8rem; background: var(--card-border); color: var(--text-primary); border-radius: 8px; border: none; font-weight: 600; cursor: pointer;">${t.btnCancel}</button>
+                            <a href="${redirectPath}" id="redirect-confirm-btn" class="btn" style="flex: 1; padding: 0.8rem; background: var(--accent-primary); color: #fff !important; text-decoration: none; border-radius: 8px; font-weight: 600; cursor: pointer; text-align: center; display: inline-block;">${t.btnRedirect}</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            const close = () => {
+                modal.classList.add('hidden');
+                setTimeout(() => modal.remove(), 300);
+            };
+
+            document.getElementById('redirect-close-btn').addEventListener('click', close);
+            document.getElementById('redirect-cancel-btn').addEventListener('click', close);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) close();
+            });
+
+            if (window.playPopSoundExternal) {
+                window.playPopSoundExternal();
+            }
+        }
+    }
+
     function initTheme() {
         const savedTheme = localStorage.getItem('theme');
         const theme = savedTheme || getSystemTheme();
         document.documentElement.className = theme + '-theme';
-        // Also apply to body once it's parsed (fallback)
         document.addEventListener('DOMContentLoaded', () => {
             document.body.className = theme + '-theme';
             setupThemeToggler();
@@ -913,8 +1112,8 @@
             setupShareFAB();
             setupGlobalZIP();
             setupPWAInstall();
+            setupSmartDropzone();
 
-            // Register PWA Service Worker
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('/sw.js')
                     .then(reg => console.log('Service Worker registered successfully'))
