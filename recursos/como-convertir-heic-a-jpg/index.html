@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -97,6 +97,34 @@
         .read-more-arrow {
             color: var(--accent-primary);
             font-size: 1.2rem;
+        }
+        .cta-card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(11, 87, 208, 0.08) 100%) !important;
+            border: 2px solid var(--accent-primary) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2rem;
+            background: var(--accent-primary);
+            color: #fff !important;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(11, 87, 208, 0.2);
+            transition: all 0.2s ease;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(11, 87, 208, 0.3);
+            filter: brightness(1.1);
         }
     </style>
 
@@ -375,12 +403,14 @@
                     <h2>Por qué evitar los convertidores en la nube</h2>
                     <p>La mayoría de los sitios web de conversión requieren que subas tus fotos a sus servidores. Esto implica que un servidor de terceros almacena tus fotos personales, familiares o de trabajo. En My Local Picture, resolvemos esto procesando la conversión completamente dentro de tu navegador web usando scripts de JavaScript de forma local, por lo que tus archivos privados nunca salen de tu equipo.</p>
                 </div>
-                <div class="privacy-card">
-                    <h2>Paso a paso para convertir HEIC a JPG locales</h2>
-                    <p>1. Ve a nuestra herramienta dedicada de <a href="../../convertir-heic-a-jpg/">Convertir HEIC a JPG</a>.</p>
-                    <p>2. Selecciona o arrastra tus fotos HEIC directamente desde tu dispositivo.</p>
-                    <p>3. Elige el formato de salida deseado (JPG o PNG).</p>
-                    <p>4. Presiona el botón "Convertir" y descarga tus fotos listas en segundos. ¡Rápido, privado y totalmente gratis!</p>
+                <div class="privacy-card cta-card">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--accent-primary); opacity: 0.05; border-radius: 50%; pointer-events: none;"></div>
+                    <h2>Convertir HEIC a JPG en tu Navegador</h2>
+                    <p>Convierte tus fotos de iPhone (.heic) de manera 100% local y privada. Sin registros, sin límites y sin subir archivos a ningún servidor.</p>
+                    <a href="../../convertir-heic-a-jpg/" class="cta-btn">
+                        <span>🚀 Abrir Convertidor Gratis</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
             
         </div>

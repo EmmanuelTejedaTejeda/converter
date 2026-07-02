@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -97,6 +97,34 @@
         .read-more-arrow {
             color: var(--accent-primary);
             font-size: 1.2rem;
+        }
+        .cta-card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(11, 87, 208, 0.08) 100%) !important;
+            border: 2px solid var(--accent-primary) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2rem;
+            background: var(--accent-primary);
+            color: #fff !important;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(11, 87, 208, 0.2);
+            transition: all 0.2s ease;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(11, 87, 208, 0.3);
+            filter: brightness(1.1);
         }
     </style>
 
@@ -377,12 +405,14 @@
                     <h2>Why Cloud Converters are a Risk</h2>
                     <p>Most online converters upload your files to remote cloud servers. This means third parties have access to your personal files. My Local Picture converts your photos locally inside your browser cache. Your data remains on your machine.</p>
                 </div>
-                <div class="privacy-card">
-                    <h2>How to convert HEIC to JPG offline</h2>
-                    <p>1. Go to our <a href="../../en/heic-to-jpg/">HEIC to JPG tool</a>.</p>
-                    <p>2. Drag and drop your HEIC images into the converter box.</p>
-                    <p>3. Choose output format (JPG or PNG).</p>
-                    <p>4. Click "Convert all" and save your images instantly.</p>
+                <div class="privacy-card cta-card">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--accent-primary); opacity: 0.05; border-radius: 50%; pointer-events: none;"></div>
+                    <h2>Convert HEIC to JPG Locally & Securely</h2>
+                    <p>Convert your iPhone photos (.heic) directly in your browser. 100% private, free, and no file uploads required.</p>
+                    <a href="../../heic-to-jpg/" class="cta-btn">
+                        <span>🚀 Open Free HEIC Converter</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
             
         </div>

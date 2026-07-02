@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
@@ -97,6 +97,34 @@
         .read-more-arrow {
             color: var(--accent-primary);
             font-size: 1.2rem;
+        }
+        .cta-card {
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(11, 87, 208, 0.08) 100%) !important;
+            border: 2px solid var(--accent-primary) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2rem;
+            background: var(--accent-primary);
+            color: #fff !important;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(11, 87, 208, 0.2);
+            transition: all 0.2s ease;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(11, 87, 208, 0.3);
+            filter: brightness(1.1);
         }
     </style>
 
@@ -375,12 +403,14 @@
                     <h2>为什么不建议使用网络云转换？</h2>
                     <p>大多数常规在线格式转换网站会要求您先将图片上传到它们云端远程服务器。这意味着图片可能会留存在不受控的地方。使用 My Local Picture 可以全部在本地浏览器进行格式转换，完全规避泄密隐患。</p>
                 </div>
-                <div class="privacy-card">
-                    <h2>本地快速转换的具体步骤</h2>
-                    <p>1. 点击进入我们的 <a href="../../zh/heic-zhuan-jpg/">HEIC 转 JPG 页面</a>。</p>
-                    <p>2. 从文件夹中选取或拖拽 HEIC 格式文件至转换箱区域。</p>
-                    <p>3. 可自由选择导出成 JPG 或高画质 PNG 格式。</p>
-                    <p>4. 单击“全部转换”，直接在您的设备中保存已转换文件。</p>
+                <div class="privacy-card cta-card">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: var(--accent-primary); opacity: 0.05; border-radius: 50%; pointer-events: none;"></div>
+                    <h2>在浏览器中本地安全转换 HEIC 图像</h2>
+                    <p>直接在您的浏览器中将 iPhone 照片 (.heic) 转换为 JPG 或 PNG 格式。100% 保护隐私，完全免费，且无需上传任何文件至服务器。</p>
+                    <a href="../../heic-zhuan-jpg/" class="cta-btn">
+                        <span>🚀 开启免费 HEIC 转换器</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
             
         </div>
