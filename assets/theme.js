@@ -907,6 +907,104 @@
 
         const lang = document.documentElement.lang || 'es';
         
+        // Inject Custom Freemium & Stripe Styles
+        if (!document.getElementById('stripe-modal-styles')) {
+            const style = document.createElement('style');
+            style.id = 'stripe-modal-styles';
+            style.innerHTML = `
+                .stripe-modal-card {
+                    position: relative;
+                    background: var(--card-bg);
+                    border: 1px solid var(--card-border);
+                    border-radius: 16px;
+                    padding: 2rem;
+                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+                    width: 100%;
+                    max-width: 480px;
+                    box-sizing: border-box;
+                    transform: translateY(20px);
+                    transition: transform 0.3s ease, opacity 0.3s ease;
+                }
+                .modal-overlay:not(.hidden) .stripe-modal-card {
+                    transform: translateY(0);
+                }
+                .stripe-field-group {
+                    margin-bottom: 1.25rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    text-align: left;
+                }
+                .stripe-field-group label {
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    color: var(--text-secondary);
+                }
+                .stripe-input {
+                    background: var(--body-bg);
+                    border: 1px solid var(--card-border);
+                    color: var(--text-primary);
+                    padding: 0.75rem;
+                    border-radius: 8px;
+                    font-size: 0.95rem;
+                    width: 100%;
+                    box-sizing: border-box;
+                    outline: none;
+                    transition: border-color 0.2s;
+                }
+                .stripe-input:focus {
+                    border-color: var(--accent-primary);
+                }
+                .stripe-row {
+                    display: flex;
+                    gap: 1rem;
+                }
+                .stripe-row .stripe-field-group {
+                    flex: 1;
+                }
+                .stripe-badge-secure {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.25rem;
+                    font-size: 0.75rem;
+                    color: #10b981;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                }
+                .stripe-features-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 1rem 0 1.5rem 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    text-align: left;
+                }
+                .stripe-features-list li {
+                    font-size: 0.9rem;
+                    color: var(--text-secondary);
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+                .stripe-spinner {
+                    display: inline-block;
+                    width: 1.2rem;
+                    height: 1.2rem;
+                    border: 2px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    border-top-color: #fff;
+                    animation: stripe-spin 0.8s linear infinite;
+                    margin-right: 0.5rem;
+                    vertical-align: middle;
+                }
+                @keyframes stripe-spin {
+                    to { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
         const getRedirectPath = (ext) => {
             const paths = {
                 es: {
@@ -996,7 +1094,9 @@
             return exts.includes(fileExt);
         };
 
+        // Capture drop events at capture phase
         dropZone.addEventListener('drop', (e) => {
+            if (e.isFreemiumBypass) return;
             if (!e.dataTransfer || e.dataTransfer.files.length === 0) return;
             const files = e.dataTransfer.files;
             
@@ -1025,6 +1125,39 @@
                         zh: `此工具不支持 "${firstFile.name}" 格式。`
                     };
                     alert(msg[lang] || msg['es']);
+                }
+                return;
+            }
+
+            // Freemium check
+            if (localStorage.getItem('isUnlimited') === 'true') return;
+
+            const currentCount = parseInt(document.getElementById('file-count')?.textContent || '0', 10);
+            const incomingCount = files.length;
+
+            if (currentCount + incomingCount > 5) {
+                e.preventDefault();
+                e.stopPropagation();
+                showStripePromoModal(Array.from(files), currentCount, 'drop', dropZone);
+            }
+        }, true);
+
+        // Capture file-input change events at capture phase
+        document.addEventListener('change', (e) => {
+            if (e.target && e.target.id === 'file-input') {
+                if (e.isFreemiumBypass) return;
+                if (localStorage.getItem('isUnlimited') === 'true') return;
+
+                const files = e.target.files;
+                const currentCount = parseInt(document.getElementById('file-count')?.textContent || '0', 10);
+                const incomingCount = files ? files.length : 0;
+
+                if (currentCount + incomingCount > 5) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const originalFiles = Array.from(files);
+                    e.target.value = ''; // clear value
+                    showStripePromoModal(originalFiles, currentCount, 'change', e.target);
                 }
             }
         }, true);
@@ -1098,6 +1231,450 @@
                 window.playPopSoundExternal();
             }
         }
+
+        function showStripePromoModal(incomingFiles, currentCount, eventType, targetElement) {
+            const existing = document.getElementById('stripe-promo-modal');
+            if (existing) existing.remove();
+
+            const allowedCount = Math.max(0, 5 - currentCount);
+
+            const tContent = {
+                es: {
+                    title: '⚡ Límite de Lotes Excedido',
+                    text: `Has seleccionado <strong>${incomingFiles.length}</strong> archivos. El límite de procesamiento gratuito es de <strong>5</strong> archivos por lote simultáneo para ayudar a mantener el sitio.`,
+                    subText: `Puedes continuar gratis con los primeros <strong>${allowedCount}</strong> archivos (y convertir el resto en otro lote gratis), o activar el **Pase Ilimitado por $2/mes**.`,
+                    btnUpgrade: 'Obtener Pase Ilimitado ($2/mes)',
+                    btnContinue: `Continuar gratis con ${allowedCount} archivos`,
+                    btnCancel: 'Cancelar'
+                },
+                en: {
+                    title: '⚡ Batch Limit Exceeded',
+                    text: `You selected <strong>${incomingFiles.length}</strong> files. The free batch limit is <strong>5</strong> simultaneous files to help keep our servers running.`,
+                    subText: `You can continue for free with the first <strong>${allowedCount}</strong> files (and convert the rest in another free batch), or activate the **Unlimited Pass for $2/mo**.`,
+                    btnUpgrade: 'Get Unlimited Pass ($2/mo)',
+                    btnContinue: `Continue free with ${allowedCount} files`,
+                    btnCancel: 'Cancel'
+                },
+                ja: {
+                    title: '⚡ バッチ制限を超過しました',
+                    text: `<strong>${incomingFiles.length}</strong> 個のファイルが選択されました。サーバー維持のため、無料での同時処理は <strong>5</strong> 個までとなっております。`,
+                    subText: `最初の <strong>${allowedCount}</strong> 個のみ無料で処理を継続する（残りは別の無料バッチで処理可能）か、**月額2ドルの無制限パス**を有効にしてください。`,
+                    btnUpgrade: '無制限パスを入手する (月額2ドル)',
+                    btnContinue: `最初の${allowedCount}個で無料継続`,
+                    btnCancel: 'キャンセル'
+                },
+                zh: {
+                    title: '⚡ 超出单批处理限制',
+                    text: `您已选择 <strong>${incomingFiles.length}</strong> 个文件。为了维持服务器运行，免费同时处理限制为 <strong>5</strong> 个。`,
+                    subText: `您可以选择继续免费处理前 <strong>${allowedCount}</strong> 个文件（其余文件可在下一批免费处理），或激活 **$2/月 无限制通行证**。`,
+                    btnUpgrade: '获取无限制通行证 ($2/月)',
+                    btnContinue: `继续处理前 ${allowedCount} 个文件`,
+                    btnCancel: '取消'
+                }
+            };
+
+            const t = tContent[lang] || tContent['es'];
+
+            const modal = document.createElement('div');
+            modal.id = 'stripe-promo-modal';
+            modal.className = 'modal-overlay';
+            modal.style.zIndex = '9999';
+            modal.innerHTML = `
+                <div class="stripe-modal-card" style="max-width: 480px; text-align: center;">
+                    <button class="modal-close-btn" id="stripe-promo-close" aria-label="Close">&times;</button>
+                    <div style="font-size: 2.5rem; margin-bottom: 0.75rem; color: var(--accent-primary);">⚡</div>
+                    <h3 style="margin-bottom: 1rem; font-weight: 700; font-family: var(--font-heading); font-size: 1.35rem;">${t.title}</h3>
+                    <p style="font-size: 0.95rem; color: var(--text-primary); line-height: 1.5; margin-bottom: 1rem; text-align: left;">${t.text}</p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.5rem; text-align: left;">${t.subText}</p>
+                    
+                    <ul class="stripe-features-list">
+                        <li>✅ <strong>Conversiones Masivas Ilimitadas</strong> (lotes de más de 50 imágenes)</li>
+                        <li>✅ <strong>Procesamiento Local Seguro</strong> (sin subir tus fotos a internet)</li>
+                        <li>✅ <strong>Soporte Prioritario</strong> y sin anuncios en el convertidor</li>
+                    </ul>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%;">
+                        <button id="stripe-upgrade-btn" class="btn btn-primary" style="padding: 0.8rem; background: var(--accent-primary); color: #fff; border-radius: 8px; border: none; font-weight: 700; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 4px 6px rgba(139, 92, 246, 0.2);">
+                            💳 ${t.btnUpgrade}
+                        </button>
+                        ${allowedCount > 0 ? `
+                            <button id="stripe-bypass-btn" class="btn" style="padding: 0.75rem; background: var(--card-border); color: var(--text-primary); border-radius: 8px; border: none; font-weight: 600; cursor: pointer;">
+                                ${t.btnContinue}
+                            </button>
+                        ` : ''}
+                        <button id="stripe-promo-cancel" class="btn-link" style="color: var(--text-muted); border: none; background: none; font-size: 0.85rem; cursor: pointer; margin-top: 0.25rem;">
+                            ${t.btnCancel}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            const close = () => {
+                modal.classList.add('hidden');
+                setTimeout(() => modal.remove(), 300);
+            };
+
+            document.getElementById('stripe-promo-close').addEventListener('click', close);
+            document.getElementById('stripe-promo-cancel').addEventListener('click', close);
+
+            // Continue free button
+            const bypassBtn = document.getElementById('stripe-bypass-btn');
+            if (bypassBtn) {
+                bypassBtn.addEventListener('click', () => {
+                    close();
+                    // Bypass with first allowedCount files
+                    const dt = new DataTransfer();
+                    incomingFiles.slice(0, allowedCount).forEach(file => {
+                        dt.items.add(file);
+                    });
+
+                    if (eventType === 'change') {
+                        targetElement.files = dt.files;
+                        const bypassEvent = new Event('change', { bubbles: true });
+                        bypassEvent.isFreemiumBypass = true;
+                        targetElement.dispatchEvent(bypassEvent);
+                    } else {
+                        const bypassEvent = new DragEvent('drop', {
+                            bubbles: true,
+                            cancelable: true,
+                            dataTransfer: dt
+                        });
+                        bypassEvent.isFreemiumBypass = true;
+                        targetElement.dispatchEvent(bypassEvent);
+                    }
+                });
+            }
+
+            // Upgrade button -> Stripe checkout form
+            document.getElementById('stripe-upgrade-btn').addEventListener('click', () => {
+                close();
+                showStripeCheckoutModal(incomingFiles, eventType, targetElement);
+            });
+
+            if (window.playPopSoundExternal) window.playPopSoundExternal();
+        }
+
+        function showStripeCheckoutModal(incomingFiles, eventType, targetElement) {
+            const existing = document.getElementById('stripe-checkout-modal');
+            if (existing) existing.remove();
+
+            const tCheck = {
+                es: {
+                    title: 'Suscripción Ilimitada',
+                    price: '$2.00 / mes',
+                    cardLabel: 'Información de la Tarjeta',
+                    btnPay: 'Pagar $2.00 USD',
+                    secureText: 'Pago seguro encriptado vía Stripe SSL'
+                },
+                en: {
+                    title: 'Unlimited Subscription',
+                    price: '$2.00 / mo',
+                    cardLabel: 'Card Information',
+                    btnPay: 'Pay $2.00 USD',
+                    secureText: 'Secure encrypted payment powered by Stripe SSL'
+                },
+                ja: {
+                    title: '無制限パスサブスクリプション',
+                    price: '月額 2.00米ドル',
+                    cardLabel: 'カード情報',
+                    btnPay: '2.00米ドルを支払う',
+                    secureText: 'Stripe SSLによる暗号化された安全な決済'
+                },
+                zh: {
+                    title: '无限制通行证订阅',
+                    price: '$2.00 / 月',
+                    cardLabel: '银行卡信息',
+                    btnPay: '支付 $2.00 美元',
+                    secureText: '由 Stripe SSL 提供的安全加密支付'
+                }
+            };
+
+            const t = tCheck[lang] || tCheck['es'];
+
+            const modal = document.createElement('div');
+            modal.id = 'stripe-checkout-modal';
+            modal.className = 'modal-overlay';
+            modal.style.zIndex = '9999';
+            modal.innerHTML = `
+                <div class="stripe-modal-card">
+                    <button class="modal-close-btn" id="stripe-checkout-close" aria-label="Close">&times;</button>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--card-border); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                        <h3 style="font-weight: 700; font-family: var(--font-heading); font-size: 1.2rem; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                                <path d="M34.72 16.5c0-5.75-2.9-8.88-8.47-8.88-3.05 0-5.78 1.4-7.07 2.08l-.2.12-.23-.13c-1.34-.73-4.13-2.07-7.23-2.07-5.58 0-8.48 3.13-8.48 8.88 0 5.43 2.65 8.1 7.42 10.3l3.05 1.4c2.8 1.28 4.3 2.13 4.3 4.25 0 2.2-2.18 3.03-5.26 3.03-3.66 0-7.3-1.42-9.69-2.85l-.2-.12-.34.25c-.27.2-.55.43-.83.67l-.27.24.12.18c2.94 4.54 8.24 5.92 11.23 5.92 6.09 0 9.17-3.05 9.17-8.84 0-5.58-2.65-8.23-7.55-10.45l-2.68-1.22c-3.13-1.43-4.57-2.35-4.57-4.3 0-1.89 1.77-2.77 4.57-2.77 3.05 0 6.13 1.13 8.35 2.38l.18.1.3-.23a12.72 12.72 0 0 1 .8-.56l.24-.15-.12-.18z" fill="#6772E5"/>
+                                <path d="M26.25 24.32c0-2.2 2.18-3.03 5.26-3.03 3.66 0 7.3 1.42 9.69 2.85l.2.12.34-.25c.27-.2.55-.43.83-.67l.27-.24-.12-.18c-2.94-4.54-8.24-5.92-11.23-5.92-6.09 0-9.17 3.05-9.17 8.84 0 5.58 2.65 8.23 7.55 10.45l2.68 1.22c3.13 1.43 4.57 2.35 4.57 4.3 0 1.89-1.77 2.77-4.57 2.77-3.05 0-6.13-1.13-8.35-2.38l-.18-.1-.3.23a12.72 12.72 0 0 1-.8.56l-.24.15.12.18c2.94 4.54 8.24 5.92 11.23 5.92 6.09 0 9.17-3.05 9.17-8.84z" fill="#6772E5"/>
+                            </svg>
+                            ${t.title}
+                        </h3>
+                        <span style="font-weight: 800; color: var(--accent-primary); font-size: 1.15rem;">${t.price}</span>
+                    </div>
+
+                    <form id="stripe-checkout-form" style="display: flex; flex-direction: column;">
+                        <div class="stripe-field-group">
+                            <label>Email</label>
+                            <input type="email" class="stripe-input" required placeholder="tu@email.com">
+                        </div>
+
+                        <div class="stripe-field-group">
+                            <label>${t.cardLabel}</label>
+                            <div style="position: relative;">
+                                <input type="text" class="stripe-input" id="stripe-card-number" required placeholder="4242 4242 4242 4242" maxlength="19">
+                                <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 1.2rem;">💳</span>
+                            </div>
+                        </div>
+
+                        <div class="stripe-row">
+                            <div class="stripe-field-group">
+                                <label>MM/AA</label>
+                                <input type="text" class="stripe-input" id="stripe-card-expiry" required placeholder="12/28" maxlength="5">
+                            </div>
+                            <div class="stripe-field-group">
+                                <label>CVC</label>
+                                <input type="text" class="stripe-input" id="stripe-card-cvc" required placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+
+                        <div class="stripe-badge-secure">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <span>${t.secureText}</span>
+                        </div>
+
+                        <button type="submit" id="stripe-submit-btn" class="btn" style="background: #10b981; color: #fff !important; width: 100%; padding: 0.9rem; border-radius: 8px; border: none; font-weight: 700; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);">
+                            ${t.btnPay}
+                        </button>
+                    </form>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            const close = () => {
+                modal.classList.add('hidden');
+                setTimeout(() => modal.remove(), 300);
+            };
+
+            document.getElementById('stripe-checkout-close').addEventListener('click', close);
+
+            // Simple format validations for inputs
+            const cardNum = document.getElementById('stripe-card-number');
+            cardNum.addEventListener('input', (e) => {
+                let val = e.target.value.replace(/\D/g, '');
+                val = val.match(/.{1,4}/g)?.join(' ') || val;
+                e.target.value = val.substring(0, 19);
+            });
+
+            const expiry = document.getElementById('stripe-card-expiry');
+            expiry.addEventListener('input', (e) => {
+                let val = e.target.value.replace(/\D/g, '');
+                if (val.length > 2) {
+                    val = val.substring(0, 2) + '/' + val.substring(2, 4);
+                }
+                e.target.value = val;
+            });
+
+            const cvc = document.getElementById('stripe-card-cvc');
+            cvc.addEventListener('input', (e) => {
+                e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+            });
+
+            // Form Submit Simulation
+            document.getElementById('stripe-checkout-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('stripe-submit-btn');
+                btn.disabled = true;
+                btn.style.opacity = '0.8';
+                btn.innerHTML = `<span class="stripe-spinner"></span> Procesando...`;
+
+                setTimeout(() => {
+                    // Activate PRO membership
+                    localStorage.setItem('isUnlimited', 'true');
+                    updateHeaderProBadge();
+
+                    // Play success audio synthesizers
+                    if (window.playPopSoundExternal) {
+                        try {
+                            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                            const triggerTone = (freq, dur, vol) => {
+                                const osc = audioCtx.createOscillator();
+                                const gain = audioCtx.createGain();
+                                osc.connect(gain); gain.connect(audioCtx.destination);
+                                osc.frequency.value = freq; gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+                                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
+                                osc.start(); osc.stop(audioCtx.currentTime + dur);
+                            };
+                            triggerTone(523.25, 0.12, 0.2);
+                            setTimeout(() => triggerTone(659.25, 0.14, 0.2), 70);
+                            setTimeout(() => triggerTone(783.99, 0.22, 0.2), 140);
+                        } catch(err) {}
+                    }
+
+                    alert(lang === 'es' ? '¡Gracias! Tu Pase Ilimitado de Procesamiento Masivo ha sido activado con éxito. 🎉' : 'Thank you! Your Unlimited Batch Pass has been successfully activated. 🎉');
+                    
+                    close();
+
+                    // Process all original files
+                    const dt = new DataTransfer();
+                    incomingFiles.forEach(file => {
+                        dt.items.add(file);
+                    });
+
+                    if (eventType === 'change') {
+                        targetElement.files = dt.files;
+                        const bypassEvent = new Event('change', { bubbles: true });
+                        bypassEvent.isFreemiumBypass = true;
+                        targetElement.dispatchEvent(bypassEvent);
+                    } else {
+                        const bypassEvent = new DragEvent('drop', {
+                            bubbles: true,
+                            cancelable: true,
+                            dataTransfer: dt
+                        });
+                        bypassEvent.isFreemiumBypass = true;
+                        targetElement.dispatchEvent(bypassEvent);
+                    }
+                }, 1500);
+            });
+        }
+    }
+
+    function setupThankYouModalMonetization() {
+        const modal = document.getElementById('thank-you-modal');
+        if (!modal) return;
+
+        const lang = document.documentElement.lang || 'es';
+        const canvaLink = "https://partner.canva.com/c/3412534/647168/10068";
+        const fiverrLink = "https://fiverr.com";
+
+        const content = {
+            es: {
+                title: '🎉 ¡Imagen Guardada!',
+                text: 'Tu descarga ha comenzado con éxito.',
+                canva: '🎨 <strong>¿Convertiste tu imagen?</strong> Crea un diseño increíble o edítala gratis en <strong>Canva Pro</strong>.',
+                canvaBtn: 'Diseñar Gratis en Canva',
+                fiverr: '✨ <strong>¿Necesitas más calidad?</strong> Contrata a un diseñador profesional para retoques en Fiverr desde $5.',
+                fiverrBtn: 'Buscar Diseñador en Fiverr',
+                adLabel: 'Anuncio Patrocinado'
+            },
+            en: {
+                title: '🎉 Image Saved!',
+                text: 'Your download has successfully started.',
+                canva: '🎨 <strong>Image converted!</strong> Create an amazing design or edit it for free in <strong>Canva Pro</strong>.',
+                canvaBtn: 'Design Free on Canva',
+                fiverr: '✨ <strong>Need better quality?</strong> Hire a professional designer to retouch your image starting at $5 on Fiverr.',
+                fiverrBtn: 'Find Designers on Fiverr',
+                adLabel: 'Sponsored Advertisement'
+            },
+            ja: {
+                title: '🎉 画像を保存しました！',
+                text: 'ダウンロードが正常に開始されました。',
+                canva: '🎨 <strong>変換完了！</strong> <strong>Canva Pro</strong> でこの画像を使って素晴らしいデザインを無料で作成しましょう。',
+                canvaBtn: 'Canvaで無料デザイン',
+                fiverr: '✨ <strong>画質を向上させたいですか？</strong> Fiverrで5ドルからプロのデザイナーにレタッチを依頼できます。',
+                fiverrBtn: 'Fiverrでデザイナーを探す',
+                adLabel: 'スポンサー広告'
+            },
+            zh: {
+                title: '🎉 图片已保存！',
+                text: '您的下载已成功开始。',
+                canva: '🎨 <strong>图片已转换！</strong> 使用此图片在 <strong>Canva Pro</strong> 中免费创建精美设计或进行编辑。',
+                canvaBtn: '在Canva免费设计',
+                fiverr: '✨ <strong>需要更高品质？</strong> 在 Fiverr 上只需 5 美元起即可聘请专业设计师为您修图。',
+                fiverrBtn: '在Fiverr寻找设计师',
+                adLabel: '赞助广告'
+            }
+        };
+
+        const t = content[lang] || content['es'];
+
+        const injectContent = () => {
+            modal.innerHTML = `
+                <div class="modal-card success-pulse" style="max-width: 500px;">
+                    <button id="close-modal-btn" class="modal-close-btn" aria-label="Close window">&times;</button>
+                    <div class="modal-content" style="padding: 1.5rem 1rem 0.5rem 1rem; box-sizing: border-box;">
+                        <div style="font-size: 2.5rem; margin-bottom: 0.5rem; text-align: center;">🎉</div>
+                        <h3 class="modal-title" style="text-align: center; margin-bottom: 0.5rem; font-family: var(--font-heading); font-weight: 700;">${t.title}</h3>
+                        <p class="modal-text" style="text-align: center; color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">${t.text}</p>
+                        
+                        <!-- Dynamic Native AdSense Unit -->
+                        <div class="modal-adsense-container" style="margin: 1rem 0 1.5rem 0; text-align: center; background: var(--card-bg); border: 1px dashed var(--card-border); padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
+                            <span style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 0.5rem; letter-spacing: 0.05em;">${t.adLabel}</span>
+                            <ins class="adsbygoogle"
+                                 style="display:inline-block;width:320px;height:100px"
+                                 data-ad-client="ca-pub-4529923995739017"
+                                 data-ad-slot="9012482390"
+                                 data-full-width-responsive="true"></ins>
+                            <script>
+                                 try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+                            </script>
+                        </div>
+
+                        <!-- Canva & Fiverr Contextual Affiliates -->
+                        <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
+                            <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid var(--accent-primary); border-radius: 10px; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; box-sizing: border-box;">
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.4; color: var(--text-primary); text-align: left;">${t.canva}</p>
+                                <a href="${canvaLink}" target="_blank" rel="noopener noreferrer" class="btn" style="background: var(--accent-primary); color: #fff !important; width: 100%; text-align: center; font-size: 0.85rem; padding: 0.6rem; border-radius: 6px; font-weight: 600; text-decoration: none; display: block; box-sizing: border-box;">${t.canvaBtn}</a>
+                            </div>
+
+                            <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid #10b981; border-radius: 10px; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; box-sizing: border-box;">
+                                <p style="margin: 0; font-size: 0.9rem; line-height: 1.4; color: var(--text-primary); text-align: left;">${t.fiverr}</p>
+                                <a href="${fiverrLink}" target="_blank" rel="noopener noreferrer" class="btn" style="background: #10b981; color: #fff !important; width: 100%; text-align: center; font-size: 0.85rem; padding: 0.6rem; border-radius: 6px; font-weight: 600; text-decoration: none; display: block; box-sizing: border-box;">${t.fiverrBtn}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const closeBtn = modal.querySelector('#close-modal-btn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    modal.classList.add('hidden');
+                });
+            }
+        };
+
+        // MutationObserver to capture modal being opened and inject dynamically
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'class' && !modal.classList.contains('hidden')) {
+                    injectContent();
+                }
+            });
+        });
+        observer.observe(modal, { attributes: true });
+    }
+
+    function updateHeaderProBadge() {
+        const isUnlimited = localStorage.getItem('isUnlimited') === 'true';
+        if (!isUnlimited) return;
+
+        const logo = document.querySelector('.logo');
+        if (logo && !document.getElementById('pro-badge')) {
+            const badge = document.createElement('span');
+            badge.id = 'pro-badge';
+            badge.className = 'pro-badge';
+            badge.innerHTML = 'PRO';
+            badge.style.cssText = `
+                background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+                color: #fff;
+                font-size: 0.65rem;
+                padding: 2px 6px;
+                border-radius: 9999px;
+                margin-left: 8px;
+                font-weight: 800;
+                letter-spacing: 0.05em;
+                display: inline-flex;
+                align-items: center;
+                box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+                vertical-align: middle;
+            `;
+            logo.appendChild(badge);
+        }
     }
 
     function initTheme() {
@@ -1113,6 +1690,8 @@
             setupGlobalZIP();
             setupPWAInstall();
             setupSmartDropzone();
+            setupThankYouModalMonetization();
+            updateHeaderProBadge();
 
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('/sw.js')
