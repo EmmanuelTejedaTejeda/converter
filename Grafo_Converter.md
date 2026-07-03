@@ -54,6 +54,10 @@ graph TD
         F_Share[Botón de Compartir Nativo Web Share API]
         F_PWAInstall[Promoción de Instalación PWA Personalizada]
         F_Zip[Compresión y Descarga en Lote ZIP JSZip]
+        F_Freemium[Modelo Freemium: Límite de 5 Cargas simultáneas]
+        F_Stripe[Checkout Stripe simulado con activación PRO y Badge Cabecera]
+        F_AdSense[Inyección Dinámica de AdSense y Afiliados post-descarga via MutationObserver]
+        F_SEOGuides[Guías de Formato Específicas de 300+ palabras y FAQs]
     end
     
     AppJS --> F_Load
@@ -62,7 +66,12 @@ graph TD
     ThemeJS --> F_Share
     ThemeJS --> F_PWAInstall
     ThemeJS --> F_Zip
+    ThemeJS --> F_Freemium
+    ThemeJS --> F_Stripe
+    ThemeJS --> F_AdSense
     ToolScripts --> F_Canvas
     Index --> F_Filter
     Locales -.-> F_Filter
+    HTML_Pages -.-> F_SEOGuides
+```
 ```
