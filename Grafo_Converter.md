@@ -58,6 +58,7 @@ graph TD
         F_Stripe[Checkout Stripe simulado con activación PRO y Badge Cabecera]
         F_AdSense[Inyección Dinámica de AdSense y Afiliados post-descarga via MutationObserver]
         F_SEOGuides[Guías de Formato Específicas de 300+ palabras y FAQs]
+        F_Delay[Delay Artificial de 2.5s en toBlob/save]
     end
     
     AppJS --> F_Load
@@ -69,6 +70,7 @@ graph TD
     ThemeJS --> F_Freemium
     ThemeJS --> F_Stripe
     ThemeJS --> F_AdSense
+    ThemeJS --> F_Delay
     ToolScripts --> F_Canvas
     Index --> F_Filter
     Locales -.-> F_Filter

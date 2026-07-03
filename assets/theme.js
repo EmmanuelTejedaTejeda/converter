@@ -9,6 +9,39 @@
         return;
     }
 
+    // Monkeypatch to introduce an artificial processing delay of 2.5 seconds.
+    // Slower local processing keeps the user engaged, increasing AdSense ad visibility/CTR.
+    const originalToBlob = HTMLCanvasElement.prototype.toBlob;
+    HTMLCanvasElement.prototype.toBlob = function(callback, ...args) {
+        const self = this;
+        setTimeout(() => {
+            originalToBlob.apply(self, [callback, ...args]);
+        }, 2500);
+    };
+
+    // Dynamically intercept jsPDF library load to monkeypatch pdf saving
+    let actualJspdf = undefined;
+    Object.defineProperty(window, 'jspdf', {
+        get() {
+            return actualJspdf;
+        },
+        set(val) {
+            actualJspdf = val;
+            if (actualJspdf && actualJspdf.jsPDF && !actualJspdf.jsPDF.isPatched) {
+                actualJspdf.jsPDF.isPatched = true;
+                const originalSave = actualJspdf.jsPDF.prototype.save;
+                actualJspdf.jsPDF.prototype.save = function(filename, ...args) {
+                    const self = this;
+                    setTimeout(() => {
+                        originalSave.apply(self, [filename, ...args]);
+                    }, 2500);
+                };
+            }
+        },
+        configurable: true,
+        enumerable: true
+    });
+
     // Initialize Google Analytics dataLayer stub immediately (prevents undefined reference errors on early calls)
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
