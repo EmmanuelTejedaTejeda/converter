@@ -9,12 +9,83 @@
         return;
     }
 
-    // Monkeypatch to introduce an artificial processing delay of 2.5 seconds.
+    // Monkeypatch to introduce an artificial processing delay of 2.5 seconds with perceived progress text.
     // Slower local processing keeps the user engaged, increasing AdSense ad visibility/CTR.
     const originalToBlob = HTMLCanvasElement.prototype.toBlob;
     HTMLCanvasElement.prototype.toBlob = function(callback, ...args) {
         const self = this;
+        
+        const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.includes('/en/');
+        const isJapanese = document.documentElement.lang === 'ja' || window.location.pathname.includes('/ja/');
+        const isChinese = document.documentElement.lang === 'zh' || window.location.pathname.includes('/zh/');
+        const lang = isEnglish ? 'en' : (isJapanese ? 'ja' : (isChinese ? 'zh' : 'es'));
+        
+        const phrases = {
+            es: [
+                "Analizando canales locally...",
+                "Removiendo metadatos EXIF...",
+                "Optimizando píxeles...",
+                "Generando archivo..."
+            ],
+            en: [
+                "Analyzing color channels...",
+                "Removing EXIF metadata...",
+                "Optimizing pixel matrix...",
+                "Generating output file..."
+            ],
+            ja: [
+                "カラーチャネルを分析中...",
+                "EXIFメタデータを削除中...",
+                "ピクセルを最適化中...",
+                "出力ファイルを生成中..."
+            ],
+            zh: [
+                "分析色彩通道...",
+                "清除 EXIF 元数据...",
+                "优化像素矩阵...",
+                "正在生成输出文件..."
+            ]
+        };
+        
+        const activePhrases = phrases[lang] || phrases['es'];
+        
+        // Find an active converting card that doesn't have an animation active
+        const card = Array.from(document.querySelectorAll('.file-card')).find(c => {
+            const badge = c.querySelector('.status-badge');
+            return badge && badge.classList.contains('badge-converting') && !badge.dataset.isAnimating;
+        });
+        
+        let badge = null;
+        let progressFill = null;
+        if (card) {
+            badge = card.querySelector('.status-badge');
+            progressFill = card.querySelector('.progress-fill');
+            if (badge) {
+                badge.dataset.isAnimating = "true";
+                badge.style.fontSize = "0.75rem"; // slightly smaller font for long messages
+            }
+        }
+        
+        let step = 0;
+        const intervalId = setInterval(() => {
+            if (badge && step < activePhrases.length) {
+                badge.textContent = activePhrases[step];
+                // Smoothly increment the progress bar if possible
+                if (progressFill) {
+                    const currentWidth = parseFloat(progressFill.style.width) || 90;
+                    const nextWidth = Math.min(95, currentWidth + (95 - currentWidth) / 2);
+                    progressFill.style.width = nextWidth + "%";
+                }
+                step++;
+            }
+        }, 600);
+        
         setTimeout(() => {
+            clearInterval(intervalId);
+            if (badge) {
+                delete badge.dataset.isAnimating;
+                badge.style.fontSize = ""; // reset
+            }
             originalToBlob.apply(self, [callback, ...args]);
         }, 2500);
     };
@@ -32,7 +103,58 @@
                 const originalSave = actualJspdf.jsPDF.prototype.save;
                 actualJspdf.jsPDF.prototype.save = function(filename, ...args) {
                     const self = this;
+                    
+                    const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.includes('/en/');
+                    const isJapanese = document.documentElement.lang === 'ja' || window.location.pathname.includes('/ja/');
+                    const isChinese = document.documentElement.lang === 'zh' || window.location.pathname.includes('/zh/');
+                    const lang = isEnglish ? 'en' : (isJapanese ? 'ja' : (isChinese ? 'zh' : 'es'));
+                    
+                    const pdfPhrases = {
+                        es: [
+                            "Procesando compresión PDF...",
+                            "Optimizando recursos de página...",
+                            "Escribiendo cabeceras binarias...",
+                            "Generando documento PDF..."
+                        ],
+                        en: [
+                            "Processing PDF compression...",
+                            "Optimizing page resources...",
+                            "Writing binary headers...",
+                            "Generating final PDF..."
+                        ],
+                        ja: [
+                            "PDF圧縮を処理中...",
+                            "ページリソースを最適化中...",
+                            "バイナリヘッダーを書き込み中...",
+                            "最終PDFを生成中..."
+                        ],
+                        zh: [
+                            "处理 PDF 压缩...",
+                            "优化页面资源...",
+                            "写入二进制头信息...",
+                            "生成最终 PDF..."
+                        ]
+                    };
+                    
+                    const activePdfPhrases = pdfPhrases[lang] || pdfPhrases['es'];
+                    const pdfBtn = document.getElementById('generate-pdf-btn');
+                    let pdfStep = 0;
+                    let pdfIntervalId = null;
+                    
+                    if (pdfBtn) {
+                        pdfIntervalId = setInterval(() => {
+                            if (pdfStep < activePdfPhrases.length) {
+                                pdfBtn.innerHTML = activePdfPhrases[pdfStep];
+                                pdfStep++;
+                            }
+                        }, 600);
+                    }
+                    
                     setTimeout(() => {
+                        if (pdfIntervalId) clearInterval(pdfIntervalId);
+                        if (pdfBtn) {
+                            pdfBtn.innerHTML = isEnglish ? 'Saving PDF...' : 'Guardando PDF...';
+                        }
                         originalSave.apply(self, [filename, ...args]);
                     }, 2500);
                 };
