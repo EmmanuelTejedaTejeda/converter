@@ -29,7 +29,7 @@ graph TD
     ToolsDirs -.-> ThemeJS
 
     %% Lógica de Herramientas en /assets/
-    Assets --> ToolScripts[Scripts de Herramientas: compressor.js, crop-image.js, etc.]
+    Assets --> ToolScripts[Scripts de Herramientas: compressor.js, crop-image.js, midjourney-splitter.js, watermark-remover-dalle.js, etc.]
     ToolsDirs -.-> ToolScripts
 
     %% Dependencias de Librerías
@@ -59,6 +59,8 @@ graph TD
         F_AdSense[Inyección Dinámica de AdSense y Afiliados post-descarga via MutationObserver]
         F_SEOGuides[Guías de Formato Específicas de 300+ palabras y FAQs]
         F_Progress[Progreso Percibido: carga gradual con mensajes dinámicos en toBlob/save]
+        F_AISplit[División de cuadrículas Midjourney en canvas]
+        F_AIWatermark[Eliminación local de marca de agua DALL-E/Copilot via Laplace]
     end
     
     AppJS --> F_Load
@@ -72,6 +74,8 @@ graph TD
     ThemeJS --> F_AdSense
     ThemeJS --> F_Progress
     ToolScripts --> F_Canvas
+    ToolScripts --> F_AISplit
+    ToolScripts --> F_AIWatermark
     Index --> F_Filter
     Locales -.-> F_Filter
     HTML_Pages -.-> F_SEOGuides
