@@ -194,6 +194,14 @@
                                 <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                                 Gemini 透かし消去
                             </a>
+                            <a href="../../ja/dalle-watermark-remover/" data-keywords="dalle, copilot, watermark, remove, watermark, ai, openai, logo, 消去">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                DALL-E 透かし消去
+                            </a>
+                            <a href="../../ja/midjourney-grid-splitter/" data-keywords="midjourney, grid, split, crop, separate, 分割, 切り出し, グリッド, ia">
+                                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+                                Midjourney 分割
+                            </a>
                         </div>
                         <div class="dropdown-category">
                             <h4>ドキュメント</h4>
@@ -331,6 +339,8 @@
                             <a href="../../ja/gazo-kaiten/" data-keywords="回転, 反転, ミラー, 水平, 垂直">回転・反転</a>
                             <a href="../../ja/favicon-sakusei/" data-keywords="ファビコン, favicon, ico, アイコン, 作成, 生成, ブラウザ">ファビコン作成</a>
                             <a href="../../ja/gemini-watermark-remover/" data-keywords="gemini, watermark, remove, watermark, ai, google, logo">Gemini 透かし消去</a>
+                            <a href="../../ja/dalle-watermark-remover/" data-keywords="dalle, copilot, watermark, remove, watermark, ai, openai, logo, 消去">DALL-E 透かし消去</a>
+                            <a href="../../ja/midjourney-grid-splitter/" data-keywords="midjourney, grid, split, crop, separate, 分割, 切り出し, グリッド, ia">Midjourney 分割</a>
                         </div>
                     </div>
                     <div class="mobile-category">
@@ -493,43 +503,53 @@
                 <!-- Contenido SEO On-Page: Guía y FAQs -->
         <section class="seo-content-section">
             <div class="seo-block">
-                <h2>詳細ガイド：Images から PDF への変換について</h2>
-                <p>ファイルを <strong>Images</strong> から <strong>PDF</strong> に変換することは、互換性、画質、ファイルサイズのバランスを取るための優れた方法です。当社のツールを使用すると、この変換プロセス全体がお使いのブラウザ上でローカルに実行され、データのプライバシーが100%保証されます。</p>
-                <p><strong>Imagesとは？</strong> Format Images</p>
-                <p><strong>PDFとは？</strong> PDF (Portable Document Format) は、Adobeが開発した、使用するソフトウェア、ハードウェア、OSに依存せずに電子文書を安全かつ忠実に再現してやり取りするための世界標準の文書フォーマットです。</p>
-                <p><strong>なぜ Images から PDF に変換するのですか？</strong> 主な理由はウェブ上での最適化と互換性の確保です。写真をブログやウェブサイトにアップロードする際、読み込み速度を上げるために軽量なフォーマットに変換する必要があります。また、オフラインやApple製以外のデバイスで画像を表示・編集する際にも、一般的なフォーマットへの変換が不可欠です。当社のツールはブラウザのメモリ内で直接処理を行うため、ファイルが外部サーバーに送信されることはなく、高いセキュリティを誇ります。</p>
+                <h2>画像ファイルをまとめてPDF化するメリットと特徴</h2>
+                <p>スマートフォンやカメラで撮影した写真、スクリーンショットなどの画像（JPG, PNG, WebP, HEIC, BMP, GIF）を1つのPDFファイルにまとめることは、資料作成、レポート提出、印刷の際に非常に便利です。当サイトの「画像からPDFへの変換ツール」は、すべての処理がお使いのブラウザ上で100%ローカルに実行されるため、大切な写真データが外部サーバーに送信されることはなく、完全なプライバシー保護をお約束します。</p>
+                
+                <h3>対応している主な画像フォーマット</h3>
+                <p>本ツールは、ウェブやスマートフォンで使用されるほぼすべての主要な画像形式に対応しています。</p>
+                <ul>
+                    <li><strong>JPEG / JPG:</strong> 写真で最も一般的な形式です。高画質を維持したままPDFにまとめられます。</li>
+                    <li><strong>PNG:</strong> 背景透過画像やイラスト、スクリーンショットに最適です。文字の輪郭がクリアなPDFを作成できます。</li>
+                    <li><strong>WebP:</strong> Googleが開発した次世代画像フォーマットです。軽量で高クオリティなPDFを生成します。</li>
+                    <li><strong>HEIC / HEIF:</strong> iPhone等で撮影された最新の写真形式です。事前の変換なしでそのままPDF化可能です。</li>
+                    <li><strong>BMP / GIF:</strong> レトロなビットマップや簡易イラスト等、あらゆる静止画素材をサポートしています。</li>
+                </ul>
+                
+                <h3>なぜ画像をPDFに変換するのですか？</h3>
+                <p>画像をPDFに変換する最大の理由は、<strong>「レイアウトの崩れ防止」</strong>と<strong>「ファイルの一元化」</strong>です。WordやPowerPointに画像を貼り付けて共有すると、受け手側の環境（OSやアプリ）によってレイアウトが崩れてしまうことがありますが、PDFならどのデバイス（Windows, Mac, iOS, Android）でも元の配置通りに表示されます。また、数十枚の写真も1つのPDFファイルに結合すれば、メール添付やクラウド共有、学校への提出、役所や企業への電子申請が圧倒的にスムーズになります。</p>
             </div>
 
             <div class="seo-block" style="margin-top: 2rem;">
-                <h3>簡単な3ステップで Images を PDF に変換</h3>
+                <h3>簡単！画像PDF化の3ステップ手順</h3>
                 <ol class="seo-steps-list">
-                    <li><strong>1. Images ファイルをアップロード:</strong> 上記のドラッグ＆ドロップエリアにファイルをドラッグするか、クリックしてファイルを選択します。</li>
-                    <li><strong>2. ローカルでの自動変換:</strong> ファイルが読み込まれると、ブラウザのAPIを使用して即座に変換処理が開始されます。</li>
-                    <li><strong>3. PDF 画像を保存:</strong> 変換後のファイルのダウンロードボタンを押すか、ZIPファイルで一括保存します。ネットへのアップロードは一切不要です！</li>
+                    <li><strong>1. 画像を追加する:</strong> 上記の「ここに画像をドラッグ＆ドロップ」エリアにファイルを重ねるか、「ファイルを選択」ボタンからまとめて写真を選択します。</li>
+                    <li><strong>2. 順序の調整（ドラッグまたはボタン）:</strong> PDF内で表示させたい順番に、プレビューカードを並び替えます。</li>
+                    <li><strong>3. PDFを生成して保存:</strong> 「PDFを作成」ボタンをクリックすると、ブラウザ上で一瞬でPDFが合成されます。ダウンロードは自動的に開始されます。</li>
                 </ol>
             </div>
 
             <section class="faq-section" style="margin-top: 3rem;">
                 <div class="faq-header">
-                    <h2>よくある質問 (FAQ) - Images から PDF</h2>
+                    <h2>画像からPDF変換に関するよくある質問 (FAQ)</h2>
                 </div>
                 <div class="faq-list">
                     <div class="faq-item">
-                        <h3>Images から PDF への変換は安全ですか？</h3>
-                        <p>はい、非常に安全です。当社のツールはHTML5テクノロジーを利用して、すべての変換処理をお使いのPCやスマホのブラウザ上で行います。画像が外部に送信されることはありません。</p>
+                        <h3>アップロードした写真がインターネット上に流出する心配はありますか？</h3>
+                        <p>いいえ、一切ありません。当サイトは最新のHTML5技術を駆使し、画像の読み込み、並び替え、PDF作成の全工程をお客様の端末（PC、スマホ、タブレット）のブラウザ内部だけで完結させています。インターネット上の外部サーバーへデータを転送することは一切行わないため、個人情報や極秘ビジネス書類の写真でも安心・安全にご利用いただけます。</p>
                     </div>
                     <div class="faq-item">
-                        <h3>一度に複数のファイルを変換できますか？</h3>
-                        <p>はい、バッチ処理をサポートしています。同時に最大5つのファイルまで無料で変換できます。それ以上の大量処理が必要な場合は、PROプランへアップグレードできます。</p>
+                        <h3>一度に何枚までの画像をPDFにまとめることができますか？</h3>
+                        <p>無料版では一度に同時に最大5枚までの画像ファイルを結合できます。もしビジネスでのご利用や、5枚を超える大量の写真を1つのPDFにまとめたい場合は、月額わずか2ドルの「PRO版（無制限パス）」にアップグレードすることで、制限なく何枚でも一瞬で結合できるようになります。</p>
                     </div>
                     <div class="faq-item">
-                        <h3>変換後に画質は劣化しますか？</h3>
-                        <p>一部の圧縮形式への変換では軽微な変化が生じることがありますが、当システムはブラウザの最高画質レンダリングを有効にして高品質な出力を保証しています。</p>
+                        <h3>スマホ（iPhone/Android）からでも利用できますか？</h3>
+                        <p>はい、インストール不要でご利用いただけます。SafariやGoogle Chromeなどのモバイルブラウザから当サイトにアクセスするだけで、パソコンと同様にローカルで安全かつ高速にPDF化を行うことができます。</p>
                     </div>
                 </div>
             </section>
         </section>
-
+        
         <!-- Recommended Resources -->
         <section class="resources-section">
             <h4 class="resources-title">[おすすめのリソース]</h4>
