@@ -28,7 +28,7 @@ Todas las dependencias de procesamiento de datos se ejecutan en local dentro del
 
 ---
 
-## 3. Arquitectura y Flujo de Datos
+## 3. Architecture and Data Flow
 
 ### 3.1. Procesamiento Client-Side Privado
 El sistema funciona de manera autónoma en el navegador. Cuando un usuario carga un archivo (a través de arrastrar y soltar o el explorador del sistema):
@@ -75,9 +75,14 @@ Para evitar el mantenimiento repetitivo de menús, scripts globales y estructura
 
 ## 6. Rendimiento y Diagnóstico de Búsqueda (Google Search Console)
 
-El análisis del reporte de rendimiento de Google Search Console con fecha de Julio 2026 proporciona la siguiente información clave del tráfico del sitio:
+El análisis del reporte de rendimiento de Google Search Console con fecha de Julio 2026 proporciona la siguiente información clave del tráfico del sitio y las optimizaciones SEO implementadas:
 
 - **Métricas de Entrada**: 3 clics y 168 impresiones orgánicas en un periodo de 3 meses, con posición media global de 45.3. El mayor volumen de impresiones se concentra en la plataforma de ordenadores (129 impresiones frente a 39 en móviles).
 - **El Nicho de Watermark Removal**: Es el único motor que está capturando clics útiles orgánicos en español e inglés, liderado por la keyword `"eliminar marca de agua de una imagen"` (posición 4.0 con un CTR de 100% de conversión).
-- **Rendimiento de Japón (JA)**: La página de imágenes a PDF en japonés (`/ja/gazo-pdf-henkan/`) atrajo el **43.4% de las impresiones totales del sitio** (73 impresiones), pero experimentó un CTR del 0% debido a problemas de SEO local. Se procedió a una reoptimización estructural de metadatos SEO en japonés (Meta Title e inyección de la keyword exacta `PNG PDF 結合` y `画像 PDF 変換`) y corrección del JSON-LD WebApplication para mejorar la legibilidad y capturar clics orgánicos.
+- **Optimización CTR Móvil y Long-Tail**: Se inyectaron dos nuevas preguntas frecuentes en [quitar-marca-agua-gemini/index.html](file:///d:/Descargas/Desarrollo%20de%20aplicaciones/converter/quitar-marca-agua-gemini/index.html) y su versión en inglés sobre el funcionamiento sin consumo de plan de datos en teléfonos móviles (celulares) y comparativa de inpainting local de Laplace frente a alternativas de pago en la nube.
+- **Optimización de Títulos Magnéticos (ES)**: Para escalar del promedio de posición ~45 y elevar el CTR orgánico sin superar el límite de **60 caracteres** de Google SERP, se reestructuraron las cabeceras en español:
+  - `imagenes-a-pdf/index.html` -> `<title>Imágenes a PDF Gratis y Sin Registro | My Local Picture</title>` (57 caracteres)
+  - `jpg-a-pdf/index.html` -> `<title>Convertir JPG a PDF Gratis (En 3 clics) | My Local Picture</title>` (58 caracteres)
+  - `png-a-pdf/index.html` -> `<title>Convertir PNG a PDF Gratis (En 3 clics) | My Local Picture</title>` (58 caracteres)
+- **Rendimiento de Japón (JA)**: La página de imágenes a PDF en japonés (`/ja/gazo-pdf-henkan/`) atrajo el **43.4% de las impresiones totales del sitio** (73 impresiones), pero experimentó un CTR del 0% debido a problemas de SEO local. Se procedió a una reoptimización estructural de metadatos SEO en japonés en [ja/gazo-pdf-henkan/index.html](file:///d:/Descargas/Desarrollo%20de%20aplicaciones/converter/ja/gazo-pdf-henkan/index.html) integrando los ganchos comerciales `"簡単"` (Fácil) y `"登録不要"` (Sin registro) junto a la keyword exacta `PNG PDF 結合` y corrigiendo la inconsistencia de lenguaje del marcado JSON-LD.
 - **Activación de DALL-E**: Las páginas correspondientes a la remoción de la marca DALL-E presentaban un bug crítico al no enlazar el JS del removedor matemático local [watermark-remover-dalle.js](file:///d:/Descargas/Desarrollo%20de%20aplicaciones/converter/assets/watermark-remover-dalle.js). Al inyectar su script en los HTML en español, inglés, japonés y chino, la herramienta queda 100% operativa para indexar en Google y captar el tráfico de inpainting orgánico.
