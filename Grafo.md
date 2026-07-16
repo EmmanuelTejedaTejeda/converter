@@ -1,6 +1,6 @@
 # Mapa de Arquitectura del Proyecto (Grafo de Dependencias)
 
-Este documento detalla visual y técnicamente las relaciones e interacciones entre los diferentes componentes del proyecto **My Local Picture**.
+Este documento detalla visual y técnicamente las relaciones e interacciones entre los diferentes componentes del proyecto **My Local Picture**, incorporando los flujos de optimización de monetización y acoplamiento dinámico de metadatos SEO.
 
 ---
 
@@ -14,6 +14,7 @@ graph TD
     classDef css fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#fff;
     classDef py fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff;
     classDef lib fill:#a855f7,stroke:#9333ea,stroke-width:2px,color:#fff;
+    classDef flow fill:#06b6d4,stroke:#0891b2,stroke-width:2px,color:#fff;
 
     %% Nodos HTML
     RaizHtml["index.html (ES)"]:::html
@@ -75,6 +76,12 @@ graph TD
     JsZip["assets/jszip.min.js"]:::lib
     PdfJsLib["assets/pdf.min.mjs"]:::lib
     PdfWorker["assets/pdf.worker.min.mjs"]:::lib
+
+    %% Flujos de Retención y Optimización Comercial (theme.js)
+    CanvasIntercept["toBlob Interceptor <br> (Delay 2.5s)"]:::flow
+    PdfIntercept["save PDF Interceptor <br> (Delay 2.5s)"]:::flow
+    AdSense["Google AdSense <br> (Impression Boost)"]:::flow
+    SearchIndex["Buscador Dinámico <br> (setupGlobalSearch)"]:::flow
 
     %% Automatización Python
     PythonScript["update_partials.py"]:::py
@@ -144,6 +151,22 @@ graph TD
     PdfImgHtml --> PdfImgJs
     PdfJpgHtml --> PdfJpgJs
 
+    %% Interceptores de theme.js en el ciclo de vida del Canvas y PDF
+    ThemeJs --> CanvasIntercept
+    ThemeJs --> PdfIntercept
+    CanvasIntercept -.->|Ralentiza exportaciones de| AppJs
+    CanvasIntercept -.->|Ralentiza exportaciones de| UniversalJs
+    CanvasIntercept -.->|Ralentiza exportaciones de| WebpJs
+    PdfIntercept -.->|Ralentiza compilación de| ImgPdfJs
+    
+    %% Flujo Comercial
+    CanvasIntercept -->|Incrementa exposición| AdSense
+    PdfIntercept -->|Incrementa exposición| AdSense
+
+    %% Acoplamiento de buscador dinámico
+    JpgPngHtml -.->|Menu dropdown en DOM| SearchIndex
+    ThemeJs --> SearchIndex
+
     %% Relaciones HTML/JS -> Librerías
     HeicJs -->|Carga dinámica| Heic2Any
     GeminiHtml -->|Importa CDN| OpenCV
@@ -169,7 +192,7 @@ graph TD
 - Controla el tema oscuro/claro y la persistencia en `localStorage`.
 - Ralentiza artificialmente 2.5s las exportaciones de canvas (`toBlob`) y generación de documentos en jsPDF (`save`) inyectando textos de progreso para incrementar la retención del usuario y optimizar ingresos por AdSense.
 - Carga de forma asíncrona ("lazy-load") scripts de seguimiento y publicidad al primer movimiento de cursor o scroll.
-- Construye la base de datos de búsqueda al vuelo (on-the-fly) analizando dinámicamente los tags de palabras clave en el header.
+- **Buscador Dinámico (`setupGlobalSearch`)**: Indexa y busca herramientas en el cliente leyendo al vuelo las palabras clave (`data-keywords`) de los enlaces del dropdown del header presentes en el DOM, acoplándose dinámicamente al HTML inyectado por el script de sincronización.
 
 ### 2.4. Capa de Scripts de Herramientas ([assets/](file:///d:/Descargas/Desarrollo%20de%20aplicaciones/converter/assets/))
 Cada herramienta cuenta con un HTML específico (ej. `/png-a-jpg/index.html`) que importa de forma exclusiva su script de lógica desde el directorio de assets comunes.
