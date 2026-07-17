@@ -409,33 +409,33 @@
         // Compute path from main root to target language + page
         let targetPath = '';
         if (targetLang === 'es') {
-            if (pageType === 'home') targetPath = 'index.html';
-            else if (pageType === 'jpg-to-png') targetPath = 'jpg-a-png/index.html';
-            else if (pageType === 'compress') targetPath = 'comprimir-imagenes/index.html';
-            else if (pageType === 'webp-to-jpg') targetPath = 'webp-a-jpg/index.html';
-            else if (pageType === 'images-to-pdf') targetPath = 'imagenes-a-pdf/index.html';
-            else if (pageType === 'resize') targetPath = 'redimensionar-imagenes/index.html';
+            if (pageType === 'home') targetPath = '';
+            else if (pageType === 'jpg-to-png') targetPath = 'jpg-a-png/';
+            else if (pageType === 'compress') targetPath = 'comprimir-imagenes/';
+            else if (pageType === 'webp-to-jpg') targetPath = 'webp-a-jpg/';
+            else if (pageType === 'images-to-pdf') targetPath = 'imagenes-a-pdf/';
+            else if (pageType === 'resize') targetPath = 'redimensionar-imagenes/';
         } else if (targetLang === 'en') {
-            if (pageType === 'home') targetPath = 'en/index.html';
-            else if (pageType === 'jpg-to-png') targetPath = 'en/jpg-to-png/index.html';
-            else if (pageType === 'compress') targetPath = 'en/compress-images/index.html';
-            else if (pageType === 'webp-to-jpg') targetPath = 'en/webp-to-jpg/index.html';
-            else if (pageType === 'images-to-pdf') targetPath = 'en/images-to-pdf/index.html';
-            else if (pageType === 'resize') targetPath = 'en/resize-images/index.html';
+            if (pageType === 'home') targetPath = 'en/';
+            else if (pageType === 'jpg-to-png') targetPath = 'en/jpg-to-png/';
+            else if (pageType === 'compress') targetPath = 'en/compress-images/';
+            else if (pageType === 'webp-to-jpg') targetPath = 'en/webp-to-jpg/';
+            else if (pageType === 'images-to-pdf') targetPath = 'en/images-to-pdf/';
+            else if (pageType === 'resize') targetPath = 'en/resize-images/';
         } else if (targetLang === 'zh') {
-            if (pageType === 'home') targetPath = 'zh/index.html';
-            else if (pageType === 'jpg-to-png') targetPath = 'zh/jpg-zhuan-png/index.html';
-            else if (pageType === 'compress') targetPath = 'zh/yasuo-tupian/index.html';
-            else if (pageType === 'webp-to-jpg') targetPath = 'zh/webp-zhuan-jpg/index.html';
-            else if (pageType === 'images-to-pdf') targetPath = 'zh/tupian-zhuan-pdf/index.html';
-            else if (pageType === 'resize') targetPath = 'zh/tupian-tiaozheng-daxiao/index.html';
+            if (pageType === 'home') targetPath = 'zh/';
+            else if (pageType === 'jpg-to-png') targetPath = 'zh/jpg-zhuan-png/';
+            else if (pageType === 'compress') targetPath = 'zh/yasuo-tupian/';
+            else if (pageType === 'webp-to-jpg') targetPath = 'zh/webp-zhuan-jpg/';
+            else if (pageType === 'images-to-pdf') targetPath = 'zh/tupian-zhuan-pdf/';
+            else if (pageType === 'resize') targetPath = 'zh/tupian-tiaozheng-daxiao/';
         } else if (targetLang === 'ja') {
-            if (pageType === 'home') targetPath = 'ja/index.html';
-            else if (pageType === 'jpg-to-png') targetPath = 'ja/jpg-png-henkan/index.html';
-            else if (pageType === 'compress') targetPath = 'ja/gazo-asshuku/index.html';
-            else if (pageType === 'webp-to-jpg') targetPath = 'ja/webp-jpg-henkan/index.html';
-            else if (pageType === 'images-to-pdf') targetPath = 'ja/gazo-pdf-henkan/index.html';
-            else if (pageType === 'resize') targetPath = 'ja/gazo-saizu-henko/index.html';
+            if (pageType === 'home') targetPath = 'ja/';
+            else if (pageType === 'jpg-to-png') targetPath = 'ja/jpg-png-henkan/';
+            else if (pageType === 'compress') targetPath = 'ja/gazo-asshuku/';
+            else if (pageType === 'webp-to-jpg') targetPath = 'ja/webp-jpg-henkan/';
+            else if (pageType === 'images-to-pdf') targetPath = 'ja/gazo-pdf-henkan/';
+            else if (pageType === 'resize') targetPath = 'ja/gazo-saizu-henko/';
         }
 
         window.location.replace(pathToRoot + targetPath);
