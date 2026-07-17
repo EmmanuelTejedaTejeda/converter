@@ -1,6 +1,6 @@
 # Mapa de Arquitectura del Proyecto (Grafo de Dependencias)
 
-Este documento detalla visual y técnicamente las relaciones e interacciones entre los diferentes componentes del proyecto **My Local Picture**, incorporando los flujos de optimización de monetización y acoplamiento dinámico de metadatos SEO.
+Este documento detalla visual y técnicamente las relaciones e interacciones entre los diferentes componentes del proyecto **My Local Picture**, incorporando los flujos de optimización de monetización, acoplamiento dinámico de metadatos SEO y enrutamiento dinámico blindado.
 
 ---
 
@@ -82,6 +82,11 @@ graph TD
     PdfIntercept["save PDF Interceptor <br> (Delay 2.5s)"]:::flow
     AdSense["Google AdSense <br> (Impression Boost)"]:::flow
     SearchIndex["Buscador Dinámico <br> (setupGlobalSearch)"]:::flow
+
+    %% Enrutador Dinámico de Idioma (handleLanguageRedirect)
+    DomLookup["DOM Lookup alternate <br> (rel=alternate)"]:::flow
+    PathnameParser["Pathname Depth Parser <br> (window.location.pathname)"]:::flow
+    UrlRedirection["Absolute URL Redirection <br> (Prevent 404/Redirection loops)"]:::flow
 
     %% Automatización Python
     PythonScript["update_partials.py"]:::py
@@ -167,6 +172,16 @@ graph TD
     JpgPngHtml -.->|Menu dropdown en DOM| SearchIndex
     ThemeJs --> SearchIndex
 
+    %% Flujo del Enrutador Dinámico de Idioma
+    ThemeJs --> DomLookup
+    ThemeJs --> PathnameParser
+    DomLookup -->|Busca alternate inyectado| UrlRedirection
+    PathnameParser -->|Calcula profundidad matemática| UrlRedirection
+    UrlRedirection -.->|Redirige de forma absoluta a| RaizHtml
+    UrlRedirection -.->|Redirige de forma absoluta a| EnHtml
+    UrlRedirection -.->|Redirige de forma absoluta a| JaHtml
+    UrlRedirection -.->|Redirige de forma absoluta a| ZhHtml
+
     %% Relaciones HTML/JS -> Librerías
     HeicJs -->|Carga dinámica| Heic2Any
     GeminiHtml -->|Importa CDN| OpenCV
@@ -193,6 +208,7 @@ graph TD
 - Ralentiza artificialmente 2.5s las exportaciones de canvas (`toBlob`) y generación de documentos en jsPDF (`save`) inyectando textos de progreso para incrementar la retención del usuario y optimizar ingresos por AdSense.
 - Carga de forma asíncrona ("lazy-load") scripts de seguimiento y publicidad al primer movimiento de cursor o scroll.
 - **Buscador Dinámico (`setupGlobalSearch`)**: Indexa y busca herramientas en el cliente leyendo al vuelo las palabras clave (`data-keywords`) de los enlaces del dropdown del header presentes en el DOM, acoplándose dinámicamente al HTML inyectado por el script de sincronización.
+- **Enrutador Dinámico de Idioma (`handleLanguageRedirect`)**: Motor dinámico universal que detecta la preferencia de idioma del navegador y redirige al usuario. Para evitar errores de enrutamiento relativo, barras infinitas y cruces de idioma, el script lee del DOM la etiqueta `<link rel="alternate" hreflang="...">` para obtener la URL absoluta exacta de destino. Si no existe, calcula matemáticamente la profundidad de la URL analizando las subcarpetas del `pathname` para redirigir de forma segura usando Clean URLs.
 
 ### 2.4. Capa de Scripts de Herramientas ([assets/](file:///d:/Descargas/Desarrollo%20de%20aplicaciones/converter/assets/))
 Cada herramienta cuenta con un HTML específico (ej. `/png-a-jpg/index.html`) que importa de forma exclusiva su script de lógica desde el directorio de assets comunes.
