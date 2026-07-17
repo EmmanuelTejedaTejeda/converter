@@ -383,60 +383,32 @@
 
         if (currentLang === targetLang) return; // Already on correct language page
 
-        // Determine current page type
-        let pageType = 'home';
-        if (href.includes('jpg-a-png') || href.includes('jpg-to-png') || href.includes('jpg-zhuan-png') || href.includes('jpg-png-henkan')) {
-            pageType = 'jpg-to-png';
-        } else if (href.includes('comprimir-imagenes') || href.includes('compress-images') || href.includes('yasuo-tupian') || href.includes('gazo-asshuku')) {
-            pageType = 'compress';
-        } else if (href.includes('webp-a-jpg') || href.includes('webp-to-jpg') || href.includes('webp-zhuan-jpg') || href.includes('webp-jpg-henkan')) {
-            pageType = 'webp-to-jpg';
-        } else if (href.includes('imagenes-a-pdf') || href.includes('images-to-pdf') || href.includes('tupian-zhuan-pdf') || href.includes('gazo-pdf-henkan')) {
-            pageType = 'images-to-pdf';
-        } else if (href.includes('redimensionar-imagenes') || href.includes('resize-images') || href.includes('tupian-tiaozheng-daxiao') || href.includes('gazo-saizu-henko')) {
-            pageType = 'resize';
+        // Search for alternate link in head for the target language (Dynamic DOM lookup)
+        const alternateLink = document.querySelector(`link[rel="alternate"][hreflang="${targetLang}"]`);
+        if (alternateLink && alternateLink.href) {
+            // Check if the link contains a valid absolute URL and does not point to the current page
+            if (alternateLink.href !== window.location.href) {
+                window.location.replace(alternateLink.href);
+                return;
+            }
         }
 
-        // Compute relative path prefix to main root
+        // Fallback: If no alternate link is found, compute home redirection safely
+        // Compute current path depth dynamically
+        const pathname = window.location.pathname;
+        const cleanPath = pathname.replace(/^\/|\/$/g, '');
+        const pathParts = cleanPath ? cleanPath.split('/') : [];
+        const depth = pathParts.length;
+
         let pathToRoot = '';
-        if (currentLang === 'es') {
-            if (pageType !== 'home') pathToRoot = '../';
-        } else { // 'en', 'zh', or 'ja'
-            if (pageType === 'home') pathToRoot = '../';
-            else pathToRoot = '../../';
+        for (let i = 0; i < depth; i++) {
+            pathToRoot += '../';
         }
 
-        // Compute path from main root to target language + page
         let targetPath = '';
-        if (targetLang === 'es') {
-            if (pageType === 'home') targetPath = '';
-            else if (pageType === 'jpg-to-png') targetPath = 'jpg-a-png/';
-            else if (pageType === 'compress') targetPath = 'comprimir-imagenes/';
-            else if (pageType === 'webp-to-jpg') targetPath = 'webp-a-jpg/';
-            else if (pageType === 'images-to-pdf') targetPath = 'imagenes-a-pdf/';
-            else if (pageType === 'resize') targetPath = 'redimensionar-imagenes/';
-        } else if (targetLang === 'en') {
-            if (pageType === 'home') targetPath = 'en/';
-            else if (pageType === 'jpg-to-png') targetPath = 'en/jpg-to-png/';
-            else if (pageType === 'compress') targetPath = 'en/compress-images/';
-            else if (pageType === 'webp-to-jpg') targetPath = 'en/webp-to-jpg/';
-            else if (pageType === 'images-to-pdf') targetPath = 'en/images-to-pdf/';
-            else if (pageType === 'resize') targetPath = 'en/resize-images/';
-        } else if (targetLang === 'zh') {
-            if (pageType === 'home') targetPath = 'zh/';
-            else if (pageType === 'jpg-to-png') targetPath = 'zh/jpg-zhuan-png/';
-            else if (pageType === 'compress') targetPath = 'zh/yasuo-tupian/';
-            else if (pageType === 'webp-to-jpg') targetPath = 'zh/webp-zhuan-jpg/';
-            else if (pageType === 'images-to-pdf') targetPath = 'zh/tupian-zhuan-pdf/';
-            else if (pageType === 'resize') targetPath = 'zh/tupian-tiaozheng-daxiao/';
-        } else if (targetLang === 'ja') {
-            if (pageType === 'home') targetPath = 'ja/';
-            else if (pageType === 'jpg-to-png') targetPath = 'ja/jpg-png-henkan/';
-            else if (pageType === 'compress') targetPath = 'ja/gazo-asshuku/';
-            else if (pageType === 'webp-to-jpg') targetPath = 'ja/webp-jpg-henkan/';
-            else if (pageType === 'images-to-pdf') targetPath = 'ja/gazo-pdf-henkan/';
-            else if (pageType === 'resize') targetPath = 'ja/gazo-saizu-henko/';
-        }
+        if (targetLang === 'en') targetPath = 'en/';
+        else if (targetLang === 'zh') targetPath = 'zh/';
+        else if (targetLang === 'ja') targetPath = 'ja/';
 
         window.location.replace(pathToRoot + targetPath);
     }
