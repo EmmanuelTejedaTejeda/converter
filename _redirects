@@ -1,1 +1,3 @@
 https://herramientas-imagen.pages.dev/* https://mylocalpicture.com/:splat 301
+/index.html / 301
+/:path(.*)//+ /:path 301
