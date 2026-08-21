@@ -128,7 +128,7 @@ def main():
                     
                 # Calculate depth and base_path
                 depth = get_rel_depth(filepath, root_dir)
-                base_path = "../" * depth if depth > 0 else "./"
+                base_path = "/"
                 
                 # Extract alternate links
                 alternates = extract_alternate_links(original_html)
