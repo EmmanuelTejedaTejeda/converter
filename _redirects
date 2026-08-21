@@ -1,3 +1,10 @@
+# Cloudflare Pages Redirects Rules (My Local Picture)
+
+# 1. Global Migration from old subdomain to custom domain
 https://herramientas-imagen.pages.dev/* https://mylocalpicture.com/:splat 301
+
+# 2. Strip index.html from all tools and localized subdirectories (Fixes 112 404 errors)
+/*index.html /:splat 301
+
+# 3. Root index.html fallback
 /index.html / 301
-/:path(.*)//+ /:path 301

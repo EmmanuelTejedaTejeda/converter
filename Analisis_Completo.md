@@ -10,28 +10,30 @@ La aplicación está estructurada como un sitio estático multipágina (MPA) opt
 
 ### Tecnologías Core:
 - **HTML5 Semántico**: Cada herramienta cuenta con una estructura bien definida, marcado estructurado (JSON-LD para Schema y FAQ) y etiquetas meta optimizadas para redes sociales (Open Graph y Twitter Cards).
-- **SEO y Enrutamiento Multilingüe**:
-  - Implementación estricta de etiquetas `<link rel="canonical">` y `<link rel="alternate" hreflang="...">` con **URLs limpias** (sin terminación en `index.html`) para evitar penalizaciones de contenido duplicado y consolidar el posicionamiento en buscadores.
-  - Sincronización del archivo `sitemap.xml` para incluir todas las herramientas en sus respectivos idiomas, incluyendo convertidores y herramientas de IA (Midjourney Grid Splitter y DALL-E Watermark Remover).
-- **Vanilla CSS3**: Sistema de diseño moderno implementado con CSS nativo, variables de diseño (tokens de espaciado, colores y tipografías), soporte para temas (claro/oscuro) mediante una clase controladora, y transiciones fluidas.
-- **Vanilla JavaScript (ES6+)**: Control de la interfaz de usuario, manejo de drag-and-drop de archivos, y coordinación de las librerías de procesamiento.
+- **SEO y Enrutamiento Multilingüe (Sin Redirecciones JS)**:
+  - Implementación estricta de etiquetas `<link rel="canonical">` y `<link rel="alternate" hreflang="...">` con **URLs limpias** (sin terminación en `index.html`).
+  - Navegación e indexación libre por idioma (`/`, `/en/`, `/ja/`, `/zh/`) sin auto-redirecciones por JavaScript, garantizando que Googlebot pueda rastrear e indexar todas las versiones traducidas.
+  - Sincronización del archivo `sitemap.xml` para incluir todas las 164 herramientas en sus respectivos idiomas.
+- **Vanilla CSS3**: Sistema de diseño moderno implementado con CSS nativo, variables de diseño y soporte para temas (claro/oscuro) mediante una clase controladora.
+- **Vanilla JavaScript (ES6+) Nativo y de Alta Velocidad**:
+  - Control de UI, drag & drop y ejecución de conversión a velocidad nativa en el hilo del cliente (sin demoras artificiales, logrando INP < 50ms para cumplimiento de Core Web Vitals).
 
 ### Librerías Client-Side Incorporadas:
 Las librerías se sirven localmente desde `/assets/` para garantizar la privacidad y el funcionamiento sin dependencias externas:
 1. `heic2any.min.js`: Para la conversión de imágenes en formato HEIC/HEIF de Apple directamente a JPG o PNG.
 2. `jspdf.umd.min.js`: Biblioteca para la generación dinámica de archivos PDF a partir de imágenes locales.
-3. `jszip.min.js`: Creación y compresión de archivos ZIP del lado del cliente, utilizada cuando el usuario procesa archivos por lotes o convierte un PDF de múltiples páginas a imágenes individuales.
+3. `jszip.min.js`: Creación y compresión de archivos ZIP del lado del cliente para procesamientos por lotes.
 4. `pdf.min.mjs` y `pdf.worker.min.mjs` (Mozilla PDF.js): Motor para renderizar, procesar y extraer páginas de documentos PDF en el navegador para su conversión a imágenes.
 
 ### Infraestructura de Hosting y Despliegue:
-- **Cloudflare Pages**: Alojamiento estático global.
+- **Cloudflare Pages**: Alojamiento estático global en Edge CDN.
 - `wrangler.toml`: Archivo de configuración de desarrollo/despliegue de Cloudflare.
-- `_headers`: Define políticas de cabecera HTTP, incluyendo almacenamiento en caché para recursos estáticos y cabeceras de seguridad. **Bloquea activamente la indexación en entornos de desarrollo y vistas previas** de Pages mediante la cabecera `X-Robots-Tag: noindex, nofollow, noarchive` aplicada a solicitudes destinadas a subdominios `*.pages.dev`.
-- `_redirects`: Reglas de redirección de URL para mantener la consistencia del enrutamiento SEO.
+- `_headers`: Define políticas de cabecera HTTP, almacenamiento en caché para recursos estáticos y cabeceras de seguridad. Aplica `X-Robots-Tag: noindex, nofollow, noarchive` únicamente a solicitudes destinadas al subdominio de desarrollo `*.pages.dev`.
+- `_redirects`: Reglas de redirección HTTP `301` a nivel de servidor Edge para redirigir URLs viejas con `index.html` hacia URLs limpias `/` y migrar el tráfico de `herramientas-imagen.pages.dev` a `mylocalpicture.com`.
 
 ### Soporte Offline y Web App:
-- `sw.js` (Service Worker): Registra un service worker básico para la cacheación e inicio rápido en navegadores, permitiendo capacidades PWA.
-- `site.webmanifest`: Define la configuración de la aplicación web progresiva (PWA) para su instalación en dispositivos móviles y de escritorio.
+- `sw.js` (Service Worker): Caching e inicio rápido en navegadores, permitiendo capacidades PWA.
+- `site.webmanifest`: Configuración PWA para instalación móvil y de escritorio.
 
 ---
 
@@ -45,27 +47,25 @@ El proyecto está estructurado con base en directorios de herramientas y subdire
   - `update_partials.py`: Script de compilación y sincronización de plantillas.
   - `reglas_locales.md`: Reglas del sistema de IA.
   - `repomix-output.xml`: Grafo del repositorio.
-- **`/en/`**: Localización completa de la suite en **Inglés**. Contiene las mismas herramientas adaptadas al inglés (ej: `/en/png-to-jpg/`).
+- **`/en/`**: Localización completa de la suite en **Inglés** (ej: `/en/png-to-jpg/`).
 - **`/ja/`**: Localización completa de la suite en **Japonés** (ej: `/ja/png-jpg-henkan/`).
 - **`/zh/`**: Localización completa de la suite en **Chino Simplificado** (ej: `/zh/png-zhuan-jpg/`).
 - **`/assets/`**: Aloja todos los recursos estáticos compartidos:
   - Estilos globales (`styles.css`).
-  - Lógica del tema (`theme.js`).
+  - Lógica compartida (`theme.js`).
   - Hojas de scripts específicas de cada herramienta (`resizer.js`, `compressor.js`, `webp-to-jpg.js`, etc.).
   - Librerías de terceros (`heic2any.min.js`, `jspdf.umd.min.js`, `jszip.min.js`, etc.).
-- **`/partials/`**: Contiene fragmentos de código HTML reutilizables para evitar duplicación:
-  - Cabeceras (`header_es.html`, `header_en.html`, `header_ja.html`, `header_zh.html`).
-  - Pies de página (`footer_es.html`, `footer_en.html`, `footer_ja.html`, `footer_zh.html`).
+- **`/partials/`**: Contiene fragmentos de código HTML reutilizables para evitar duplicación (Headers y Footers multilingües).
 
 ---
 
 ## 4. Pipeline de Automatización: update_partials.py
-El desarrollo de las vistas se simplifica mediante el script `update_partials.py` (desarrollado en Python 3). Su funcionamiento es el siguiente:
-1. **Escaneo Recursivo**: Busca todos los archivos `.html` del proyecto (excluyendo carpetas como `.git` o `node_modules`).
+El desarrollo de las vistas se simplifica mediante el script `update_partials.py` (desarrollado en Python 3):
+1. **Escaneo Recursivo**: Busca todos los archivos `.html` del proyecto.
 2. **Determinación del Idioma**: Identifica el idioma del archivo según su directorio de origen (`en`, `ja`, `zh` o raíz para `es`).
-3. **Cálculo de Profundidad Relativa**: Calcula la profundidad del directorio del archivo respecto a la raíz para reemplazar dinámicamente `{{BASE_PATH}}` en las rutas de CSS, JS e imágenes del header/footer, asegurando que los enlaces siempre apunten a la ruta correcta.
-4. **Language Switcher Dinámico**: Extrae las etiquetas `<link rel="alternate" hreflang="..." href="...">` del `<head>` del HTML original y construye dinámicamente un alternador de idiomas de barra de navegación apuntando a las traducciones directas de la herramienta actual.
+3. **Cálculo de Profundidad Relativa**: Calcula la profundidad del directorio para reemplazar dinámicamente `{{BASE_PATH}}`.
+4. **Language Switcher Dinámico**: Construye el alternador de idiomas de la barra de navegación apuntando a las traducciones directas de la herramienta actual.
 5. **Inyección en Bloques**: Inserta el header y el footer correspondientes dentro de los marcadores de comentarios:
    - `<!-- HEADER_START --> ... <!-- HEADER_END -->`
    - `<!-- FOOTER_START --> ... <!-- FOOTER_END -->`
-6. **Escritura Condicional**: Solo guarda los archivos que presenten cambios reales, optimizando el tiempo de construcción.
+6. **Escritura Condicional**: Solo guarda los archivos que presenten cambios reales.
