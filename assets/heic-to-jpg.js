@@ -415,6 +415,12 @@ document.addEventListener('DOMContentLoaded', () => {
         clearAllBtn.addEventListener('click', clearAllFiles);
     }
 
+    function selectHeicQuality(sizeBytes) {
+        if (sizeBytes > 10 * 1024 * 1024) return 0.72; // > 10MB
+        if (sizeBytes > 5 * 1024 * 1024) return 0.82;  // 5-10MB
+        return 0.92;                                   // < 5MB
+    }
+
     async function convertHeic(fileWrapper) {
         if (fileWrapper.status === 'converting' || fileWrapper.status === 'done') return;
 
@@ -458,11 +464,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update progress (40%)
             progressFill.style.width = '40%';
             
-            // Execute conversion using the library
+            // Execute conversion with dynamic quality calculation
+            const dynamicQuality = selectedFormat === 'jpeg' ? selectHeicQuality(fileWrapper.originalSize) : undefined;
             const convertedResult = await heic2any({
                 blob: fileWrapper.file,
                 toType: toType,
-                quality: selectedFormat === 'jpeg' ? 0.85 : undefined
+                quality: dynamicQuality
             });
 
             progressFill.style.width = '80%';

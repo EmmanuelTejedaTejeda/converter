@@ -18,12 +18,12 @@ La aplicación está estructurada como un sitio estático multipágina (MPA) opt
 - **Vanilla JavaScript (ES6+) Nativo y de Alta Velocidad**:
   - Control de UI, drag & drop y ejecución de conversión a velocidad nativa en el hilo del cliente (sin demoras artificiales, logrando INP < 50ms para cumplimiento de Core Web Vitals).
 
-### Librerías Client-Side Incorporadas:
+### Librerías Client-Side Incorporadas y Optimizaciones de Rendimiento:
 Las librerías se sirven localmente desde `/assets/` para garantizar la privacidad y el funcionamiento sin dependencias externas:
-1. `heic2any.min.js`: Para la conversión de imágenes en formato HEIC/HEIF de Apple directamente a JPG o PNG.
-2. `jspdf.umd.min.js`: Biblioteca para la generación dinámica de archivos PDF a partir de imágenes locales.
+1. `heic2any.min.js`: Para la conversión de imágenes HEIC/HEIF de Apple directamente a JPG o PNG con selección dinámica de calidad según el tamaño de archivo para optimizar velocidad y memoria.
+2. `jspdf.umd.min.js`: Biblioteca para la generación dinámica de archivos PDF a partir de imágenes locales, optimizada transfiriendo directamente elementos `HTMLCanvasElement` y usando banderas de compresión rápida para evitar el overhead de Base64 DataURLs.
 3. `jszip.min.js`: Creación y compresión de archivos ZIP del lado del cliente para procesamientos por lotes.
-4. `pdf.min.mjs` y `pdf.worker.min.mjs` (Mozilla PDF.js): Motor para renderizar, procesar y extraer páginas de documentos PDF en el navegador para su conversión a imágenes.
+4. `pdf.min.mjs` y `pdf.worker.min.mjs` (Mozilla PDF.js): Motor para renderizar, procesar y extraer páginas de documentos PDF en el navegador a imágenes con liberación inmediata de memoria (`page.cleanup()` y `pdf.destroy()`).
 
 ### Infraestructura de Hosting y Despliegue:
 - **Cloudflare Pages**: Alojamiento estático global en Edge CDN.

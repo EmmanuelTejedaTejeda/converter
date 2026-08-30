@@ -423,10 +423,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 pages.push({ url, name });
                 
+                // Cleanup page internal resources immediately to free RAM
+                if (typeof page.cleanup === 'function') {
+                    page.cleanup();
+                }
+
                 // Update progress incrementally
                 const percent = 25 + Math.round((pageNum / numPages) * 70);
                 progressFill.style.width = `${percent}%`;
             }
+
+            // Cleanup document internal PDF.js worker memory
+            if (typeof pdf.cleanup === 'function') pdf.cleanup();
+            if (typeof pdf.destroy === 'function') pdf.destroy();
 
             fileWrapper.status = 'done';
             fileWrapper.convertedPages = pages;

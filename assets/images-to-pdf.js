@@ -683,11 +683,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     y = margin + (printableH - finalH) / 2;
                 }
 
-                // 4. Format/Compress Image
+                // 4. Format/Compress Image (Optimized: Direct Canvas element to avoid Base64 memory overhead)
                 let finalImgSrc = img;
                 let mimeType = 'JPEG';
 
-                // Paint white canvas background and save to JPEG dataURL if compressed
+                // Paint white canvas background if compressed or transparent
                 if (shouldCompress) {
                     const canvas = document.createElement('canvas');
                     canvas.width = imgW;
@@ -696,10 +696,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     ctx.fillStyle = '#ffffff';
                     ctx.fillRect(0, 0, canvas.width, canvas.height);
                     ctx.drawImage(img, 0, 0);
-                    finalImgSrc = canvas.toDataURL('image/jpeg', compressQuality);
+                    finalImgSrc = canvas;
                 } else {
-                    // Fallback to Canvas JPEG to strip transparency (avoid black backgrounds in jsPDF)
-                    // or add standard JPEGs as is. Transparency in PNG/WEBP should be flattened onto white.
+                    // Fallback to Canvas JPEG element to strip transparency (avoid black backgrounds in jsPDF)
                     const isTransparent = fileWrapper.file.type === 'image/png' || 
                                           fileWrapper.file.type === 'image/webp';
                     if (isTransparent) {
@@ -710,12 +709,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         ctx.fillStyle = '#ffffff';
                         ctx.fillRect(0, 0, canvas.width, canvas.height);
                         ctx.drawImage(img, 0, 0);
-                        finalImgSrc = canvas.toDataURL('image/jpeg', 0.95);
+                        finalImgSrc = canvas;
                     }
                 }
 
-                // 5. Draw onto PDF page
-                doc.addImage(finalImgSrc, mimeType, x, y, finalW, finalH, `img_${i}`);
+                // 5. Draw onto PDF page with FAST compression flag
+                doc.addImage(finalImgSrc, mimeType, x, y, finalW, finalH, `img_${i}`, 'FAST');
             }
 
             // Save PDF document
