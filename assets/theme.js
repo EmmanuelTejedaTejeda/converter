@@ -117,12 +117,14 @@
         } else if (consent === 'declined') {
             // Do not load scripts, respect user choice
         } else {
-            // If no preference stored, show banner after window is fully loaded to prevent performance impact
-            if (document.readyState === 'complete') {
-                showCookieConsentBanner();
-            } else {
-                window.addEventListener('load', showCookieConsentBanner);
-            }
+            // Delay banner presentation by 3.5s to keep critical FCP/LCP rendering window completely clean
+            setTimeout(() => {
+                if (document.readyState === 'complete') {
+                    showCookieConsentBanner();
+                } else {
+                    window.addEventListener('load', showCookieConsentBanner);
+                }
+            }, 3500);
         }
     }
 
