@@ -17,6 +17,9 @@
     function setupLazyThirdParty() {
         let scriptsLoaded = false;
 
+        const botPattern = /bot|googlebot|bingbot|baiduspider|yandex|duckduckbot|slurp|crawler|spider|robot|crawling|lighthouse|pagespeed|Mediapartners-Google/i;
+        const isBot = botPattern.test(navigator.userAgent);
+
         function loadThirdPartyScripts() {
             if (scriptsLoaded) return;
             scriptsLoaded = true;
