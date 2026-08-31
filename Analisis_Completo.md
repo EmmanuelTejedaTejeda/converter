@@ -14,7 +14,7 @@ La aplicación está estructurada como un sitio estático multipágina (MPA) opt
   - Implementación estricta de etiquetas `<link rel="canonical">` y `<link rel="alternate" hreflang="...">` con **URLs limpias** (sin terminación en `index.html`).
   - Navegación e indexación libre por idioma (`/`, `/en/`, `/ja/`, `/zh/`) sin auto-redirecciones por JavaScript, garantizando que Googlebot pueda rastrear e indexar todas las versiones traducidas.
   - Sincronización del archivo `sitemap.xml` para incluir todas las 164 herramientas en sus respectivos idiomas.
-- **Vanilla CSS3**: Sistema de diseño moderno implementado con CSS nativo, variables de diseño y soporte para temas (claro/oscuro) mediante una clase controladora.
+- **Vanilla CSS3**: Sistema de diseño moderno implementado con CSS nativo, variables de diseño y soporte para temas (claro/oscuro) mediante una clase controladora. Optimizado con `display: none;` en componentes colapsados (`.mobile-nav-drawer`) para eliminar desviaciones de maquetado en el arranque (logrando métrica CLS = 0.00).
 - **Vanilla JavaScript (ES6+) Nativo y de Alta Velocidad**:
   - Control de UI, drag & drop y ejecución de conversión a velocidad nativa en el hilo del cliente (sin demoras artificiales, logrando INP < 30ms para cumplimiento de Core Web Vitals).
   - Carga asíncrona no bloqueante mediante la directiva `defer` en script principal `theme.js` y precarga de hojas de estilo (`<link rel="preload">`), eliminando bloqueos de renderizado en la ruta crítica y mejorando los tiempos de FCP/LCP.

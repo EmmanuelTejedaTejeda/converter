@@ -2714,6 +2714,7 @@ body.light-theme .moon-icon {
    Mobile Navigation Drawer
    ============================ */
 .mobile-nav-drawer {
+    display: none;
     position: fixed;
     top: 72px; /* Adjust to header height */
     height: calc(100vh - 72px);
@@ -2737,6 +2738,7 @@ body.mobile-menu-open {
 }
 
 body.mobile-menu-open .mobile-nav-drawer {
+    display: block;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
