@@ -104,22 +104,23 @@
             });
         }
 
-        if (isBot) {
-            // Load immediately for search engine crawlers and AdSense verification bots
-            loadThirdPartyScripts();
-        } else {
-            const consent = localStorage.getItem('cookie_consent');
-            if (consent === 'accepted') {
+        const consent = localStorage.getItem('cookie_consent');
+        if (consent === 'accepted') {
+            const triggerEvents = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+            function listener() {
                 loadThirdPartyScripts();
-            } else if (consent === 'declined') {
-                // Do not load scripts, respect user choice
+                triggerEvents.forEach(e => window.removeEventListener(e, listener, { passive: true }));
+            }
+            triggerEvents.forEach(e => window.addEventListener(e, listener, { passive: true }));
+            setTimeout(loadThirdPartyScripts, 4000);
+        } else if (consent === 'declined') {
+            // Do not load scripts, respect user choice
+        } else {
+            // If no preference stored, show banner after window is fully loaded to prevent performance impact
+            if (document.readyState === 'complete') {
+                showCookieConsentBanner();
             } else {
-                // If no preference stored, show banner after window is fully loaded to prevent performance impact
-                if (document.readyState === 'complete') {
-                    showCookieConsentBanner();
-                } else {
-                    window.addEventListener('load', showCookieConsentBanner);
-                }
+                window.addEventListener('load', showCookieConsentBanner);
             }
         }
     }

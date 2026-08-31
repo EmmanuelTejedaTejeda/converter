@@ -1877,6 +1877,8 @@ body.light-theme .moon-icon {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    contain: layout style;
+    margin-top: 1rem;
 }
 
 .directory-header {
