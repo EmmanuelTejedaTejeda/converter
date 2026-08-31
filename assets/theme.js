@@ -112,7 +112,6 @@
                 triggerEvents.forEach(e => window.removeEventListener(e, listener, { passive: true }));
             }
             triggerEvents.forEach(e => window.addEventListener(e, listener, { passive: true }));
-            setTimeout(loadThirdPartyScripts, 4000);
         } else if (consent === 'declined') {
             // Do not load scripts, respect user choice
         } else {
