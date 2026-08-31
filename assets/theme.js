@@ -29,6 +29,9 @@
             const gtagScript = document.createElement('script');
             gtagScript.async = true;
             gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-6DWDN024S9';
+            gtagScript.onerror = function() {
+                // Silently catch network blocks (adblockers or invalid measurement ID)
+            };
             document.head.appendChild(gtagScript);
 
             // Initialize GA configurations
@@ -40,6 +43,9 @@
             adsenseScript.async = true;
             adsenseScript.crossOrigin = 'anonymous';
             adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017';
+            adsenseScript.onerror = function() {
+                // Silently catch network blocks (adblockers)
+            };
             document.head.appendChild(adsenseScript);
         }
 
