@@ -277,12 +277,13 @@
         menuLinks.forEach(link => {
             const href = link.getAttribute('href');
             // Clean title text from SVG contents
-            let name = link.textContent.trim();
+            let name = link.textContent ? link.textContent.trim() : '';
             const keywords = link.getAttribute('data-keywords') || '';
             
-            // Find category
+            // Find category safely without null reference errors
             const categoryEl = link.closest('.dropdown-category');
-            const category = categoryEl ? categoryEl.querySelector('h4').textContent.trim() : '';
+            const categoryTitleEl = categoryEl ? categoryEl.querySelector('.dropdown-category-title, h4, h3, h5, .category-title') : null;
+            const category = categoryTitleEl ? categoryTitleEl.textContent.trim() : '';
             
             // Grab SVG markup if any
             const svgEl = link.querySelector('svg');

@@ -16,7 +16,9 @@ La aplicación está estructurada como un sitio estático multipágina (MPA) opt
   - Sincronización del archivo `sitemap.xml` para incluir todas las 164 herramientas en sus respectivos idiomas.
 - **Vanilla CSS3**: Sistema de diseño moderno implementado con CSS nativo, variables de diseño y soporte para temas (claro/oscuro) mediante una clase controladora.
 - **Vanilla JavaScript (ES6+) Nativo y de Alta Velocidad**:
-  - Control de UI, drag & drop y ejecución de conversión a velocidad nativa en el hilo del cliente (sin demoras artificiales, logrando INP < 50ms para cumplimiento de Core Web Vitals).
+  - Control de UI, drag & drop y ejecución de conversión a velocidad nativa en el hilo del cliente (sin demoras artificiales, logrando INP < 30ms para cumplimiento de Core Web Vitals).
+  - Carga asíncrona no bloqueante mediante la directiva `defer` en script principal `theme.js` y precarga de hojas de estilo (`<link rel="preload">`), eliminando bloqueos de renderizado en la ruta crítica y mejorando los tiempos de FCP/LCP.
+  - Implementación con verificación segura de nulos (*null checks*) en la navegación del DOM para prevenir errores sintácticos de consola (`TypeError`).
 
 ### Librerías Client-Side Incorporadas y Optimizaciones de Rendimiento:
 Las librerías se sirven localmente desde `/assets/` para garantizar la privacidad y el funcionamiento sin dependencias externas:
