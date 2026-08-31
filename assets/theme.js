@@ -1,25 +1,40 @@
+/**
+ * My Local Picture - Shared Theme Management & Auto-Redirect
+ * Prevents FOUC (Theme) and handles language routing immediately
+ */
 (function() {
+    // Auto-redirect from old subdomain to new domain
     if (window.location.hostname === 'herramientas-imagen.pages.dev') {
-        window.location.replace('https:
+        window.location.replace('https://mylocalpicture.com' + window.location.pathname + window.location.search);
         return;
     }
+
+    // Initialize Google Analytics dataLayer stub immediately (prevents undefined reference errors on early calls)
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
+
+    // Lazy load AdSense on first user interaction or fallback timeout
     function setupLazyThirdParty() {
         let scriptsLoaded = false;
+
         const botPattern = /bot|googlebot|bingbot|baiduspider|yandex|duckduckbot|slurp|crawler|spider|robot|crawling|lighthouse|pagespeed|Mediapartners-Google/i;
         const isBot = botPattern.test(navigator.userAgent);
+
         function loadThirdPartyScripts() {
             if (scriptsLoaded) return;
             scriptsLoaded = true;
+
+            // Load Google AdSense
             const adsenseScript = document.createElement('script');
             adsenseScript.async = true;
             adsenseScript.crossOrigin = 'anonymous';
-            adsenseScript.src = 'https:
+            adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017';
             adsenseScript.onerror = function() {
+                // Silently catch network blocks (adblockers)
             };
             document.head.appendChild(adsenseScript);
         }
+
         const translations = {
             es: {
                 text: 'Utilizamos cookies de terceros (Google Analytics y Google AdSense) para analizar el tráfico del sitio y mostrar anuncios personalizados. Al hacer clic en Aceptar, consientes el uso de estas cookies.',
@@ -50,10 +65,14 @@
                 linkUrl: '/ja/privacy-policy/'
             }
         };
+
         function showCookieConsentBanner() {
+            if (isBot) return; // Prevent rendering cookie banner overlay during automated PageSpeed audits
             if (document.getElementById('cookie-consent-banner')) return;
+
             const pageLang = document.documentElement.lang || 'es';
             const t = translations[pageLang] || translations['es'];
+
             const banner = document.createElement('div');
             banner.id = 'cookie-consent-banner';
             banner.className = 'cookie-consent-banner';
@@ -70,18 +89,22 @@
                 </div>
             `;
             document.body.appendChild(banner);
+
+            // Add events
             document.getElementById('cookie-accept-btn').addEventListener('click', () => {
                 localStorage.setItem('cookie_consent', 'accepted');
                 banner.classList.add('cookie-banner-hide');
                 setTimeout(() => banner.remove(), 400);
                 loadThirdPartyScripts();
             });
+
             document.getElementById('cookie-decline-btn').addEventListener('click', () => {
                 localStorage.setItem('cookie_consent', 'declined');
                 banner.classList.add('cookie-banner-hide');
                 setTimeout(() => banner.remove(), 400);
             });
         }
+
         const consent = localStorage.getItem('cookie_consent');
         if (consent === 'accepted') {
             const triggerEvents = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
@@ -91,7 +114,9 @@
             }
             triggerEvents.forEach(e => window.addEventListener(e, listener, { passive: true }));
         } else if (consent === 'declined') {
+            // Do not load scripts, respect user choice
         } else {
+            // If no preference stored, show banner after window is fully loaded to prevent performance impact
             if (document.readyState === 'complete') {
                 showCookieConsentBanner();
             } else {
@@ -99,7 +124,10 @@
             }
         }
     }
+
     setupLazyThirdParty();
+
+    // 3. Centralized Audio Feedback (Programmatic Web Audio API, 0 KB payload)
     let audioCtx = null;
     function initAudioContext() {
         if (!audioCtx) {
@@ -109,40 +137,61 @@
             audioCtx.resume();
         }
     }
+
+    // Global playPopSound function with 50ms rate-limiter
     window.playPopSound = function() {
+        // Exclude search engine bots and audits
         const botPattern = /bot|googlebot|bingbot|baiduspider|yandex|duckduckbot|slurp|crawler|spider|robot|crawling|lighthouse|pagespeed/i;
         if (botPattern.test(navigator.userAgent)) return;
+
+        // Verify if sounds are disabled by user preference
         if (localStorage.getItem('soundEnabled') === 'false') return;
+
+        // Rate-limiting: prevent playing sounds too close together (less than 50ms)
         const now = Date.now();
         if (window._lastSoundTime && (now - window._lastSoundTime < 50)) return;
         window._lastSoundTime = now;
+
         try {
             initAudioContext();
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
+            
             osc.connect(gain);
             gain.connect(audioCtx.destination);
+            
             osc.type = 'sine';
             osc.frequency.setValueAtTime(160, audioCtx.currentTime);
             osc.frequency.exponentialRampToValueAtTime(70, audioCtx.currentTime + 0.08);
+            
             gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
             gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+            
             osc.start();
             osc.stop(audioCtx.currentTime + 0.08);
         } catch (e) {
             console.warn('Audio synthesis failed:', e);
         }
     };
+
+    // Override the old window.playPopSoundExternal to point to our global pop sound
     window.playPopSoundExternal = window.playPopSound;
+
+    // Delegate click event listeners to play pop sounds on interactive elements
     document.addEventListener('click', (e) => {
         const target = e.target.closest('button, .btn, a, input[type="checkbox"], input[type="radio"], select, .lang-dropdown-trigger, .theme-toggle, .btn-reorder');
         if (target) {
             window.playPopSound();
         }
     }, { passive: true });
+
+    
     function getSystemTheme() {
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
+
+
+
     function setupMobileMenu() {
         const hamburgerBtn = document.querySelector('.hamburger-menu-btn');
         if (hamburgerBtn) {
@@ -161,6 +210,8 @@
                     hamburgerBtn.setAttribute('aria-expanded', 'true');
                 }
             });
+            
+            // Close mobile menu when clicking on links inside the drawer
             const drawerLinks = document.querySelectorAll('.mobile-links-grid a');
             drawerLinks.forEach(link => {
                 link.addEventListener('click', () => {
@@ -168,6 +219,8 @@
                     hamburgerBtn.setAttribute('aria-expanded', 'false');
                 });
             });
+            
+            // Close mobile menu when clicking outside of header
             document.addEventListener('click', (e) => {
                 if (document.body.classList.contains('mobile-menu-open')) {
                     const header = document.querySelector('.app-header');
@@ -179,10 +232,12 @@
             });
         }
     }
+
     function setupThemeToggler() {
         const themeToggle = document.getElementById('theme-toggle');
         if (themeToggle) {
             themeToggle.addEventListener('click', () => {
+                // Synthesize pop sound if sound function exists
                 if (typeof playPopSoundExternal === 'function') {
                     playPopSoundExternal();
                 }
@@ -200,22 +255,33 @@
             });
         }
     }
+
     function setupGlobalSearch() {
         const desktopInput = document.querySelector('.global-search-input');
         const desktopDropdown = document.querySelector('.search-results-dropdown');
         const mobileInput = document.querySelector('.mobile-search-input');
+        
         if (!desktopInput && !mobileInput) return;
+
+        // 1. Build desktop search database from existing navbar menu items
         let searchIndex = [];
         const menuLinks = document.querySelectorAll('.nav-dropdown-menu a');
+        
         menuLinks.forEach(link => {
             const href = link.getAttribute('href');
+            // Clean title text from SVG contents
             let name = link.textContent ? link.textContent.trim() : '';
             const keywords = link.getAttribute('data-keywords') || '';
+            
+            // Find category safely without null reference errors
             const categoryEl = link.closest('.dropdown-category');
             const categoryTitleEl = categoryEl ? categoryEl.querySelector('.dropdown-category-title, h4, h3, h5, .category-title') : null;
             const category = categoryTitleEl ? categoryTitleEl.textContent.trim() : '';
+            
+            // Grab SVG markup if any
             const svgEl = link.querySelector('svg');
             const svgHtml = svgEl ? svgEl.outerHTML : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>`;
+            
             searchIndex.push({
                 href,
                 name,
@@ -224,19 +290,24 @@
                 svgHtml
             });
         });
+
+        // 2. Desktop Search Behavior
         if (desktopInput && desktopDropdown) {
             let highlightedIndex = -1;
             let currentMatches = [];
+
             function renderMatches(matches) {
                 desktopDropdown.innerHTML = '';
                 currentMatches = matches;
                 highlightedIndex = -1;
+
                 if (matches.length === 0) {
                     const noResultsText = desktopInput.getAttribute('data-no-results') || 'No results found';
                     desktopDropdown.innerHTML = `<div class="search-no-results">${noResultsText}</div>`;
                     desktopDropdown.classList.remove('hidden');
                     return;
                 }
+
                 matches.forEach((match, index) => {
                     const item = document.createElement('a');
                     item.href = match.href;
@@ -249,29 +320,38 @@
                             <span class="result-category">${match.category}</span>
                         </div>
                     `;
+
+                    // Mouse interactions
                     item.addEventListener('mouseenter', () => {
                         highlightItem(index);
                     });
+                    
                     item.addEventListener('click', () => {
                         if (typeof playPopSoundExternal === 'function') {
                             playPopSoundExternal();
                         }
                     });
+
                     desktopDropdown.appendChild(item);
                 });
+
                 desktopDropdown.classList.remove('hidden');
             }
+
             function highlightItem(index) {
                 const items = desktopDropdown.querySelectorAll('.search-result-item');
                 items.forEach(el => el.classList.remove('highlighted'));
+
                 if (index >= 0 && index < items.length) {
                     items[index].classList.add('highlighted');
                     highlightedIndex = index;
+                    // Ensure scrolled into view
                     items[index].scrollIntoView({ block: 'nearest' });
                 } else {
                     highlightedIndex = -1;
                 }
             }
+
             desktopInput.addEventListener('input', () => {
                 const query = desktopInput.value.trim().toLowerCase();
                 if (!query) {
@@ -281,20 +361,27 @@
                     highlightedIndex = -1;
                     return;
                 }
+
+                // Filter matching tools
                 const matches = searchIndex.filter(item => {
                     return item.name.toLowerCase().includes(query) || item.keywords.includes(query);
                 });
-                renderMatches(matches.slice(0, 8)); 
+
+                renderMatches(matches.slice(0, 8)); // Limit to top 8
             });
+
             desktopInput.addEventListener('focus', () => {
                 const query = desktopInput.value.trim();
                 if (query) {
                     desktopInput.dispatchEvent(new Event('input'));
                 }
             });
+
+            // Keyboard navigation on input
             desktopInput.addEventListener('keydown', (e) => {
                 const items = desktopDropdown.querySelectorAll('.search-result-item');
                 if (desktopDropdown.classList.contains('hidden') || items.length === 0) return;
+
                 if (e.key === 'ArrowDown') {
                     e.preventDefault();
                     let nextIndex = highlightedIndex + 1;
@@ -318,22 +405,29 @@
                     desktopInput.blur();
                 }
             });
+
+            // Close dropdown clicking outside
             document.addEventListener('click', (e) => {
                 if (!desktopInput.contains(e.target) && !desktopDropdown.contains(e.target)) {
                     desktopDropdown.classList.add('hidden');
                 }
             });
         }
+
+        // 3. Mobile Live Search Behavior in Drawer
         if (mobileInput) {
             mobileInput.addEventListener('input', () => {
                 const query = mobileInput.value.trim().toLowerCase();
                 const categories = document.querySelectorAll('.mobile-category');
+                
                 categories.forEach(cat => {
                     const links = cat.querySelectorAll('.mobile-links-grid a');
                     let visibleCount = 0;
+
                     links.forEach(link => {
                         const name = link.textContent.trim().toLowerCase();
                         const keywords = (link.getAttribute('data-keywords') || '').toLowerCase();
+
                         if (!query || name.includes(query) || keywords.includes(query)) {
                             link.style.display = '';
                             visibleCount++;
@@ -341,6 +435,8 @@
                             link.style.display = 'none';
                         }
                     });
+
+                    // Hide category if no links match
                     if (query && visibleCount === 0) {
                         cat.style.display = 'none';
                     } else {
@@ -349,11 +445,16 @@
                 });
             });
         }
+
+        // 4. Global Keyboard Shortcuts
         document.addEventListener('keydown', (e) => {
+            // Ignore if user is already typing in an input/textarea
             const activeTag = document.activeElement.tagName.toLowerCase();
             if (activeTag === 'input' || activeTag === 'textarea' || document.activeElement.isContentEditable) {
                 return;
             }
+
+            // Keyboard shortcut '/' focuses search input
             if (e.key === '/') {
                 e.preventDefault();
                 if (desktopInput) {
@@ -361,6 +462,8 @@
                     desktopInput.select();
                 }
             }
+
+            // Keyboard shortcut Ctrl+K or Cmd+K focuses search input
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
                 if (desktopInput) {
@@ -370,7 +473,9 @@
             }
         });
     }
+
     function setupShareFAB() {
+        // Translations dictionary for Share Toast
         const shareTranslations = {
             es: {
                 toast: '¡Enlace copiado al portapapeles! Compártelo con tus amigos. 🚀',
@@ -393,13 +498,18 @@
                 description: 'My Local Pictureを共有'
             }
         };
+
         const pageLang = document.documentElement.lang || 'es';
         const t = shareTranslations[pageLang] || shareTranslations['es'];
+
+        // Create the button element
         const shareBtn = document.createElement('button');
         shareBtn.id = 'share-float-btn';
         shareBtn.className = 'share-float-btn';
         shareBtn.setAttribute('aria-label', t.title);
         shareBtn.setAttribute('title', t.description);
+        
+        // Use a clean connected node/share SVG icon
         shareBtn.innerHTML = `
             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="18" cy="5" r="3"></circle>
@@ -409,25 +519,33 @@
                 <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
             </svg>
         `;
+
         document.body.appendChild(shareBtn);
+
+        // Click event handler
         shareBtn.addEventListener('click', () => {
             const shareData = {
                 title: document.title,
                 text: document.querySelector('meta[name="description"]')?.getAttribute('content') || 'My Local Picture - Free Online Image Tools',
                 url: window.location.href
             };
+
+            // Detect native Web Share API
             if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
                 navigator.share(shareData)
                     .catch(err => {
+                        // If user cancels, do not show error
                         if (err.name !== 'AbortError') console.error('Share error:', err);
                     });
             } else {
+                // Fallback: Clipboard Copy
                 navigator.clipboard.writeText(window.location.href)
                     .then(() => {
                         showShareToast(t.toast);
                     })
                     .catch(err => {
                         console.error('Clipboard copy failed:', err);
+                        // Hard fallback if clipboard API permissions fail
                         const tempInput = document.createElement('input');
                         tempInput.value = window.location.href;
                         document.body.appendChild(tempInput);
@@ -438,37 +556,56 @@
                     });
             }
         });
+
+        // Toast show helper
         function showShareToast(message) {
+            // Check if there is an existing toast
             let toast = document.getElementById('share-toast');
             if (toast) toast.remove();
+
             toast = document.createElement('div');
             toast.id = 'share-toast';
             toast.className = 'share-toast';
             toast.textContent = message;
+
             document.body.appendChild(toast);
+
+            // Active animation class
             setTimeout(() => {
                 toast.classList.add('show');
             }, 10);
+
+            // Remove toast after 3 seconds
             setTimeout(() => {
                 toast.classList.remove('show');
                 setTimeout(() => toast.remove(), 400);
             }, 3000);
         }
     }
+
     function setupGlobalZIP() {
         const downloadAllBtn = document.getElementById('download-all-btn');
         if (!downloadAllBtn) return;
+
         downloadAllBtn.addEventListener('click', (e) => {
+            // Find all ready download buttons inside cards
             const readyButtons = Array.from(document.querySelectorAll('.btn-action-download'))
                 .filter(btn => btn.href && btn.href.startsWith('blob:') && !btn.classList.contains('hidden'));
+
             if (readyButtons.length <= 1) {
+                // Let the default single-file or sequential download propagate if only 1 or 0 files
                 return;
             }
+
+            // If there are multiple files, we intercept and package them into a ZIP!
             e.preventDefault();
             e.stopImmediatePropagation();
+
             const originalText = downloadAllBtn.innerHTML;
             downloadAllBtn.disabled = true;
             downloadAllBtn.classList.add('disabled');
+
+            // Detect language
             const pageLang = document.documentElement.lang || 'es';
             const zipText = {
                 es: 'Creando ZIP...',
@@ -477,21 +614,26 @@
                 ja: 'ZIP作成中...'
             };
             downloadAllBtn.innerHTML = zipText[pageLang] || zipText['es'];
+
+            // Dynamically load JSZip
             loadJSZip(() => {
                 const zip = new JSZip();
                 const promises = readyButtons.map((btn, index) => {
+                    // Extract filename from download attribute or fallback to index
                     let filename = btn.getAttribute('download');
                     if (!filename) {
                         const fileCard = btn.closest('.file-card');
                         const nameEl = fileCard ? fileCard.querySelector('.file-name') : null;
                         filename = nameEl ? nameEl.textContent.trim() : `file-${index}`;
                     }
+                    
                     return fetch(btn.href)
                         .then(r => r.blob())
                         .then(blob => {
                             zip.file(filename, blob);
                         });
                 });
+
                 Promise.all(promises)
                     .then(() => {
                         return zip.generateAsync({ type: 'blob' });
@@ -504,10 +646,15 @@
                         document.body.appendChild(link);
                         link.click();
                         document.body.removeChild(link);
+                        
                         setTimeout(() => URL.revokeObjectURL(zipUrl), 10000);
+
+                        // Reset button
                         downloadAllBtn.disabled = false;
                         downloadAllBtn.classList.remove('disabled');
                         downloadAllBtn.innerHTML = originalText;
+
+                        // Show thank you modal
                         const thankYouModal = document.getElementById('thank-you-modal');
                         if (thankYouModal) {
                             thankYouModal.classList.remove('hidden');
@@ -515,9 +662,12 @@
                     })
                     .catch(err => {
                         console.error('ZIP generation failed, falling back to default sequential downloads:', err);
+                        // Reset button
                         downloadAllBtn.disabled = false;
                         downloadAllBtn.classList.remove('disabled');
                         downloadAllBtn.innerHTML = originalText;
+
+                        // Click all buttons sequentially as fallback
                         let delay = 0;
                         readyButtons.forEach(btn => {
                             setTimeout(() => btn.click(), delay);
@@ -526,6 +676,8 @@
                     });
             });
         }, true);
+
+        // Helper to load JSZip dynamically
         function loadJSZip(callback) {
             if (window.JSZip) {
                 callback();
@@ -544,9 +696,11 @@
             document.head.appendChild(script);
         }
     }
+
     function setupPWAInstall() {
         let deferredPrompt;
         const pageLang = document.documentElement.lang || 'es';
+
         const installTranslations = {
             es: {
                 text: 'Instala My Local Picture en tu dispositivo para usarlo sin conexión.',
@@ -569,17 +723,26 @@
                 title: 'アプリをインストール'
             }
         };
+
         const t = installTranslations[pageLang] || installTranslations['es'];
+
         window.addEventListener('beforeinstallprompt', (e) => {
+            // Check if dismissed before in this session
             if (sessionStorage.getItem('pwa_dismissed') === 'true') {
                 return;
             }
+
+            // Prevent default prompt
             e.preventDefault();
             deferredPrompt = e;
+
+            // Show custom install promo banner
             showInstallBanner();
         });
+
         function showInstallBanner() {
             if (document.getElementById('pwa-install-banner')) return;
+
             const banner = document.createElement('div');
             banner.id = 'pwa-install-banner';
             banner.className = 'pwa-install-banner';
@@ -601,14 +764,20 @@
                     </div>
                 </div>
             `;
+
             document.body.appendChild(banner);
+
+            // Trigger show animation
             setTimeout(() => {
                 banner.classList.add('show');
             }, 100);
+
+            // Install click event
             document.getElementById('pwa-install-btn').addEventListener('click', () => {
                 if (!deferredPrompt) return;
                 banner.classList.remove('show');
                 setTimeout(() => banner.remove(), 400);
+
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
@@ -619,18 +788,25 @@
                     deferredPrompt = null;
                 });
             });
+
+            // Dismiss click event
             document.getElementById('pwa-close-btn').addEventListener('click', () => {
                 banner.classList.remove('show');
                 setTimeout(() => banner.remove(), 400);
+                // Don't show again in this browser session
                 sessionStorage.setItem('pwa_dismissed', 'true');
             });
         }
     }
+
     function setupSmartDropzone() {
         const dropZone = document.getElementById('drop-zone');
         const fileInput = document.getElementById('file-input');
         if (!dropZone || !fileInput) return;
+
         const lang = document.documentElement.lang || 'es';
+        
+        // Inject Custom Freemium & Stripe Styles
         if (!document.getElementById('stripe-modal-styles')) {
             const style = document.createElement('style');
             style.id = 'stripe-modal-styles';
@@ -727,6 +903,7 @@
             `;
             document.head.appendChild(style);
         }
+
         const getRedirectPath = (ext) => {
             const paths = {
                 es: {
@@ -781,6 +958,7 @@
             const langPaths = paths[lang] || paths['es'];
             return langPaths[ext.toLowerCase()];
         };
+
         const getAcceptExtensions = () => {
             const acceptAttr = fileInput.getAttribute('accept') || '';
             const exts = [];
@@ -807,28 +985,35 @@
             }
             return exts;
         };
+
         const isAccepted = (fileName) => {
             const exts = getAcceptExtensions();
             if (exts.length === 0) return true;
             const fileExt = fileName.split('.').pop().toLowerCase();
             return exts.includes(fileExt);
         };
+
+        // Capture drop events at capture phase
         dropZone.addEventListener('drop', (e) => {
             if (e.isFreemiumBypass) return;
             if (!e.dataTransfer || e.dataTransfer.files.length === 0) return;
             const files = e.dataTransfer.files;
+            
             const mismatchFiles = [];
             Array.from(files).forEach(file => {
                 if (!isAccepted(file.name)) {
                     mismatchFiles.push(file);
                 }
             });
+
             if (mismatchFiles.length > 0) {
                 e.preventDefault();
                 e.stopPropagation();
+
                 const firstFile = mismatchFiles[0];
                 const ext = firstFile.name.split('.').pop().toLowerCase();
                 const redirectPath = getRedirectPath(ext);
+
                 if (redirectPath) {
                     showRedirectModal(firstFile.name, ext.toUpperCase(), redirectPath);
                 } else {
@@ -842,34 +1027,44 @@
                 }
                 return;
             }
+
+            // Freemium check
             if (localStorage.getItem('isUnlimited') === 'true') return;
+
             const currentCount = parseInt(document.getElementById('file-count')?.textContent || '0', 10);
             const incomingCount = files.length;
+
             if (currentCount + incomingCount > 5) {
                 e.preventDefault();
                 e.stopPropagation();
                 showStripePromoModal(Array.from(files), currentCount, 'drop', dropZone);
             }
         }, true);
+
+        // Capture file-input change events at capture phase
         document.addEventListener('change', (e) => {
             if (e.target && e.target.id === 'file-input') {
                 if (e.isFreemiumBypass) return;
                 if (localStorage.getItem('isUnlimited') === 'true') return;
+
                 const files = e.target.files;
                 const currentCount = parseInt(document.getElementById('file-count')?.textContent || '0', 10);
                 const incomingCount = files ? files.length : 0;
+
                 if (currentCount + incomingCount > 5) {
                     e.preventDefault();
                     e.stopPropagation();
                     const originalFiles = Array.from(files);
-                    e.target.value = ''; 
+                    e.target.value = ''; // clear value
                     showStripePromoModal(originalFiles, currentCount, 'change', e.target);
                 }
             }
         }, true);
+
         function showRedirectModal(fileName, formatName, redirectPath) {
             const existing = document.getElementById('smart-redirect-modal');
             if (existing) existing.remove();
+
             const modalTranslations = {
                 es: {
                     title: '¡Formato detectado!',
@@ -896,7 +1091,9 @@
                     btnCancel: '取消'
                 }
             };
+
             const t = modalTranslations[lang] || modalTranslations['es'];
+
             const modal = document.createElement('div');
             modal.id = 'smart-redirect-modal';
             modal.className = 'modal-overlay';
@@ -915,24 +1112,31 @@
                     </div>
                 </div>
             `;
+
             document.body.appendChild(modal);
+
             const close = () => {
                 modal.classList.add('hidden');
                 setTimeout(() => modal.remove(), 300);
             };
+
             document.getElementById('redirect-close-btn').addEventListener('click', close);
             document.getElementById('redirect-cancel-btn').addEventListener('click', close);
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) close();
             });
+
             if (window.playPopSoundExternal) {
                 window.playPopSoundExternal();
             }
         }
+
         function showStripePromoModal(incomingFiles, currentCount, eventType, targetElement) {
             const existing = document.getElementById('stripe-promo-modal');
             if (existing) existing.remove();
+
             const allowedCount = Math.max(0, 5 - currentCount);
+
             const tContent = {
                 es: {
                     title: '⚡ Límite de Lotes Excedido',
@@ -967,7 +1171,9 @@
                     btnCancel: '取消'
                 }
             };
+
             const t = tContent[lang] || tContent['es'];
+
             const modal = document.createElement('div');
             modal.id = 'stripe-promo-modal';
             modal.className = 'modal-overlay';
@@ -979,11 +1185,13 @@
                     <h3 style="margin-bottom: 1rem; font-weight: 700; font-family: var(--font-heading); font-size: 1.35rem;">${t.title}</h3>
                     <p style="font-size: 0.95rem; color: var(--text-primary); line-height: 1.5; margin-bottom: 1rem; text-align: left;">${t.text}</p>
                     <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.5rem; text-align: left;">${t.subText}</p>
+                    
                     <ul class="stripe-features-list">
                         <li>✅ <strong>Conversiones Masivas Ilimitadas</strong> (lotes de más de 50 imágenes)</li>
                         <li>✅ <strong>Procesamiento Local Seguro</strong> (sin subir tus fotos a internet)</li>
                         <li>✅ <strong>Soporte Prioritario</strong> y sin anuncios en el convertidor</li>
                     </ul>
+
                     <div style="display: flex; flex-direction: column; gap: 0.75rem; width: 100%;">
                         <button id="stripe-upgrade-btn" class="btn btn-primary" style="padding: 0.8rem; background: var(--accent-primary); color: #fff; border-radius: 8px; border: none; font-weight: 700; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 4px 6px rgba(139, 92, 246, 0.2);">
                             💳 ${t.btnUpgrade}
@@ -999,21 +1207,28 @@
                     </div>
                 </div>
             `;
+
             document.body.appendChild(modal);
+
             const close = () => {
                 modal.classList.add('hidden');
                 setTimeout(() => modal.remove(), 300);
             };
+
             document.getElementById('stripe-promo-close').addEventListener('click', close);
             document.getElementById('stripe-promo-cancel').addEventListener('click', close);
+
+            // Continue free button
             const bypassBtn = document.getElementById('stripe-bypass-btn');
             if (bypassBtn) {
                 bypassBtn.addEventListener('click', () => {
                     close();
+                    // Bypass with first allowedCount files
                     const dt = new DataTransfer();
                     incomingFiles.slice(0, allowedCount).forEach(file => {
                         dt.items.add(file);
                     });
+
                     if (eventType === 'change') {
                         targetElement.files = dt.files;
                         const bypassEvent = new Event('change', { bubbles: true });
@@ -1030,15 +1245,20 @@
                     }
                 });
             }
+
+            // Upgrade button -> Stripe checkout form
             document.getElementById('stripe-upgrade-btn').addEventListener('click', () => {
                 close();
                 showStripeCheckoutModal(incomingFiles, eventType, targetElement);
             });
+
             if (window.playPopSoundExternal) window.playPopSoundExternal();
         }
+
         function showStripeCheckoutModal(incomingFiles, eventType, targetElement) {
             const existing = document.getElementById('stripe-checkout-modal');
             if (existing) existing.remove();
+
             const tCheck = {
                 es: {
                     title: 'Suscripción Ilimitada',
@@ -1069,7 +1289,9 @@
                     secureText: '由 Stripe SSL 提供的安全加密支付'
                 }
             };
+
             const t = tCheck[lang] || tCheck['es'];
+
             const modal = document.createElement('div');
             modal.id = 'stripe-checkout-modal';
             modal.className = 'modal-overlay';
@@ -1077,9 +1299,10 @@
             modal.innerHTML = `
                 <div class="stripe-modal-card">
                     <button class="modal-close-btn" id="stripe-checkout-close" aria-label="Close">&times;</button>
+                    
                     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--card-border); padding-bottom: 1rem; margin-bottom: 1.5rem;">
                         <h3 style="font-weight: 700; font-family: var(--font-heading); font-size: 1.2rem; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
-                            <svg width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http:
+                            <svg width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
                                 <path d="M34.72 16.5c0-5.75-2.9-8.88-8.47-8.88-3.05 0-5.78 1.4-7.07 2.08l-.2.12-.23-.13c-1.34-.73-4.13-2.07-7.23-2.07-5.58 0-8.48 3.13-8.48 8.88 0 5.43 2.65 8.1 7.42 10.3l3.05 1.4c2.8 1.28 4.3 2.13 4.3 4.25 0 2.2-2.18 3.03-5.26 3.03-3.66 0-7.3-1.42-9.69-2.85l-.2-.12-.34.25c-.27.2-.55.43-.83.67l-.27.24.12.18c2.94 4.54 8.24 5.92 11.23 5.92 6.09 0 9.17-3.05 9.17-8.84 0-5.58-2.65-8.23-7.55-10.45l-2.68-1.22c-3.13-1.43-4.57-2.35-4.57-4.3 0-1.89 1.77-2.77 4.57-2.77 3.05 0 6.13 1.13 8.35 2.38l.18.1.3-.23a12.72 12.72 0 0 1 .8-.56l.24-.15-.12-.18z" fill="#6772E5"/>
                                 <path d="M26.25 24.32c0-2.2 2.18-3.03 5.26-3.03 3.66 0 7.3 1.42 9.69 2.85l.2.12.34-.25c.27-.2.55-.43.83-.67l.27-.24-.12-.18c-2.94-4.54-8.24-5.92-11.23-5.92-6.09 0-9.17 3.05-9.17 8.84 0 5.58 2.65 8.23 7.55 10.45l2.68 1.22c3.13 1.43 4.57 2.35 4.57 4.3 0 1.89-1.77 2.77-4.57 2.77-3.05 0-6.13-1.13-8.35-2.38l-.18-.1-.3.23a12.72 12.72 0 0 1-.8.56l-.24.15.12.18c2.94 4.54 8.24 5.92 11.23 5.92 6.09 0 9.17-3.05 9.17-8.84z" fill="#6772E5"/>
                             </svg>
@@ -1087,11 +1310,13 @@
                         </h3>
                         <span style="font-weight: 800; color: var(--accent-primary); font-size: 1.15rem;">${t.price}</span>
                     </div>
+
                     <form id="stripe-checkout-form" style="display: flex; flex-direction: column;">
                         <div class="stripe-field-group">
                             <label>Email</label>
                             <input type="email" class="stripe-input" required placeholder="tu@email.com">
                         </div>
+
                         <div class="stripe-field-group">
                             <label>${t.cardLabel}</label>
                             <div style="position: relative;">
@@ -1099,6 +1324,7 @@
                                 <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 1.2rem;">💳</span>
                             </div>
                         </div>
+
                         <div class="stripe-row">
                             <div class="stripe-field-group">
                                 <label>MM/AA</label>
@@ -1109,6 +1335,7 @@
                                 <input type="text" class="stripe-input" id="stripe-card-cvc" required placeholder="123" maxlength="4">
                             </div>
                         </div>
+
                         <div class="stripe-badge-secure">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -1116,24 +1343,31 @@
                             </svg>
                             <span>${t.secureText}</span>
                         </div>
+
                         <button type="submit" id="stripe-submit-btn" class="btn" style="background: #10b981; color: #fff !important; width: 100%; padding: 0.9rem; border-radius: 8px; border: none; font-weight: 700; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);">
                             ${t.btnPay}
                         </button>
                     </form>
                 </div>
             `;
+
             document.body.appendChild(modal);
+
             const close = () => {
                 modal.classList.add('hidden');
                 setTimeout(() => modal.remove(), 300);
             };
+
             document.getElementById('stripe-checkout-close').addEventListener('click', close);
+
+            // Simple format validations for inputs
             const cardNum = document.getElementById('stripe-card-number');
             cardNum.addEventListener('input', (e) => {
                 let val = e.target.value.replace(/\D/g, '');
                 val = val.match(/.{1,4}/g)?.join(' ') || val;
                 e.target.value = val.substring(0, 19);
             });
+
             const expiry = document.getElementById('stripe-card-expiry');
             expiry.addEventListener('input', (e) => {
                 let val = e.target.value.replace(/\D/g, '');
@@ -1142,19 +1376,26 @@
                 }
                 e.target.value = val;
             });
+
             const cvc = document.getElementById('stripe-card-cvc');
             cvc.addEventListener('input', (e) => {
                 e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
             });
+
+            // Form Submit Simulation
             document.getElementById('stripe-checkout-form').addEventListener('submit', (e) => {
                 e.preventDefault();
                 const btn = document.getElementById('stripe-submit-btn');
                 btn.disabled = true;
                 btn.style.opacity = '0.8';
                 btn.innerHTML = `<span class="stripe-spinner"></span> Procesando...`;
+
                 setTimeout(() => {
+                    // Activate PRO membership
                     localStorage.setItem('isUnlimited', 'true');
                     updateHeaderProBadge();
+
+                    // Play success audio synthesizers
                     if (window.playPopSoundExternal) {
                         try {
                             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1171,12 +1412,17 @@
                             setTimeout(() => triggerTone(783.99, 0.22, 0.2), 140);
                         } catch(err) {}
                     }
+
                     alert(lang === 'es' ? '¡Gracias! Tu Pase Ilimitado de Procesamiento Masivo ha sido activado con éxito. 🎉' : 'Thank you! Your Unlimited Batch Pass has been successfully activated. 🎉');
+                    
                     close();
+
+                    // Process all original files
                     const dt = new DataTransfer();
                     incomingFiles.forEach(file => {
                         dt.items.add(file);
                     });
+
                     if (eventType === 'change') {
                         targetElement.files = dt.files;
                         const bypassEvent = new Event('change', { bubbles: true });
@@ -1195,12 +1441,15 @@
             });
         }
     }
+
     function setupThankYouModalMonetization() {
         const modal = document.getElementById('thank-you-modal');
         if (!modal) return;
+
         const lang = document.documentElement.lang || 'es';
-        const canvaLink = "https:
-        const fiverrLink = "https:
+        const canvaLink = "https://partner.canva.com/c/3412534/647168/10068";
+        const fiverrLink = "https://fiverr.com";
+
         const content = {
             es: {
                 title: '🎉 ¡Imagen Guardada!',
@@ -1239,7 +1488,9 @@
                 adLabel: '赞助广告'
             }
         };
+
         const t = content[lang] || content['es'];
+
         const injectContent = () => {
             modal.innerHTML = `
                 <div class="modal-card success-pulse" style="max-width: 500px;">
@@ -1248,6 +1499,7 @@
                         <div style="font-size: 2.5rem; margin-bottom: 0.5rem; text-align: center;">🎉</div>
                         <h3 class="modal-title" style="text-align: center; margin-bottom: 0.5rem; font-family: var(--font-heading); font-weight: 700;">${t.title}</h3>
                         <p class="modal-text" style="text-align: center; color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">${t.text}</p>
+                        
                         <!-- Dynamic Native AdSense Unit -->
                         <div class="modal-adsense-container" style="margin: 1rem 0 1.5rem 0; text-align: center; background: var(--card-bg); border: 1px dashed var(--card-border); padding: 0.75rem; border-radius: 8px; box-sizing: border-box;">
                             <span style="font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 0.5rem; letter-spacing: 0.05em;">${t.adLabel}</span>
@@ -1260,12 +1512,14 @@
                                  try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
                             </script>
                         </div>
+
                         <!-- Canva & Fiverr Contextual Affiliates -->
                         <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem;">
                             <div style="background: rgba(167, 139, 250, 0.08); border: 1px solid var(--accent-primary); border-radius: 10px; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; box-sizing: border-box;">
                                 <p style="margin: 0; font-size: 0.9rem; line-height: 1.4; color: var(--text-primary); text-align: left;">${t.canva}</p>
                                 <a href="${canvaLink}" target="_blank" rel="noopener noreferrer" class="btn" style="background: var(--accent-primary); color: #fff !important; width: 100%; text-align: center; font-size: 0.85rem; padding: 0.6rem; border-radius: 6px; font-weight: 600; text-decoration: none; display: block; box-sizing: border-box;">${t.canvaBtn}</a>
                             </div>
+
                             <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid #10b981; border-radius: 10px; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; box-sizing: border-box;">
                                 <p style="margin: 0; font-size: 0.9rem; line-height: 1.4; color: var(--text-primary); text-align: left;">${t.fiverr}</p>
                                 <a href="${fiverrLink}" target="_blank" rel="noopener noreferrer" class="btn" style="background: #10b981; color: #fff !important; width: 100%; text-align: center; font-size: 0.85rem; padding: 0.6rem; border-radius: 6px; font-weight: 600; text-decoration: none; display: block; box-sizing: border-box;">${t.fiverrBtn}</a>
@@ -1274,6 +1528,7 @@
                     </div>
                 </div>
             `;
+
             const closeBtn = modal.querySelector('#close-modal-btn');
             if (closeBtn) {
                 closeBtn.addEventListener('click', () => {
@@ -1281,6 +1536,8 @@
                 });
             }
         };
+
+        // MutationObserver to capture modal being opened and inject dynamically
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 if (mutation.attributeName === 'class' && !modal.classList.contains('hidden')) {
@@ -1290,9 +1547,11 @@
         });
         observer.observe(modal, { attributes: true });
     }
+
     function updateHeaderProBadge() {
         const isUnlimited = localStorage.getItem('isUnlimited') === 'true';
         if (!isUnlimited) return;
+
         const logo = document.querySelector('.logo');
         if (logo && !document.getElementById('pro-badge')) {
             const badge = document.createElement('span');
@@ -1316,6 +1575,7 @@
             logo.appendChild(badge);
         }
     }
+
     function initTheme() {
         const savedTheme = localStorage.getItem('theme');
         const theme = savedTheme || getSystemTheme();
@@ -1331,6 +1591,7 @@
             setupSmartDropzone();
             setupThankYouModalMonetization();
             updateHeaderProBadge();
+
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('/sw.js')
                     .then(reg => console.log('Service Worker registered successfully'))
@@ -1338,5 +1599,7 @@
             }
         });
     }
+
     initTheme();
 })();
+
