@@ -1,6 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Anti-FOUC synchronous theme initializer -->
+    <script>
+        (function(){
+            var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.className = t + '-theme';
+        })();
+    </script>
+
     <!-- Preload local WOFF2 fonts for instant LCP rendering -->
     <link rel="preload" href="/assets/fonts/7_V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/1_UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin>
