@@ -13,32 +13,15 @@
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
 
-    // Lazy load Analytics and AdSense on first user interaction or fallback timeout (crawler-safe)
+    // Lazy load AdSense on first user interaction or fallback timeout
     function setupLazyThirdParty() {
         let scriptsLoaded = false;
-
-        // Bypass loading on performance auditing tools and search engine crawlers
-        const botPattern = /bot|googlebot|bingbot|baiduspider|yandex|duckduckbot|slurp|crawler|spider|robot|crawling|lighthouse|pagespeed|Mediapartners-Google/i;
-        const isBot = botPattern.test(navigator.userAgent);
 
         function loadThirdPartyScripts() {
             if (scriptsLoaded) return;
             scriptsLoaded = true;
 
-            // 1. Load Google Analytics Gtag
-            const gtagScript = document.createElement('script');
-            gtagScript.async = true;
-            gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-6DWDN024S9';
-            gtagScript.onerror = function() {
-                // Silently catch network blocks (adblockers or invalid measurement ID)
-            };
-            document.head.appendChild(gtagScript);
-
-            // Initialize GA configurations
-            window.gtag('js', new Date());
-            window.gtag('config', 'G-6DWDN024S9');
-
-            // 2. Load Google AdSense
+            // Load Google AdSense
             const adsenseScript = document.createElement('script');
             adsenseScript.async = true;
             adsenseScript.crossOrigin = 'anonymous';
