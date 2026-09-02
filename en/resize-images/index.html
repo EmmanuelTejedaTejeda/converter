@@ -396,7 +396,7 @@
                                 <path d="M15 3H21M21 3V9M21 3L14 10M9 21H3M3 21V15M3 21L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h3 class="drop-title">Drag & drop your photos here</h3>
+                        <span class="drop-title">Drag & drop your photos here</span>
                         <p class="drop-text">or click to browse on your device</p>
                         <span class="drop-badge">Supports multiple files (JPG, PNG, WebP)</span>
                     </div>
@@ -414,7 +414,7 @@
                 <!-- File List Container -->
                 <div id="file-list-container" class="file-list-container hidden">
                     <div class="list-header">
-                        <h4>Loaded photos (<span id="file-count">0</span>) 👇</h4>
+                        <span class="list-header-title">Loaded photos (<span id="file-count">0</span>) 👇</span>
                         <div class="list-actions">
                             <button id="convert-all-btn" class="btn btn-primary btn-sm">
                                 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -446,7 +446,7 @@
 
             <!-- Resize Settings -->
             <section class="settings-card" style="padding: 1.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px;">
-                <h3 style="margin-top: 0; margin-bottom: 1.2rem; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+                <div style="margin-top: 0; margin-bottom: 1.2rem; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
                     ⚙️ Resize Settings
                 </h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1rem;">
@@ -520,7 +520,7 @@
                         <path d="M12 6v6l4 2"></path>
                     </svg>
                 </div>
-                <h3>Batch Processing</h3>
+                <span class="feature-card-title">Batch Processing</span>
                 <p>Upload multiple images and resize them all at once with a single click, saving time.</p>
             </div>
             
@@ -531,7 +531,7 @@
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                     </svg>
                 </div>
-                <h3>Absolute Privacy</h3>
+                <span class="feature-card-title">Absolute Privacy</span>
                 <p>Your photos never leave your device. All scaling is performed locally in your browser.</p>
             </div>
 
@@ -541,7 +541,7 @@
                         <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
                     </svg>
                 </div>
-                <h3>Controlled Aspect Ratio</h3>
+                <span class="feature-card-title">Controlled Aspect Ratio</span>
                 <p>Maintain the original proportion to avoid distortion, or turn it off to fit exact custom sizes.</p>
             </div>
         </section>
@@ -586,7 +586,7 @@
 
         <!-- Recursos Recomendados / Afiliados Adicionales -->
         <section class="resources-section">
-            <h4 class="resources-title">[RECOMMENDED RESOURCES]</h4>
+            <span class="list-header-title">[RECOMMENDED RESOURCES]</span>
             <div class="resources-list">
                 <a href="https://partner.canva.com" target="_blank" rel="noopener noreferrer" class="resource-item">
                     <span class="resource-name">Canva Pro</span>
@@ -690,12 +690,12 @@
             <button id="close-modal-btn" class="modal-close-btn" aria-label="Close window">&times;</button>
             <div class="modal-content">
                 <div class="modal-icon">🎉</div>
-                <h3 class="modal-title">Image resized!</h3>
+                <span class="modal-title">Image resized!</span>
                 <p class="modal-text">Your download has successfully started.</p>
                 
                 <div class="modal-ad-box">
                     <span class="modal-ad-tag">[RECOMMENDED]</span>
-                    <h4>Do you want to optimize your photo files to upload them to the internet?</h4>
+                    <span class="list-header-title">Do you want to optimize your photo files to upload them to the internet?</span>
                     <p>Reduce the size of your images up to 80% without altering their dimensions using our free optimizer.</p>
                     <a href="../compress-images/" class="btn btn-primary btn-block">Compress Photos Free</a>
                 </div>
