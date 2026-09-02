@@ -331,6 +331,8 @@ recursos/
   index.html
 redimensionar-imagenes/
   index.html
+reportes-lighthouse/
+  lhr-mobile.json
 rotar-imagen/
   index.html
 svg-a-imagen/
@@ -439,6 +441,7 @@ favicon.ico
 folderico-fld_0c45c753.ico
 google379c7044fef05a26.html
 index.html
+lighthouserc.js
 lighthouserc.json
 Plan_de_Mejoras_Continuas.md
 reglas_locales.md
@@ -454,6 +457,153 @@ wrangler.toml
 
 <files>
 This section contains the contents of the repository's files.
+
+<file path="reportes-lighthouse/lhr-mobile.json">
+[
+  {
+    "url": "https://mylocalpicture.com/",
+    "formFactor": "mobile",
+    "viewport": {
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75
+    },
+    "status": 200,
+    "title": "Herramientas de Imagen Online | My Local Picture",
+    "title_length": 48,
+    "meta_description_length": 144,
+    "canonical": "https://mylocalpicture.com/",
+    "lang": "es",
+    "metrics": {
+      "firstContentfulPaintMs": 3184,
+      "domContentLoadedMs": 2816,
+      "loadEventEndMs": 3757
+    },
+    "audits": {
+      "h1_count": 1,
+      "first_heading_tag": "H1",
+      "heavy_scripts_on_page_load": 0,
+      "js_console_errors": 0
+    }
+  },
+  {
+    "url": "https://mylocalpicture.com/png-a-jpg/",
+    "formFactor": "mobile",
+    "viewport": {
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75
+    },
+    "status": 200,
+    "title": "Convertir PNG a JPG Gratis | My Local Picture",
+    "title_length": 45,
+    "meta_description_length": 145,
+    "canonical": "https://mylocalpicture.com/png-a-jpg/",
+    "lang": "es",
+    "metrics": {
+      "firstContentfulPaintMs": 460,
+      "domContentLoadedMs": 523,
+      "loadEventEndMs": 1512
+    },
+    "audits": {
+      "h1_count": 1,
+      "first_heading_tag": "H1",
+      "heavy_scripts_on_page_load": 0,
+      "js_console_errors": 0
+    }
+  },
+  {
+    "url": "https://mylocalpicture.com/convertir-heic-a-jpg/",
+    "formFactor": "mobile",
+    "viewport": {
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75
+    },
+    "status": 200,
+    "title": "Convertir HEIC a JPG Online - Gratis y 100% Seguro",
+    "title_length": 50,
+    "meta_description_length": 139,
+    "canonical": "https://mylocalpicture.com/convertir-heic-a-jpg/",
+    "lang": "es",
+    "metrics": {
+      "firstContentfulPaintMs": 636,
+      "domContentLoadedMs": 1303,
+      "loadEventEndMs": 1377
+    },
+    "audits": {
+      "h1_count": 1,
+      "first_heading_tag": "H1",
+      "heavy_scripts_on_page_load": 0,
+      "js_console_errors": 0
+    }
+  },
+  {
+    "url": "https://mylocalpicture.com/comprimir-imagenes/",
+    "formFactor": "mobile",
+    "viewport": {
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75
+    },
+    "status": 200,
+    "title": "Comprimir Im\u00e1genes Gratis - Reducir Peso de Fotos Online",
+    "title_length": 56,
+    "meta_description_length": 133,
+    "canonical": "https://mylocalpicture.com/comprimir-imagenes/",
+    "lang": "es",
+    "metrics": {
+      "firstContentfulPaintMs": 364,
+      "domContentLoadedMs": 1214,
+      "loadEventEndMs": 1234
+    },
+    "audits": {
+      "h1_count": 1,
+      "first_heading_tag": "H1",
+      "heavy_scripts_on_page_load": 0,
+      "js_console_errors": 0
+    }
+  },
+  {
+    "url": "https://mylocalpicture.com/imagenes-a-pdf/",
+    "formFactor": "mobile",
+    "viewport": {
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75
+    },
+    "status": 200,
+    "title": "Im\u00e1genes a PDF Gratis y Sin Registro | MLP",
+    "title_length": 42,
+    "meta_description_length": 144,
+    "canonical": "https://mylocalpicture.com/imagenes-a-pdf/",
+    "lang": "es",
+    "metrics": {
+      "firstContentfulPaintMs": 368,
+      "domContentLoadedMs": 814,
+      "loadEventEndMs": 843
+    },
+    "audits": {
+      "h1_count": 1,
+      "first_heading_tag": "H1",
+      "heavy_scripts_on_page_load": 0,
+      "js_console_errors": 0
+    }
+  }
+]
+</file>
+
+<file path="ads.txt">
+google.com, pub-4529923995739017, DIRECT, f08c47fec0942fa0
+</file>
+
+<file path="google379c7044fef05a26.html">
+google-site-verification: google379c7044fef05a26.html
+</file>
+
+<file path="lighthouserc.js">
+
+</file>
 
 <file path=".github/workflows/lighthouse-ci.yml">
 name: Lighthouse CI Audit
@@ -482,81 +632,6 @@ jobs:
         run: |
           npm install -g @lhci/cli@0.15.x
           lhci autorun
-</file>
-
-<file path="ads.txt">
-google.com, pub-4529923995739017, DIRECT, f08c47fec0942fa0
-</file>
-
-<file path="google379c7044fef05a26.html">
-google-site-verification: google379c7044fef05a26.html
-</file>
-
-<file path="lighthouserc.json">
-{
-  "ci": {
-    "collect": {
-      "staticDistDir": "./",
-      "numberOfRuns": 1,
-      "settings": {
-        "chromeFlags": "--headless=new --no-sandbox"
-      }
-    },
-    "assert": {
-      "assertions": {
-        "categories:performance": ["warn", { "minScore": 0.85 }],
-        "categories:accessibility": ["error", { "minScore": 0.90 }],
-        "categories:best-practices": ["warn", { "minScore": 0.90 }],
-        "categories:seo": ["error", { "minScore": 0.90 }]
-      }
-    },
-    "upload": {
-      "target": "filesystem",
-      "outputDir": "./scratch/lhci_reports"
-    }
-  }
-}
-</file>
-
-<file path="Plan_de_Mejoras_Continuas.md">
-# Documento de Plan de Mejoras Continuas: My Local Picture
-
-Este documento consolida la hoja de ruta técnica y estratégica para la optimización de SEO On-Page, seguridad Edge en Cloudflare Pages, rendimiento de carga y automatización CI/CD.
-
----
-
-## 🎯 1. Optimización SERP de Títulos y Meta Descripciones (SEO On-Page)
-
-* **Objetivo**: Garantizar que ningún `<title>` supere los 600px (~55-60 caracteres) y ninguna `<meta name="description">` supere los 920px (~150-155 caracteres) para evitar que Google trunque los fragmentos con puntos suspensivos (`...`).
-* **Estándar de Formato**:
-  * Título: `[Acción / Herramienta] | My Local Picture` (ej. `Convertir PNG a JPG Online Gratis | My Local Picture`).
-  * Descripción: Beneficio directo + Garantía de privacidad local (100% Client-Side) + Llamado a la acción (140-155 caracteres).
-
----
-
-## 📝 2. Enriquecimiento de Contenido en Herramientas (*Thin Content Prevention*)
-
-* **Objetivo**: Extender el recuento de palabras en páginas de conversión clave (< 200 palabras) agregando guías explicativas de casos de uso y FAQs estructuradas con `JSON-LD`.
-* **Beneficio**: Posicionamiento orgánico de palabras clave *Long-Tail* y mejor indexación contextual por Googlebot.
-
----
-
-## 🔒 3. Fortalecimiento de Cabeceras de Seguridad Edge (`_headers`)
-
-* **Objetivo**: Configurar cabeceras de seguridad estrictas en Cloudflare Pages.
-* **Cabeceras a incluir/actualizar**:
-  * `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
-  * `Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' data: blob: https:; frame-ancestors 'none'; object-src 'none'; base-uri 'self';`
-  * `Referrer-Policy: strict-origin-when-cross-origin`
-  * `X-Content-Type-Options: nosniff`
-  * `X-Frame-Options: DENY`
-  * `X-XSS-Protection: 1; mode=block`
-
----
-
-## 🚀 4. Auditorías Automatizadas Continuas (Lighthouse CI)
-
-* **Objetivo**: Integrar [`lighthouserc.json`](file:///d:/DESAROLLO/MY_LOCALE_IMAGE/lighthouserc.json) y [`.github/workflows/lighthouse-ci.yml`](file:///d:/DESAROLLO/MY_LOCALE_IMAGE/.github/workflows/lighthouse-ci.yml) en el flujo de trabajo Git.
 </file>
 
 <file path=".well-known/apple-app-site-association">
@@ -923,6 +998,73 @@ __pycache__/
 <file path="desktop.ini">
 [.ShellClassInfo]
 IconResource=folderico-fld_0c45c753.ico,0
+</file>
+
+<file path="lighthouserc.json">
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./",
+      "numberOfRuns": 1,
+      "settings": {
+        "chromeFlags": "--headless=new --no-sandbox"
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["warn", { "minScore": 0.85 }],
+        "categories:accessibility": ["error", { "minScore": 0.90 }],
+        "categories:best-practices": ["warn", { "minScore": 0.90 }],
+        "categories:seo": ["error", { "minScore": 0.90 }]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./scratch/lhci_reports"
+    }
+  }
+}
+</file>
+
+<file path="Plan_de_Mejoras_Continuas.md">
+# Documento de Plan de Mejoras Continuas: My Local Picture
+
+Este documento consolida la hoja de ruta técnica y estratégica para la optimización de SEO On-Page, seguridad Edge en Cloudflare Pages, rendimiento de carga y automatización CI/CD.
+
+---
+
+## 🎯 1. Optimización SERP de Títulos y Meta Descripciones (SEO On-Page)
+
+* **Objetivo**: Garantizar que ningún `<title>` supere los 600px (~55-60 caracteres) y ninguna `<meta name="description">` supere los 920px (~150-155 caracteres) para evitar que Google trunque los fragmentos con puntos suspensivos (`...`).
+* **Estándar de Formato**:
+  * Título: `[Acción / Herramienta] | My Local Picture` (ej. `Convertir PNG a JPG Online Gratis | My Local Picture`).
+  * Descripción: Beneficio directo + Garantía de privacidad local (100% Client-Side) + Llamado a la acción (140-155 caracteres).
+
+---
+
+## 📝 2. Enriquecimiento de Contenido en Herramientas (*Thin Content Prevention*)
+
+* **Objetivo**: Extender el recuento de palabras en páginas de conversión clave (< 200 palabras) agregando guías explicativas de casos de uso y FAQs estructuradas con `JSON-LD`.
+* **Beneficio**: Posicionamiento orgánico de palabras clave *Long-Tail* y mejor indexación contextual por Googlebot.
+
+---
+
+## 🔒 3. Fortalecimiento de Cabeceras de Seguridad Edge (`_headers`)
+
+* **Objetivo**: Configurar cabeceras de seguridad estrictas en Cloudflare Pages.
+* **Cabeceras a incluir/actualizar**:
+  * `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
+  * `Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' data: blob: https:; frame-ancestors 'none'; object-src 'none'; base-uri 'self';`
+  * `Referrer-Policy: strict-origin-when-cross-origin`
+  * `X-Content-Type-Options: nosniff`
+  * `X-Frame-Options: DENY`
+  * `X-XSS-Protection: 1; mode=block`
+
+---
+
+## 🚀 4. Auditorías Automatizadas Continuas (Lighthouse CI)
+
+* **Objetivo**: Integrar [`lighthouserc.json`](file:///d:/DESAROLLO/MY_LOCALE_IMAGE/lighthouserc.json) y [`.github/workflows/lighthouse-ci.yml`](file:///d:/DESAROLLO/MY_LOCALE_IMAGE/.github/workflows/lighthouse-ci.yml) en el flujo de trabajo Git.
 </file>
 
 <file path="robots.txt">
@@ -2993,36 +3135,6 @@ function formatBytes(bytes, decimals = 2)
     </header>
 </file>
 
-<file path="_headers">
-# Sitemap header
-/sitemap.xml
-  Content-Type: application/xml; charset=utf-8
-
-# Apple App Site Association headers
-/apple-app-site-association
-  Content-Type: application/json; charset=utf-8
-/.well-known/apple-app-site-association
-  Content-Type: application/json; charset=utf-8
-
-# Cache rules for assets (highly aggressive)
-/assets/*
-  Cache-Control: public, max-age=31536000, immutable
-
-# Security headers for all routes
-/*
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: interest-cohort=()
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval';
-
-# Evitar indexación en el subdominio de Cloudflare Pages y todas las previews
-https://:project.pages.dev/*
-  X-Robots-Tag: noindex, nofollow, noarchive
-</file>
-
 <file path="partials/header_zh.html">
 <header class="app-header">
         <div class="header-container">
@@ -3277,6 +3389,36 @@ https://:project.pages.dev/*
             </div>
         </div>
     </header>
+</file>
+
+<file path="_headers">
+# Sitemap header
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+
+# Apple App Site Association headers
+/apple-app-site-association
+  Content-Type: application/json; charset=utf-8
+/.well-known/apple-app-site-association
+  Content-Type: application/json; charset=utf-8
+
+# Cache rules for assets (highly aggressive)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Security headers for all routes
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval';
+
+# Evitar indexación en el subdominio de Cloudflare Pages y todas las previews
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow, noarchive
 </file>
 
 <file path="assets/images-to-pdf.js">
@@ -106622,15 +106764,18 @@ El desarrollo de las vistas se simplifica mediante el script `update_partials.py
         })();
     </script>
 
-
-    <link rel="preload" href="/assets/fonts/7_V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/fonts/1_UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin>
-
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Suite de herramientas de imagen gratuitas y 100% seguras. Convierte, edita y optimiza tus fotos directamente en tu dispositivo de forma privada.">
     <title>Herramientas de Imagen Online | My Local Picture</title>
+
+
+    <link rel="preload" href="/assets/styles.css?v=2.6" as="style" fetchpriority="high">
     <link rel="stylesheet" href="/assets/styles.css?v=2.6">
+
+
+    <link rel="preload" href="/assets/fonts/7_V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+    <link rel="preload" href="/assets/fonts/1_UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
 
 
     <link rel="canonical" href="https://mylocalpicture.com/">
