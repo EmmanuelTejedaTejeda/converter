@@ -332,6 +332,7 @@ recursos/
 redimensionar-imagenes/
   index.html
 reportes-lighthouse/
+  lhr-mobile-new.json
   lhr-mobile.json
 rotar-imagen/
   index.html
@@ -458,151 +459,12 @@ wrangler.toml
 <files>
 This section contains the contents of the repository's files.
 
-<file path="reportes-lighthouse/lhr-mobile.json">
-[
-  {
-    "url": "https://mylocalpicture.com/",
-    "formFactor": "mobile",
-    "viewport": {
-      "width": 412,
-      "height": 823,
-      "deviceScaleFactor": 1.75
-    },
-    "status": 200,
-    "title": "Herramientas de Imagen Online | My Local Picture",
-    "title_length": 48,
-    "meta_description_length": 144,
-    "canonical": "https://mylocalpicture.com/",
-    "lang": "es",
-    "metrics": {
-      "firstContentfulPaintMs": 3184,
-      "domContentLoadedMs": 2816,
-      "loadEventEndMs": 3757
-    },
-    "audits": {
-      "h1_count": 1,
-      "first_heading_tag": "H1",
-      "heavy_scripts_on_page_load": 0,
-      "js_console_errors": 0
-    }
-  },
-  {
-    "url": "https://mylocalpicture.com/png-a-jpg/",
-    "formFactor": "mobile",
-    "viewport": {
-      "width": 412,
-      "height": 823,
-      "deviceScaleFactor": 1.75
-    },
-    "status": 200,
-    "title": "Convertir PNG a JPG Gratis | My Local Picture",
-    "title_length": 45,
-    "meta_description_length": 145,
-    "canonical": "https://mylocalpicture.com/png-a-jpg/",
-    "lang": "es",
-    "metrics": {
-      "firstContentfulPaintMs": 460,
-      "domContentLoadedMs": 523,
-      "loadEventEndMs": 1512
-    },
-    "audits": {
-      "h1_count": 1,
-      "first_heading_tag": "H1",
-      "heavy_scripts_on_page_load": 0,
-      "js_console_errors": 0
-    }
-  },
-  {
-    "url": "https://mylocalpicture.com/convertir-heic-a-jpg/",
-    "formFactor": "mobile",
-    "viewport": {
-      "width": 412,
-      "height": 823,
-      "deviceScaleFactor": 1.75
-    },
-    "status": 200,
-    "title": "Convertir HEIC a JPG Online - Gratis y 100% Seguro",
-    "title_length": 50,
-    "meta_description_length": 139,
-    "canonical": "https://mylocalpicture.com/convertir-heic-a-jpg/",
-    "lang": "es",
-    "metrics": {
-      "firstContentfulPaintMs": 636,
-      "domContentLoadedMs": 1303,
-      "loadEventEndMs": 1377
-    },
-    "audits": {
-      "h1_count": 1,
-      "first_heading_tag": "H1",
-      "heavy_scripts_on_page_load": 0,
-      "js_console_errors": 0
-    }
-  },
-  {
-    "url": "https://mylocalpicture.com/comprimir-imagenes/",
-    "formFactor": "mobile",
-    "viewport": {
-      "width": 412,
-      "height": 823,
-      "deviceScaleFactor": 1.75
-    },
-    "status": 200,
-    "title": "Comprimir Im\u00e1genes Gratis - Reducir Peso de Fotos Online",
-    "title_length": 56,
-    "meta_description_length": 133,
-    "canonical": "https://mylocalpicture.com/comprimir-imagenes/",
-    "lang": "es",
-    "metrics": {
-      "firstContentfulPaintMs": 364,
-      "domContentLoadedMs": 1214,
-      "loadEventEndMs": 1234
-    },
-    "audits": {
-      "h1_count": 1,
-      "first_heading_tag": "H1",
-      "heavy_scripts_on_page_load": 0,
-      "js_console_errors": 0
-    }
-  },
-  {
-    "url": "https://mylocalpicture.com/imagenes-a-pdf/",
-    "formFactor": "mobile",
-    "viewport": {
-      "width": 412,
-      "height": 823,
-      "deviceScaleFactor": 1.75
-    },
-    "status": 200,
-    "title": "Im\u00e1genes a PDF Gratis y Sin Registro | MLP",
-    "title_length": 42,
-    "meta_description_length": 144,
-    "canonical": "https://mylocalpicture.com/imagenes-a-pdf/",
-    "lang": "es",
-    "metrics": {
-      "firstContentfulPaintMs": 368,
-      "domContentLoadedMs": 814,
-      "loadEventEndMs": 843
-    },
-    "audits": {
-      "h1_count": 1,
-      "first_heading_tag": "H1",
-      "heavy_scripts_on_page_load": 0,
-      "js_console_errors": 0
-    }
-  }
-]
-</file>
-
 <file path="ads.txt">
 google.com, pub-4529923995739017, DIRECT, f08c47fec0942fa0
 </file>
 
 <file path="google379c7044fef05a26.html">
 google-site-verification: google379c7044fef05a26.html
-</file>
-
-<file path="lighthouserc.js">
-
 </file>
 
 <file path=".github/workflows/lighthouse-ci.yml">
@@ -975,6 +837,231 @@ function inpaintRegionLaplace(imgData, targetX, targetY, targetW, targetH)
 function showThankYouModal()
 </file>
 
+<file path="reportes-lighthouse/lhr-mobile-new.json">
+[
+  {
+    "url": "https://mylocalpicture.com/",
+    "formFactor": "mobile",
+    "status": 200,
+    "title": "Herramientas de Imagen Online | My Local Picture",
+    "title_len": 48,
+    "meta_desc_len": 144,
+    "canonical": "https://mylocalpicture.com/",
+    "lang": "es",
+    "fcp_ms": 1740,
+    "dom_load_ms": 839,
+    "h1_count": 1,
+    "first_h_tag": "H1",
+    "high_priority_preloads": [],
+    "heavy_scripts_on_load": 0,
+    "console_errors": 0
+  },
+  {
+    "url": "https://mylocalpicture.com/png-a-jpg/",
+    "formFactor": "mobile",
+    "status": 200,
+    "title": "Convertir PNG a JPG Gratis | My Local Picture",
+    "title_len": 45,
+    "meta_desc_len": 145,
+    "canonical": "https://mylocalpicture.com/png-a-jpg/",
+    "lang": "es",
+    "fcp_ms": 568,
+    "dom_load_ms": 1277,
+    "h1_count": 1,
+    "first_h_tag": "H1",
+    "high_priority_preloads": [],
+    "heavy_scripts_on_load": 0,
+    "console_errors": 0
+  },
+  {
+    "url": "https://mylocalpicture.com/convertir-heic-a-jpg/",
+    "formFactor": "mobile",
+    "status": 200,
+    "title": "Convertir HEIC a JPG Online - Gratis y 100% Seguro",
+    "title_len": 50,
+    "meta_desc_len": 139,
+    "canonical": "https://mylocalpicture.com/convertir-heic-a-jpg/",
+    "lang": "es",
+    "fcp_ms": 284,
+    "dom_load_ms": 347,
+    "h1_count": 1,
+    "first_h_tag": "H1",
+    "high_priority_preloads": [],
+    "heavy_scripts_on_load": 0,
+    "console_errors": 0
+  },
+  {
+    "url": "https://mylocalpicture.com/comprimir-imagenes/",
+    "formFactor": "mobile",
+    "status": 200,
+    "title": "Comprimir Im\u00e1genes Gratis - Reducir Peso de Fotos Online",
+    "title_len": 56,
+    "meta_desc_len": 133,
+    "canonical": "https://mylocalpicture.com/comprimir-imagenes/",
+    "lang": "es",
+    "fcp_ms": 304,
+    "dom_load_ms": 424,
+    "h1_count": 1,
+    "first_h_tag": "H1",
+    "high_priority_preloads": [],
+    "heavy_scripts_on_load": 0,
+    "console_errors": 0
+  },
+  {
+    "url": "https://mylocalpicture.com/imagenes-a-pdf/",
+    "formFactor": "mobile",
+    "status": 200,
+    "title": "Im\u00e1genes a PDF Gratis y Sin Registro | MLP",
+    "title_len": 42,
+    "meta_desc_len": 144,
+    "canonical": "https://mylocalpicture.com/imagenes-a-pdf/",
+    "lang": "es",
+    "fcp_ms": 336,
+    "dom_load_ms": 404,
+    "h1_count": 1,
+    "first_h_tag": "H1",
+    "high_priority_preloads": [],
+    "heavy_scripts_on_load": 0,
+    "console_errors": 0
+  }
+]
+</file>
+
+<file path="reportes-lighthouse/lhr-mobile.json">
+[
+  {
+    "url": "https://mylocalpicture.com/",
+    "formFactor": "mobile",
+    "viewport": {
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75
+    },
+    "status": 200,
+    "title": "Herramientas de Imagen Online | My Local Picture",
+    "title_length": 48,
+    "meta_description_length": 144,
+    "canonical": "https://mylocalpicture.com/",
+    "lang": "es",
+    "metrics": {
+      "firstContentfulPaintMs": 3184,
+      "domContentLoadedMs": 2816,
+      "loadEventEndMs": 3757
+    },
+    "audits": {
+      "h1_count": 1,
+      "first_heading_tag": "H1",
+      "heavy_scripts_on_page_load": 0,
+      "js_console_errors": 0
+    }
+  },
+  {
+    "url": "https://mylocalpicture.com/png-a-jpg/",
+    "formFactor": "mobile",
+    "viewport": {
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75
+    },
+    "status": 200,
+    "title": "Convertir PNG a JPG Gratis | My Local Picture",
+    "title_length": 45,
+    "meta_description_length": 145,
+    "canonical": "https://mylocalpicture.com/png-a-jpg/",
+    "lang": "es",
+    "metrics": {
+      "firstContentfulPaintMs": 460,
+      "domContentLoadedMs": 523,
+      "loadEventEndMs": 1512
+    },
+    "audits": {
+      "h1_count": 1,
+      "first_heading_tag": "H1",
+      "heavy_scripts_on_page_load": 0,
+      "js_console_errors": 0
+    }
+  },
+  {
+    "url": "https://mylocalpicture.com/convertir-heic-a-jpg/",
+    "formFactor": "mobile",
+    "viewport": {
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75
+    },
+    "status": 200,
+    "title": "Convertir HEIC a JPG Online - Gratis y 100% Seguro",
+    "title_length": 50,
+    "meta_description_length": 139,
+    "canonical": "https://mylocalpicture.com/convertir-heic-a-jpg/",
+    "lang": "es",
+    "metrics": {
+      "firstContentfulPaintMs": 636,
+      "domContentLoadedMs": 1303,
+      "loadEventEndMs": 1377
+    },
+    "audits": {
+      "h1_count": 1,
+      "first_heading_tag": "H1",
+      "heavy_scripts_on_page_load": 0,
+      "js_console_errors": 0
+    }
+  },
+  {
+    "url": "https://mylocalpicture.com/comprimir-imagenes/",
+    "formFactor": "mobile",
+    "viewport": {
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75
+    },
+    "status": 200,
+    "title": "Comprimir Im\u00e1genes Gratis - Reducir Peso de Fotos Online",
+    "title_length": 56,
+    "meta_description_length": 133,
+    "canonical": "https://mylocalpicture.com/comprimir-imagenes/",
+    "lang": "es",
+    "metrics": {
+      "firstContentfulPaintMs": 364,
+      "domContentLoadedMs": 1214,
+      "loadEventEndMs": 1234
+    },
+    "audits": {
+      "h1_count": 1,
+      "first_heading_tag": "H1",
+      "heavy_scripts_on_page_load": 0,
+      "js_console_errors": 0
+    }
+  },
+  {
+    "url": "https://mylocalpicture.com/imagenes-a-pdf/",
+    "formFactor": "mobile",
+    "viewport": {
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75
+    },
+    "status": 200,
+    "title": "Im\u00e1genes a PDF Gratis y Sin Registro | MLP",
+    "title_length": 42,
+    "meta_description_length": 144,
+    "canonical": "https://mylocalpicture.com/imagenes-a-pdf/",
+    "lang": "es",
+    "metrics": {
+      "firstContentfulPaintMs": 368,
+      "domContentLoadedMs": 814,
+      "loadEventEndMs": 843
+    },
+    "audits": {
+      "h1_count": 1,
+      "first_heading_tag": "H1",
+      "heavy_scripts_on_page_load": 0,
+      "js_console_errors": 0
+    }
+  }
+]
+</file>
+
 <file path=".gitignore">
 scratch/
 .system_generated/
@@ -998,6 +1085,10 @@ __pycache__/
 <file path="desktop.ini">
 [.ShellClassInfo]
 IconResource=folderico-fld_0c45c753.ico,0
+</file>
+
+<file path="lighthouserc.js">
+
 </file>
 
 <file path="lighthouserc.json">
@@ -3135,6 +3226,78 @@ function formatBytes(bytes, decimals = 2)
     </header>
 </file>
 
+<file path="assets/images-to-pdf.js">
+function getAssetsPrefix()
+⋮----
+function loadJsPdfLibrary()
+⋮----
+script.onload = () =>
+script.onerror = () =>
+⋮----
+function initAudioContext()
+⋮----
+function playPopSound()
+⋮----
+function playSuccessChime()
+⋮----
+function triggerTone(frequency, duration, volume)
+⋮----
+function initSoundToggle()
+⋮----
+function updateSoundToggleUI()
+⋮----
+function updateStatsUI(animate = false)
+⋮----
+function incrementConvertedStats()
+⋮----
+function triggerConfetti(targetElement)
+⋮----
+// ==========================================================================
+// File List Processing
+// ==========================================================================
+function handleFiles(files)
+⋮----
+function addFileToList(file)
+⋮----
+imgObj.onload = () =>
+imgObj.onerror = () =>
+⋮----
+function removeFile(id)
+⋮----
+function reorderFile(id, direction)
+⋮----
+function rebuildDOMList()
+⋮----
+function updateReorderButtonsUI()
+⋮----
+function clearAllFiles()
+⋮----
+function updateListVisibility()
+⋮----
+function updateGlobalActionButtons()
+⋮----
+function loadImageAsync(src)
+⋮----
+img.onload = ()
+img.onerror = ()
+⋮----
+async function generatePdf()
+⋮----
+const delay = ms
+⋮----
+function showThankYouModal()
+⋮----
+function formatBytes(bytes, decimals = 1)
+⋮----
+function closeLayoutEditor()
+⋮----
+async function openGlobalPreview()
+⋮----
+const updateTransformUI = () =>
+⋮----
+const stopDrag = (e) =>
+</file>
+
 <file path="partials/header_zh.html">
 <header class="app-header">
         <div class="header-container">
@@ -3419,78 +3582,6 @@ function formatBytes(bytes, decimals = 2)
 # Evitar indexación en el subdominio de Cloudflare Pages y todas las previews
 https://:project.pages.dev/*
   X-Robots-Tag: noindex, nofollow, noarchive
-</file>
-
-<file path="assets/images-to-pdf.js">
-function getAssetsPrefix()
-⋮----
-function loadJsPdfLibrary()
-⋮----
-script.onload = () =>
-script.onerror = () =>
-⋮----
-function initAudioContext()
-⋮----
-function playPopSound()
-⋮----
-function playSuccessChime()
-⋮----
-function triggerTone(frequency, duration, volume)
-⋮----
-function initSoundToggle()
-⋮----
-function updateSoundToggleUI()
-⋮----
-function updateStatsUI(animate = false)
-⋮----
-function incrementConvertedStats()
-⋮----
-function triggerConfetti(targetElement)
-⋮----
-// ==========================================================================
-// File List Processing
-// ==========================================================================
-function handleFiles(files)
-⋮----
-function addFileToList(file)
-⋮----
-imgObj.onload = () =>
-imgObj.onerror = () =>
-⋮----
-function removeFile(id)
-⋮----
-function reorderFile(id, direction)
-⋮----
-function rebuildDOMList()
-⋮----
-function updateReorderButtonsUI()
-⋮----
-function clearAllFiles()
-⋮----
-function updateListVisibility()
-⋮----
-function updateGlobalActionButtons()
-⋮----
-function loadImageAsync(src)
-⋮----
-img.onload = ()
-img.onerror = ()
-⋮----
-async function generatePdf()
-⋮----
-const delay = ms
-⋮----
-function showThankYouModal()
-⋮----
-function formatBytes(bytes, decimals = 1)
-⋮----
-function closeLayoutEditor()
-⋮----
-async function openGlobalPreview()
-⋮----
-const updateTransformUI = () =>
-⋮----
-const stopDrag = (e) =>
 </file>
 
 <file path="sitemap.html">
@@ -106770,6 +106861,11 @@ El desarrollo de las vistas se simplifica mediante el script `update_partials.py
     <title>Herramientas de Imagen Online | My Local Picture</title>
 
 
+    <link rel="preconnect" href="https://fundingchoicesmessages.google.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://googleads.g.doubleclick.net">
+
+
     <link rel="preload" href="/assets/styles.css?v=2.6" as="style" fetchpriority="high">
     <link rel="stylesheet" href="/assets/styles.css?v=2.6">
 
@@ -106881,7 +106977,7 @@ El desarrollo de las vistas se simplifica mediante el script `update_partials.py
       }
     </script>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017" crossorigin="anonymous"></script>
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017" crossorigin="anonymous"></script>
 </head>
 <body class="dark-theme">
 
