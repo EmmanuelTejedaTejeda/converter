@@ -49,6 +49,7 @@
     }
 
     function processFiles(files) {
+        if (files && files.length > 0) loadJsZipLibrary().catch(err => console.warn("Preloading JSZip:", err));
         // Enforce Freemium batch limit of 5 files
         const maxFiles = 5;
         const currentCount = filesArray.length;
