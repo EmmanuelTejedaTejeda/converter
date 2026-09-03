@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Comprime tus imágenes de forma 100% local en tu navegador. Reduce el peso de fotos en JPG, PNG y WebP gratis sin subirlas a internet.">
     <title>Comprimir Imágenes Gratis - Reducir Peso de Fotos Online</title>
+    <link rel="preload" href="/assets/styles.css?v=2.6" as="style" fetchpriority="high">
     <link rel="stylesheet" href="/assets/styles.css?v=2.6">
     
     
@@ -112,10 +113,6 @@
                 ]
       }
     </script>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017" crossorigin="anonymous"></script>
-    <!-- AdSense Script Optimizado (Defer) -->
-    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017" crossorigin="anonymous"></script>
 
 <!-- Schema.org SoftwareApplication -->
 <script type="application/ld+json">
@@ -705,6 +702,28 @@
     </div>
 
     <script src="../assets/compressor.js"></script>
+<!-- Lazy Load AdSense -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var adsLoaded = false;
+    function loadAds() {
+        if (adsLoaded) return;
+        adsLoaded = true;
+        var script = document.createElement('script');
+        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017";
+        script.async = true;
+        script.crossOrigin = "anonymous";
+        document.head.appendChild(script);
+        window.removeEventListener('scroll', loadAds);
+        window.removeEventListener('mousemove', loadAds);
+        window.removeEventListener('touchstart', loadAds);
+    }
+    window.addEventListener('scroll', loadAds, {passive: true});
+    window.addEventListener('mousemove', loadAds, {passive: true});
+    window.addEventListener('touchstart', loadAds, {passive: true});
+    setTimeout(loadAds, 4000); // Fallback de seguridad
+});
+</script>
 </body>
 </html>
 

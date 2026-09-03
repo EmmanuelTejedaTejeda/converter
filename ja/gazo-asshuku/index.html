@@ -17,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ブラウザ内で100%ローカルに画像を圧縮します。インターネットにアップロードせずに、JPG、PNG、WebP写真のファイルサイズを無料で削減。">
     <title>無料オンライン画像圧縮 - 写真サイズ削減 | My Local Picture</title>
+    <link rel="preload" href="/assets/styles.css?v=2.6" as="style" fetchpriority="high">
     <link rel="stylesheet" href="/assets/styles.css?v=2.6">
     
     
@@ -112,10 +113,6 @@
                 ]
       }
     </script>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017" crossorigin="anonymous"></script>
-    <!-- AdSense Script Optimizado (Defer) -->
-    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017" crossorigin="anonymous"></script>
 
 <!-- Schema.org SoftwareApplication -->
 <script type="application/ld+json">
@@ -710,6 +707,28 @@
     </div>
 
     <script src="../../assets/compressor.js"></script>
+<!-- Lazy Load AdSense -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var adsLoaded = false;
+    function loadAds() {
+        if (adsLoaded) return;
+        adsLoaded = true;
+        var script = document.createElement('script');
+        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017";
+        script.async = true;
+        script.crossOrigin = "anonymous";
+        document.head.appendChild(script);
+        window.removeEventListener('scroll', loadAds);
+        window.removeEventListener('mousemove', loadAds);
+        window.removeEventListener('touchstart', loadAds);
+    }
+    window.addEventListener('scroll', loadAds, {passive: true});
+    window.addEventListener('mousemove', loadAds, {passive: true});
+    window.addEventListener('touchstart', loadAds, {passive: true});
+    setTimeout(loadAds, 4000); // Fallback de seguridad
+});
+</script>
 </body>
 </html>
 

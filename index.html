@@ -131,8 +131,6 @@
                 ]
       }
     </script>
-    <!-- AdSense Script Optimizado (Defer) -->
-    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017" crossorigin="anonymous"></script>
 
 <!-- Schema.org SoftwareApplication -->
 <script type="application/ld+json">
@@ -1174,6 +1172,28 @@
             }
         });
     </script>
+<!-- Lazy Load AdSense -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var adsLoaded = false;
+    function loadAds() {
+        if (adsLoaded) return;
+        adsLoaded = true;
+        var script = document.createElement('script');
+        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4529923995739017";
+        script.async = true;
+        script.crossOrigin = "anonymous";
+        document.head.appendChild(script);
+        window.removeEventListener('scroll', loadAds);
+        window.removeEventListener('mousemove', loadAds);
+        window.removeEventListener('touchstart', loadAds);
+    }
+    window.addEventListener('scroll', loadAds, {passive: true});
+    window.addEventListener('mousemove', loadAds, {passive: true});
+    window.addEventListener('touchstart', loadAds, {passive: true});
+    setTimeout(loadAds, 4000); // Fallback de seguridad
+});
+</script>
 </body>
 </html>
 
